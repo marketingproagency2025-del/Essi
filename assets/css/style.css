@@ -749,6 +749,7 @@ h1, h2, h3, h4 {
   .section__lead--center { text-align: left; }                   /* M3: long body copy reads better left-aligned on phones (headings stay centered) */
   .contact-form-card__actions .btn { width: 100%; }              /* M4: full-width, tappable submit */
   .btn--sm { padding: .85rem 1.6rem; }                           /* M4: larger tap target (~42px tall) */
+  .split__media img { aspect-ratio: 4 / 3; }                     /* M5: shorter homepage split photos (was 4/5 ~445px tall) */
 }
 
 /* ---------- Reduced motion ---------- */
@@ -1063,7 +1064,9 @@ h1, h2, h3, h4 {
 
 /* Portfolio responsive */
 @media (max-width: 860px) {
-  .gallery__row--3, .gallery__row--4 { grid-template-columns: repeat(2, 1fr); }
+  /* M5: flatten all rows into one continuous 2-col grid so odd (3-image) rows leave no empty cell */
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: clamp(.7rem, 1.6vw, 1.1rem); }
+  .gallery__row { display: contents; }
 }
 @media (max-width: 720px) {
   .feature-row.split__grid { grid-template-columns: 1fr; }
