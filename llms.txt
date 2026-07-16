@@ -12,10 +12,10 @@ MarketingPro works with businesses across Italy, Europe and the United States, i
 ## Main pages
 
 - [Home](https://www.marketingpro-agency.com/): what MarketingPro does and how the qualify-every-lead model works.
-- [Services](https://www.marketingpro-agency.com/services.html): the eight services in detail, from social media to catalogues.
-- [About](https://www.marketingpro-agency.com/about.html): the story, the team and why clients work with us.
-- [Portfolio](https://www.marketingpro-agency.com/portfolio.html): selected work and results.
-- [Contact](https://www.marketingpro-agency.com/contact.html): phone, email, WhatsApp and both office addresses.
+- [Services](https://www.marketingpro-agency.com/services): the eight services in detail, from social media to catalogues.
+- [About](https://www.marketingpro-agency.com/about): the story, the team and why clients work with us.
+- [Portfolio](https://www.marketingpro-agency.com/portfolio): selected work and results.
+- [Contact](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp and both office addresses.
 
 ## Services
 
@@ -30,15 +30,15 @@ MarketingPro works with businesses across Italy, Europe and the United States, i
 
 ## Guides and articles
 
-- [Social Media Management: Turning Followers into Loyal Customers](https://www.marketingpro-agency.com/blog-social-media.html)
-- [Advertising Campaigns That Actually Convert](https://www.marketingpro-agency.com/blog-advertising.html)
-- [Your Website Is Your Hardest-Working Salesperson](https://www.marketingpro-agency.com/blog-website.html)
-- [SEO in 2026: Climb the Rankings and Stay There](https://www.marketingpro-agency.com/blog-seo.html)
-- [A Sales Funnel That Closes: From Stranger to Signed Contract](https://www.marketingpro-agency.com/blog-sales-funnel.html)
-- [Why Professional Photo & Video Editing Elevates Your Brand](https://www.marketingpro-agency.com/blog-photo-video.html)
-- [Photorealistic Renders: Sell the Vision Before It's Built](https://www.marketingpro-agency.com/blog-renders.html)
-- [Catalogues That Sell: From Product List to Visual Experience](https://www.marketingpro-agency.com/blog-catalogues.html)
+- [Social Media Management: Turning Followers into Loyal Customers](https://www.marketingpro-agency.com/blog-social-media)
+- [Advertising Campaigns That Actually Convert](https://www.marketingpro-agency.com/blog-advertising)
+- [Your Website Is Your Hardest-Working Salesperson](https://www.marketingpro-agency.com/blog-website)
+- [SEO in 2026: Climb the Rankings and Stay There](https://www.marketingpro-agency.com/blog-seo)
+- [A Sales Funnel That Closes: From Stranger to Signed Contract](https://www.marketingpro-agency.com/blog-sales-funnel)
+- [Why Professional Photo & Video Editing Elevates Your Brand](https://www.marketingpro-agency.com/blog-photo-video)
+- [Photorealistic Renders: Sell the Vision Before It's Built](https://www.marketingpro-agency.com/blog-renders)
+- [Catalogues That Sell: From Product List to Visual Experience](https://www.marketingpro-agency.com/blog-catalogues)
 
 ## Italian
 
-An Italian version of the whole site lives under [/it/](https://www.marketingpro-agency.com/it/), including [Servizi](https://www.marketingpro-agency.com/it/services.html) and the [Blog](https://www.marketingpro-agency.com/it/blog.html).
+An Italian version of the whole site lives under [/it/](https://www.marketingpro-agency.com/it/), including [Servizi](https://www.marketingpro-agency.com/it/services) and the [Blog](https://www.marketingpro-agency.com/it/blog).
