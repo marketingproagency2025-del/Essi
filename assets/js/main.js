@@ -180,7 +180,7 @@
       var name = val("name"), email = val("email"), phone = val("phone"), message = val("message");
       var isIT = document.documentElement.lang === "it";
       var subject = (isIT ? "Nuova richiesta" : "New enquiry") +
-        (name ? (isIT ? " da " : " from ") + name : "") + " — MarketingPro";
+        (name ? (isIT ? " da " : " from ") + name : "") + " - MarketingPro";
       var body = isIT
         ? ("Nome: " + (name || "-") + "\n" +
            "Email: " + (email || "-") + "\n" +
