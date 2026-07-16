@@ -18,6 +18,33 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* ---------- Scroll progress bar ---------- */
+  if (!reduceMotion) {
+    var progress = document.createElement("div");
+    progress.className = "scroll-progress";
+    progress.setAttribute("aria-hidden", "true");
+    document.body.appendChild(progress);
+    var onProgress = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? window.scrollY / max : 0;
+      progress.style.transform = "scaleX(" + Math.min(Math.max(p, 0), 1) + ")";
+    };
+    onProgress();
+    window.addEventListener("scroll", onProgress, { passive: true });
+    window.addEventListener("resize", onProgress, { passive: true });
+  }
+
+  /* ---------- Card spotlight (desktop pointers only) ---------- */
+  if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".feature-card, .client-card").forEach(function (card) {
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+  }
+
   /* ---------- Mobile navigation ---------- */
   var toggle = document.querySelector("[data-nav-toggle]");
   var menu = document.querySelector("[data-nav-menu]");

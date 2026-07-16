@@ -652,6 +652,56 @@ h1, h2, h3, h4 {
 }
 .reveal.in-view { opacity: 1; transform: none; }
 
+/* =========================================================
+   Visual effects: scroll progress bar, card spotlight,
+   section-title accent line
+   ========================================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--sky));
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 400;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-card,
+  .client-card { position: relative; overflow: hidden; }
+  .feature-card::after,
+  .client-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s var(--ease);
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%),
+                rgba(140, 197, 64, .22), transparent 65%);
+  }
+  .feature-card:hover::after,
+  .client-card:hover::after { opacity: 1; }
+}
+
+.section__title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  margin-top: .6rem;
+  background: linear-gradient(90deg, var(--green), var(--sky));
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform .5s var(--ease) .25s;
+}
+.section__title--center::after { margin-inline: auto; transform-origin: center; }
+.reveal:not(.in-view) .section__title::after { transform: scaleX(0); }
+
 /* Hero content is STATIC (no entrance animation).
    Reason: on iOS Safari a keyframe animation that passes through opacity:0 can fail to paint and
    stay stuck at that start frame until a repaint (lock/unlock) is forced — leaving the hero text
