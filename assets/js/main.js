@@ -36,7 +36,8 @@
 
   /* ---------- Floating WhatsApp button ---------- */
   (function () {
-    var isIT = document.documentElement.lang === "it";
+    var isIT = document.documentElement.lang.toLowerCase().slice(0, 2) === "it"
+      || /^\/it(\/|$)/.test(window.location.pathname);
     var prefill = isIT
       ? "Ciao MarketingPro, vorrei sapere di più sui vostri servizi."
       : "Hi MarketingPro, I'd like to know more about your services.";
