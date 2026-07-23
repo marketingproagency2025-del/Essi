@@ -702,6 +702,58 @@ h1, h2, h3, h4 {
 .section__title--center::after { margin-inline: auto; transform-origin: center; }
 .reveal:not(.in-view) .section__title::after { transform: scaleX(0); }
 
+/* Floating WhatsApp button */
+.wa-float {
+  position: fixed;
+  right: clamp(16px, 4vw, 28px);
+  bottom: calc(clamp(16px, 4vw, 28px) + env(safe-area-inset-bottom, 0px));
+  z-index: 250;
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 13px;
+  border-radius: 28px;
+  background: #25d366;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.wa-float__icon { flex: 0 0 auto; }
+.wa-float__label {
+  font-weight: 600;
+  font-size: .95rem;
+  white-space: nowrap;
+  max-width: 0;
+  margin-left: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width .3s var(--ease), opacity .25s var(--ease), margin-left .3s var(--ease);
+}
+.wa-float::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #25d366;
+  z-index: -1;
+  animation: wa-pulse 2.4s var(--ease) infinite;
+}
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: .55; }
+  70%  { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.wa-float:hover, .wa-float:focus-visible { transform: translateY(-3px) scale(1.04); box-shadow: var(--shadow-lg); }
+.wa-float:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .wa-float:hover .wa-float__label,
+  .wa-float:focus-visible .wa-float__label { max-width: 160px; opacity: 1; margin-left: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float::before { animation: none; }
+}
+
 /* Hero content is STATIC (no entrance animation).
    Reason: on iOS Safari a keyframe animation that passes through opacity:0 can fail to paint and
    stay stuck at that start frame until a repaint (lock/unlock) is forced — leaving the hero text

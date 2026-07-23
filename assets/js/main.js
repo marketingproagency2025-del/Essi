@@ -34,6 +34,27 @@
     window.addEventListener("resize", onProgress, { passive: true });
   }
 
+  /* ---------- Floating WhatsApp button ---------- */
+  (function () {
+    var isIT = document.documentElement.lang === "it";
+    var prefill = isIT
+      ? "Ciao MarketingPro, vorrei sapere di più sui vostri servizi."
+      : "Hi MarketingPro, I'd like to know more about your services.";
+    var label = isIT ? "Scrivici" : "Chat with us";
+    var wa = document.createElement("a");
+    wa.className = "wa-float";
+    wa.href = "https://wa.me/355694702405?text=" + encodeURIComponent(prefill);
+    wa.target = "_blank";
+    wa.rel = "noopener";
+    wa.setAttribute("aria-label", isIT ? "Scrivici su WhatsApp" : "Chat with us on WhatsApp");
+    wa.innerHTML =
+      '<span class="wa-float__label">' + label + '</span>' +
+      '<svg class="wa-float__icon" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">' +
+      '<path fill="currentColor" d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.4.7 4.7 1.9 6.7L3 29l6.8-2.1c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4 1.2 1.2-3.9-.3-.4a10.4 10.4 0 01-1.6-5.5c0-5.8 4.7-10.5 10.5-10.5S26.5 9.9 26.5 15.7 21.8 26 16 26zm5.9-7.8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/>' +
+      '</svg>';
+    document.body.appendChild(wa);
+  })();
+
   /* ---------- Card spotlight (desktop pointers only) ---------- */
   if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     document.querySelectorAll(".feature-card, .client-card").forEach(function (card) {
