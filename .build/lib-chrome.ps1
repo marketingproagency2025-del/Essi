@@ -37,7 +37,7 @@ $LANGS = [ordered]@{
   en = @{
     dir = ''; prefix = ''; code = 'EN'; label = 'English'; locale = 'en_US'
     aria = 'Change language'
-    brandAria = 'MarketingPro home'; navAria = 'Primary'
+    brandAria = 'MarketingPro home'; navAria = 'Primary'; toggleAria = 'Open menu'
     footAria = 'Footer'; crumbAria = 'Breadcrumb'
     nav = [ordered]@{ home = 'Home'; services = 'Services'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'About'; contact = 'Contact' }
@@ -45,7 +45,7 @@ $LANGS = [ordered]@{
   it = @{
     dir = 'it'; prefix = '/it'; code = 'IT'; label = 'Italiano'; locale = 'it_IT'
     aria = 'Cambia lingua'
-    brandAria = 'MarketingPro, torna alla home'; navAria = 'Principale'
+    brandAria = 'MarketingPro, torna alla home'; navAria = 'Principale'; toggleAria = 'Apri menu'
     footAria = 'Piè di pagina'; crumbAria = 'Percorso di navigazione'
     nav = [ordered]@{ home = 'Home'; services = 'Servizi'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'Chi Siamo'; contact = 'Contatti' }
@@ -53,7 +53,7 @@ $LANGS = [ordered]@{
   es = @{
     dir = 'es'; prefix = '/es'; code = 'ES'; label = 'Español'; locale = 'es_ES'
     aria = 'Cambiar idioma'
-    brandAria = 'MarketingPro, ir al inicio'; navAria = 'Principal'
+    brandAria = 'MarketingPro, ir al inicio'; navAria = 'Principal'; toggleAria = 'Abrir menú'
     footAria = 'Pie de página'; crumbAria = 'Ruta de navegación'
     nav = [ordered]@{ home = 'Inicio'; services = 'Servicios'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'Quiénes Somos'; contact = 'Contacto' }
@@ -68,8 +68,8 @@ $LANGS = [ordered]@{
   #   Ndrysho gjuhën - the corpus has 13 competing strings for this. One wins.
   sq = @{
     dir = 'sq'; prefix = '/sq'; code = 'SQ'; label = 'Shqip'; locale = 'sq_AL'
-    aria = 'Ndrysho gjuhën'
-    brandAria = 'MarketingPro, kthehu te kreu'; navAria = 'Kryesore'
+    aria = 'Ndryshoni gjuhën'
+    brandAria = 'MarketingPro, kthehuni te kreu'; navAria = 'Kryesore'; toggleAria = 'Hapni menunë'
     footAria = 'Fundi i faqes'; crumbAria = 'Gjurma e navigimit'
     nav = [ordered]@{ home = 'Kreu'; services = 'Shërbimet'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'Rreth Nesh'; contact = 'Kontakt' }
@@ -159,7 +159,7 @@ function Set-NavBlock([string]$html, [string]$slug, [string]$lang) {
 # Bump when assets/css/style.css or assets/js/main.js changes, so returning
 # visitors do not run a four-language switcher against a two-language script.
 $CSS_VERSION = 10
-$JS_VERSION  = 12
+$JS_VERSION  = 13
 
 # -----------------------------------------------------------------------------
 # Staged rollout
@@ -220,7 +220,8 @@ function Set-LandmarkLabels([string]$html, [string]$lang) {
     @{ rx = '(<a class="brand"[^>]*?aria-label=")[^"]*(")';          val = $L.brandAria },
     @{ rx = '(<nav class="nav"[^>]*?aria-label=")[^"]*(")';          val = $L.navAria   },
     @{ rx = '(<nav class="footer__nav"[^>]*?aria-label=")[^"]*(")';  val = $L.footAria  },
-    @{ rx = '(<nav class="breadcrumb"[^>]*?aria-label=")[^"]*(")';   val = $L.crumbAria }
+    @{ rx = '(<nav class="breadcrumb"[^>]*?aria-label=")[^"]*(")';   val = $L.crumbAria },
+    @{ rx = '(<button class="nav__toggle"[^>]*?aria-label=")[^"]*(")'; val = $L.toggleAria }
   )
   foreach ($m in $map) {
     $html = [regex]::Replace($html, $m.rx, "`${1}$($m.val)`${2}")

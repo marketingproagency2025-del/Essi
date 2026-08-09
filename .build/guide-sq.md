@@ -27,11 +27,11 @@ Measured across the corpus: formal `juaj`/`tuaj` outnumber informal `yt`/`tënd`
 | About | Rreth Nesh |
 | Contact | Kontakt |
 | Frequently Asked Questions | Pyetje të Shpeshta |
-| Skip to content | Kalo te përmbajtja kryesore |
+| Skip to content | Kaloni te përmbajtja kryesore |
 | All rights reserved | Të gjitha të drejtat e rezervuara |
-| Open menu / Close menu | Hap menunë / Mbyll menunë |
-| Change language | Ndrysho gjuhën |
-| Back to Blog | Kthehu te Blogu |
+| Open menu / Close menu | Hapni menunë / Mbyllni menunë |
+| Change language | Ndryshoni gjuhën |
+| Back to Blog | Kthehuni te Blogu |
 | Keep Reading | Vazhdoni leximin |
 | The Short Version | Shkurtimisht |
 | Read more | Lexoni më shumë |
@@ -43,6 +43,13 @@ Measured across the corpus: formal `juaj`/`tuaj` outnumber informal `yt`/`tënd`
 | Receive our newsletter | Merrni newsletter-in tonë |
 | N min read | N min lexim |
 | Get in touch | Na kontaktoni |
+| Enlarge image | Zmadhoni imazhin |
+
+> **Every control string above is the formal `Ju` imperative on purpose.** An earlier
+> version of this table copied the informal forms used by the shops in this workspace
+> (`Kalo`, `Hap`, `Ndrysho`, `Kthehu`) and three reviewers independently flagged the
+> clash with the formal rule above. The rule wins: one register, everywhere, including
+> `aria-label`s a screen reader speaks aloud.
 
 ## Loanwords stay English, with Albanian inflection
 

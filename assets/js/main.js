@@ -65,8 +65,8 @@
       waPrefill: "Përshëndetje MarketingPro, dua të di më shumë për shërbimet tuaja.",
       waLabel: "Na shkruani",
       waAria: "Na shkruani në WhatsApp",
-      menuOpen: "Hap menunë",
-      menuClose: "Mbyll menunë",
+      menuOpen: "Hapni menunë",
+      menuClose: "Mbyllni menunë",
       mailSubject: "Kërkesë e re",
       mailFrom: " nga ",
       fName: "Emri", fEmail: "Email", fPhone: "Telefoni", fMessage: "Mesazhi",
@@ -167,19 +167,36 @@
   var langMenu = document.querySelector("[data-lang-menu]");
   if (langMenu) {
     var alts = document.querySelectorAll('link[rel="alternate"][hreflang]');
-    var html = "";
+    var items = [];
+    var sawCurrent = false;
+
     for (var i = 0; i < alts.length; i++) {
       var code = (alts[i].getAttribute("hreflang") || "").toLowerCase();
       if (code === "x-default" || !STRINGS[code]) continue;
-      var isCurrent = code === lang;
-      html +=
-        '<li role="none"><a class="lang__item' + (isCurrent ? " is-active" : "") + '"' +
-        ' role="menuitem"' + (isCurrent ? ' aria-current="true"' : "") +
-        ' hreflang="' + code + '"' +
-        ' href="' + (alts[i].pathname || "/") + '">' + STRINGS[code].name + "</a></li>";
+      if (code === lang) sawCurrent = true;
+      items.push({ code: code, href: alts[i].pathname || "/" });
     }
-    // Only replace the fallback once we actually have alternates to show.
-    if (html) langMenu.innerHTML = html;
+
+    // A page can legitimately be absent from its own hreflang set: translations
+    // that are finished but not yet published are held back that way. Without
+    // this the built menu would drop the language the reader is actually on and
+    // nothing would be marked current, so keep the page itself at the front.
+    if (items.length && !sawCurrent) {
+      items.unshift({ code: lang, href: window.location.pathname });
+    }
+
+    if (items.length) {
+      var html = "";
+      for (var j = 0; j < items.length; j++) {
+        var isCurrent = items[j].code === lang;
+        html +=
+          '<li role="none"><a class="lang__item' + (isCurrent ? " is-active" : "") + '"' +
+          ' role="menuitem"' + (isCurrent ? ' aria-current="true"' : "") +
+          ' hreflang="' + items[j].code + '"' +
+          ' href="' + items[j].href + '">' + STRINGS[items[j].code].name + "</a></li>";
+      }
+      langMenu.innerHTML = html;
+    }
   }
 
   /* ---------- Language switcher dropdown ---------- */
