@@ -808,7 +808,8 @@ h1, h2, h3, h4 {
     font-size: 1.05rem;
   }
   .nav__link::after { display: none; }
-  /* Language switcher: on mobile show both links inline (no dropdown) */
+  /* Language switcher: on mobile show every language inline (no dropdown).
+     Wraps because four pills do not fit a 360px viewport on one row. */
   .nav__lang { padding-top: 1.1rem; width: 100%; }
   .lang { display: none; }
   .lang__menu {
@@ -817,6 +818,7 @@ h1, h2, h3, h4 {
     transform: none;
     pointer-events: auto;
     display: flex;
+    flex-wrap: wrap;
     gap: .6rem;
     min-width: 0;
     padding: 0;
@@ -827,7 +829,7 @@ h1, h2, h3, h4 {
   .lang__item {
     border: 1px solid var(--line);
     border-radius: 999px;
-    padding: .55rem 1.1rem;
+    padding: .55rem .95rem;
   }
   .lang__item.is-active { border-color: var(--green); color: var(--green-dark); }
 }

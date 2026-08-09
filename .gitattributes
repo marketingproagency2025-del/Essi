@@ -1,0 +1,13 @@
+# The repo is authored and generated as LF. core.autocrlf is true on this
+# machine, which would otherwise rewrite the working copy to CRLF and leave the
+# .build scripts writing LF into CRLF files, producing mixed line endings.
+# Pinning eol=lf keeps generated and hand-edited pages byte-comparable.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.mp4  binary
+*.webm binary
+*.ico  binary

@@ -1,5 +1,5 @@
 /* =========================================================
-   MarketingPro — homepage interactions
+   MarketingPro — site interactions
    Vanilla JS, no dependencies. JS only toggles classes;
    all motion lives in CSS (and respects prefers-reduced-motion).
    ========================================================= */
@@ -7,6 +7,74 @@
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Locale ----------
+     One resolver for the whole file. Reads <html lang> first and falls back to
+     the URL prefix, so a page with a missing or wrong lang attribute still
+     picks the right strings. Anything unrecognised lands on English. */
+  var LANGS = ["en", "it", "es", "sq"];
+
+  var lang = (function () {
+    var attr = (document.documentElement.lang || "").toLowerCase().slice(0, 2);
+    if (LANGS.indexOf(attr) > -1) return attr;
+    var m = window.location.pathname.match(/^\/(it|es|sq)(\/|$)/);
+    return m ? m[1] : "en";
+  })();
+
+  /* Every user-visible string the scripts produce, in one table.
+     Adding a language means adding one block here, nothing else. */
+  var STRINGS = {
+    en: {
+      name: "English",
+      waPrefill: "Hi MarketingPro, I'd like to know more about your services.",
+      waLabel: "Chat with us",
+      waAria: "Chat with us on WhatsApp",
+      menuOpen: "Open menu",
+      menuClose: "Close menu",
+      mailSubject: "New enquiry",
+      mailFrom: " from ",
+      fName: "Name", fEmail: "Email", fPhone: "Phone", fMessage: "Message",
+      mailStatus: "Opening your email app to send the message…"
+    },
+    it: {
+      name: "Italiano",
+      waPrefill: "Ciao MarketingPro, vorrei sapere di più sui vostri servizi.",
+      waLabel: "Scrivici",
+      waAria: "Scrivici su WhatsApp",
+      menuOpen: "Apri menu",
+      menuClose: "Chiudi menu",
+      mailSubject: "Nuova richiesta",
+      mailFrom: " da ",
+      fName: "Nome", fEmail: "Email", fPhone: "Telefono", fMessage: "Messaggio",
+      mailStatus: "Apertura dell'app email per inviare il messaggio…"
+    },
+    es: {
+      name: "Español",
+      waPrefill: "Hola MarketingPro, me gustaría saber más sobre sus servicios.",
+      waLabel: "Escríbenos",
+      waAria: "Escríbenos por WhatsApp",
+      menuOpen: "Abrir menú",
+      menuClose: "Cerrar menú",
+      mailSubject: "Nueva consulta",
+      mailFrom: " de ",
+      fName: "Nombre", fEmail: "Email", fPhone: "Teléfono", fMessage: "Mensaje",
+      mailStatus: "Abriendo tu aplicación de correo para enviar el mensaje…"
+    },
+    sq: {
+      name: "Shqip",
+      waPrefill: "Përshëndetje MarketingPro, dua të di më shumë për shërbimet tuaja.",
+      waLabel: "Na shkruani",
+      waAria: "Na shkruani në WhatsApp",
+      menuOpen: "Hap menunë",
+      menuClose: "Mbyll menunë",
+      mailSubject: "Kërkesë e re",
+      mailFrom: " nga ",
+      fName: "Emri", fEmail: "Email", fPhone: "Telefoni", fMessage: "Mesazhi",
+      mailStatus: "Po hapet aplikacioni i email-it për të dërguar mesazhin…"
+    }
+  };
+
+  var t = STRINGS[lang] || STRINGS.en;
 
   /* ---------- Sticky header state on scroll ---------- */
   var header = document.querySelector("[data-header]");
@@ -36,20 +104,14 @@
 
   /* ---------- Floating WhatsApp button ---------- */
   (function () {
-    var isIT = document.documentElement.lang.toLowerCase().slice(0, 2) === "it"
-      || /^\/it(\/|$)/.test(window.location.pathname);
-    var prefill = isIT
-      ? "Ciao MarketingPro, vorrei sapere di più sui vostri servizi."
-      : "Hi MarketingPro, I'd like to know more about your services.";
-    var label = isIT ? "Scrivici" : "Chat with us";
     var wa = document.createElement("a");
     wa.className = "wa-float";
-    wa.href = "https://wa.me/355694702405?text=" + encodeURIComponent(prefill);
+    wa.href = "https://wa.me/355694702405?text=" + encodeURIComponent(t.waPrefill);
     wa.target = "_blank";
     wa.rel = "noopener";
-    wa.setAttribute("aria-label", isIT ? "Scrivici su WhatsApp" : "Chat with us on WhatsApp");
+    wa.setAttribute("aria-label", t.waAria);
     wa.innerHTML =
-      '<span class="wa-float__label">' + label + '</span>' +
+      '<span class="wa-float__label">' + t.waLabel + '</span>' +
       '<svg class="wa-float__icon" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">' +
       '<path fill="currentColor" d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.4.7 4.7 1.9 6.7L3 29l6.8-2.1c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4 1.2 1.2-3.9-.3-.4a10.4 10.4 0 01-1.6-5.5c0-5.8 4.7-10.5 10.5-10.5S26.5 9.9 26.5 15.7 21.8 26 16 26zm5.9-7.8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2 .8 2.7.9 3.7.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/>' +
       '</svg>';
@@ -74,7 +136,7 @@
     var setMenu = function (open) {
       menu.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      toggle.setAttribute("aria-label", open ? t.menuClose : t.menuOpen);
     };
     toggle.addEventListener("click", function () {
       setMenu(!menu.classList.contains("is-open"));
@@ -91,6 +153,33 @@
     window.addEventListener("resize", function () {
       if (window.innerWidth > 860) setMenu(false);
     });
+  }
+
+  /* ---------- Language switcher ----------
+     The menu is built from the page's own <link rel="alternate" hreflang>
+     tags, which are the single source of truth for what translations exist.
+     The markup ships only the current language as a no-JS fallback, so adding
+     a language is two <link> tags plus one entry in STRINGS, never an edit to
+     64 HTML files.
+
+     hreflang hrefs are absolute. We navigate by pathname so the switcher keeps
+     working on localhost instead of jumping to the production domain. */
+  var langMenu = document.querySelector("[data-lang-menu]");
+  if (langMenu) {
+    var alts = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    var html = "";
+    for (var i = 0; i < alts.length; i++) {
+      var code = (alts[i].getAttribute("hreflang") || "").toLowerCase();
+      if (code === "x-default" || !STRINGS[code]) continue;
+      var isCurrent = code === lang;
+      html +=
+        '<li role="none"><a class="lang__item' + (isCurrent ? " is-active" : "") + '"' +
+        ' role="menuitem"' + (isCurrent ? ' aria-current="true"' : "") +
+        ' hreflang="' + code + '"' +
+        ' href="' + (alts[i].pathname || "/") + '">' + STRINGS[code].name + "</a></li>";
+    }
+    // Only replace the fallback once we actually have alternates to show.
+    if (html) langMenu.innerHTML = html;
   }
 
   /* ---------- Language switcher dropdown ---------- */
@@ -227,25 +316,17 @@
         return el ? el.value.trim() : "";
       };
       var name = val("name"), email = val("email"), phone = val("phone"), message = val("message");
-      var isIT = document.documentElement.lang === "it";
-      var subject = (isIT ? "Nuova richiesta" : "New enquiry") +
-        (name ? (isIT ? " da " : " from ") + name : "") + " - MarketingPro";
-      var body = isIT
-        ? ("Nome: " + (name || "-") + "\n" +
-           "Email: " + (email || "-") + "\n" +
-           "Telefono: " + (phone || "-") + "\n\n" +
-           "Messaggio:\n" + message + "\n")
-        : ("Name: " + (name || "-") + "\n" +
-           "Email: " + (email || "-") + "\n" +
-           "Phone: " + (phone || "-") + "\n\n" +
-           "Message:\n" + message + "\n");
+      var subject = t.mailSubject + (name ? t.mailFrom + name : "") + " - MarketingPro";
+      var body =
+        t.fName + ": " + (name || "-") + "\n" +
+        t.fEmail + ": " + (email || "-") + "\n" +
+        t.fPhone + ": " + (phone || "-") + "\n\n" +
+        t.fMessage + ":\n" + message + "\n";
       var href = "mailto:commerciale@marketingpro-agency.com" +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
       window.location.href = href;
-      setNote(isIT
-        ? "Apertura dell'app email per inviare il messaggio…"
-        : "Opening your email app to send the message…", true);
+      setNote(t.mailStatus, true);
     });
   }
 })();

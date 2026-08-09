@@ -1,0 +1,11 @@
+{
+  "_comment": "Which pages have been translated, per language tree. The gate only runs its untranslated-leak scan against pages listed here, so Session 1 skeletons (which deliberately carry English copy) do not fail the build. Sessions 2-5 add slugs as each page is translated and reviewed. At cut-over every tree must list all 16 slugs.",
+  "_slugs": [
+    "index", "services", "portfolio", "about", "contact", "blog",
+    "blog-social-media", "blog-advertising", "blog-website", "blog-seo",
+    "blog-sales-funnel", "blog-photo-video", "blog-renders", "blog-catalogues",
+    "article-1", "article-2"
+  ],
+  "es": [],
+  "sq": []
+}

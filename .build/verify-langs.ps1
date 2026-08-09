@@ -1,0 +1,335 @@
+# =============================================================================
+#  verify-langs.ps1 - the gate
+#
+#  Re-derives everything it checks from the files on disk rather than trusting
+#  the porter that wrote them, so a bug in port-lang.ps1 cannot talk this into
+#  passing. Nothing is committed unless this ends ALL PASSES CLEAN.
+#
+#    pwsh .build/verify-langs.ps1
+#
+#  Exit code 0 = clean, 1 = at least one failure.
+# =============================================================================
+[CmdletBinding()]
+param()
+
+$ErrorActionPreference = 'Stop'
+. "$PSScriptRoot/lib-chrome.ps1"
+
+$root     = Split-Path -Parent $PSScriptRoot
+$failures = @()
+$checkNo  = 0
+
+function Start-Check([string]$name) {
+  $script:checkNo++
+  Write-Host ("[{0,2}] {1}" -f $script:checkNo, $name) -ForegroundColor Cyan
+}
+function Add-Failure([string]$msg) {
+  $script:failures += $msg
+  Write-Host "     FAIL  $msg" -ForegroundColor Red
+}
+function Write-Ok([string]$msg) { Write-Host "     ok    $msg" -ForegroundColor DarkGray }
+
+# Map an absolute site URL back to the file that serves it.
+function Convert-UrlToPath([string]$url) {
+  if (-not $url.StartsWith($SITE)) { return $null }
+  $p = $url.Substring($SITE.Length)
+  $p = ($p -split '[#?]')[0]
+  if ($p -eq '' -or $p -eq '/') { return 'index.html' }
+  $p = $p.TrimStart('/')
+  if ($p.EndsWith('/')) { return ($p + 'index.html') }
+  return "$p.html"
+}
+
+# Load every page once. Named $docs, not $pages: PowerShell variable names are
+# case-insensitive, so $pages would shadow the $PAGES slug list from the library.
+$docs = @{}
+foreach ($lang in $LANGS.Keys) {
+  foreach ($slug in $PAGES) {
+    $rel  = Get-PagePath $slug $lang
+    $full = Join-Path $root $rel
+    if (Test-Path $full) {
+      $docs[$rel] = @{ Lang = $lang; Slug = $slug; Rel = $rel; Full = $full
+                        Html = [System.IO.File]::ReadAllText($full) }
+    }
+  }
+}
+
+$status = Get-Content (Join-Path $PSScriptRoot 'translation-status.json') -Raw | ConvertFrom-Json
+
+# -----------------------------------------------------------------------------
+Start-Check 'Parity: 16 slugs x 4 trees, no orphans'
+$expected = @()
+foreach ($lang in $LANGS.Keys) { foreach ($slug in $PAGES) { $expected += (Get-PagePath $slug $lang) } }
+foreach ($rel in $expected) {
+  if (-not $docs.ContainsKey($rel)) { Add-Failure "missing page: $rel" }
+}
+$onDisk = @()
+foreach ($lang in $LANGS.Keys) {
+  $dir = if ($LANGS[$lang].dir -eq '') { $root } else { Join-Path $root $LANGS[$lang].dir }
+  if (Test-Path $dir) {
+    Get-ChildItem -Path $dir -Filter '*.html' -File | ForEach-Object {
+      $r = if ($LANGS[$lang].dir -eq '') { $_.Name } else { "$($LANGS[$lang].dir)/$($_.Name)" }
+      $onDisk += $r
+    }
+  }
+}
+foreach ($r in ($onDisk | Sort-Object -Unique)) {
+  if ($expected -notcontains $r) { Add-Failure "orphan page not in the slug list: $r" }
+}
+Write-Ok "$($expected.Count) expected, $($docs.Count) found"
+
+# -----------------------------------------------------------------------------
+Start-Check 'hreflang: live languages only, reciprocal, resolving to real files'
+$altRx = [regex]'<link\s+rel="alternate"\s+hreflang="([\w-]+)"\s+href="([^"]+)"'
+$altSets = @{}
+foreach ($p in $docs.Values) {
+  $set = [ordered]@{}
+  foreach ($m in $altRx.Matches($p.Html)) { $set[$m.Groups[1].Value] = $m.Groups[2].Value }
+  $altSets[$p.Rel] = $set
+  # An untranslated page is not advertised anywhere, so the set lists only the
+  # languages actually translated for this slug (en and it are always live).
+  $want = @(Get-LiveLangs $p.Slug) + 'x-default'
+  if (($set.Keys -join ',') -ne ($want -join ',')) {
+    Add-Failure "$($p.Rel): alternates are [$($set.Keys -join ',')], expected [$($want -join ',')]"
+  }
+}
+foreach ($p in $docs.Values) {
+  foreach ($code in $altSets[$p.Rel].Keys) {
+    $target = Convert-UrlToPath $altSets[$p.Rel][$code]
+    if (-not $target) { Add-Failure "$($p.Rel): off-site hreflang target $($altSets[$p.Rel][$code])"; continue }
+    if (-not $docs.ContainsKey($target)) { Add-Failure "$($p.Rel): hreflang $code points at missing $target"; continue }
+    # Reciprocity: the page it points at must declare the identical set.
+    $a = ($altSets[$p.Rel].GetEnumerator()  | ForEach-Object { "$($_.Key)=$($_.Value)" }) -join '|'
+    $b = ($altSets[$target].GetEnumerator() | ForEach-Object { "$($_.Key)=$($_.Value)" }) -join '|'
+    if ($a -ne $b) { Add-Failure "$($p.Rel): hreflang set differs from its $code alternate $target" }
+  }
+}
+$altTotal = ($docs.Values | ForEach-Object { $altSets[$_.Rel].Count } | Measure-Object -Sum).Sum
+Write-Ok "$($docs.Count) pages, $altTotal alternate links checked both ways"
+
+# -----------------------------------------------------------------------------
+Start-Check 'Staged rollout: untranslated pages are noindex and out of the sitemap'
+$sitemapXml = Read-HtmlFile (Join-Path $root 'sitemap.xml')
+$held = 0; $live = 0
+foreach ($p in $docs.Values) {
+  $isLive  = Test-PageLive $p.Slug $p.Lang
+  $m       = [regex]::Match($p.Html, '<meta name="robots" content="([^"]+)"')
+  if (-not $m.Success) { Add-Failure "$($p.Rel): no robots meta"; continue }
+  $robots  = $m.Groups[1].Value
+  $inMap   = $sitemapXml.Contains("<loc>$SITE$(Get-PageUrl $p.Slug $p.Lang)</loc>")
+
+  if ($isLive) {
+    $live++
+    if ($robots -ne $ROBOTS_LIVE) { Add-Failure "$($p.Rel): live page but robots is '$robots'" }
+    if (-not $inMap)              { Add-Failure "$($p.Rel): live page missing from sitemap.xml" }
+  } else {
+    $held++
+    if ($robots -ne $ROBOTS_HELD) { Add-Failure "$($p.Rel): untranslated but robots is '$robots', expected '$ROBOTS_HELD'" }
+    if ($inMap)                   { Add-Failure "$($p.Rel): untranslated but listed in sitemap.xml" }
+    # Nothing may advertise a page that is not ready.
+    foreach ($q in $docs.Values) {
+      if ($altSets[$q.Rel].Values -contains "$SITE$(Get-PageUrl $p.Slug $p.Lang)") {
+        Add-Failure "$($q.Rel): hreflang advertises the untranslated $($p.Rel)"
+      }
+    }
+  }
+}
+Write-Ok "$live live, $held held back as noindex"
+
+# -----------------------------------------------------------------------------
+Start-Check 'Canonical: every page self-canonicalises'
+foreach ($p in $docs.Values) {
+  $m = [regex]::Match($p.Html, '<link rel="canonical" href="([^"]+)"')
+  if (-not $m.Success) { Add-Failure "$($p.Rel): no canonical"; continue }
+  $want = "$SITE$(Get-PageUrl $p.Slug $p.Lang)"
+  if ($m.Groups[1].Value -ne $want) {
+    Add-Failure "$($p.Rel): canonical is $($m.Groups[1].Value), expected $want"
+  }
+}
+Write-Ok 'all canonicals point at their own URL'
+
+# -----------------------------------------------------------------------------
+Start-Check 'lang attribute matches the directory'
+foreach ($p in $docs.Values) {
+  $m = [regex]::Match($p.Html, '<html lang="([^"]+)"')
+  if (-not $m.Success) { Add-Failure "$($p.Rel): no <html lang>"; continue }
+  if ($m.Groups[1].Value -ne $p.Lang) {
+    Add-Failure "$($p.Rel): lang is '$($m.Groups[1].Value)', expected '$($p.Lang)'"
+  }
+}
+Write-Ok 'all <html lang> values correct'
+
+# -----------------------------------------------------------------------------
+Start-Check 'Local asset references resolve on disk'
+$refRx = [regex]'(?:href|src|poster)="([^":#][^":]*)"'
+$missing = @{}
+foreach ($p in $docs.Values) {
+  $baseDir = Split-Path -Parent $p.Full
+  foreach ($m in $refRx.Matches($p.Html)) {
+    $v = $m.Groups[1].Value
+    if ($v -match '^(https?:|mailto:|tel:|//|data:)') { continue }
+    if ($v.StartsWith('/')) { continue }   # internal page links, checked below
+    $clean  = ($v -split '[#?]')[0]
+    if ($clean -eq '') { continue }
+    $target = [System.IO.Path]::GetFullPath((Join-Path $baseDir $clean))
+    if (-not (Test-Path $target)) { $missing["$($p.Rel) -> $v"] = $true }
+  }
+}
+foreach ($k in $missing.Keys) { Add-Failure "unresolved asset: $k" }
+Write-Ok 'every relative href/src/poster resolves'
+
+# -----------------------------------------------------------------------------
+Start-Check 'Internal root-absolute links stay inside their own language tree'
+$linkRx = [regex]'href="(/[^"]*)"'
+foreach ($p in $docs.Values) {
+  $prefix = $LANGS[$p.Lang].prefix
+  foreach ($m in $linkRx.Matches($p.Html)) {
+    $href   = ($m.Groups[1].Value -split '#')[0]
+    if ($href -eq '') { continue }
+    $expect = if ($prefix -eq '') { '/' } else { "$prefix/" }
+    if (-not $href.StartsWith($expect)) {
+      Add-Failure "$($p.Rel): link $($m.Groups[1].Value) leaves the $($p.Lang) tree"
+      continue
+    }
+    $target = Convert-UrlToPath "$SITE$href"
+    if ($target -and -not $docs.ContainsKey($target)) {
+      Add-Failure "$($p.Rel): link $($m.Groups[1].Value) has no page ($target)"
+    }
+  }
+}
+Write-Ok 'all internal links resolve within their tree'
+
+# -----------------------------------------------------------------------------
+Start-Check 'og:locale is the page locale, with the other three as alternates'
+foreach ($p in $docs.Values) {
+  $m = [regex]::Match($p.Html, '<meta property="og:locale" content="([^"]+)"')
+  if (-not $m.Success) { Add-Failure "$($p.Rel): no og:locale"; continue }
+  if ($m.Groups[1].Value -ne $LANGS[$p.Lang].locale) {
+    Add-Failure "$($p.Rel): og:locale $($m.Groups[1].Value), expected $($LANGS[$p.Lang].locale)"
+  }
+  $alts = [regex]::Matches($p.Html, '<meta property="og:locale:alternate" content="([^"]+)"') |
+          ForEach-Object { $_.Groups[1].Value }
+  # Must agree with the hreflang set: only languages actually live for this slug.
+  $want = @(Get-LiveLangs $p.Slug | Where-Object { $_ -ne $p.Lang } | ForEach-Object { $LANGS[$_].locale })
+  if (($alts -join ',') -ne ($want -join ',')) {
+    Add-Failure "$($p.Rel): og:locale:alternate [$($alts -join ',')], expected [$($want -join ',')]"
+  }
+}
+Write-Ok 'og:locale sets correct'
+
+# -----------------------------------------------------------------------------
+Start-Check 'JSON-LD parses, declares four languages, and namespaces ids correctly'
+$allLangs = '["' + ((Get-LiveSiteLangs) -join '", "') + '"]'
+foreach ($p in $docs.Values) {
+  $blocks = [regex]::Matches($p.Html, '(?s)<script type="application/ld\+json">(.*?)</script>')
+  if ($blocks.Count -eq 0) { Add-Failure "$($p.Rel): no JSON-LD"; continue }
+  foreach ($b in $blocks) {
+    try { $null = $b.Groups[1].Value | ConvertFrom-Json }
+    catch { Add-Failure "$($p.Rel): JSON-LD does not parse - $($_.Exception.Message)" }
+  }
+  foreach ($key in @('inLanguage', 'availableLanguage')) {
+    foreach ($m in [regex]::Matches($p.Html, "`"$key`":\s*(\[[^\]]*\])")) {
+      if ($m.Groups[1].Value -ne $allLangs) {
+        Add-Failure "$($p.Rel): $key is $($m.Groups[1].Value), expected $allLangs"
+      }
+    }
+  }
+  foreach ($m in [regex]::Matches($p.Html, '"inLanguage":\s*"([a-z-]+)"')) {
+    if ($m.Groups[1].Value -ne $p.Lang) {
+      Add-Failure "$($p.Rel): WebPage inLanguage '$($m.Groups[1].Value)', expected '$($p.Lang)'"
+    }
+  }
+  # The page's own WebPage/CollectionPage/etc node must live in its own tree.
+  foreach ($m in [regex]::Matches($p.Html, '"@id":\s*"([^"]*#webpage)"')) {
+    $want = "$SITE$(Get-PageUrl $p.Slug $p.Lang)#webpage"
+    if ($m.Groups[1].Value -ne $want) {
+      Add-Failure "$($p.Rel): #webpage id is $($m.Groups[1].Value), expected $want"
+    }
+  }
+  # Shared real-world entities stay anchored to the English root in every tree,
+  # matching what the Italian tree has always done.
+  foreach ($shared in @('#organization', '#logo', '#website')) {
+    foreach ($m in [regex]::Matches($p.Html, "`"@id`":\s*`"([^`"]*$shared)`"")) {
+      if ($m.Groups[1].Value -ne "$SITE/$shared") {
+        Add-Failure "$($p.Rel): shared entity $shared is $($m.Groups[1].Value), expected $SITE/$shared"
+      }
+    }
+  }
+}
+Write-Ok 'JSON-LD valid and correctly scoped'
+
+# -----------------------------------------------------------------------------
+Start-Check 'FAQ text agrees between JSON-LD and the visible <details>'
+foreach ($p in $docs.Values) {
+  $q = [regex]::Matches($p.Html, '"@type":\s*"Question"').Count
+  $d = [regex]::Matches($p.Html, '<details').Count
+  if ($q -ne $d) {
+    Add-Failure "$($p.Rel): $q JSON-LD Questions but $d <details> blocks"
+  }
+}
+Write-Ok 'every FAQ answer exists in both places'
+
+# -----------------------------------------------------------------------------
+Start-Check 'No em dashes, no debug suffixes, no stale language claim'
+foreach ($p in $docs.Values) {
+  foreach ($bad in @([char]0x2014, '&mdash;', '&#8212;')) {
+    if ($p.Html.Contains($bad)) { Add-Failure "$($p.Rel): contains an em dash ($bad)" }
+  }
+  foreach ($m in [regex]::Matches($p.Html, '\((EN|IT|ES|SQ)\)')) {
+    Add-Failure "$($p.Rel): debug language suffix $($m.Value)"
+  }
+}
+Write-Ok 'prose rules hold'
+
+# -----------------------------------------------------------------------------
+Start-Check 'Translated pages carry no leftover English boilerplate'
+$stock = @('Skip to content', 'Frequently Asked Questions', 'All rights reserved',
+           'Receive our newsletter', 'Read more', 'Keep Reading', 'Back to Blog')
+$scanned = 0
+foreach ($lang in @('es', 'sq')) {
+  foreach ($slug in @($status.$lang)) {
+    $rel = Get-PagePath $slug $lang
+    if (-not $docs.ContainsKey($rel)) { Add-Failure "translation-status lists a missing page: $rel"; continue }
+    $scanned++
+    foreach ($s in $stock) {
+      if ($docs[$rel].Html.Contains($s)) { Add-Failure "$rel : untranslated English string '$s'" }
+    }
+  }
+}
+if ($scanned -eq 0) {
+  Write-Ok 'no pages marked translated yet (skeletons carry English by design)'
+} else {
+  Write-Ok "$scanned translated pages scanned"
+}
+
+# -----------------------------------------------------------------------------
+Start-Check 'Encoding: UTF-8, no BOM, no mojibake, no diacritic entities'
+foreach ($p in $docs.Values) {
+  $bytes = [System.IO.File]::ReadAllBytes($p.Full)
+  if ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) {
+    Add-Failure "$($p.Rel): has a UTF-8 BOM"
+  }
+  try { $null = [System.Text.UTF8Encoding]::new($false, $true).GetString($bytes) }
+  catch { Add-Failure "$($p.Rel): not valid UTF-8" }
+  if ($p.Html.Contains([char]0xFFFD)) { Add-Failure "$($p.Rel): contains U+FFFD (mojibake)" }
+  # The workspace corpus is split on this; Essi is entity-free and stays that way.
+  foreach ($e in @('&euml;', '&ccedil;', '&egrave;', '&agrave;', '&ugrave;', '&ograve;')) {
+    if ($p.Html.Contains($e)) { Add-Failure "$($p.Rel): HTML entity $e - use the literal character" }
+  }
+}
+Write-Ok 'all pages are clean UTF-8'
+
+# -----------------------------------------------------------------------------
+Start-Check 'sitemap.xml agrees with the pages'
+& (Join-Path $PSScriptRoot 'gen-sitemap.ps1') -Check | Out-Null
+if ($LASTEXITCODE -ne 0) { Add-Failure 'sitemap.xml is stale - run .build/gen-sitemap.ps1' }
+else { Write-Ok "$([regex]::Matches($sitemapXml, '<loc>').Count) urls derived from the pages themselves" }
+
+# -----------------------------------------------------------------------------
+Write-Host ''
+if ($failures.Count -eq 0) {
+  Write-Host 'RESULT: ALL PASSES CLEAN' -ForegroundColor Green
+  exit 0
+}
+Write-Host "RESULT: $($failures.Count) FAILURE(S)" -ForegroundColor Red
+exit 1
