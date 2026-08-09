@@ -88,6 +88,22 @@ the normal Spanish form and is what to use for "digital marketing".
   `Turn your audience into customers` at 33 characters, and `feature-card__title`.
   Prefer the shorter of two good options.
 
+## The founder's title must stay genderless
+
+Client decision, 2026-08-10: do not assign a grammatical gender to Essi Papajorgji.
+English "Founder" is genderless and hides the problem; Spanish does not. Use **verbs**,
+which do not inflect for gender in the third person, instead of agent nouns.
+
+| Do not write | Write |
+|---|---|
+| Fundador / Fundadora | Al frente de MarketingPro |
+| Fundador de MarketingPro, que dirige... | Fundó MarketingPro y dirige... |
+| Conoce al Fundador | Quién fundó MarketingPro |
+
+Avoid any adjective or participle that would have to agree with Essi. Rephrase with a
+finite verb. The same applies to the JSON-LD Person description. `"jobTitle": "Founder"`
+stays in English in every tree and needs no change.
+
 ## Never translate
 
 `MarketingPro`, `MarketingPro Digital Marketing Agency`, `Essi Papajorgji`, testimonial

@@ -69,6 +69,23 @@ Write `marketing dixhital` for "digital marketing". Do **not** invent
 - **Numbers**: thousands separated by a dot, decimals by a comma. `18.300`, `0,7%`.
 - No AI filler. Short sentences, plain verbs, matching the English source's energy.
 
+## The founder's title must stay genderless
+
+Client decision, 2026-08-10: do not assign a grammatical gender to Essi Papajorgji.
+English "Founder" is genderless and hides the problem; Albanian, Italian and Spanish
+do not. Use **verbs**, which do not inflect for gender in the third person, instead of
+agent nouns.
+
+| Do not write | Write |
+|---|---|
+| Themelues / Themeluese | Në krye të MarketingPro |
+| Themeluesi i MarketingPro, i cili drejton... | Themeloi MarketingPro dhe drejton... |
+| Njihuni me Themeluesin | Kush e themeloi MarketingPro |
+
+Also avoid the gendered relative pronouns `i cili` / `e cila` when the antecedent is
+Essi. Rephrase with a finite verb. The same applies to the JSON-LD Person description.
+`"jobTitle": "Founder"` stays in English in every tree and needs no change.
+
 ## Never translate
 
 `MarketingPro`, `MarketingPro Digital Marketing Agency`, `Essi Papajorgji`, testimonial
