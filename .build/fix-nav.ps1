@@ -37,7 +37,9 @@ foreach ($lang in $Trees) {
     if (-not (Test-Path $path)) { Write-Host "  skip (absent): $rel"; continue }
 
     $html = Read-HtmlFile $path
-    $new  = Set-NavBlock $html $slug $lang
+    $new  = Set-NavBlock       $html $slug $lang
+    $new  = Set-LandmarkLabels $new  $lang
+    $new  = Set-ChromeStrings   $new  $lang
 
     if ($new -eq $html) {
       $same++

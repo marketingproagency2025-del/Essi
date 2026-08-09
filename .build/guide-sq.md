@@ -1,0 +1,91 @@
+# Albanian (sq) translation guide — MarketingPro
+
+Derived from the Albanian already shipped in this workspace (Iglisi Watch, 166 pages;
+Intimo Bruna; Victoria Boutique), not invented. Where those sites disagree, this file
+picks one and that pick is binding, so four translators do not produce four house styles.
+
+## Register: formal `Ju`, everywhere
+
+Measured across the corpus: formal `juaj`/`tuaj` outnumber informal `yt`/`tënd` by about
+11 to 1. MarketingPro sells to business owners, which is the strongest case for `Ju`.
+
+- Prose: formal throughout. `shërbimet tuaja`, `biznesi juaj`, `ekipi juaj`.
+- **Buttons and CTAs: formal too.** The shops mix in clipped informal labels
+  (`Lexo artikullin`, `Shfleto orët`) while their prose stays formal. That inconsistency
+  is the weakest seam in those sites. Do not copy it. Use `Lexoni`, `Na kontaktoni`,
+  `Kërkoni një ofertë`.
+- Never mix `Ju` and `ti` inside one page, let alone one sentence.
+
+## Fixed terms — use exactly these
+
+| English | Albanian |
+|---|---|
+| Home | Kreu |
+| Services | Shërbimet |
+| Portfolio | Portfolio |
+| Blog | Blog |
+| About | Rreth Nesh |
+| Contact | Kontakt |
+| Frequently Asked Questions | Pyetje të Shpeshta |
+| Skip to content | Kalo te përmbajtja kryesore |
+| All rights reserved | Të gjitha të drejtat e rezervuara |
+| Open menu / Close menu | Hap menunë / Mbyll menunë |
+| Change language | Ndrysho gjuhën |
+| Back to Blog | Kthehu te Blogu |
+| Keep Reading | Vazhdoni leximin |
+| The Short Version | Shkurtimisht |
+| Read more | Lexoni më shumë |
+| Send Your Message | Dërgoni mesazhin |
+| Your First Name | Emri Juaj |
+| Your Email Address | Adresa Email |
+| Phone number | Numër Telefoni |
+| Your Message | Mesazhi |
+| Receive our newsletter | Merrni newsletter-in tonë |
+| N min read | N min lexim |
+| Get in touch | Na kontaktoni |
+
+## Loanwords stay English, with Albanian inflection
+
+The corpus keeps `marketing`, `Blog`, `Shop`, `cookie-t`, `COD` in English and inflects
+them. Extend that rather than inventing calques. Keep in English:
+
+`marketing`, `SEO`, `social media`, `lead` / `leads`, `funnel`, `render`, `newsletter`,
+`brand`, `Meta`, `Google`, `WhatsApp`, `online`, `remote-first`.
+
+Write `marketing dixhital` for "digital marketing". Do **not** invent
+`optimizim për motorët e kërkimit` for SEO.
+
+## Mechanics
+
+- **Diacritics.** `ë` and `ç` correct everywhere, including headings, `alt`, `aria-label`
+  and meta descriptions. A dropped diacritic reads as illiterate, not as a typo. Write
+  literal UTF-8 characters, never `&euml;` or `&ccedil;`. The gate fails on entities.
+- **No em dashes.** Not `—`, not `&mdash;`, not `&#8212;`. Use a spaced hyphen, a comma
+  or a full stop. The gate fails on these.
+- **Dates**: `9 qershor 2026`. Day first, no comma, no ordinal, **month lower-case**
+  (Albanian does not capitalise months; Iglisi capitalises them and is wrong).
+  Months: janar, shkurt, mars, prill, maj, qershor, korrik, gusht, shtator, tetor,
+  nëntor, dhjetor. Leave `datetime="2026-06-09"` untouched.
+- **Numbers**: thousands separated by a dot, decimals by a comma. `18.300`, `0,7%`.
+- No AI filler. Short sentences, plain verbs, matching the English source's energy.
+
+## Never translate
+
+`MarketingPro`, `MarketingPro Digital Marketing Agency`, `Essi Papajorgji`, testimonial
+names (`Kristi P.`, `Marco S.`, `Emily Carter`), `commerciale@marketingpro-agency.com`,
+`+355694702405`, every URL and `@id`, anchor fragments (`#social-media`, `#seo` …),
+`Meta` / `Facebook` / `Instagram` / `Google`, `"contactType": "customer service"`,
+JSON-LD `areaServed` country names and `knowsAbout` topics (these stay English in the
+Italian tree too, correctly, because they are machine-readable fields).
+
+Two `alt` texts quote words printed inside the photograph: `'Creativity, Express
+Yourself'` and `'Happy Designing Folks'`. Translate the frame around them, leave the
+quoted English alone. The Italian tree does exactly this.
+
+If you translate a testimonial author's name, change the avatar initials to match.
+
+## Caveat
+
+These translations are model-produced. The workspace rule in `.claude/rules/writing.md`
+is explicit: *"Never machine-translate a page and ship it."* A native Albanian speaker
+should proofread before cut-over. Nothing here is a substitute for that.

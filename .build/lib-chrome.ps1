@@ -37,18 +37,24 @@ $LANGS = [ordered]@{
   en = @{
     dir = ''; prefix = ''; code = 'EN'; label = 'English'; locale = 'en_US'
     aria = 'Change language'
+    brandAria = 'MarketingPro home'; navAria = 'Primary'
+    footAria = 'Footer'; crumbAria = 'Breadcrumb'
     nav = [ordered]@{ home = 'Home'; services = 'Services'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'About'; contact = 'Contact' }
   }
   it = @{
     dir = 'it'; prefix = '/it'; code = 'IT'; label = 'Italiano'; locale = 'it_IT'
     aria = 'Cambia lingua'
+    brandAria = 'MarketingPro, torna alla home'; navAria = 'Principale'
+    footAria = 'Piè di pagina'; crumbAria = 'Percorso di navigazione'
     nav = [ordered]@{ home = 'Home'; services = 'Servizi'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'Chi Siamo'; contact = 'Contatti' }
   }
   es = @{
     dir = 'es'; prefix = '/es'; code = 'ES'; label = 'Español'; locale = 'es_ES'
     aria = 'Cambiar idioma'
+    brandAria = 'MarketingPro, ir al inicio'; navAria = 'Principal'
+    footAria = 'Pie de página'; crumbAria = 'Ruta de navegación'
     nav = [ordered]@{ home = 'Inicio'; services = 'Servicios'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'Quiénes Somos'; contact = 'Contacto' }
   }
@@ -63,6 +69,8 @@ $LANGS = [ordered]@{
   sq = @{
     dir = 'sq'; prefix = '/sq'; code = 'SQ'; label = 'Shqip'; locale = 'sq_AL'
     aria = 'Ndrysho gjuhën'
+    brandAria = 'MarketingPro, kthehu te kreu'; navAria = 'Kryesore'
+    footAria = 'Fundi i faqes'; crumbAria = 'Gjurma e navigimit'
     nav = [ordered]@{ home = 'Kreu'; services = 'Shërbimet'; portfolio = 'Portfolio'
                       blog = 'Blog'; about = 'Rreth Nesh'; contact = 'Kontakt' }
   }
@@ -197,6 +205,74 @@ function Set-HreflangBlock([string]$html, [string]$slug) {
   $m = [regex]::Match($html, $pattern)
   if (-not $m.Success) { throw "hreflang block not found ($slug)" }
   return $html.Replace($m.Value, (New-HreflangBlock $slug) + "`n")
+}
+
+# Landmark and brand aria-labels. These are what a screen reader announces when
+# moving between regions, so leaving them English on a translated page is a real
+# accessibility defect. The Italian tree shipped "Primary" / "Footer" /
+# "Breadcrumb" / "MarketingPro home" in English from the start; this fixes that
+# as a side effect of doing it properly for the new trees.
+# Anchored on the element class so only the landmark is touched, never the
+# translated aria-labels on testimonials, FAQ sections and so on.
+function Set-LandmarkLabels([string]$html, [string]$lang) {
+  $L = $LANGS[$lang]
+  $map = @(
+    @{ rx = '(<a class="brand"[^>]*?aria-label=")[^"]*(")';          val = $L.brandAria },
+    @{ rx = '(<nav class="nav"[^>]*?aria-label=")[^"]*(")';          val = $L.navAria   },
+    @{ rx = '(<nav class="footer__nav"[^>]*?aria-label=")[^"]*(")';  val = $L.footAria  },
+    @{ rx = '(<nav class="breadcrumb"[^>]*?aria-label=")[^"]*(")';   val = $L.crumbAria }
+  )
+  foreach ($m in $map) {
+    $html = [regex]::Replace($html, $m.rx, "`${1}$($m.val)`${2}")
+  }
+  return $html
+}
+
+# Shared footer and skip-link strings. These appear identically on all 16 pages
+# of a tree, which makes them a drift factory: the first Albanian pass produced
+# three different newsletter buttons and two different placeholders across six
+# pages, because six agents each translated the same footer independently.
+# Generating them from one table removes the whole class of problem, for the
+# Spanish pass too.
+$CHROME = @{
+  en = @{ skip = 'Skip to content'; contact = 'Contact'
+          nlHead = 'Receive our newsletter'; nlLabel = 'Enter your email address'
+          nlPlaceholder = 'Your email for updates'; nlButton = 'Join us for growth'
+          nlNote = "Thanks! We'll be in touch."; rights = 'All rights reserved.' }
+  it = @{ skip = 'Vai al contenuto'; contact = 'Contatti'
+          nlHead = 'Ricevi la nostra newsletter'; nlLabel = 'Inserisci il tuo indirizzo email'
+          nlPlaceholder = 'La tua email per gli aggiornamenti'; nlButton = 'Cresci con noi'
+          nlNote = 'Grazie! Ti contatteremo presto.'; rights = 'Tutti i diritti riservati.' }
+  es = @{ skip = 'Saltar al contenido'; contact = 'Contacto'
+          nlHead = 'Recibe nuestra newsletter'; nlLabel = 'Escribe tu correo electrónico'
+          nlPlaceholder = 'Tu correo para novedades'; nlButton = 'Crece con nosotros'
+          nlNote = '¡Gracias! Nos pondremos en contacto.'; rights = 'Todos los derechos reservados.' }
+  sq = @{ skip = 'Kaloni te përmbajtja kryesore'; contact = 'Kontakt'
+          nlHead = 'Merrni newsletter-in tonë'; nlLabel = 'Shkruani adresën tuaj email'
+          nlPlaceholder = 'Email-i juaj për përditësimet'; nlButton = 'Rrituni bashkë me ne'
+          nlNote = "Faleminderit! Do t'ju kontaktojmë së shpejti."
+          rights = 'Të gjitha të drejtat e rezervuara.' }
+}
+
+function Set-ChromeStrings([string]$html, [string]$lang) {
+  $C = $CHROME[$lang]
+  $map = @(
+    @{ rx = '(<a class="skip-link" href="#main">)[^<]*(</a>)';                              val = $C.skip },
+    @{ rx = '(<label class="newsletter__label" for="news-email">)[^<]*(</label>)';          val = $C.nlLabel },
+    @{ rx = '(<button class="btn btn--green" type="submit">)[^<]*(</button>)';              val = $C.nlButton },
+    @{ rx = '(<p class="newsletter__note" data-newsletter-note hidden>)[^<]*(</p>)';        val = $C.nlNote },
+    @{ rx = '(placeholder=")[^"]*(" autocomplete="email" required)';                        val = $C.nlPlaceholder },
+    @{ rx = '(<span data-year>[^<]*</span>\. )[^<]*(</p>)';                                 val = $C.rights }
+  )
+  foreach ($m in $map) { $html = [regex]::Replace($html, $m.rx, "`${1}$($m.val)`${2}") }
+
+  # The two footer headings share a class, so they are matched by position:
+  # the contact column comes before the newsletter column in every page.
+  $html = [regex]::Replace($html,
+    '(<h4 class="footer__heading">)[^<]*(</h4>\s*<ul class="footer__list">)', "`${1}$($C.contact)`${2}")
+  $html = [regex]::Replace($html,
+    '(<h4 class="footer__heading">)[^<]*(</h4>\s*<form class="newsletter")', "`${1}$($C.nlHead)`${2}")
+  return $html
 }
 
 $ROBOTS_LIVE = 'index, follow, max-image-preview:large, max-snippet:-1'

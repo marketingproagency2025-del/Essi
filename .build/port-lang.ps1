@@ -105,6 +105,8 @@ function Convert-Page([string]$html, [string]$slug, [string]$lang) {
   $html = Set-OgLocale       $html $lang $slug
   $html = Set-LanguageArrays $html $lang
   $html = Set-NavBlock       $html $slug $lang
+  $html = Set-LandmarkLabels $html $lang
+  $html = Set-ChromeStrings   $html $lang
   $html = Set-RobotsMeta     $html $slug $lang
   $html = Set-AssetVersions  $html
 
