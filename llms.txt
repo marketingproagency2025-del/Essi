@@ -2,12 +2,12 @@
 
 > MarketingPro is a remote-first digital marketing agency working with businesses across Italy, Europe and the United States. We run marketing that brings in real customers, not just leads: we generate the leads, call and qualify them ourselves, and hand over people who are ready to buy or ask for a quote.
 
-MarketingPro works with businesses across Italy, Europe and the United States, in English and Italian. The team covers the full picture, from social media and paid advertising to websites, SEO, sales funnels, photo and video, 3D renders and print catalogues. The angle that runs through everything is qualification: every lead is contacted and filtered before it reaches the client, so sales teams spend their time on people who actually want to talk business.
+MarketingPro works with businesses across Italy, Europe and the United States, in English, Italian, Spanish and Albanian. The team covers the full picture, from social media and paid advertising to websites, SEO, sales funnels, photo and video, 3D renders and print catalogues. The angle that runs through everything is qualification: every lead is contacted and filtered before it reaches the client, so sales teams spend their time on people who actually want to talk business.
 
 - Business name: MarketingPro (Digital Marketing Agency)
 - Markets: Italy · Europe · United States (remote-first)
 - Contact: commerciale@marketingpro-agency.com · +355 694702405 (also WhatsApp)
-- Languages: English, Italian
+- Languages spoken by the team: English, Italian, Spanish, Albanian
 
 ## Main pages
 
@@ -15,7 +15,7 @@ MarketingPro works with businesses across Italy, Europe and the United States, i
 - [Services](https://www.marketingpro-agency.com/services): the eight services in detail, from social media to catalogues.
 - [About](https://www.marketingpro-agency.com/about): the story, the team and why clients work with us.
 - [Portfolio](https://www.marketingpro-agency.com/portfolio): selected work and results.
-- [Contact](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp and both office addresses.
+- [Contact](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
 
 ## Services
 

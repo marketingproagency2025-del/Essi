@@ -234,14 +234,20 @@ function Get-LiveSiteLangs {
   })
 }
 
-# JSON-LD language declarations. WebSite.inLanguage and
-# ContactPoint.availableLanguage both enumerate what the site ships;
-# WebPage.inLanguage is a single value naming this page's own language.
+# JSON-LD language declarations. These are two different claims and must not be
+# collapsed into one:
+#   WebSite.inLanguage            what the SITE is published in -> live trees only
+#   ContactPoint.availableLanguage what the TEAM can converse in -> all four,
+#                                 confirmed by the client 2026-08-09, and true
+#                                 independently of how much of the site has
+#                                 shipped
+#   WebPage.inLanguage            this one page's language, a single value
 function Set-LanguageArrays([string]$html, [string]$lang) {
-  $all = '["' + ((Get-LiveSiteLangs) -join '", "') + '"]'
-  $out = [regex]::Replace($html, '"inLanguage":\s*\[[^\]]*\]',      "`"inLanguage`": $all")
-  $out = [regex]::Replace($out,  '"availableLanguage":\s*\[[^\]]*\]', "`"availableLanguage`": $all")
-  $out = [regex]::Replace($out,  '"inLanguage":\s*"[a-z-]+"',       "`"inLanguage`": `"$lang`"")
+  $site = '["' + ((Get-LiveSiteLangs) -join '", "') + '"]'
+  $team = '["' + (($LANGS.Keys) -join '", "') + '"]'
+  $out = [regex]::Replace($html, '"inLanguage":\s*\[[^\]]*\]',        "`"inLanguage`": $site")
+  $out = [regex]::Replace($out,  '"availableLanguage":\s*\[[^\]]*\]', "`"availableLanguage`": $team")
+  $out = [regex]::Replace($out,  '"inLanguage":\s*"[a-z-]+"',         "`"inLanguage`": `"$lang`"")
   return $out
 }
 

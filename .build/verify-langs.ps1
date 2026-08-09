@@ -219,7 +219,8 @@ Write-Ok 'og:locale sets correct'
 
 # -----------------------------------------------------------------------------
 Start-Check 'JSON-LD parses, declares four languages, and namespaces ids correctly'
-$allLangs = '["' + ((Get-LiveSiteLangs) -join '", "') + '"]'
+$siteLangs = '["' + ((Get-LiveSiteLangs) -join '", "') + '"]'   # site is published in
+$teamLangs = '["' + (($LANGS.Keys) -join '", "') + '"]'         # team converses in
 foreach ($p in $docs.Values) {
   $blocks = [regex]::Matches($p.Html, '(?s)<script type="application/ld\+json">(.*?)</script>')
   if ($blocks.Count -eq 0) { Add-Failure "$($p.Rel): no JSON-LD"; continue }
@@ -227,11 +228,14 @@ foreach ($p in $docs.Values) {
     try { $null = $b.Groups[1].Value | ConvertFrom-Json }
     catch { Add-Failure "$($p.Rel): JSON-LD does not parse - $($_.Exception.Message)" }
   }
-  foreach ($key in @('inLanguage', 'availableLanguage')) {
-    foreach ($m in [regex]::Matches($p.Html, "`"$key`":\s*(\[[^\]]*\])")) {
-      if ($m.Groups[1].Value -ne $allLangs) {
-        Add-Failure "$($p.Rel): $key is $($m.Groups[1].Value), expected $allLangs"
-      }
+  foreach ($m in [regex]::Matches($p.Html, '"inLanguage":\s*(\[[^\]]*\])')) {
+    if ($m.Groups[1].Value -ne $siteLangs) {
+      Add-Failure "$($p.Rel): WebSite inLanguage is $($m.Groups[1].Value), expected $siteLangs"
+    }
+  }
+  foreach ($m in [regex]::Matches($p.Html, '"availableLanguage":\s*(\[[^\]]*\])')) {
+    if ($m.Groups[1].Value -ne $teamLangs) {
+      Add-Failure "$($p.Rel): availableLanguage is $($m.Groups[1].Value), expected $teamLangs"
     }
   }
   foreach ($m in [regex]::Matches($p.Html, '"inLanguage":\s*"([a-z-]+)"')) {
