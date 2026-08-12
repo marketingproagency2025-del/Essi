@@ -132,3 +132,47 @@ section headings: `Çfarë përfshin shërbimi`, `Si punojmë`, `Për kë ësht�
 `Afatet dhe çmimet`, `Pyetje të Shpeshta`, `Versioni i plotë:`, `Të gjitha shërbimet`.
 Two pages differ on purpose because the English does: advertising has
 `Si ka qenë në praktikë`, website has `Çfarë ndërtojmë brenda`.
+
+## Cold review, applied
+
+An independent reviewer read all eight against the English and the shipped
+Albanian. Everything below was verified against the files before being changed.
+
+**The serious one, and it was a translation error rather than a style choice.**
+Under `Si punojmë` - *how **we** work* - three pages rendered the English
+imperative lead-ins as formal `Ju` imperatives, which in Albanian address the
+reader. So `Kontaktoni dhe filtroni çdo lead` instructed the client to call and
+qualify every lead: the one thing this agency sells, handed to the buyer, two
+screens above a FAQ answer saying *"Ne e gjenerojmë lead-in, pastaj e kontaktojmë
+dhe e filtrojmë vetë."* The other five pages were already first person plural.
+All fourteen lead-ins converted. **Check this first** - it is the failure a
+native speaker would catch in thirty seconds and a gate never will.
+
+Also fixed, all verified present before changing:
+
+- `të duket i lirë` - 2sg dative clitic, informal, on a formal page.
+- `sesa të nisësh nga e para` - 2sg inside an answer ending `Do t'ju themi`.
+- `ka nevojë faqja juaj` - `kam nevojë` governs `për`; also `prej tyre` pointed
+  at a three-noun list where the English contrasts two options.
+- `e vendos dot në jetën e vet` - `dot` is licensed only in negative or
+  interrogative clauses. The same page uses it correctly twice in negatives.
+- `lead-et tona` and `të cilat funnel-i` - feminine agreement on a loanword that
+  is masculine everywhere else here. In the second, the feminine plural attached
+  to `Reklamat`, so the sentence said the ads could not be converted.
+- `krijim` for ad creative - means "a creation". `kreativitet` is the advertising
+  sense and is what `sq/blog-advertising.html` and `sq/services-renders.html`
+  already use.
+- `dhe i bindin më shpejt` - the renders *enable* a decision, they do not do the
+  convincing. `sq/blog-renders.html` already had the restrained reading.
+
+**Kept deliberately:** `Optimizim për motorët e kërkimit` on the SEO page, once,
+as the JSON-LD `serviceType`. The guide bans it as prose and it is not prose.
+The English node spells out "Search engine optimization" in the same field for
+the same reason, `sq/blog-seo.html` already ships the identical calque in its
+`keywords` array, and all seven sibling pages translate `serviceType`. Leaving it
+English would make the Albanian node carry less than the English one.
+
+**Still worth a native eye:** `sq/services-sales-funnel.html` says `funnel` ten
+times in 526 words, about once every 53. No single use is wrong; the density is.
+`funnel-eve` (genitive plural) is the least graceful form in the set and is
+better rephrased around than standardised.

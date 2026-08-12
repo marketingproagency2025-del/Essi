@@ -33,3 +33,21 @@ after reading, not before, then run the step-3 regeneration in `cutover.md`.
 - **Shared boilerplate.** `Cosa comprende il servizio`, `Come lavoriamo`, `A chi è adatto`,
   `Tempi e costi`, `Domande Frequenti`, `Per approfondire:`, `Raccontaci il tuo obiettivo`,
   `Tutti i servizi`. Identical across all eight by design.
+
+## Cold review, applied
+
+- **Sixteen `Come lavoriamo` lead-ins converted from infinitive to first person
+  plural** on three pages. Four pages already used the plural, and the live
+  `it/services.html` is first person plural throughout - `Gestiamo`,
+  `Progettiamo`, `Creiamo`. `it/services-website.html` is correctly left nominal
+  because its English heading is nominal.
+- **`funnel di vendita` settled**, 49 occurrences to 3. Two edits in
+  `it/services.html` and one in `it/blog-sales-funnel.html`, which had been
+  labelling a link `Funnel di Vendite` that landed on a page calling itself
+  `Funnel di Vendita`.
+- **Seven `quasi tutti` reduced to `la maggior parte`.** English says "most";
+  "almost all" is a claim this business cannot support.
+- `chiamiamo ogni contatto di persona` - `di persona` means face to face, which
+  contradicts a phone call.
+- `it/services-catalogues.html` had dropped *with room for every product* from
+  its description with 23 characters to spare. Restored.
