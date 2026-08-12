@@ -56,7 +56,7 @@ read naturally as topic labels.
 | index | three commas before `dhe` | Joining independent clauses with different subjects. Albanian permits it; a native may prefer to drop them. |
 | services | `Menaxhimi i Reklamave` for "Ad Campaigns" | Renders it as *management* rather than *campaigns*, mirroring what Italian did (`Gestione Campagne Sponsorizzate`). Confirm that is the intended offer name. |
 | services | `Koktejë verorë freskues` (alt) | Plural of `koktej` and the resulting adjective agreement are internally consistent but not obviously standard. |
-| services | `Sfond i bardhë ose me sfond` | Faithfully mirrors an odd English source line, "White background or with a background". **Fix the English first**, then retranslate. |
+| services | `Sfond i bardhë ose i personalizuar` | RESOLVED. The English source said "White background or with a background", which is not really English. Source fixed to "White or custom background" and Albanian aligned. Listed for the record. |
 | portfolio | `Integrime të Përsosura` for "Seamless Integrations" | Reads as *perfect* rather than *without visible joins*. Matches Italian `Integrazioni Perfette`. |
 | portfolio | `Një balerinë` (alt, port-success) | Makes the dancer female where English "dancer" is neutral. `kërcen` is closer to *dances* than *leaping*. |
 | portfolio | `që shikon përtej një muri prej guri` (alt, port-6) | Loses the *peeking* nuance the English and Italian both carry. |
