@@ -586,6 +586,71 @@ foreach ($p in $docs.Values) {
 Write-Ok "$heroChecked hero preloads agree with their <picture>"
 
 # -----------------------------------------------------------------------------
+Start-Check 'Service pages share one set of boilerplate strings per language'
+# The eight service pages are generated from one template and differ only in
+# subject matter. Everything structural - the breadcrumb stem, the section
+# headings, the CTA, the back link, the shared pricing paragraph - is the same
+# sentence eight times, and in English it always was.
+#
+# Translation is where that breaks, because eight pages is too many for one pass
+# and parallel translators cannot see each other's word choices. It broke twice
+# here: Spanish shipped two wordings of the pricing paragraph, four pages each,
+# differing in "una tarifa" vs "una tarifa fija"; Albanian shipped four pages
+# whose breadcrumb still read Home / Services in English. Both are invisible on
+# any single page and obvious the moment the eight are put side by side, which
+# is what this does.
+$svc = @($PAGES | Where-Object { $_ -like 'services-*' })
+foreach ($lang in $LANGS.Keys) {
+  $seen = @{}
+  foreach ($slug in $svc) {
+    $rel = Get-PagePath $slug $lang
+    if (-not $docs.ContainsKey($rel)) { continue }
+    $html = $docs[$rel].Html
+    $mi = $html.IndexOf('<main'); $mj = $html.IndexOf('</main>')
+    if ($mi -lt 0 -or $mj -lt 0) { continue }
+    $main = $html.Substring($mi, $mj - $mi)
+
+    $crumbs = [regex]::Matches([regex]::Match($main, '(?s)<nav class="breadcrumb".*?</nav>').Value, '(?s)<li>(.*?)</li>')
+    $h2s    = [regex]::Matches($main, '(?s)<h2>(.*?)</h2>')
+    $fields = @{}
+    if ($crumbs.Count -ge 2) {
+      $fields['breadcrumb 1'] = Get-PlainText $crumbs[0].Groups[1].Value
+      $fields['breadcrumb 2'] = Get-PlainText $crumbs[1].Groups[1].Value
+    }
+    if ($h2s.Count -ge 4) {
+      $fields['first heading']   = Get-PlainText $h2s[0].Groups[1].Value
+      $fields['who-suits head']  = Get-PlainText $h2s[$h2s.Count - 3].Groups[1].Value
+      $fields['pricing head']    = Get-PlainText $h2s[$h2s.Count - 2].Groups[1].Value
+      $fields['faq head']        = Get-PlainText $h2s[$h2s.Count - 1].Groups[1].Value
+    }
+    $cta = [regex]::Match($main, '(?s)btn--green[^>]*>(.*?)</a>')
+    if ($cta.Success) { $fields['cta'] = Get-PlainText $cta.Groups[1].Value }
+    $back = [regex]::Match($main, '(?s)article__back".*?</a>')
+    if ($back.Success) { $fields['back link'] = Get-PlainText $back.Value }
+    $lv = [regex]::Match($main, '(?s)post-service"><strong>(.*?)</strong>')
+    if ($lv.Success) { $fields['long-version label'] = Get-PlainText $lv.Groups[1].Value }
+    $ph = [regex]::Match($main, '(?s)<h2>' + [regex]::Escape($fields['pricing head']) + '</h2>\s*<p>(.*?)</p>')
+    if ($ph.Success) { $fields['pricing paragraph'] = Get-PlainText $ph.Groups[1].Value }
+
+    foreach ($k in $fields.Keys) {
+      if (-not $seen.ContainsKey($k)) { $seen[$k] = @{} }
+      $v = $fields[$k]
+      if (-not $seen[$k].ContainsKey($v)) { $seen[$k][$v] = @() }
+      $seen[$k][$v] += $slug
+    }
+  }
+  foreach ($k in $seen.Keys) {
+    if ($seen[$k].Count -le 1) { continue }
+    $variants = ($seen[$k].Keys | ForEach-Object {
+      $short = if ($_.Length -gt 60) { $_.Substring(0, 60) + '...' } else { $_ }
+      "`"$short`" on $($seen[$k][$_].Count)"
+    }) -join ' vs '
+    Add-Failure "$lang/: service pages disagree on '$k' - $variants"
+  }
+}
+Write-Ok "$($svc.Count) service pages x $($LANGS.Count) trees share one boilerplate set"
+
+# -----------------------------------------------------------------------------
 Write-Host ''
 if ($failures.Count -eq 0) {
   Write-Host 'RESULT: ALL PASSES CLEAN' -ForegroundColor Green
