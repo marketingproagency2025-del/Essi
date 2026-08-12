@@ -26,6 +26,14 @@ cannot be got wrong. Pass `-Trees` only when you have a reason, and then know wh
    its language key. Copy from `_slugs` to promote the whole tree at once. Partial
    promotion is supported and safe: unlisted pages simply stay held.
 
+   There are **three** fields, not two. `translated` says the copy is finished and turns
+   on the quality checks. `live` says the tree is published. `holdback` says a finished
+   page in a live tree is still not approved to publish, which is the proofread gate.
+   Without that third field, finishing a translation inside a live tree publishes it the
+   same instant - the trap Italian fell into once already. Today `holdback.it` holds the
+   eight service pages: translated, in a live tree, and correctly invisible until a
+   native speaker has read them. **Emptying `holdback` is the act of publishing.**
+
 3. **Regenerate, in this order:**
    ```
    pwsh -Command '& "./.build/fix-nav.ps1"'      # all four trees by default

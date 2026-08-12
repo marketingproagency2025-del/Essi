@@ -101,3 +101,34 @@ read naturally as topic labels.
   The Italian tree leaves these English too, correctly.
 - **The ad-results table headers on `services`.** Left English on purpose: they mimic a
   Meta Ads Manager screenshot, and the Italian page does the same.
+
+## Session 6: the eight service pages
+
+`services-social-media`, `services-advertising`, `services-website`, `services-seo`,
+`services-sales-funnel`, `services-photo-video`, `services-renders`, `services-catalogues`.
+
+All eight are translated and gate-clean, and all eight are **held**: `sq` is not a live
+tree, so nothing here is published. Read them alongside `.build/guide-sq.md`.
+
+Specific things to check, because they were decided rather than obvious:
+
+- **`Reklamim` as the breadcrumb for advertising**, with `Fushata Reklamuese` kept as the
+  full service name. English uses the same short-crumb/long-name split.
+- **Loanword inflection.** `lead-e`, `lead-et`, `lead-in`, `funnel-i`, `render-et`. The
+  guide says keep these English and inflect them; the hyphenated form is the majority in
+  the existing `sq` tree, but a native reader should confirm it does not look laboured
+  eight pages in a row.
+- **`Optimizim për motorët e kërkimit` appears once**, as the SEO page's machine-readable
+  `serviceType` only. The guide forbids it as prose, and it is not used as prose. Confirm
+  that is the right call for a field Google reads rather than a person.
+- **The numbers on the advertising page are real client figures** and were converted to
+  Albanian convention: `6.150`, `1.084.529`, `1,87`, `1,47`, `2,30`, `11.480,98`. Check
+  the convention, never the values.
+- **Formal `Ju` in the CTA** - `Na tregoni objektivin tuaj` - matching the prose rather
+  than the clipped informal imperatives the other Albanian sites in this workspace use.
+
+Four of these were translated by one pass and four by another, then aligned to one set of
+section headings: `Çfarë përfshin shërbimi`, `Si punojmë`, `Për kë është`,
+`Afatet dhe çmimet`, `Pyetje të Shpeshta`, `Versioni i plotë:`, `Të gjitha shërbimet`.
+Two pages differ on purpose because the English does: advertising has
+`Si ka qenë në praktikë`, website has `Çfarë ndërtojmë brenda`.

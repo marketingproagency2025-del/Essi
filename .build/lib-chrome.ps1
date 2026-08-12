@@ -204,9 +204,21 @@ function Test-PageTranslated([string]$slug, [string]$lang) {
   return ([string[]]$done -contains $slug)
 }
 
+# Held back despite being finished: the page is translated and its tree is live,
+# but the copy is model-produced and has not been read by a native speaker.
+# .claude/rules/writing.md forbids shipping that, and without this list the act
+# of finishing a translation inside a live tree would publish it the same
+# instant, which is exactly the trap Italian fell into once already.
+function Test-PageHeldBack([string]$slug, [string]$lang) {
+  $held = $STATUS.holdback.$lang
+  if (-not $held) { return $false }
+  return ([string[]]$held -contains $slug)
+}
+
 function Test-PageLive([string]$slug, [string]$lang) {
   if ($lang -eq 'en') { return $true }
   if (([string[]]$STATUS.live) -notcontains $lang) { return $false }
+  if (Test-PageHeldBack $slug $lang) { return $false }
   return (Test-PageTranslated $slug $lang)
 }
 

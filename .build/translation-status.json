@@ -1,5 +1,5 @@
 {
-  "_comment": "Two separate facts, deliberately not one field. 'translated' lists pages whose copy is finished; that turns ON the quality checks (leftover-English scan, blog-title agreement). 'live' lists language trees that are actually published; that turns OFF noindex and puts pages into sitemap.xml, the hreflang sets and the language switcher. A tree can be fully translated and still not live, which is exactly where everything sits until a native speaker has proofread it. See .build/cutover.md.",
+  "_comment": "Three separate facts, deliberately not one field. 'translated' lists pages whose copy is finished; that turns ON the quality checks (leftover-English scan, blog-title agreement). 'live' lists language trees that are actually published; that turns OFF noindex and puts pages into sitemap.xml, the hreflang sets and the language switcher. 'holdback' lists pages that are finished and sit in a live tree but are NOT approved to publish yet - the proofread gate. Without it, finishing a translation in a live tree would publish it the same instant, and .claude/rules/writing.md is explicit that machine translation is never shipped unproofread. A tree can be fully translated and still not live; a page can be translated, in a live tree, and still held. See .build/cutover.md.",
   "_slugs": [
     "index",
     "services",
@@ -29,6 +29,18 @@
   "live": [
     "it"
   ],
+  "holdback": {
+    "it": [
+      "services-social-media",
+      "services-advertising",
+      "services-website",
+      "services-seo",
+      "services-sales-funnel",
+      "services-photo-video",
+      "services-renders",
+      "services-catalogues"
+    ]
+  },
   "translated": {
     "it": [
       "index",
@@ -46,7 +58,15 @@
       "blog-renders",
       "blog-catalogues",
       "article-1",
-      "article-2"
+      "article-2",
+      "services-social-media",
+      "services-advertising",
+      "services-website",
+      "services-seo",
+      "services-sales-funnel",
+      "services-photo-video",
+      "services-renders",
+      "services-catalogues"
     ],
     "es": [
       "index",
@@ -64,7 +84,15 @@
       "blog-renders",
       "blog-catalogues",
       "article-1",
-      "article-2"
+      "article-2",
+      "services-social-media",
+      "services-advertising",
+      "services-website",
+      "services-seo",
+      "services-sales-funnel",
+      "services-photo-video",
+      "services-renders",
+      "services-catalogues"
     ],
     "sq": [
       "index",
@@ -82,7 +110,15 @@
       "blog-renders",
       "blog-catalogues",
       "article-1",
-      "article-2"
+      "article-2",
+      "services-social-media",
+      "services-advertising",
+      "services-website",
+      "services-seo",
+      "services-sales-funnel",
+      "services-photo-video",
+      "services-renders",
+      "services-catalogues"
     ]
   }
 }

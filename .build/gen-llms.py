@@ -71,10 +71,16 @@ MarketingPro works with businesses across Italy, Europe and the United States, i
 
 
 def live(slug, lang):
-    """The same two facts the sitemap uses: is the tree published, is the page done."""
+    """The same three facts the sitemap uses: is the tree published, is the page
+    held back pending a native proofread, is the page done. Missing the holdback
+    check here would have advertised eight unproofread Italian pages to every
+    assistant that reads this file, which is worse than the noindex leak it is
+    supposed to prevent - noindex at least stops Google."""
     if lang == 'en':
         return True
     if lang not in STATUS.get('live', []):
+        return False
+    if slug in STATUS.get('holdback', {}).get(lang, []):
         return False
     return slug in STATUS.get('translated', {}).get(lang, [])
 
