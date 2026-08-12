@@ -158,8 +158,8 @@ function Set-NavBlock([string]$html, [string]$slug, [string]$lang) {
 
 # Bump when assets/css/style.css or assets/js/main.js changes, so returning
 # visitors do not run a four-language switcher against a two-language script.
-$CSS_VERSION = 10
-$JS_VERSION  = 13
+$CSS_VERSION = 11
+$JS_VERSION  = 14
 
 # -----------------------------------------------------------------------------
 # Staged rollout
