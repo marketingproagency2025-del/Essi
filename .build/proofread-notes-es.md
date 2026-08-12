@@ -55,6 +55,53 @@ Each was kept as the most widely understood option, but a native reader may disa
 | about | `azul infinito` for "open blue" | Replaced the calque `azul abierto`. Poetic; confirm the register suits the brand. |
 | contact | FAQ 4, `¿Qué pasa después de escribirles?` | The reader addresses the agency as `ustedes` while the answer replies in `nosotros`/`tú`. Grammatical and consistent with the languages FAQ, but a native may prefer `escribirnos`. **If changed it must change in BOTH the JSON-LD and the `<details>` block**, or the gate fails. |
 
+## Blog pages (10)
+
+### Loanwords not on the guide's approved list
+
+Each was kept because another Spanish page already used it and changing one page alone
+would split the tree. All are normal in Spanish marketing copy; the question is whether
+the guide's list should grow or the words should go.
+
+| Word | Where | Neutral alternative |
+|---|---|---|
+| `feed` | blog-social-media (x3), blog-photo-video | none really; it is the standard term |
+| `playbook` | blog-advertising, x5 including meta and JSON-LD | `manual`, `guía` |
+| `checkout` | blog-catalogues, x3 | `pasarela de pago` |
+| `showroom`, `scroll` | blog-renders | `sala de exposición`; `desplazamiento` |
+
+### Cross-page phrasings worth aligning in one pass
+
+- `construye confianza` for "build trust" is a mild calque, used in blog-photo-video and
+  three times in blog-sales-funnel. `genera confianza` is the more idiomatic form.
+- `ganar atención` (blog-sales-funnel) versus `captan la atención` (article-1) render the
+  same idea. Pick one.
+- `y trabaja hacia atrás` for "work backwards" appears in article-2 and blog-advertising.
+  Both are calques. Something like `y planifica hacia atrás desde ahí` reads better, and
+  both files must change together.
+- `llamadas agendadas` in blog-advertising: `agendar` is Americas-marked in the DLE.
+  `programadas` is the neutral form. blog-social-media uses `agendar` too.
+
+### Individual items
+
+| Page | Item | Note |
+|---|---|---|
+| blog-renders | `casa piloto` for "show home" | Understood everywhere, but Mexico and US Hispanic readers say `casa modelo`. |
+| blog-renders | `consejo directivo` for "a board" | The compromise between Spain's `consejo de administración` and LatAm's `junta directiva`. Reads slightly institutional. |
+| article-1 | `deje de desplazarse` for "stop scrolling" | Correct but bookish. `deja de deslizar` is more natural. (Verified: this is third-person subjunctive after `hace que`, NOT a slip into `usted`.) |
+| article-1 | FAQ 1 renders "visuals" as `las imágenes` | Narrower than the source, which covers video, renders and catalogues. Changing it means editing the JSON-LD and the `<details>` copy together. |
+| blog-seo | `un perfil de Google Business` | Google's own Spanish name is `Perfil de Empresa de Google`. Site-wide decision. |
+| all | Straight ASCII quotes rather than Spanish angle quotes `«»` | Matches the English source and the rest of the tree. A site-wide typographic call, not a page bug. |
+
+### Verified, not defects
+
+- **No `usted` anywhere.** The tree addresses the reader as `tú` throughout. The five
+  `deje`/`haga` forms are third-person subjunctive after `hace que` / `logra que`, with
+  `la gente` or `la publicidad` as the subject.
+- **`vale` x6** is the verb *valer* (`no vale nada`, `vale menos que`), not the
+  Spain-colloquial `vale` meaning "OK".
+- **`article:section` meta now matches the JSON-LD** on every page, enforced by the gate.
+
 ## Resolved, listed so nobody re-opens them
 
 - **`calificar` is the brand term.** The first pass split the qualify-family three ways:

@@ -1,21 +1,60 @@
 {
   "_comment": "Two separate facts, deliberately not one field. 'translated' lists pages whose copy is finished; that turns ON the quality checks (leftover-English scan, blog-title agreement). 'live' lists language trees that are actually published; that turns OFF noindex and puts pages into sitemap.xml, the hreflang sets and the language switcher. A tree can be fully translated and still not live, which is exactly where everything sits until a native speaker has proofread it. See .build/cutover.md.",
   "_slugs": [
-    "index", "services", "portfolio", "about", "contact", "blog",
-    "blog-social-media", "blog-advertising", "blog-website", "blog-seo",
-    "blog-sales-funnel", "blog-photo-video", "blog-renders", "blog-catalogues",
-    "article-1", "article-2"
+    "index",
+    "services",
+    "portfolio",
+    "about",
+    "contact",
+    "blog",
+    "blog-social-media",
+    "blog-advertising",
+    "blog-website",
+    "blog-seo",
+    "blog-sales-funnel",
+    "blog-photo-video",
+    "blog-renders",
+    "blog-catalogues",
+    "article-1",
+    "article-2"
   ],
-
   "live": [],
-
   "translated": {
-    "es": ["index", "services", "portfolio", "about", "contact", "blog"],
+    "es": [
+      "index",
+      "services",
+      "portfolio",
+      "about",
+      "contact",
+      "blog",
+      "blog-social-media",
+      "blog-advertising",
+      "blog-website",
+      "blog-seo",
+      "blog-sales-funnel",
+      "blog-photo-video",
+      "blog-renders",
+      "blog-catalogues",
+      "article-1",
+      "article-2"
+    ],
     "sq": [
-      "index", "services", "portfolio", "about", "contact", "blog",
-      "blog-social-media", "blog-advertising", "blog-website", "blog-seo",
-      "blog-sales-funnel", "blog-photo-video", "blog-renders", "blog-catalogues",
-      "article-1", "article-2"
+      "index",
+      "services",
+      "portfolio",
+      "about",
+      "contact",
+      "blog",
+      "blog-social-media",
+      "blog-advertising",
+      "blog-website",
+      "blog-seo",
+      "blog-sales-funnel",
+      "blog-photo-video",
+      "blog-renders",
+      "blog-catalogues",
+      "article-1",
+      "article-2"
     ]
   }
 }
