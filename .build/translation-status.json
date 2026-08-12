@@ -26,8 +26,28 @@
     "services-renders",
     "services-catalogues"
   ],
-  "live": [],
+  "live": [
+    "it"
+  ],
   "translated": {
+    "it": [
+      "index",
+      "services",
+      "portfolio",
+      "about",
+      "contact",
+      "blog",
+      "blog-social-media",
+      "blog-advertising",
+      "blog-website",
+      "blog-seo",
+      "blog-sales-funnel",
+      "blog-photo-video",
+      "blog-renders",
+      "blog-catalogues",
+      "article-1",
+      "article-2"
+    ],
     "es": [
       "index",
       "services",

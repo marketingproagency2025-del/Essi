@@ -180,8 +180,16 @@ $JS_VERSION  = 15
 # sitemap, and absent from every hreflang set. That keeps the site safe to
 # deploy at any point mid-project instead of only at cut-over.
 #
-# English and Italian are always live. Everything else is driven by
-# translation-status.json, which sessions 2-5 fill in page by page.
+# English is always live: it is the source tree, so it can never be a
+# duplicate of itself. EVERY other tree, Italian included, is driven by
+# translation-status.json, page by page.
+#
+# Italian used to be hard-coded live here alongside English, which was true
+# for as long as the slug list was frozen at 16. It stopped being true the
+# moment the eight service slugs were added: it/ inherited English copy and
+# eight duplicate pages went live and into the sitemap. A tree being live and
+# a PAGE being ready are different facts, and the second one has to be checked
+# per page or adding a slug silently publishes it untranslated.
 $STATUS = Get-Content (Join-Path $PSScriptRoot 'translation-status.json') -Raw | ConvertFrom-Json
 
 # Translated: the copy is finished. Turns ON the quality checks.
@@ -190,14 +198,14 @@ $STATUS = Get-Content (Join-Path $PSScriptRoot 'translation-status.json') -Raw |
 # These are different facts. A finished translation waiting on a native
 # proofread is translated but not live, and that is the normal state here.
 function Test-PageTranslated([string]$slug, [string]$lang) {
-  if ($lang -eq 'en' -or $lang -eq 'it') { return $true }
+  if ($lang -eq 'en') { return $true }
   $done = $STATUS.translated.$lang
   if (-not $done) { return $false }
   return ([string[]]$done -contains $slug)
 }
 
 function Test-PageLive([string]$slug, [string]$lang) {
-  if ($lang -eq 'en' -or $lang -eq 'it') { return $true }
+  if ($lang -eq 'en') { return $true }
   if (([string[]]$STATUS.live) -notcontains $lang) { return $false }
   return (Test-PageTranslated $slug $lang)
 }
