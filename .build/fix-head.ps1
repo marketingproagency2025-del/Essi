@@ -7,15 +7,18 @@
 #    - JSON-LD WebPage.inLanguage: set to the page's own language
 #    - cache-busting query strings on style.css and main.js
 #
-#  hreflang has to be reciprocal, so this necessarily edits the 32 existing
-#  English and Italian pages, not just the new trees.
+#  hreflang has to be reciprocal, so this necessarily edits every tree, not just
+#  the one being changed. ALWAYS run it across all four languages: the hreflang
+#  set for a slug is shared by all its versions, so promoting one tree while
+#  leaving another on the old set breaks reciprocity in both directions.
 #
 #  Idempotent. Run with -DryRun to preview without writing.
 # =============================================================================
 [CmdletBinding()]
 param(
   [switch]$DryRun,
-  [string[]]$Trees = @('en', 'it')
+  # Defaults to all four on purpose: see the note above.
+  [string[]]$Trees = @('en', 'it', 'es', 'sq')
 )
 
 $ErrorActionPreference = 'Stop'

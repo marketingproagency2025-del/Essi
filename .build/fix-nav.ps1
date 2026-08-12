@@ -20,7 +20,7 @@
 [CmdletBinding()]
 param(
   [switch]$DryRun,
-  [string[]]$Trees = @('en', 'it')
+  [string[]]$Trees = @('en', 'it', 'es', 'sq')
 )
 
 $ErrorActionPreference = 'Stop'
