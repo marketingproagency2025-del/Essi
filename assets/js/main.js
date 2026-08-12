@@ -291,7 +291,9 @@
       lightbox.classList.remove("is-open");
       lightbox.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
-      lbImg.src = "";
+      // removeAttribute, not src = "": an empty src resolves against the
+      // document URL, so the browser can re-request the page as an image.
+      lbImg.removeAttribute("src");
       if (lastFocused && lastFocused.focus) lastFocused.focus();
     };
 

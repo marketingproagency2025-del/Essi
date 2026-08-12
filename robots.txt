@@ -1,43 +1,32 @@
 # robots.txt — https://www.marketingpro-agency.com/
 # MarketingPro Digital Marketing Agency
+#
+# NOTE FOR ANYONE EDITING THIS FILE
+# A named user-agent group REPLACES the `*` group for that crawler; the rules do
+# not merge. So every Disallow has to exist in BOTH groups below, or it silently
+# will not apply to the AI crawlers. That is why the eight AI agents share one
+# group instead of having eight of their own: two places to keep in sync, not nine.
 
-# Default: allow all crawlers to index the whole site (except the archived originals)
+# Default: allow all crawlers to index the whole site.
 User-agent: *
 Allow: /
 Disallow: /originals/
+Disallow: /.build/
 
-# AI / answer-engine crawlers are explicitly welcome (Generative Engine Optimization).
-# We want MarketingPro surfaced and cited in AI search and assistants.
+# AI / answer-engine crawlers are explicitly welcome (Generative Engine
+# Optimization). Functionally these are already allowed by the `*` group above;
+# naming them is a statement of intent, and it means an AI-specific rule can be
+# added later without touching the default group.
 User-agent: GPTBot
-Allow: /
-Disallow: /originals/
-
 User-agent: OAI-SearchBot
-Allow: /
-Disallow: /originals/
-
 User-agent: ChatGPT-User
-Allow: /
-Disallow: /originals/
-
 User-agent: ClaudeBot
-Allow: /
-Disallow: /originals/
-
 User-agent: PerplexityBot
-Allow: /
-Disallow: /originals/
-
 User-agent: Google-Extended
-Allow: /
-Disallow: /originals/
-
 User-agent: Applebot-Extended
-Allow: /
-Disallow: /originals/
-
 User-agent: CCBot
 Allow: /
 Disallow: /originals/
+Disallow: /.build/
 
 Sitemap: https://www.marketingpro-agency.com/sitemap.xml

@@ -1,0 +1,17 @@
+# Cloudflare Workers Assets serves `assets.directory: "."`, i.e. the whole repo.
+# Anything tracked in git and not listed here is publicly fetchable.
+#
+# .build/ holds internal working documents: the cut-over runbook, both proofread
+# punch lists, the translation guides and translation-status.json. They are
+# readable English prose about unpublished work and have no business being
+# served at https://www.marketingpro-agency.com/.build/cutover.md
+.build/
+
+# Source images, ~28 MB. Gitignored today, so this is a second line of defence
+# in case a .gitignore merge ever loses that rule.
+originals/
+
+# Repo metadata
+.git/
+.gitattributes
+.gitignore
