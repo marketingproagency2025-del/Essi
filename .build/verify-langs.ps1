@@ -347,6 +347,24 @@ foreach ($lang in $LANGS.Keys) {
 }
 Write-Ok "$checkedTitles blog titles agree with the articles they link to"
 
+# The og meta and the JSON-LD say the same thing about a page's section, so they
+# must not drift apart. A translation sweep that updates one and not the other
+# leaves a page describing itself two ways; that is exactly what happened to the
+# Albanian tree, on five pages, and nothing caught it.
+$checkedSections = 0
+foreach ($p in $docs.Values) {
+  $metaM = [regex]::Match($p.Html, 'property="article:section" content="([^"]*)"')
+  $jsonM = [regex]::Match($p.Html, '"articleSection":\s*"([^"]+)"')
+  if (-not $metaM.Success -or -not $jsonM.Success) { continue }
+  $checkedSections++
+  $meta = [System.Net.WebUtility]::HtmlDecode($metaM.Groups[1].Value)
+  $json = [System.Net.WebUtility]::HtmlDecode($jsonM.Groups[1].Value)
+  if ($meta -ne $json) {
+    Add-Failure "$($p.Rel): article:section meta is '$meta' but JSON-LD articleSection is '$json'"
+  }
+}
+Write-Ok "$checkedSections article:section values agree with their JSON-LD"
+
 # -----------------------------------------------------------------------------
 Start-Check 'Encoding: UTF-8, no BOM, no mojibake, no diacritic entities'
 foreach ($p in $docs.Values) {
