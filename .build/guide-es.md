@@ -88,6 +88,21 @@ the normal Spanish form and is what to use for "digital marketing".
   `Turn your audience into customers` at 33 characters, and `feature-card__title`.
   Prefer the shorter of two good options.
 
+## One word for the brand promise: `calificar`
+
+Qualification is what this agency sells, so the term cannot drift. English uses
+qualify / qualified / qualification 28 times and the word "filter" exactly once, in the
+hero line "We Call, Filter, and Deliver". Spanish must mirror that split:
+
+- `calificar`, `calificado`, `calificación` render every qualify-family word. **Not**
+  `cualificar` (Spain-marked) and **not** `filtrar`.
+- `filtrar` appears in exactly one place, the hero, translating "Filter".
+- "raw leads" is `leads sin calificar`.
+
+The first Spanish pass split this three ways across three pages, `filtrados` on the
+homepage, `calificados` on services and `cualificado` on about, which is why it is
+pinned here.
+
 ## The founder's title must stay genderless
 
 Client decision, 2026-08-10: do not assign a grammatical gender to Essi Papajorgji.
