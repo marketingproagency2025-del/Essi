@@ -47,11 +47,11 @@
   <!-- LCP: preload hero image -->
   <link rel="preload" as="image" href="../assets/img/svc-web-1.jpg" fetchpriority="high" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet" />
+  <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
+       preloads even same-origin, or the file is fetched twice. -->
+  <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=12" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=13" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
