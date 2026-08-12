@@ -91,12 +91,16 @@ the normal Spanish form and is what to use for "digital marketing".
 ## One word for the brand promise: `calificar`
 
 Qualification is what this agency sells, so the term cannot drift. English uses
-qualify / qualified / qualification 28 times and the word "filter" exactly once, in the
-hero line "We Call, Filter, and Deliver". Spanish must mirror that split:
+qualify / qualified / qualification 28 times. The word "filter" appears six times, but only once in a
+position that matters: the hero line "We Call, Filter, and Deliver". Spanish mirrors that split:
 
 - `calificar`, `calificado`, `calificación` render every qualify-family word. **Not**
   `cualificar` (Spain-marked) and **not** `filtrar`.
-- `filtrar` appears in exactly one place, the hero, translating "Filter".
+- `filtrar` appears in exactly one place, the hero, translating "Filter". **This holds
+  regardless of what the English does elsewhere.** An earlier version of this guide said
+  English used "filter" only once; it uses it six times (about, article-1, blog-advertising,
+  blog-renders, index, services-advertising). The rule is a decision about Spanish, not an
+  observation about English, so the other five all become `calificar`.
 - "raw leads" is `leads sin calificar`.
 
 The first Spanish pass split this three ways across three pages, `filtrados` on the
