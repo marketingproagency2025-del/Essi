@@ -188,7 +188,7 @@ Write-Ok 'all <html lang> values correct'
 
 # -----------------------------------------------------------------------------
 Start-Check 'Local asset references resolve on disk'
-$refRx = [regex]'(?:href|src|poster|data-hero-video)="([^":#][^":]*)"'
+$refRx = [regex]'(?:href|src|poster|data-hero-video|srcset)="([^":#][^":]*)"'
 $missing = @{}
 foreach ($p in $docs.Values) {
   $baseDir = Split-Path -Parent $p.Full
@@ -203,7 +203,7 @@ foreach ($p in $docs.Values) {
   }
 }
 foreach ($k in $missing.Keys) { Add-Failure "unresolved asset: $k" }
-Write-Ok 'every relative href/src/poster resolves'
+Write-Ok 'every relative href/src/poster/srcset resolves'
 
 # -----------------------------------------------------------------------------
 Start-Check 'Internal root-absolute links stay inside their own language tree'

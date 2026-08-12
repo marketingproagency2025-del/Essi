@@ -44,7 +44,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=11" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=12" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -164,7 +164,10 @@
   <header class="site-header" id="top" data-header>
     <div class="container site-header__inner">
       <a class="brand" href="/it/" aria-label="MarketingPro, torna alla home">
-        <img src="../assets/img/logo.png" alt="MarketingPro" class="brand__logo" width="375" height="77" />
+        <picture>
+          <source srcset="../assets/img/logo.webp" type="image/webp" />
+          <img src="../assets/img/logo.png" alt="MarketingPro" class="brand__logo" width="375" height="77" />
+        </picture>
       </a>
       <nav class="nav" aria-label="Principale">
         <button class="nav__toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Apri menu" data-nav-toggle>
@@ -215,8 +218,14 @@
           <p class="section__lead section__lead--center">Gestiamo i tuoi canali social per trasformare i follower in clienti reali e paganti.</p>
         </header>
         <div class="service__media reveal" data-reveal>
-          <figure class="service__img"><img fetchpriority="high" src="../assets/img/svc-social-1.jpg" height="838" width="720" alt="Cocktail estivi dissetanti" decoding="async" /></figure>
-          <figure class="service__img"><img src="../assets/img/svc-social-2.jpg" height="1258" width="1080" alt="Una ciotola di frutti di bosco freschi" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-social-1.webp" type="image/webp" />
+  <img fetchpriority="high" src="../assets/img/svc-social-1.jpg" height="838" width="720" alt="Cocktail estivi dissetanti" decoding="async" />
+</picture></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-social-2.webp" type="image/webp" />
+  <img src="../assets/img/svc-social-2.jpg" height="1258" width="1080" alt="Una ciotola di frutti di bosco freschi" loading="lazy" decoding="async" />
+</picture></figure>
         </div>
         <div class="service__foot reveal" data-reveal>
           <div class="service__text">
@@ -236,7 +245,10 @@
           <p class="section__lead section__lead--center">Attraverso campagne mirate su Meta e Google, posizioniamo il tuo brand davanti alle persone giuste, nel momento giusto. Raccontaci il tuo obiettivo: noi ti porteremo i risultati.</p>
         </header>
         <div class="service__media service__media--ads reveal" data-reveal>
-          <figure class="service__img"><img src="../assets/img/svc-ads-1.jpg" height="1258" width="1080" alt="Una mano che tiene un telefono con le statistiche di copertura dei social media" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-ads-1.webp" type="image/webp" />
+  <img src="../assets/img/svc-ads-1.jpg" height="1258" width="1080" alt="Una mano che tiene un telefono con le statistiche di copertura dei social media" loading="lazy" decoding="async" />
+</picture></figure>
           <div class="table-wrap" role="region" aria-label="Risultati pubblicitari Meta" tabindex="0">
             <table class="ad-table">
               <thead>
@@ -278,8 +290,14 @@
           <p class="section__lead section__lead--center">Progettiamo siti web che uniscono un look pulito e curato a una solida funzionalità, per un'esperienza utente fluida. Ogni sito è costruito per caricarsi in fretta e funzionare bene su ogni dispositivo.</p>
         </header>
         <div class="service__media reveal" data-reveal>
-          <figure class="service__img"><img src="../assets/img/svc-web-1.jpg" height="1258" width="1080" alt="Un'interfaccia moderna per la creazione di siti web" loading="lazy" decoding="async" /></figure>
-          <figure class="service__img"><img src="../assets/img/svc-web-2.jpg" height="1258" width="1080" alt="Barche da pesca in un porto al tramonto" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-web-1.webp" type="image/webp" />
+  <img src="../assets/img/svc-web-1.jpg" height="1258" width="1080" alt="Un'interfaccia moderna per la creazione di siti web" loading="lazy" decoding="async" />
+</picture></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-web-2.webp" type="image/webp" />
+  <img src="../assets/img/svc-web-2.jpg" height="1258" width="1080" alt="Barche da pesca in un porto al tramonto" loading="lazy" decoding="async" />
+</picture></figure>
         </div>
         <div class="service__foot reveal" data-reveal>
           <div class="service__text">
@@ -299,8 +317,14 @@
           <p class="section__lead section__lead--center">Portiamo il tuo sito web ai primi posti nei risultati dei motori di ricerca, aumentando la visibilità e attirando traffico di alta qualità.</p>
         </header>
         <div class="service__media reveal" data-reveal>
-          <figure class="service__img"><img src="../assets/img/svc-seo-1.jpg" height="1258" width="1080" alt="Le lettere S E O in caratteri di legno decorati" loading="lazy" decoding="async" /></figure>
-          <figure class="service__img"><img src="../assets/img/svc-seo-2.jpg" height="1258" width="1080" alt="Un cruscotto di analisi delle prestazioni di ricerca" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-seo-1.webp" type="image/webp" />
+  <img src="../assets/img/svc-seo-1.jpg" height="1258" width="1080" alt="Le lettere S E O in caratteri di legno decorati" loading="lazy" decoding="async" />
+</picture></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-seo-2.webp" type="image/webp" />
+  <img src="../assets/img/svc-seo-2.jpg" height="1258" width="1080" alt="Un cruscotto di analisi delle prestazioni di ricerca" loading="lazy" decoding="async" />
+</picture></figure>
         </div>
         <div class="service__foot reveal" data-reveal>
           <div class="service__text">
@@ -320,8 +344,14 @@
           <p class="section__lead section__lead--center">Offriamo un servizio completo per creare funnel di vendita personalizzati, studiati per accompagnare i potenziali clienti in ogni fase del percorso d'acquisto.</p>
         </header>
         <div class="service__media reveal" data-reveal>
-          <figure class="service__img"><img src="../assets/img/svc-funnel-1.jpg" height="1258" width="1080" alt="Due professionisti che festeggiano un accordo durante una riunione" loading="lazy" decoding="async" /></figure>
-          <figure class="service__img"><img src="../assets/img/svc-funnel-2.jpg" height="1258" width="1080" alt="Il sole che tramonta sul mare" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-funnel-1.webp" type="image/webp" />
+  <img src="../assets/img/svc-funnel-1.jpg" height="1258" width="1080" alt="Due professionisti che festeggiano un accordo durante una riunione" loading="lazy" decoding="async" />
+</picture></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-funnel-2.webp" type="image/webp" />
+  <img src="../assets/img/svc-funnel-2.jpg" height="1258" width="1080" alt="Il sole che tramonta sul mare" loading="lazy" decoding="async" />
+</picture></figure>
         </div>
         <div class="service__foot reveal" data-reveal>
           <div class="service__text">
@@ -341,8 +371,14 @@
           <p class="section__lead section__lead--center">Offriamo un servizio professionale di editing, apportando le modifiche necessarie per trasformare i tuoi contenuti in materiali visivi di alta qualità, ideali per valorizzare la tua immagine e rafforzare il tuo brand.</p>
         </header>
         <div class="service__media reveal" data-reveal>
-          <figure class="service__img"><img src="../assets/img/svc-photo-1.jpg" height="1258" width="1080" alt="Un fotografo che ritrae una modella con un abito rosso in studio" loading="lazy" decoding="async" /></figure>
-          <figure class="service__img"><img src="../assets/img/svc-photo-2.jpg" height="720" width="1006" alt="Una donna con gli occhiali da sole, primo piano" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-photo-1.webp" type="image/webp" />
+  <img src="../assets/img/svc-photo-1.jpg" height="1258" width="1080" alt="Un fotografo che ritrae una modella con un abito rosso in studio" loading="lazy" decoding="async" />
+</picture></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-photo-2.webp" type="image/webp" />
+  <img src="../assets/img/svc-photo-2.jpg" height="720" width="1006" alt="Una donna con gli occhiali da sole, primo piano" loading="lazy" decoding="async" />
+</picture></figure>
         </div>
         <div class="service__foot reveal" data-reveal>
           <div class="service__text">
@@ -362,8 +398,14 @@
           <p class="section__lead section__lead--center">Che si tratti di architettura, prodotto o design concettuale, i nostri rendering danno vita alla tua visione e rendono ogni dettaglio chiaro e convincente per i tuoi clienti e partner.</p>
         </header>
         <div class="service__media reveal" data-reveal>
-          <figure class="service__img"><img src="../assets/img/svc-renders-1.jpg" height="1258" width="1080" alt="Render architettonico di una villa imbiancata con piscina" loading="lazy" decoding="async" /></figure>
-          <figure class="service__img"><img src="../assets/img/svc-renders-2.jpg" height="1258" width="1080" alt="Architettura cicladica bianca contro un cielo azzurro intenso" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-renders-1.webp" type="image/webp" />
+  <img src="../assets/img/svc-renders-1.jpg" height="1258" width="1080" alt="Render architettonico di una villa imbiancata con piscina" loading="lazy" decoding="async" />
+</picture></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-renders-2.webp" type="image/webp" />
+  <img src="../assets/img/svc-renders-2.jpg" height="1258" width="1080" alt="Architettura cicladica bianca contro un cielo azzurro intenso" loading="lazy" decoding="async" />
+</picture></figure>
         </div>
         <div class="service__foot reveal" data-reveal>
           <div class="service__text">
@@ -390,8 +432,14 @@
           <p class="section__lead section__lead--center">Creiamo cataloghi su misura che valorizzano ogni prodotto e danno al tuo brand una voce chiara. Un buon catalogo è un'esperienza visiva, curata nei dettagli per ispirare e per vendere.</p>
         </header>
         <div class="service__media reveal" data-reveal>
-          <figure class="service__img"><img src="../assets/img/svc-catalog-1.jpg" height="704" width="984" alt="Un'agenda e dei quaderni disposti su una scrivania" loading="lazy" decoding="async" /></figure>
-          <figure class="service__img"><img src="../assets/img/svc-catalog-2.jpg" height="1258" width="1080" alt="Una rivista di design con un singolo fiore" loading="lazy" decoding="async" /></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-catalog-1.webp" type="image/webp" />
+  <img src="../assets/img/svc-catalog-1.jpg" height="704" width="984" alt="Un'agenda e dei quaderni disposti su una scrivania" loading="lazy" decoding="async" />
+</picture></figure>
+          <figure class="service__img"><picture>
+  <source srcset="../assets/img/svc-catalog-2.webp" type="image/webp" />
+  <img src="../assets/img/svc-catalog-2.jpg" height="1258" width="1080" alt="Una rivista di design con un singolo fiore" loading="lazy" decoding="async" />
+</picture></figure>
         </div>
         <div class="service__foot reveal" data-reveal>
           <div class="service__text">
@@ -409,7 +457,10 @@
         <div class="articles">
           <article class="article-card reveal" data-reveal>
             <a class="article-card__link" href="/it/article-1">
-              <figure class="article-card__media"><img src="../assets/img/article-1.jpg" height="720" width="1200" alt="Street art colorata con la scritta 'Creativity, Express Yourself'" loading="lazy" decoding="async" /></figure>
+              <figure class="article-card__media"><picture>
+  <source srcset="../assets/img/article-1.webp" type="image/webp" />
+  <img src="../assets/img/article-1.jpg" height="720" width="1200" alt="Street art colorata con la scritta 'Creativity, Express Yourself'" loading="lazy" decoding="async" />
+</picture></figure>
               <div class="article-card__body">
                 <h3 class="article-card__title">Trasforma il tuo brand con MarketingPro: crescita, creatività e strategia unite in un'unica forza.</h3>
                 <p class="article-card__excerpt">Da MarketingPro, riscriviamo il marketing unendo creatività e strategia. Dai social media coinvolgenti alle campagne pubblicitarie efficaci, gestiamo l'intero percorso del cliente. Trasformiamo i tuoi clic in clienti e creiamo storie memorabili che ispirano. Collabora con noi per valorizzare il tuo brand e raggiungere una crescita straordinaria.</p>
@@ -420,7 +471,10 @@
 
           <article class="article-card reveal" data-reveal data-reveal-delay="1">
             <a class="article-card__link" href="/it/article-2">
-              <figure class="article-card__media"><img src="../assets/img/article-2.jpg" height="720" width="1200" alt="Un'insegna luminosa con la scritta 'Happy Designing Folks'" loading="lazy" decoding="async" /></figure>
+              <figure class="article-card__media"><picture>
+  <source srcset="../assets/img/article-2.webp" type="image/webp" />
+  <img src="../assets/img/article-2.jpg" height="720" width="1200" alt="Un'insegna luminosa con la scritta 'Happy Designing Folks'" loading="lazy" decoding="async" />
+</picture></figure>
               <div class="article-card__body">
                 <h3 class="article-card__title">Sblocca il potenziale del tuo brand con le strategie innovative e le soluzioni creative di MarketingPro.</h3>
                 <p class="article-card__excerpt">Da MarketingPro, trasformiamo la tua visione di marketing in realtà. Dai social media coinvolgenti alle campagne pubblicitarie efficaci, creiamo esperienze che lasciano il segno. Collabora con noi per valorizzare il tuo brand, coinvolgere i clienti e guidare la crescita attraverso storytelling strategico e design innovativo. Insieme trasformiamo i tuoi clic in clienti fedeli.</p>
@@ -482,7 +536,10 @@
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="footer-col footer-col--brand">
-        <img src="../assets/img/logo.png" alt="MarketingPro" class="footer__logo" width="375" height="77" loading="lazy" />
+        <picture>
+          <source srcset="../assets/img/logo.webp" type="image/webp" />
+          <img src="../assets/img/logo.png" alt="MarketingPro" class="footer__logo" width="375" height="77" loading="lazy" />
+        </picture>
         <a class="btn btn--whatsapp" href="https://wa.me/355694702405" target="_blank" rel="noopener">Whatsapp</a>
       </div>
 

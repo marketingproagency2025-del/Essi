@@ -56,6 +56,11 @@ body {
 img, svg, video { display: block; max-width: 100%; }
 img { height: auto; }
 
+/* Images are wrapped in <picture> to offer WebP. display:contents removes the
+   wrapper from layout entirely, so the <img> stays the flex or grid item its
+   container's rules were written for and nothing needed re-styling. */
+picture { display: contents; }
+
 a { color: inherit; text-decoration: none; }
 
 h1, h2, h3, h4 {
@@ -426,7 +431,11 @@ h1, h2, h3, h4 {
   position: relative;
   color: #fff;
   padding-block: clamp(4rem, 9vw, 7rem);
+  /* A CSS background cannot use <picture>, so WebP is offered via image-set.
+     The plain url() below it is the fallback for clients without image-set. */
   background: url("../img/testimonials-bg.jpg") center/cover fixed no-repeat;
+  background-image: image-set(url("../img/testimonials-bg.webp") type("image/webp"),
+                              url("../img/testimonials-bg.jpg") type("image/jpeg"));
   isolation: isolate;
 }
 .testimonials__overlay {
@@ -1198,7 +1207,12 @@ h1, h2, h3, h4 {
   isolation: isolate;
   padding-top: calc(var(--header-h) + clamp(2.5rem, 6vw, 4.5rem));
   padding-bottom: clamp(3rem, 7vw, 5rem);
+  /* LCP element of this page. WebP saves 43% here (345 KB -> 195 KB), so the
+     preload in contact.html points at the .webp too - preloading the .jpg while
+     CSS fetched the .webp would download both. */
   background: url("../img/contact-hero.jpg") center/cover no-repeat;
+  background-image: image-set(url("../img/contact-hero.webp") type("image/webp"),
+                              url("../img/contact-hero.jpg") type("image/jpeg"));
   color: #fff;
 }
 .contact-hero__overlay {

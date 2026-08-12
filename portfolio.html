@@ -44,7 +44,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/style.css?v=11" />
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -126,7 +126,10 @@
   <header class="site-header" id="top" data-header>
     <div class="container site-header__inner">
       <a class="brand" href="/" aria-label="MarketingPro home">
-        <img src="assets/img/logo.png" alt="MarketingPro" class="brand__logo" width="375" height="77" />
+        <picture>
+          <source srcset="assets/img/logo.webp" type="image/webp" />
+          <img src="assets/img/logo.png" alt="MarketingPro" class="brand__logo" width="375" height="77" />
+        </picture>
       </a>
       <nav class="nav" aria-label="Primary">
         <button class="nav__toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu" data-nav-toggle>
@@ -172,22 +175,52 @@
 
         <div class="gallery" data-gallery>
           <div class="gallery__row gallery__row--3 reveal" data-reveal>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img fetchpriority="high" src="assets/img/port-1.jpg" height="585" width="375" alt="A person walking through a bright whitewashed Cycladic alley" decoding="async" /></button>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-2.jpg" height="585" width="375" alt="Two people watching the sunset under a straw umbrella" loading="lazy" decoding="async" /></button>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-3.jpg" height="585" width="375" alt="A whitewashed tower with a carved doorway and wooden stairs" loading="lazy" decoding="async" /></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-1.webp" type="image/webp" />
+  <img fetchpriority="high" src="assets/img/port-1.jpg" height="585" width="375" alt="A person walking through a bright whitewashed Cycladic alley" decoding="async" />
+</picture></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-2.webp" type="image/webp" />
+  <img src="assets/img/port-2.jpg" height="585" width="375" alt="Two people watching the sunset under a straw umbrella" loading="lazy" decoding="async" />
+</picture></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-3.webp" type="image/webp" />
+  <img src="assets/img/port-3.jpg" height="585" width="375" alt="A whitewashed tower with a carved doorway and wooden stairs" loading="lazy" decoding="async" />
+</picture></button>
           </div>
 
           <div class="gallery__row gallery__row--4 reveal" data-reveal>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-4.jpg" height="1590" width="984" alt="Pink bougainvillea against a white wall" loading="lazy" decoding="async" /></button>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-5.jpg" height="473" width="375" alt="A vintage film camera resting on open books" loading="lazy" decoding="async" /></button>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-6.jpg" height="1515" width="1080" alt="A grey cat peeking over a stone wall" loading="lazy" decoding="async" /></button>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-7.jpg" height="1590" width="984" alt="A refreshing watermelon and lime drink" loading="lazy" decoding="async" /></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-4.webp" type="image/webp" />
+  <img src="assets/img/port-4.jpg" height="1590" width="984" alt="Pink bougainvillea against a white wall" loading="lazy" decoding="async" />
+</picture></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-5.webp" type="image/webp" />
+  <img src="assets/img/port-5.jpg" height="473" width="375" alt="A vintage film camera resting on open books" loading="lazy" decoding="async" />
+</picture></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-6.webp" type="image/webp" />
+  <img src="assets/img/port-6.jpg" height="1515" width="1080" alt="A grey cat peeking over a stone wall" loading="lazy" decoding="async" />
+</picture></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-7.webp" type="image/webp" />
+  <img src="assets/img/port-7.jpg" height="1590" width="984" alt="A refreshing watermelon and lime drink" loading="lazy" decoding="async" />
+</picture></button>
           </div>
 
           <div class="gallery__row gallery__row--3 reveal" data-reveal>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-1.jpg" height="585" width="375" alt="A person walking through a bright whitewashed Cycladic alley" loading="lazy" decoding="async" /></button>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-2.jpg" height="585" width="375" alt="Two people watching the sunset under a straw umbrella" loading="lazy" decoding="async" /></button>
-            <button class="gallery__item" type="button" aria-label="Enlarge image"><img src="assets/img/port-3.jpg" height="585" width="375" alt="A whitewashed tower with a carved doorway and wooden stairs" loading="lazy" decoding="async" /></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-1.webp" type="image/webp" />
+  <img src="assets/img/port-1.jpg" height="585" width="375" alt="A person walking through a bright whitewashed Cycladic alley" loading="lazy" decoding="async" />
+</picture></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-2.webp" type="image/webp" />
+  <img src="assets/img/port-2.jpg" height="585" width="375" alt="Two people watching the sunset under a straw umbrella" loading="lazy" decoding="async" />
+</picture></button>
+            <button class="gallery__item" type="button" aria-label="Enlarge image"><picture>
+  <source srcset="assets/img/port-3.webp" type="image/webp" />
+  <img src="assets/img/port-3.jpg" height="585" width="375" alt="A whitewashed tower with a carved doorway and wooden stairs" loading="lazy" decoding="async" />
+</picture></button>
           </div>
         </div>
       </div>
@@ -203,7 +236,10 @@
 
         <div class="split__grid feature-row reveal" data-reveal>
           <div class="split__media feature-row__media">
-            <img src="assets/img/port-integrations.jpg" height="713" width="1200" alt="A phone screen showing a 'Creating a Brand' community app" loading="lazy" decoding="async" />
+            <picture>
+              <source srcset="assets/img/port-integrations.webp" type="image/webp" />
+              <img src="assets/img/port-integrations.jpg" height="713" width="1200" alt="A phone screen showing a 'Creating a Brand' community app" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="split__text">
             <h3 class="feature-row__title">Seamless Integrations</h3>
@@ -213,7 +249,10 @@
 
         <div class="split__grid feature-row reveal" data-reveal>
           <div class="split__media feature-row__media">
-            <img src="assets/img/port-success.jpg" height="713" width="1200" alt="A dancer leaping against a vivid sunset sky" loading="lazy" decoding="async" />
+            <picture>
+              <source srcset="assets/img/port-success.webp" type="image/webp" />
+              <img src="assets/img/port-success.jpg" height="713" width="1200" alt="A dancer leaping against a vivid sunset sky" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="split__text">
             <h3 class="feature-row__title">Client Success</h3>
@@ -259,7 +298,10 @@
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="footer-col footer-col--brand">
-        <img src="assets/img/logo.png" alt="MarketingPro" class="footer__logo" width="375" height="77" loading="lazy" />
+        <picture>
+          <source srcset="assets/img/logo.webp" type="image/webp" />
+          <img src="assets/img/logo.png" alt="MarketingPro" class="footer__logo" width="375" height="77" loading="lazy" />
+        </picture>
         <a class="btn btn--whatsapp" href="https://wa.me/355694702405" target="_blank" rel="noopener">Whatsapp</a>
       </div>
       <div class="footer-col">
