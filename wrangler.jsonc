@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "essi",
+  "compatibility_date": "2026-07-23",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+
+    // Made explicit rather than left to default. This single setting is what
+    // turns /services into services.html and /it/services into
+    // it/services.html, so it is the most load-bearing routing assumption on
+    // the site: every internal link in all 64 pages is extensionless, and none
+    // of them would resolve under "none". It was previously implicit, which
+    // meant a Wrangler default change could have broken every URL silently.
+    "html_handling": "auto-trailing-slash",
+
+    // Left as the default "none" deliberately. Setting "404-page" requires a
+    // 404.html at the assets root, which does not exist yet; adding one is
+    // tracked separately so the config never points at a missing file.
+    "not_found_handling": "none"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
