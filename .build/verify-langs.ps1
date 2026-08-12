@@ -291,7 +291,7 @@ $stock = @('Skip to content', 'Frequently Asked Questions', 'All rights reserved
            'Receive our newsletter', 'Read more', 'Keep Reading', 'Back to Blog')
 $scanned = 0
 foreach ($lang in @('es', 'sq')) {
-  foreach ($slug in @($status.$lang)) {
+  foreach ($slug in @($status.translated.$lang)) {
     $rel = Get-PagePath $slug $lang
     if (-not $docs.ContainsKey($rel)) { Add-Failure "translation-status lists a missing page: $rel"; continue }
     $scanned++
@@ -305,6 +305,47 @@ if ($scanned -eq 0) {
 } else {
   Write-Ok "$scanned translated pages scanned"
 }
+
+# -----------------------------------------------------------------------------
+Start-Check 'Blog index headlines match the article H1 they point at'
+# One page-per-agent translation makes cross-page drift the likely failure, and a
+# blog index advertising a different title from the article it links to is the
+# most visible form of it. Matched by the BlogPosting's own url, not by array
+# order, so a reordered index cannot produce a false pass.
+function Get-PlainText([string]$fragment) {
+  $t = [regex]::Replace($fragment, '<[^>]+>', '')
+  $t = [System.Net.WebUtility]::HtmlDecode($t)
+  return ([regex]::Replace($t, '\s+', ' ')).Trim()
+}
+$checkedTitles = 0
+foreach ($lang in $LANGS.Keys) {
+  $idxRel = Get-PagePath 'blog' $lang
+  if (-not $docs.ContainsKey($idxRel)) { continue }
+  $idxHtml = $docs[$idxRel].Html
+
+  foreach ($m in [regex]::Matches($idxHtml,
+      '"@type":\s*"BlogPosting",\s*"headline":\s*"([^"]+)",\s*"url":\s*"([^"]+)"')) {
+    $headline = [System.Net.WebUtility]::HtmlDecode($m.Groups[1].Value)
+    $target   = Convert-UrlToPath $m.Groups[2].Value
+    if (-not $target -or -not $docs.ContainsKey($target)) {
+      Add-Failure "$idxRel : BlogPosting url has no page ($($m.Groups[2].Value))"
+      continue
+    }
+    # Only meaningful once BOTH pages are translated: a finished index legitimately
+    # points at articles still carrying English placeholder copy mid-project.
+    if (-not (Test-PageTranslated $docs[$target].Slug $docs[$target].Lang)) { continue }
+    if (-not (Test-PageTranslated 'blog' $lang)) { continue }
+
+    $h1m = [regex]::Match($docs[$target].Html, '(?s)<h1[^>]*>(.*?)</h1>')
+    if (-not $h1m.Success) { Add-Failure "$target : no <h1>"; continue }
+    $h1 = Get-PlainText $h1m.Groups[1].Value
+    $checkedTitles++
+    if ($h1 -ne $headline) {
+      Add-Failure "$idxRel advertises '$headline' but $target has H1 '$h1'"
+    }
+  }
+}
+Write-Ok "$checkedTitles blog titles agree with the articles they link to"
 
 # -----------------------------------------------------------------------------
 Start-Check 'Encoding: UTF-8, no BOM, no mojibake, no diacritic entities'

@@ -174,11 +174,22 @@ $JS_VERSION  = 13
 # translation-status.json, which sessions 2-5 fill in page by page.
 $STATUS = Get-Content (Join-Path $PSScriptRoot 'translation-status.json') -Raw | ConvertFrom-Json
 
-function Test-PageLive([string]$slug, [string]$lang) {
+# Translated: the copy is finished. Turns ON the quality checks.
+# Live:       the tree is published. Turns OFF noindex, and puts the page into
+#             sitemap.xml, the hreflang sets and the language switcher.
+# These are different facts. A finished translation waiting on a native
+# proofread is translated but not live, and that is the normal state here.
+function Test-PageTranslated([string]$slug, [string]$lang) {
   if ($lang -eq 'en' -or $lang -eq 'it') { return $true }
-  $done = $STATUS.$lang
+  $done = $STATUS.translated.$lang
   if (-not $done) { return $false }
   return ([string[]]$done -contains $slug)
+}
+
+function Test-PageLive([string]$slug, [string]$lang) {
+  if ($lang -eq 'en' -or $lang -eq 'it') { return $true }
+  if (([string[]]$STATUS.live) -notcontains $lang) { return $false }
+  return (Test-PageTranslated $slug $lang)
 }
 
 # Languages whose version of this page is live, in table order.
