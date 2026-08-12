@@ -60,6 +60,18 @@ cannot be got wrong. Pass `-Trees` only when you have a reason, and then know wh
   run it from here. Landing only part of a tree will start flagging `translation_gap` on
   the rest, which is correct behaviour, not a bug.
 
+## Verified end to end, 2026-08-12
+
+The cut-over was simulated in full (`live: ["es","sq"]`, regenerate, gate) and reverted.
+It produced a clean gate at 64 live pages, 64 sitemap urls, 320 alternates, and a working
+four-language switcher that round-trips EN to IT to ES to SQ and back while staying on
+the same page. Clean URLs were served locally with `.build/serve.py`, which mimics
+Cloudflare's `html_handling`, and all four trees resolved with the right `<html lang>` and
+translated titles; a genuinely missing path returned 404 rather than falling back.
+
+So the procedure below is known to work. What is not yet done is the native proofread.
+
+
 ## Deploy
 
 Routing needs no change: `wrangler.jsonc` serves the repo with
