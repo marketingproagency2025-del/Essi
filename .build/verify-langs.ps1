@@ -29,6 +29,33 @@ function Add-Failure([string]$msg) {
 }
 function Write-Ok([string]$msg) { Write-Host "     ok    $msg" -ForegroundColor DarkGray }
 
+# Real pixel dimensions for every image under assets/, keyed by repo-relative
+# path. Produced by .build/imgsize.py, which uses Pillow.
+#
+# An earlier version parsed PNG IHDR and JPEG SOF markers in PowerShell and was
+# simply wrong - logo.png came back 119x77 against a real 375x77, and the
+# article heroes 176x208 against 1200x720. Shelling out to the thing that gets
+# it right beats debugging byte-walking in a shell language, and it still
+# re-derives from the files rather than trusting a checked-in manifest.
+$script:ImgDims = @{}
+$dimOut = & python (Join-Path $PSScriptRoot 'imgsize.py') 2>&1
+if ($LASTEXITCODE -ne 0) {
+  Write-Host "     WARN  could not read image dimensions: $dimOut" -ForegroundColor Yellow
+} else {
+  foreach ($line in $dimOut) {
+    $parts = "$line" -split "`t"
+    if ($parts.Count -eq 3) {
+      $script:ImgDims[$parts[0]] = @{ W = [int]$parts[1]; H = [int]$parts[2] }
+    }
+  }
+}
+
+function Get-ImageSize([string]$repoRelative) {
+  $key = $repoRelative -replace '\\', '/'
+  if ($script:ImgDims.ContainsKey($key)) { return $script:ImgDims[$key] }
+  return $null
+}
+
 # Map an absolute site URL back to the file that serves it.
 function Convert-UrlToPath([string]$url) {
   if (-not $url.StartsWith($SITE)) { return $null }
@@ -364,6 +391,97 @@ foreach ($p in $docs.Values) {
   }
 }
 Write-Ok "$checkedSections article:section values agree with their JSON-LD"
+
+# -----------------------------------------------------------------------------
+Start-Check 'Titles fit the SERP and descriptions fit the snippet'
+# Applied to ALL FOUR trees, not just English. Translating from an over-length
+# English source is exactly how Spanish and Albanian ended up with 16/16
+# over-length descriptions while English read fine.
+$TITLE_MAX = 60
+$DESC_MIN  = 120
+$DESC_MAX  = 155
+$longestTitle = 0
+foreach ($p in $docs.Values) {
+  $tm = [regex]::Match($p.Html, '(?s)<title>(.*?)</title>')
+  if (-not $tm.Success) { Add-Failure "$($p.Rel): no <title>"; continue }
+  $title = [System.Net.WebUtility]::HtmlDecode($tm.Groups[1].Value).Trim()
+  if ($title.Length -gt $TITLE_MAX) {
+    Add-Failure "$($p.Rel): title is $($title.Length) chars, max $TITLE_MAX"
+  }
+  if ($title.Length -gt $longestTitle) { $longestTitle = $title.Length }
+
+  $dm = [regex]::Match($p.Html, '<meta name="description" content="([^"]*)"')
+  if (-not $dm.Success) { Add-Failure "$($p.Rel): no meta description"; continue }
+  $desc = [System.Net.WebUtility]::HtmlDecode($dm.Groups[1].Value).Trim()
+  if ($desc.Length -lt $DESC_MIN -or $desc.Length -gt $DESC_MAX) {
+    Add-Failure "$($p.Rel): description is $($desc.Length) chars, want $DESC_MIN-$DESC_MAX"
+  }
+}
+Write-Ok "$($docs.Count) pages, longest title $longestTitle chars"
+
+# -----------------------------------------------------------------------------
+Start-Check 'Every <img> declares its real dimensions'
+# Missing width/height is CLS exposure. Declaring the WRONG ones is worse: the
+# browser reserves a box of the wrong shape and may be told to upscale, which is
+# what 44 blog heroes were doing with width="1200" height="500" against
+# 1080x1258 portrait sources.
+$imgRx  = [regex]'<img\b[^>]*>'
+$attrRx = [regex]'(\w+)="([^"]*)"'
+$imgTotal = 0; $imgBad = @{}
+foreach ($p in $docs.Values) {
+  $baseDir = Split-Path -Parent $p.Full
+  foreach ($m in $imgRx.Matches($p.Html)) {
+    $tag = $m.Value
+    $a = @{}
+    foreach ($am in $attrRx.Matches($tag)) { $a[$am.Groups[1].Value] = $am.Groups[2].Value }
+    # the lightbox placeholder has no src by design; main.js fills it
+    if (-not $a.ContainsKey('src') -or $a['src'] -eq '') { continue }
+    $imgTotal++
+    if (-not $a.ContainsKey('width') -or -not $a.ContainsKey('height')) {
+      $imgBad["$($p.Rel) -> $($a['src']) : no width/height"] = $true
+      continue
+    }
+    $srcPath = ($a['src'] -split '[#?]')[0]
+    if ($srcPath -match '^(https?:|//|data:)') { continue }
+    # resolve the page-relative src back to a repo-relative key
+    $full = [System.IO.Path]::GetFullPath((Join-Path $baseDir $srcPath))
+    $rel  = $full.Substring($root.Length).TrimStart('\', '/')
+    $size = Get-ImageSize $rel
+    if ($null -eq $size) { continue }   # not an image Pillow could read
+    if ([int]$a['width'] -ne $size.W -or [int]$a['height'] -ne $size.H) {
+      $imgBad["$($p.Rel) -> $srcPath : declares $($a['width'])x$($a['height']), file is $($size.W)x$($size.H)"] = $true
+    }
+  }
+}
+foreach ($k in ($imgBad.Keys | Sort-Object)) { Add-Failure $k }
+Write-Ok "$imgTotal images checked against their own file headers"
+
+# -----------------------------------------------------------------------------
+Start-Check 'No orphan pages: every page has an inbound editorial link'
+# Nav and footer links do not count. A page reachable only from boilerplate is
+# one nothing on the site actually recommends, which is how portfolio.html ended
+# up with 113 words and no reason for anyone to visit it.
+# Strip only the site chrome. NOT every <header>: section__head blocks are
+# ordinary content and carry real editorial links, so stripping them made
+# index.html's link to the portfolio invisible to this check.
+$navRx = [regex]'(?s)<nav\b.*?</nav>|<footer\b.*?</footer>|<header class="site-header".*?</header>'
+$inbound = @{}
+foreach ($p in $docs.Values) { $inbound[$p.Rel] = 0 }
+foreach ($p in $docs.Values) {
+  $editorial = $navRx.Replace($p.Html, '')
+  foreach ($m in [regex]::Matches($editorial, 'href="(/[^"]*)"')) {
+    $target = Convert-UrlToPath "$SITE$($m.Groups[1].Value)"
+    if ($target -and $inbound.ContainsKey($target) -and $target -ne $p.Rel) {
+      $inbound[$target]++
+    }
+  }
+}
+foreach ($rel in ($inbound.Keys | Sort-Object)) {
+  # the tree root is reached from the logo and nav by design, never editorially
+  if ($rel -match '(^|/)index\.html$') { continue }
+  if ($inbound[$rel] -eq 0) { Add-Failure "$rel : orphan, no editorial inbound link" }
+}
+Write-Ok "$($inbound.Count) pages checked for inbound editorial links"
 
 # -----------------------------------------------------------------------------
 Start-Check 'Encoding: UTF-8, no BOM, no mojibake, no diacritic entities'
