@@ -301,9 +301,9 @@ function Set-ChromeStrings([string]$html, [string]$lang) {
   # The two footer headings share a class, so they are matched by position:
   # the contact column comes before the newsletter column in every page.
   $html = [regex]::Replace($html,
-    '(<h4 class="footer__heading">)[^<]*(</h4>\s*<ul class="footer__list">)', "`${1}$($C.contact)`${2}")
+    '(<h2 class="footer__heading">)[^<]*(</h2>\s*<ul class="footer__list">)', "`${1}$($C.contact)`${2}")
   $html = [regex]::Replace($html,
-    '(<h4 class="footer__heading">)[^<]*(</h4>\s*<form class="newsletter")', "`${1}$($C.nlHead)`${2}")
+    '(<h2 class="footer__heading">)[^<]*(</h2>\s*<form class="newsletter")', "`${1}$($C.nlHead)`${2}")
   return $html
 }
 
