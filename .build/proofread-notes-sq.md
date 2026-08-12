@@ -42,6 +42,12 @@ Confirm place names should be localised rather than left in their original spell
 **8. `font`.** Introduced as a loanword, replacing a genuine mistranslation
 (`shkronjë`). Not on the guide's approved list, which is explicitly non-exhaustive.
 
+**9. `articleSection` and `keywords` (RESOLVED, listed for the record).** These were
+left English while the Italian tree localised them. Now localised in Albanian too,
+keeping the approved loanwords (`SEO`, `social media`, `lead`, `funnel`, `render`,
+`brand`, `web design`, `landing page`) in English. Worth a glance to confirm the phrases
+read naturally as topic labels.
+
 ## Individual phrasings to read aloud
 
 | Page | Phrase | Why it is flagged |
@@ -66,6 +72,21 @@ Confirm place names should be localised rather than left in their original spell
 | blog-seo | `Fjala kyçe këtu është *fitoj*` | 1sg citation form, the dictionary convention. In running prose `fitohet` or `ta fitosh` may read better. |
 | blog-seo | `sepse aty ndodhin shumica e kërkimeve` | Plural agreement with `shumica`. Common usage; a prescriptivist wants singular `ndodh`. |
 | blog-sales-funnel | `vë firmën në një kontratë` | Confirm the collocation. `firmos kontratën` and `nënshkruan kontratën` are alternatives, and the meta description on the same page already uses `nënshkruan kontratën`. |
+| blog-photo-video | `foto me kokrra` for "grainy" | Appears three times: prose plus both FAQ copies. Possibly calque-y; `me kokrriza` or `me zhurmë` are alternatives. Changing it means editing the JSON-LD answer and the `<details>` answer together so they stay identical. |
+| blog-photo-video | `Psikologët e quajnë efekt halo` | A native may prefer `efekti i halos`, or a short gloss. |
+| blog-photo-video | `një zë i keq duket më i lirë se një pamje e keqe` | Uses `duket` (looks/seems) of sound. Acceptable, but worth an ear. |
+| blog-photo-video | `një sy i qëndrueshëm` for "a consistent eye" | Serviceable, may read mechanical. |
+| blog-renders | `mbi projekt` for "off-plan" | Albanian real-estate copy more often says `në projekt`. Appears in the bullet list and in FAQ 3, so it must change in both to keep the FAQ pair in sync. |
+| blog-renders | `finiturat` for "finishes" | An Italian loan current in Albanian construction jargon. Fine for a builder-facing page, possibly too technical for general marketing prose. Alternatives: `veshjet`, `përfundimet`. |
+| blog-renders | H2 `I Kapin Gabimet para se t'ju Kushtojnë` | Opens with an object clitic. Grammatical (standard clitic doubling) but unusual as a heading; confirm it does not read truncated. |
+| blog-catalogues | `finiturë` for a print finish | Italianate trade term. Confirm it beats `përpunim` for an Albanian business audience. |
+| blog-catalogues | `arnë shabllonesh`, `pushon së qeni dokument reference` | Two idioms carried over from the first pass; both want a native check. |
+| article-1 | `një buxhet marketingu plot aktivitet` | For "a busy marketing budget". Sense is right; a native may have a better idiom. |
+| article-1 | `dhe, gjithnjë, pjesa që…` | Renders an English aside. Correct, but the parenthetical rhythm may read flatter in Albanian. |
+| article-1 | `Fija që lidh gjithçka që bëjmë` | Confirm the "thread" metaphor carries in Albanian business prose. |
+| article-1 | H1 ends `rritje, kreativitet dhe strategji së bashku` | Changed from a participle for safety. Confirm it still lands as a headline, not a fragment. |
+| article-2 | `punë të rezervuar` for "booked work" | Slightly literal. `punë konkrete` or `porosi` are alternatives. |
+| article-2 | `shfaqjet` for advertising "impressions" | Confirm Albanian marketers use this rather than keeping `impressions` as a loanword. |
 
 ## Not defects, so do not "fix" them
 

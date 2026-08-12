@@ -255,6 +255,26 @@ $CHROME = @{
           rights = 'Të gjitha të drejtat e rezervuara.' }
 }
 
+# The footer nav repeats the header's six links. It survived four translation
+# passes intact, but it was the last piece of chrome still hand-carried, so it
+# is generated too. Same label table as the header, so the two can never
+# disagree about what a page is called.
+function Set-FooterNav([string]$html, [string]$lang) {
+  $L = $LANGS[$lang]
+  $lines = @("    <nav class=""footer__nav"" aria-label=""$($L.footAria)"">")
+  foreach ($key in @('home', 'services', 'portfolio', 'blog', 'about', 'contact')) {
+    $slugFor = if ($key -eq 'home') { 'index' } else { $key }
+    $href = Get-PageUrl $slugFor $lang
+    $lines += "      <a href=""$href"">$($L.nav[$key])</a>"
+  }
+  $lines += '    </nav>'
+  $new = ($lines -join "`n")
+
+  $m = [regex]::Match($html, '(?s)    <nav class="footer__nav".*?\n    </nav>')
+  if (-not $m.Success) { throw "footer__nav block not found ($lang)" }
+  return $html.Replace($m.Value, $new)
+}
+
 function Set-ChromeStrings([string]$html, [string]$lang) {
   $C = $CHROME[$lang]
   $map = @(

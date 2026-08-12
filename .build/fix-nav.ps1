@@ -40,6 +40,7 @@ foreach ($lang in $Trees) {
     $new  = Set-NavBlock       $html $slug $lang
     $new  = Set-LandmarkLabels $new  $lang
     $new  = Set-ChromeStrings   $new  $lang
+    $new  = Set-FooterNav       $new  $lang
 
     if ($new -eq $html) {
       $same++
