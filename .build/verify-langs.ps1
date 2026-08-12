@@ -84,7 +84,7 @@ foreach ($lang in $LANGS.Keys) {
 $status = Get-Content (Join-Path $PSScriptRoot 'translation-status.json') -Raw | ConvertFrom-Json
 
 # -----------------------------------------------------------------------------
-Start-Check 'Parity: 16 slugs x 4 trees, no orphans'
+Start-Check "Parity: $($PAGES.Count) slugs x $($LANGS.Count) trees, no orphans"
 $expected = @()
 foreach ($lang in $LANGS.Keys) { foreach ($slug in $PAGES) { $expected += (Get-PagePath $slug $lang) } }
 foreach ($rel in $expected) {
