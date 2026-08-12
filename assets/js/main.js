@@ -76,6 +76,33 @@
 
   var t = STRINGS[lang] || STRINGS.en;
 
+  /* ---------- Hero video, loaded only when it is wanted ----------
+     The markup ships no <source>, so the 3.7 MB file is never fetched by
+     default. It used to autoplay and loop for everyone, including visitors who
+     had asked their OS for reduced motion: a WCAG 2.2.2 problem, not merely a
+     weight one, since nothing on the page could pause it. It was also the
+     single heaviest object on a phone.
+
+     Attaching the source here means reduced-motion and small-screen visitors
+     pay nothing at all. They still see the poster, which is preloaded anyway
+     and is the LCP element. */
+  (function () {
+    var hero = document.querySelector("[data-hero-video]");
+    if (!hero) return;
+    var wide = window.matchMedia("(min-width: 861px)").matches;
+    if (reduceMotion || !wide) return;
+
+    var source = document.createElement("source");
+    source.src = hero.getAttribute("data-hero-video");
+    source.type = "video/mp4";
+    hero.appendChild(source);
+    hero.load();
+    var started = hero.play();
+    // Autoplay can still be refused (battery saver, data saver). The poster
+    // stays visible, so a rejection needs no handling beyond not throwing.
+    if (started && started.catch) { started.catch(function () {}); }
+  })();
+
   /* ---------- Sticky header state on scroll ---------- */
   var header = document.querySelector("[data-header]");
   if (header) {
