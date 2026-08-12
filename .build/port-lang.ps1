@@ -94,7 +94,7 @@ function Convert-Page([string]$html, [string]$slug, [string]$lang) {
   #        one directory deep. href, src and poster are the only attributes in
   #        this codebase that carry a relative asset path (there is no srcset).
   $ap = Get-AssetPrefix $lang
-  $html = [regex]::Replace($html, '(?<=\b(?:href|src|poster|data-hero-video)=")(assets/)', "$ap`$1")
+  $html = [regex]::Replace($html, '(?<=\b(?:href|src|poster|data-hero-video|srcset)=")(assets/)', "$ap`$1")
   $html = [regex]::Replace($html, '(?<=\b(?:href)=")(site\.webmanifest)', "$ap`$1")
 
   # --- 6. document language

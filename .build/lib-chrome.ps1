@@ -14,7 +14,12 @@ $PAGES = @(
   'index', 'services', 'portfolio', 'about', 'contact', 'blog',
   'blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo',
   'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues',
-  'article-1', 'article-2'
+  'article-1', 'article-2',
+  # Commercial landing pages, one per service. Flat slugs on purpose: nesting
+  # under services/ would make /services ambiguous between services.html and
+  # services/index.html under Cloudflare's auto-trailing-slash.
+  'services-social-media', 'services-advertising', 'services-website', 'services-seo',
+  'services-sales-funnel', 'services-photo-video', 'services-renders', 'services-catalogues'
 )
 
 # Sitemap priority per page, carried over verbatim from the sitemap that
@@ -27,6 +32,11 @@ $PRIORITY = @{
   'blog-seo' = '0.7'; 'blog-sales-funnel' = '0.7'; 'blog-photo-video' = '0.7'
   'blog-renders' = '0.7'; 'blog-catalogues' = '0.7'
   'article-1' = '0.5'; 'article-2' = '0.5'
+  # 0.8: commercial intent, so above the 0.7 guides and below the 0.9 hub.
+  'services-social-media' = '0.8'; 'services-advertising' = '0.8'
+  'services-website' = '0.8';      'services-seo' = '0.8'
+  'services-sales-funnel' = '0.8'; 'services-photo-video' = '0.8'
+  'services-renders' = '0.8';      'services-catalogues' = '0.8'
 }
 
 # dir    - subdirectory under the repo root ('' for the English tree at root)
@@ -81,7 +91,7 @@ $LANGS = [ordered]@{
 function Get-ActiveNav([string]$slug) {
   switch -Regex ($slug) {
     '^index$'                  { return 'home' }
-    '^(services|article-\d+)$' { return 'services' }
+    '^(services|article-\d+)'  { return 'services' }   # also services-seo etc.
     '^portfolio$'              { return 'portfolio' }
     '^about$'                  { return 'about' }
     '^contact$'                { return 'contact' }
