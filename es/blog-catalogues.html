@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-catalog-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-catalog-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/es/blog-catalogues#webpage",
         "url": "https://www.marketingpro-agency.com/es/blog-catalogues",
         "name": "Catálogos que venden: de lista de productos a experiencia visual",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-catalog-1.jpg",
         "inLanguage": "es",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/es/blog-catalogues#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-catalogues#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/es/blog-catalogues#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.marketingpro-agency.com/es/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/es/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Catálogos que venden: de lista de productos a experiencia visual" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.marketingpro-agency.com/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/es/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Catálogos"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-catalog-1.jpg",
         "datePublished": "2026-05-12",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/es/blog-catalogues#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-catalogues#webpage"
+        },
         "inLanguage": "es",
         "articleSection": "Catálogos",
-        "keywords": ["diseño de catálogos", "catálogo de productos", "diseño de marca"],
-        "about": { "@id": "https://www.marketingpro-agency.com/es/services#service-catalogues" }
+        "keywords": [
+          "diseño de catálogos",
+          "catálogo de productos",
+          "diseño de marca"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/es/services#service-catalogues"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/es/blog-catalogues#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "¿Qué hace que un catálogo venda de verdad?", "acceptedAnswer": { "@type": "Answer", "text": "Tratarlo como algo más que una lista de productos: ordenarlo como una historia, diseñarlo para que dé gusto tenerlo en la mano, usar una fotografía potente y coherente, y guiar al lector hacia una forma fácil de pedir o consultar." } },
-          { "@type": "Question", "name": "¿Mi catálogo debería ser impreso o digital?", "acceptedAnswer": { "@type": "Answer", "text": "Para la mayoría de los negocios, ambos. El impreso es táctil y se queda sobre el escritorio, mientras que un catálogo digital o un PDF vive en tu sitio web, se envía por correo en segundos y puede enlazar directamente con tu checkout. El mismo diseño puede funcionar en los dos formatos." } },
-          { "@type": "Question", "name": "¿Y si mis productos no están fotografiados o todavía no existen?", "acceptedAnswer": { "@type": "Answer", "text": "Los renders fotorrealistas presentan los artículos con la luz y el entorno perfectos antes de que exista una sola muestra, así que un catálogo puede verse completo y coherente aunque algunos productos no se puedan fotografiar." } }
+          {
+            "@type": "Question",
+            "name": "¿Qué hace que un catálogo venda de verdad?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tratarlo como algo más que una lista de productos: ordenarlo como una historia, diseñarlo para que dé gusto tenerlo en la mano, usar una fotografía potente y coherente, y guiar al lector hacia una forma fácil de pedir o consultar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Mi catálogo debería ser impreso o digital?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para la mayoría de los negocios, ambos. El impreso es táctil y se queda sobre el escritorio, mientras que un catálogo digital o un PDF vive en tu sitio web, se envía por correo en segundos y puede enlazar directamente con tu checkout. El mismo diseño puede funcionar en los dos formatos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Y si mis productos no están fotografiados o todavía no existen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los renders fotorrealistas presentan los artículos con la luz y el entorno perfectos antes de que exista una sola muestra, así que un catálogo puede verse completo y coherente aunque algunos productos no se puedan fotografiar."
+            }
+          }
         ]
       }
     ]

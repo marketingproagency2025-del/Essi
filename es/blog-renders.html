@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-renders-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-renders-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/es/blog-renders#webpage",
         "url": "https://www.marketingpro-agency.com/es/blog-renders",
         "name": "Renders fotorrealistas: vende el proyecto antes de construirlo",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-renders-1.jpg",
         "inLanguage": "es",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/es/blog-renders#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-renders#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/es/blog-renders#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.marketingpro-agency.com/es/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/es/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Renders fotorrealistas: vende el proyecto antes de construirlo" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.marketingpro-agency.com/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/es/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Renders"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-renders-1.jpg",
         "datePublished": "2026-05-19",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/es/blog-renders#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-renders#webpage"
+        },
         "inLanguage": "es",
         "articleSection": "Renders",
-        "keywords": ["renderizado 3D", "renders fotorrealistas", "visualización arquitectónica"],
-        "about": { "@id": "https://www.marketingpro-agency.com/es/services#service-renders" }
+        "keywords": [
+          "renderizado 3D",
+          "renders fotorrealistas",
+          "visualización arquitectónica"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/es/services#service-renders"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/es/blog-renders#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "¿Qué es un render fotorrealista?", "acceptedAnswer": { "@type": "Answer", "text": "Un render fotorrealista es una imagen generada digitalmente que parece la fotografía real de algo que todavía no se ha construido ni fabricado, como un edificio, una habitación o un producto, de modo que el cliente puede ver el resultado final antes de comprometerse." } },
-          { "@type": "Question", "name": "¿Cómo me ayudan los renders a vender?", "acceptedAnswer": { "@type": "Answer", "text": "Eliminan la duda. En lugar de pedirle al cliente que imagine el resultado, un render se lo muestra con un nivel de detalle convincente, así que la indecisión se convierte en confianza y las decisiones se toman antes." } },
-          { "@type": "Question", "name": "¿Para qué se pueden usar los renders?", "acceptedAnswer": { "@type": "Answer", "text": "Para vender inmuebles sobre plano, ambientar interiores y mobiliario, presentar productos antes de fabricarlos y conseguir apoyo para un concepto. La misma imagen sirve después como anuncio, imagen principal de un sitio web, pieza estrella de un catálogo o publicación en redes sociales." } }
+          {
+            "@type": "Question",
+            "name": "¿Qué es un render fotorrealista?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un render fotorrealista es una imagen generada digitalmente que parece la fotografía real de algo que todavía no se ha construido ni fabricado, como un edificio, una habitación o un producto, de modo que el cliente puede ver el resultado final antes de comprometerse."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo me ayudan los renders a vender?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Eliminan la duda. En lugar de pedirle al cliente que imagine el resultado, un render se lo muestra con un nivel de detalle convincente, así que la indecisión se convierte en confianza y las decisiones se toman antes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para qué se pueden usar los renders?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para vender inmuebles sobre plano, ambientar interiores y mobiliario, presentar productos antes de fabricarlos y conseguir apoyo para un concepto. La misma imagen sirve después como anuncio, imagen principal de un sitio web, pieza estrella de un catálogo o publicación en redes sociales."
+            }
+          }
         ]
       }
     ]

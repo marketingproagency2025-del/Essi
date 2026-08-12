@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-renders-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-renders-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/sq/blog-renders#webpage",
         "url": "https://www.marketingpro-agency.com/sq/blog-renders",
         "name": "Render-e Fotorealiste: Shitni Vizionin para se të Ndërtohet",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-renders-1.jpg",
         "inLanguage": "sq",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/sq/blog-renders#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-renders#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/sq/blog-renders#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Kreu", "item": "https://www.marketingpro-agency.com/sq/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/sq/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Render-e Fotorealiste: Shitni Vizionin para se të Ndërtohet" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Kreu",
+            "item": "https://www.marketingpro-agency.com/sq/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/sq/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Render-e Fotorealiste"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-renders-1.jpg",
         "datePublished": "2026-05-19",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/sq/blog-renders#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-renders#webpage"
+        },
         "inLanguage": "sq",
         "articleSection": "Render",
-        "keywords": ["rendering 3D", "render fotorealiste", "vizualizim arkitektonik"],
-        "about": { "@id": "https://www.marketingpro-agency.com/sq/services#service-renders" }
+        "keywords": [
+          "rendering 3D",
+          "render fotorealiste",
+          "vizualizim arkitektonik"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/sq/services#service-renders"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/sq/blog-renders#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Çfarë është një render fotorealist?", "acceptedAnswer": { "@type": "Answer", "text": "Një render fotorealist është një imazh i krijuar me kompjuter që duket si fotografi e vërtetë e diçkaje që ende nuk është ndërtuar ose prodhuar, si një ndërtesë, një ambient ose një produkt, kështu që klientët e shohin rezultatin përfundimtar para se të angazhohen." } },
-          { "@type": "Question", "name": "Si më ndihmojnë render-et të shes?", "acceptedAnswer": { "@type": "Answer", "text": "Ato e heqin dyshimin. Në vend që t'i kërkoni klientit ta imagjinojë rezultatin, render-i ia tregon me detaje bindëse, kështu që hezitimi kthehet në siguri dhe vendimet merren më shpejt." } },
-          { "@type": "Question", "name": "Për çfarë përdoren render-et?", "acceptedAnswer": { "@type": "Answer", "text": "Për të shitur prona mbi projekt, për të prezantuar ambiente dhe mobilie, për të paraqitur produkte para se të prodhohen dhe për të bindur dikë për një koncept. I njëjti imazh punon edhe më pas si reklamë, si imazh kryesor i një faqeje, si pjesë qendrore e një katalogu ose si postim në social media." } }
+          {
+            "@type": "Question",
+            "name": "Çfarë është një render fotorealist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Një render fotorealist është një imazh i krijuar me kompjuter që duket si fotografi e vërtetë e diçkaje që ende nuk është ndërtuar ose prodhuar, si një ndërtesë, një ambient ose një produkt, kështu që klientët e shohin rezultatin përfundimtar para se të angazhohen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Si më ndihmojnë render-et të shes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ato e heqin dyshimin. Në vend që t'i kërkoni klientit ta imagjinojë rezultatin, render-i ia tregon me detaje bindëse, kështu që hezitimi kthehet në siguri dhe vendimet merren më shpejt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Për çfarë përdoren render-et?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Për të shitur prona mbi projekt, për të prezantuar ambiente dhe mobilie, për të paraqitur produkte para se të prodhohen dhe për të bindur dikë për një koncept. I njëjti imazh punon edhe më pas si reklamë, si imazh kryesor i një faqeje, si pjesë qendrore e një katalogu ose si postim në social media."
+            }
+          }
         ]
       }
     ]

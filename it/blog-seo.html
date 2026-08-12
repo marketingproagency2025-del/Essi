@@ -45,7 +45,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-seo-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-seo-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -75,7 +75,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -85,22 +87,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -108,18 +134,36 @@
         "@id": "https://www.marketingpro-agency.com/it/blog-seo#webpage",
         "url": "https://www.marketingpro-agency.com/it/blog-seo",
         "name": "SEO nel 2026: Scala le Classifiche e Resta in Cima",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-seo-1.jpg",
         "inLanguage": "it",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/it/blog-seo#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/it/blog-seo#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/it/blog-seo#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.marketingpro-agency.com/it/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/it/blog" },
-          { "@type": "ListItem", "position": 3, "name": "SEO nel 2026: Scala le Classifiche e Resta in Cima" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.marketingpro-agency.com/it/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/it/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SEO"
+          }
         ]
       },
       {
@@ -130,21 +174,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-seo-1.jpg",
         "datePublished": "2026-06-09",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/it/blog-seo#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/it/blog-seo#webpage"
+        },
         "inLanguage": "it",
         "articleSection": "SEO",
-        "keywords": ["SEO", "ottimizzazione per i motori di ricerca", "SEO locale"],
-        "about": { "@id": "https://www.marketingpro-agency.com/it/services#service-seo" }
+        "keywords": [
+          "SEO",
+          "ottimizzazione per i motori di ricerca",
+          "SEO locale"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/it/services#service-seo"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/it/blog-seo#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Quanto tempo ci vuole perché la SEO funzioni?", "acceptedAnswer": { "@type": "Answer", "text": "La SEO si comporta più come la forma fisica che come un interruttore. I primi mesi sono lavoro di base, il movimento reale di solito si vede tra il terzo e il sesto mese, e i guadagni più grandi arrivano dopo. Meglio evitare chi promette la prima pagina in quindici giorni." } },
-          { "@type": "Question", "name": "Posso semplicemente pagare per posizionarmi primo su Google?", "acceptedAnswer": { "@type": "Answer", "text": "Puoi pagare per gli annunci, che si fermano nel momento in cui smetti di pagare. I posizionamenti organici si guadagnano con contenuti utili, solide fondamenta tecniche e autorevolezza autentica, ed è questo che continua a portare clienti gratis nel tempo." } },
-          { "@type": "Question", "name": "Cos'è la SEO locale e mi serve?", "acceptedAnswer": { "@type": "Answer", "text": "La SEO locale ti aiuta a comparire quando i clienti vicini cercano, per esempio \"web design a Milano.\" Un profilo Google Business completo, contatti coerenti e recensioni autentiche possono mettere una piccola attività locale davanti ad altre molto più grandi, per le ricerche che avvengono nella tua zona." } }
+          {
+            "@type": "Question",
+            "name": "Quanto tempo ci vuole perché la SEO funzioni?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La SEO si comporta più come la forma fisica che come un interruttore. I primi mesi sono lavoro di base, il movimento reale di solito si vede tra il terzo e il sesto mese, e i guadagni più grandi arrivano dopo. Meglio evitare chi promette la prima pagina in quindici giorni."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso semplicemente pagare per posizionarmi primo su Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puoi pagare per gli annunci, che si fermano nel momento in cui smetti di pagare. I posizionamenti organici si guadagnano con contenuti utili, solide fondamenta tecniche e autorevolezza autentica, ed è questo che continua a portare clienti gratis nel tempo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Cos'è la SEO locale e mi serve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La SEO locale ti aiuta a comparire quando i clienti vicini cercano, per esempio \"web design a Milano.\" Un profilo Google Business completo, contatti coerenti e recensioni autentiche possono mettere una piccola attività locale davanti ad altre molto più grandi, per le ricerche che avvengono nella tua zona."
+            }
+          }
         ]
       }
     ]

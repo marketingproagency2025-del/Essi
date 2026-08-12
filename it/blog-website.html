@@ -45,7 +45,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-web-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-web-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -75,7 +75,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -85,22 +87,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -108,18 +134,36 @@
         "@id": "https://www.marketingpro-agency.com/it/blog-website#webpage",
         "url": "https://www.marketingpro-agency.com/it/blog-website",
         "name": "Il Tuo Sito Web è il Tuo Venditore più Instancabile",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-web-1.jpg",
         "inLanguage": "it",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/it/blog-website#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/it/blog-website#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/it/blog-website#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.marketingpro-agency.com/it/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/it/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Il Tuo Sito Web è il Tuo Venditore più Instancabile" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.marketingpro-agency.com/it/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/it/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Creazione Sito Web"
+          }
         ]
       },
       {
@@ -130,21 +174,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-web-1.jpg",
         "datePublished": "2026-06-16",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/it/blog-website#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/it/blog-website#webpage"
+        },
         "inLanguage": "it",
         "articleSection": "Web Design",
-        "keywords": ["web design", "conversione sito web", "landing page"],
-        "about": { "@id": "https://www.marketingpro-agency.com/it/services#service-website" }
+        "keywords": [
+          "web design",
+          "conversione sito web",
+          "landing page"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/it/services#service-website"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/it/blog-website#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Cosa rende un sito capace di trasformare i visitatori in clienti?", "acceptedAnswer": { "@type": "Answer", "text": "Chiarezza e un passo successivo chiaro. Un sito che converte dice cosa fai, per chi è e cosa fare dopo in pochi secondi, si carica in fretta, funziona su mobile e dà a ogni pagina un'unica azione evidente, come prenotare una chiamata o chiedere un preventivo." } },
-          { "@type": "Question", "name": "Quanto velocemente dovrebbe caricarsi il mio sito?", "acceptedAnswer": { "@type": "Answer", "text": "Il più in fretta possibile. Un ritardo di pochi secondi rimanda una buona fetta di visitatori su Google, quindi comprimiamo le immagini, teniamo il codice leggero e progettiamo prima per il mobile, così le pagine compaiono prima che finisca la pazienza." } },
-          { "@type": "Question", "name": "Mi serve un sito nuovo o bastano delle modifiche a quello attuale?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dalle fondamenta. Se struttura, velocità e contenuti sono solidi, spesso bastano miglioramenti mirati; se il sito ti ostacola a ogni passo, una ricostruzione su fondamenta pulite e adatte alla ricerca di solito ripaga più in fretta." } }
+          {
+            "@type": "Question",
+            "name": "Cosa rende un sito capace di trasformare i visitatori in clienti?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chiarezza e un passo successivo chiaro. Un sito che converte dice cosa fai, per chi è e cosa fare dopo in pochi secondi, si carica in fretta, funziona su mobile e dà a ogni pagina un'unica azione evidente, come prenotare una chiamata o chiedere un preventivo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto velocemente dovrebbe caricarsi il mio sito?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il più in fretta possibile. Un ritardo di pochi secondi rimanda una buona fetta di visitatori su Google, quindi comprimiamo le immagini, teniamo il codice leggero e progettiamo prima per il mobile, così le pagine compaiono prima che finisca la pazienza."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mi serve un sito nuovo o bastano delle modifiche a quello attuale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dipende dalle fondamenta. Se struttura, velocità e contenuti sono solidi, spesso bastano miglioramenti mirati; se il sito ti ostacola a ogni passo, una ricostruzione su fondamenta pulite e adatte alla ricerca di solito ripaga più in fretta."
+            }
+          }
         ]
       }
     ]

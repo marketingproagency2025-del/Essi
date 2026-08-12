@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/article-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/article-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/es/article-1#webpage",
         "url": "https://www.marketingpro-agency.com/es/article-1",
         "name": "Transforma tu marca con MarketingPro: crecimiento, creatividad y estrategia unidos",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/article-1.jpg",
         "inLanguage": "es",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/es/article-1#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/es/article-1#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/es/article-1#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.marketingpro-agency.com/es/" },
-          { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.marketingpro-agency.com/es/services" },
-          { "@type": "ListItem", "position": 3, "name": "Transforma tu marca: crecimiento, creatividad y estrategia unidos" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.marketingpro-agency.com/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Servicios",
+            "item": "https://www.marketingpro-agency.com/es/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Transforma tu marca"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/article-1.jpg",
         "datePublished": "2026-05-05",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/es/article-1#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/es/article-1#webpage"
+        },
         "inLanguage": "es",
         "articleSection": "Marketing",
-        "keywords": ["marketing de marca", "estrategia de marketing", "agencia integral"],
-        "about": { "@id": "https://www.marketingpro-agency.com/#organization" }
+        "keywords": [
+          "marketing de marca",
+          "estrategia de marketing",
+          "agencia integral"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/es/article-1#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "¿Qué significa de verdad el marketing integral?", "acceptedAnswer": { "@type": "Answer", "text": "Significa que tus anuncios, tus redes sociales, tu sitio web, el SEO, el embudo de ventas y las imágenes se planifican y se gestionan como un único sistema conectado, y no como tácticas sueltas que no se refuerzan entre sí, de modo que cada parte hace que las demás rindan más." } },
-          { "@type": "Question", "name": "¿Necesito creatividad o estrategia?", "acceptedAnswer": { "@type": "Answer", "text": "Las dos. La estrategia decide qué decir y a quién, mientras que la creatividad hace que la gente se detenga y preste atención. La una sin la otra suele rendir menos." } },
-          { "@type": "Question", "name": "¿Cómo convierte MarketingPro la atención en clientes?", "acceptedAnswer": { "@type": "Answer", "text": "Generamos los leads en todos los canales y después los llamamos y los calificamos nosotros, para que tu equipo comercial solo dedique tiempo a personas listas para comprar o pedir un presupuesto." } }
+          {
+            "@type": "Question",
+            "name": "¿Qué significa de verdad el marketing integral?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Significa que tus anuncios, tus redes sociales, tu sitio web, el SEO, el embudo de ventas y las imágenes se planifican y se gestionan como un único sistema conectado, y no como tácticas sueltas que no se refuerzan entre sí, de modo que cada parte hace que las demás rindan más."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito creatividad o estrategia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Las dos. La estrategia decide qué decir y a quién, mientras que la creatividad hace que la gente se detenga y preste atención. La una sin la otra suele rendir menos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo convierte MarketingPro la atención en clientes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generamos los leads en todos los canales y después los llamamos y los calificamos nosotros, para que tu equipo comercial solo dedique tiempo a personas listas para comprar o pedir un presupuesto."
+            }
+          }
         ]
       }
     ]

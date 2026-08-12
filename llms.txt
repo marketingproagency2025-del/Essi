@@ -8,27 +8,32 @@ MarketingPro works with businesses across Italy, Europe and the United States, i
 - Markets: Italy · Europe · United States (remote-first)
 - Contact: commerciale@marketingpro-agency.com · +355 694702405 (also WhatsApp)
 - Languages spoken by the team: English, Italian, Spanish, Albanian
+- Pricing: quoted per project, no published rate card. Ask and we reply within one business day.
 
 ## Main pages
 
-- [Home](https://www.marketingpro-agency.com/): what MarketingPro does and how the qualify-every-lead model works.
-- [Services](https://www.marketingpro-agency.com/services): the eight services in detail, from social media to catalogues.
-- [About](https://www.marketingpro-agency.com/about): the story, the team and why clients work with us.
-- [Portfolio](https://www.marketingpro-agency.com/portfolio): selected work and results.
-- [Contact](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
+- [Digital Marketing Agency, Europe & US](https://www.marketingpro-agency.com/): what MarketingPro does, and how the qualify-every-lead model works.
+- [Digital Marketing Services: Ads, SEO, Web](https://www.marketingpro-agency.com/services): all eight services, each linking to its own page.
+- [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
+- [Portfolio: Our Creative Marketing Work](https://www.marketingpro-agency.com/portfolio): selected work.
+- [Marketing Blog: A Guide to Every Service](https://www.marketingpro-agency.com/blog): ten pieces: one guide per service, plus two articles.
+- [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
 
 ## Services
 
-- Social media management
-- Advertising campaigns (Meta and Google)
-- Website creation
-- SEO
-- Sales funnels
-- Photo and video editing
-- Photorealistic renders
-- Print catalogues
+Each service has its own page. The guide linked beside it is the long,
+non-commercial explanation of the same subject.
 
-## Guides and articles
+- [Social Media Management That Brings In Customers](https://www.marketingpro-agency.com/services-social-media): We run your social channels so followers turn into paying customers. Content, community, and every lead called and qualified before it reaches you. Guide: https://www.marketingpro-agency.com/blog-social-media
+- [Ad Campaigns Where Every Lead Is Qualified](https://www.marketingpro-agency.com/services-advertising): Targeted Meta and Google campaigns with every lead called and qualified before we hand it over. Seven campaigns, 6,150 leads, an average of 1.87 euro each. Guide: https://www.marketingpro-agency.com/blog-advertising
+- [A Website That Sells, Not Just One That Looks Good](https://www.marketingpro-agency.com/services-website): Websites built to turn visitors into enquiries, not just to look good. Fast, responsive, and structured so both search engines and buyers can find you. Guide: https://www.marketingpro-agency.com/blog-website
+- [SEO That Keeps Working After You Stop Paying](https://www.marketingpro-agency.com/services-seo): SEO that lifts you up the results and keeps you there. Keyword research, content, technical fixes and authority, measured in enquiries not rankings. Guide: https://www.marketingpro-agency.com/blog-seo
+- [A Funnel That Closes, Not Just One That Collects](https://www.marketingpro-agency.com/services-sales-funnel): A mapped route from a stranger seeing your ad to a signed contract, with the leaks found and closed and every lead qualified before it reaches your team. Guide: https://www.marketingpro-agency.com/blog-sales-funnel
+- [Editing That Makes Your Brand Look Its Best](https://www.marketingpro-agency.com/services-photo-video): Professional editing that makes your brand look its best. Colour, sound and consistency across every image and clip you put in front of a buyer. Guide: https://www.marketingpro-agency.com/blog-photo-video
+- [Sell the Vision Before It Is Built](https://www.marketingpro-agency.com/services-renders): Photorealistic 3D renders that let clients picture the finished result and say yes sooner, for products, spaces and concepts that do not exist yet. Guide: https://www.marketingpro-agency.com/blog-renders
+- [Catalogues That Sell, Not Spreadsheets With Pictures](https://www.marketingpro-agency.com/services-catalogues): Catalogues that sell rather than list. Concept, copywriting and design handled end to end, for print, digital or both, with room for every product. Guide: https://www.marketingpro-agency.com/blog-catalogues
+
+## Guides
 
 - [Social Media Management: Turning Followers into Loyal Customers](https://www.marketingpro-agency.com/blog-social-media)
 - [Advertising Campaigns That Actually Convert](https://www.marketingpro-agency.com/blog-advertising)
@@ -39,6 +44,15 @@ MarketingPro works with businesses across Italy, Europe and the United States, i
 - [Photorealistic Renders: Sell the Vision Before It's Built](https://www.marketingpro-agency.com/blog-renders)
 - [Catalogues That Sell: From Product List to Visual Experience](https://www.marketingpro-agency.com/blog-catalogues)
 
-## Italian
+## Articles
 
-An Italian version of the whole site lives under [/it/](https://www.marketingpro-agency.com/it/), including [Servizi](https://www.marketingpro-agency.com/it/services) and the [Blog](https://www.marketingpro-agency.com/it/blog).
+- [Marketing That Works as One System, Not Six Separate Tactics](https://www.marketingpro-agency.com/article-1)
+- [Where to Start: Fix the Leaks Before You Spend More](https://www.marketingpro-agency.com/article-2)
+
+## Published results
+
+The Meta results published on our services page are real campaign exports, not illustrations. Across those seven campaigns: 6,150 leads from 1,084,529 people reached, at a blended cost of 1.87 euro per lead, with individual campaigns landing between 1.47 and 2.30 euro. Total ad spend was 11,480.98 euro.
+
+## Other languages
+
+- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) — 16 pages

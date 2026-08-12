@@ -507,6 +507,85 @@ if ($LASTEXITCODE -ne 0) { Add-Failure 'sitemap.xml is stale - run .build/gen-si
 else { Write-Ok "$([regex]::Matches($sitemapXml, '<loc>').Count) urls derived from the pages themselves" }
 
 # -----------------------------------------------------------------------------
+Start-Check 'llms.txt lists every live page and no held one'
+# Re-derived from $docs rather than by re-running gen-llms.py, which would only
+# prove the generator agrees with itself. The risk being checked is a held page
+# leaking: llms.txt is read by assistants that do not honour noindex, so an
+# untranslated English duplicate listed here is published in the only sense that
+# matters, whatever the robots meta says.
+$llmsPath = Join-Path $root 'llms.txt'
+if (-not (Test-Path $llmsPath)) {
+  Add-Failure 'llms.txt is missing - run python .build/gen-llms.py'
+} else {
+  $llms   = [System.IO.File]::ReadAllText($llmsPath)
+  $listed = @([regex]::Matches($llms, '\]\((https://www\.marketingpro-agency\.com[^)]*)\)') |
+              ForEach-Object { $_.Groups[1].Value })
+
+  # Every URL must resolve to a page that exists AND is live.
+  foreach ($u in ($listed | Sort-Object -Unique)) {
+    $rel = $u -replace '^https://www\.marketingpro-agency\.com', ''
+    $rel = if ($rel -eq '' -or $rel -eq '/') { 'index.html' }
+           elseif ($rel.EndsWith('/'))       { $rel.TrimStart('/') + 'index.html' }
+           else                              { $rel.TrimStart('/') + '.html' }
+    $doc = $docs.Values | Where-Object { $_.Rel -eq $rel }
+    if (-not $doc) { Add-Failure "llms.txt links $u, which is not a page"; continue }
+    if (-not (Test-PageLive $doc.Slug $doc.Lang)) {
+      Add-Failure "llms.txt links $u, which is held back as noindex"
+    }
+  }
+
+  # And every live English page must be listed, so adding a page cannot silently
+  # skip it. Other trees are summarised by a single link, not enumerated.
+  foreach ($slug in $PAGES) {
+    $want = if ($slug -eq 'index') { 'https://www.marketingpro-agency.com/' }
+            else { "https://www.marketingpro-agency.com/$slug" }
+    if ($listed -notcontains $want) {
+      Add-Failure "llms.txt does not list /$slug - run python .build/gen-llms.py"
+    }
+  }
+  if ($failures.Count -eq 0) { Write-Ok "$($listed.Count) links, all live, all $($PAGES.Count) English pages present" }
+}
+
+# -----------------------------------------------------------------------------
+Start-Check 'Hero preload names the file the browser will actually fetch'
+# A preload that names the wrong file is worse than none: it spends a
+# high-priority connection on an image that is never displayed AND leaves the
+# real LCP undiscovered. Both failure modes shipped here - eight generated pages
+# inherited their shell's preload, and every <picture> hero preloaded the JPEG
+# fallback rather than the WebP the browser resolves to.
+#
+# index and contact are exempt by design: index preloads its hero VIDEO poster,
+# contact preloads a CSS background. Neither has a <picture> hero to agree with.
+$heroChecked = 0
+foreach ($p in $docs.Values) {
+  if ($p.Slug -in @('index', 'contact')) { continue }
+  $pre = [regex]::Match($p.Html, '<link rel="preload"[^>]*as="image"[^>]*>')
+  if (-not $pre.Success) { continue }
+  $mainStart = $p.Html.IndexOf('<main')
+  $mainEnd   = $p.Html.IndexOf('</main>')
+  if ($mainStart -lt 0 -or $mainEnd -lt 0) { continue }
+  $main = $p.Html.Substring($mainStart, $mainEnd - $mainStart)
+  $pic  = [regex]::Match($main, '(?s)<picture>.*?</picture>')
+  if (-not $pic.Success) {
+    Add-Failure "$($p.Rel): preloads an image but has no <picture> hero"; continue
+  }
+  $srcset = [regex]::Match($pic.Value, 'srcset="([^"]*)"')
+  if (-not $srcset.Success) { continue }
+  $heroChecked++
+
+  $want = ($srcset.Groups[1].Value -split '/')[-1]
+  $href = [regex]::Match($pre.Value, 'href="([^"]*)"')
+  $got  = if ($href.Success) { ($href.Groups[1].Value -split '/')[-1] } else { '(none)' }
+  if ($got -ne $want) {
+    Add-Failure "$($p.Rel): preloads $got but <picture> resolves to $want"
+  }
+  if ($pre.Value -notmatch 'type="image/webp"') {
+    Add-Failure "$($p.Rel): hero preload has no type=""image/webp"", so browsers without WebP fetch a file they cannot decode"
+  }
+}
+Write-Ok "$heroChecked hero preloads agree with their <picture>"
+
+# -----------------------------------------------------------------------------
 Write-Host ''
 if ($failures.Count -eq 0) {
   Write-Host 'RESULT: ALL PASSES CLEAN' -ForegroundColor Green

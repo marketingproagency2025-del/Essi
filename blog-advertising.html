@@ -45,7 +45,7 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="assets/img/svc-ads-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/svc-ads-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -75,7 +75,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -85,22 +87,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -108,18 +134,36 @@
         "@id": "https://www.marketingpro-agency.com/blog-advertising#webpage",
         "url": "https://www.marketingpro-agency.com/blog-advertising",
         "name": "Advertising Campaigns That Actually Convert",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-ads-1.jpg",
         "inLanguage": "en",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/blog-advertising#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/blog-advertising#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/blog-advertising#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.marketingpro-agency.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Advertising Campaigns That Actually Convert" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.marketingpro-agency.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Advertising Campaigns"
+          }
         ]
       },
       {
@@ -130,21 +174,55 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-ads-1.jpg",
         "datePublished": "2026-06-23",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/blog-advertising#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/blog-advertising#webpage"
+        },
         "inLanguage": "en",
         "articleSection": "Advertising",
-        "keywords": ["online advertising", "Meta ads", "Google Ads", "lead generation"],
-        "about": { "@id": "https://www.marketingpro-agency.com/services#service-advertising" }
+        "keywords": [
+          "online advertising",
+          "Meta ads",
+          "Google Ads",
+          "lead generation"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/services#service-advertising"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/blog-advertising#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Should I advertise on Meta or Google?", "acceptedAnswer": { "@type": "Answer", "text": "Most businesses benefit from both. Meta (Facebook and Instagram) creates demand by putting you in front of people who aren't searching yet, while Google captures demand from people who are already looking for what you sell." } },
-          { "@type": "Question", "name": "Why are my ads getting clicks but no customers?", "acceptedAnswer": { "@type": "Answer", "text": "Usually the leak is after the click: no follow-up, a weak offer, or the wrong audience. An ad produces leads, not customers, so someone has to call and qualify those leads and guide them to a sale." } },
-          { "@type": "Question", "name": "How much should I spend on ads to see results?", "acceptedAnswer": { "@type": "Answer", "text": "Start with a goal, like ten booked calls a week, and work backwards. The right budget is the one that hits that goal at a cost per qualified lead you can afford, and we scale what works and cut what doesn't." } }
+          {
+            "@type": "Question",
+            "name": "Should I advertise on Meta or Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most businesses benefit from both. Meta (Facebook and Instagram) creates demand by putting you in front of people who aren't searching yet, while Google captures demand from people who are already looking for what you sell."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why are my ads getting clicks but no customers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Usually the leak is after the click: no follow-up, a weak offer, or the wrong audience. An ad produces leads, not customers, so someone has to call and qualify those leads and guide them to a sale."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much should I spend on ads to see results?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Start with a goal, like ten booked calls a week, and work backwards. The right budget is the one that hits that goal at a cost per qualified lead you can afford, and we scale what works and cut what doesn't."
+            }
+          }
         ]
       }
     ]

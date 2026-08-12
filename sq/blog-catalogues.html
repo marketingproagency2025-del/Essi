@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-catalog-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-catalog-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/sq/blog-catalogues#webpage",
         "url": "https://www.marketingpro-agency.com/sq/blog-catalogues",
         "name": "Katalogë që Shesin: nga Lista e Produkteve te Përvoja Vizuale",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-catalog-1.jpg",
         "inLanguage": "sq",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/sq/blog-catalogues#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-catalogues#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/sq/blog-catalogues#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Kreu", "item": "https://www.marketingpro-agency.com/sq/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/sq/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Katalogë që Shesin: nga Lista e Produkteve te Përvoja Vizuale" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Kreu",
+            "item": "https://www.marketingpro-agency.com/sq/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/sq/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Katalogë"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-catalog-1.jpg",
         "datePublished": "2026-05-12",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/sq/blog-catalogues#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-catalogues#webpage"
+        },
         "inLanguage": "sq",
         "articleSection": "Katalogë",
-        "keywords": ["dizajn katalogësh", "katalog produktesh", "dizajn brand-i"],
-        "about": { "@id": "https://www.marketingpro-agency.com/sq/services#service-catalogues" }
+        "keywords": [
+          "dizajn katalogësh",
+          "katalog produktesh",
+          "dizajn brand-i"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/sq/services#service-catalogues"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/sq/blog-catalogues#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Çfarë e bën një katalog të shesë vërtet?", "acceptedAnswer": { "@type": "Answer", "text": "Ta trajtoni si diçka më shumë se një listë produktesh: ta kuroni si një histori, ta dizajnoni që të jetë kënaqësi ta mbani në dorë, të përdorni fotografi të fuqishme e të njëtrajtshme dhe ta drejtoni lexuesin drejt një mënyre të lehtë për të porositur ose për të pyetur." } },
-          { "@type": "Question", "name": "Katalogu im duhet të jetë i shtypur apo dixhital?", "acceptedAnswer": { "@type": "Answer", "text": "Për shumicën e bizneseve, të dyja. Letra preket dhe qëndron gjatë mbi tavolinë, ndërsa një katalog dixhital ose PDF jeton në faqen tuaj të internetit, dërgohet me email brenda sekondash dhe lidhet drejtpërdrejt me arkën tuaj. I njëjti dizajn funksionon në të dyja." } },
-          { "@type": "Question", "name": "Po nëse produktet e mia nuk janë fotografuar ose ende nuk ekzistojnë?", "acceptedAnswer": { "@type": "Answer", "text": "Render-et fotorealiste i paraqesin produktet në dritën dhe ambientin e përsosur para se të prodhohet një mostër e vetme, kështu që katalogu duket i plotë dhe i njëtrajtshëm edhe kur disa produkte nuk mund të fotografohen." } }
+          {
+            "@type": "Question",
+            "name": "Çfarë e bën një katalog të shesë vërtet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ta trajtoni si diçka më shumë se një listë produktesh: ta kuroni si një histori, ta dizajnoni që të jetë kënaqësi ta mbani në dorë, të përdorni fotografi të fuqishme e të njëtrajtshme dhe ta drejtoni lexuesin drejt një mënyre të lehtë për të porositur ose për të pyetur."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Katalogu im duhet të jetë i shtypur apo dixhital?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Për shumicën e bizneseve, të dyja. Letra preket dhe qëndron gjatë mbi tavolinë, ndërsa një katalog dixhital ose PDF jeton në faqen tuaj të internetit, dërgohet me email brenda sekondash dhe lidhet drejtpërdrejt me arkën tuaj. I njëjti dizajn funksionon në të dyja."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Po nëse produktet e mia nuk janë fotografuar ose ende nuk ekzistojnë?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Render-et fotorealiste i paraqesin produktet në dritën dhe ambientin e përsosur para se të prodhohet një mostër e vetme, kështu që katalogu duket i plotë dhe i njëtrajtshëm edhe kur disa produkte nuk mund të fotografohen."
+            }
+          }
         ]
       }
     ]

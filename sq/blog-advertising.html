@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-ads-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-ads-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/sq/blog-advertising#webpage",
         "url": "https://www.marketingpro-agency.com/sq/blog-advertising",
         "name": "Fushata Reklamuese që Konvertojnë Vërtet",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-ads-1.jpg",
         "inLanguage": "sq",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/sq/blog-advertising#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-advertising#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/sq/blog-advertising#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Kreu", "item": "https://www.marketingpro-agency.com/sq/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/sq/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Fushata Reklamuese që Konvertojnë Vërtet" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Kreu",
+            "item": "https://www.marketingpro-agency.com/sq/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/sq/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Fushata Reklamuese"
+          }
         ]
       },
       {
@@ -131,21 +175,55 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-ads-1.jpg",
         "datePublished": "2026-06-23",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/sq/blog-advertising#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-advertising#webpage"
+        },
         "inLanguage": "sq",
         "articleSection": "Reklamim",
-        "keywords": ["reklamim online", "Meta ads", "Google Ads", "gjenerim lead-esh"],
-        "about": { "@id": "https://www.marketingpro-agency.com/sq/services#service-advertising" }
+        "keywords": [
+          "reklamim online",
+          "Meta ads",
+          "Google Ads",
+          "gjenerim lead-esh"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/sq/services#service-advertising"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/sq/blog-advertising#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "A duhet të reklamoj në Meta apo në Google?", "acceptedAnswer": { "@type": "Answer", "text": "Shumica e bizneseve përfitojnë nga të dyja. Meta (Facebook dhe Instagram) krijon kërkesë duke ju vendosur para njerëzve që ende nuk po kërkojnë, ndërsa Google e kap kërkesën e atyre që tashmë po kërkojnë atë që ju shisni." } },
-          { "@type": "Question", "name": "Pse reklamat e mia marrin klikime, por jo klientë?", "acceptedAnswer": { "@type": "Answer", "text": "Zakonisht humbja ndodh pas klikimit: mungon ndjekja, oferta është e dobët ose audienca është e gabuar. Një reklamë prodhon lead-e, jo klientë, prandaj dikush duhet t'i telefonojë, t'i kualifikojë dhe t'i çojë drejt shitjes." } },
-          { "@type": "Question", "name": "Sa duhet të shpenzoj në reklama që të shoh rezultate?", "acceptedAnswer": { "@type": "Answer", "text": "Nisni nga një objektiv, për shembull dhjetë telefonata të rezervuara në javë, dhe ecni prapa nga aty. Buxheti i duhur është ai që e arrin këtë objektiv me një kosto për lead të kualifikuar që mund ta përballoni, dhe ne rrisim atë që funksionon e ndalim atë që jo." } }
+          {
+            "@type": "Question",
+            "name": "A duhet të reklamoj në Meta apo në Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Shumica e bizneseve përfitojnë nga të dyja. Meta (Facebook dhe Instagram) krijon kërkesë duke ju vendosur para njerëzve që ende nuk po kërkojnë, ndërsa Google e kap kërkesën e atyre që tashmë po kërkojnë atë që ju shisni."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pse reklamat e mia marrin klikime, por jo klientë?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zakonisht humbja ndodh pas klikimit: mungon ndjekja, oferta është e dobët ose audienca është e gabuar. Një reklamë prodhon lead-e, jo klientë, prandaj dikush duhet t'i telefonojë, t'i kualifikojë dhe t'i çojë drejt shitjes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Sa duhet të shpenzoj në reklama që të shoh rezultate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nisni nga një objektiv, për shembull dhjetë telefonata të rezervuara në javë, dhe ecni prapa nga aty. Buxheti i duhur është ai që e arrin këtë objektiv me një kosto për lead të kualifikuar që mund ta përballoni, dhe ne rrisim atë që funksionon e ndalim atë që jo."
+            }
+          }
         ]
       }
     ]

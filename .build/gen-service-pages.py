@@ -70,6 +70,13 @@ def build(slug, c):
                lambda m: m.group(1) + str(iw) + m.group(2), s, count=1)
     s = re.sub(r'(<meta property="og:image:height" content=")[^"]*(")',
                lambda m: m.group(1) + str(ih) + m.group(2), s, count=1)
+    # The shell is blog-seo.html, so its hero preload names svc-seo-1. Repoint
+    # it at this page's own hero, in the format <picture> will actually resolve
+    # to. Shipping the shell's value preloaded a wasted JPEG on all eight.
+    s = re.sub(r'<link rel="preload"[^>]*as="image"[^>]*>',
+               f'<link rel="preload" as="image" href="assets/img/{c["img"]}.webp"'
+               ' type="image/webp" fetchpriority="high" />', s, count=1)
+
     # this page type is a service, not an article
     s = s.replace('<meta property="og:type" content="article" />',
                   '<meta property="og:type" content="website" />')
@@ -112,7 +119,9 @@ def build(slug, c):
         'itemListElement': [
             {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': f'{SITE}/'},
             {'@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': f'{SITE}/services'},
-            {'@type': 'ListItem', 'position': 3, 'name': c['service_name']},
+            # c['nav'], not c['service_name']: the markup has to say what the
+            # visible crumb says, and the visible crumb is the short label.
+            {'@type': 'ListItem', 'position': 3, 'name': c['nav']},
         ],
     })
     graph['@graph'] = keep

@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-funnel-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-funnel-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/sq/blog-sales-funnel#webpage",
         "url": "https://www.marketingpro-agency.com/sq/blog-sales-funnel",
         "name": "Një Funnel Shitjeje që Mbyll Marrëveshje: nga i Panjohuri te Kontrata e Nënshkruar",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-funnel-1.jpg",
         "inLanguage": "sq",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/sq/blog-sales-funnel#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-sales-funnel#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/sq/blog-sales-funnel#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Kreu", "item": "https://www.marketingpro-agency.com/sq/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/sq/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Një Funnel Shitjeje që Mbyll Marrëveshje: nga i Panjohuri te Kontrata e Nënshkruar" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Kreu",
+            "item": "https://www.marketingpro-agency.com/sq/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/sq/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Funnel Shitjeje"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-funnel-1.jpg",
         "datePublished": "2026-06-02",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/sq/blog-sales-funnel#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-sales-funnel#webpage"
+        },
         "inLanguage": "sq",
         "articleSection": "Funnel Shitjeje",
-        "keywords": ["funnel shitjeje", "kultivim lead-esh", "konvertim"],
-        "about": { "@id": "https://www.marketingpro-agency.com/sq/services#service-sales-funnel" }
+        "keywords": [
+          "funnel shitjeje",
+          "kultivim lead-esh",
+          "konvertim"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/sq/services#service-sales-funnel"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/sq/blog-sales-funnel#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Çfarë është një funnel shitjeje?", "acceptedAnswer": { "@type": "Answer", "text": "Një funnel shitjeje është rruga që ndjek një klient, nga momenti kur dëgjon për ju për herë të parë deri kur bëhet klient që paguan, e ndarë në faza: fitimi i vëmendjes në majë, ndërtimi i besimit në mes dhe një vendim i lehtë në fund." } },
-          { "@type": "Question", "name": "Pse lead-et e mirë nuk kthehen kurrë në klientë?", "acceptedAnswer": { "@type": "Answer", "text": "Zakonisht për shkak të një rrjedhjeje në funnel: follow-up i ngadaltë, mungesa e një mesi që ndërton besim, një hap tjetër i paqartë ose dorëzimi pas një kontakti të vetëm. Shumica e shitjeve ndodhin pas disa kontaktesh, prandaj follow-up-i ka më shumë rëndësi sesa mendojnë shumica e bizneseve." } },
-          { "@type": "Question", "name": "Sa shpejt duhet t'i përgjigjem një lead-i të ri?", "acceptedAnswer": { "@type": "Answer", "text": "Në minuta, jo në ditë. Një lead shpesh është i interesuar vetëm për rreth tridhjetë sekonda, prandaj biznesi që përgjigjet i pari dhe që vijon të jetë i pranishëm me mirësjellje fiton një pjesë çuditërisht të madhe të marrëveshjeve." } }
+          {
+            "@type": "Question",
+            "name": "Çfarë është një funnel shitjeje?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Një funnel shitjeje është rruga që ndjek një klient, nga momenti kur dëgjon për ju për herë të parë deri kur bëhet klient që paguan, e ndarë në faza: fitimi i vëmendjes në majë, ndërtimi i besimit në mes dhe një vendim i lehtë në fund."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pse lead-et e mirë nuk kthehen kurrë në klientë?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zakonisht për shkak të një rrjedhjeje në funnel: follow-up i ngadaltë, mungesa e një mesi që ndërton besim, një hap tjetër i paqartë ose dorëzimi pas një kontakti të vetëm. Shumica e shitjeve ndodhin pas disa kontaktesh, prandaj follow-up-i ka më shumë rëndësi sesa mendojnë shumica e bizneseve."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Sa shpejt duhet t'i përgjigjem një lead-i të ri?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Në minuta, jo në ditë. Një lead shpesh është i interesuar vetëm për rreth tridhjetë sekonda, prandaj biznesi që përgjigjet i pari dhe që vijon të jetë i pranishëm me mirësjellje fiton një pjesë çuditërisht të madhe të marrëveshjeve."
+            }
+          }
         ]
       }
     ]

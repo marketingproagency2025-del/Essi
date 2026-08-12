@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-funnel-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-funnel-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/es/blog-sales-funnel#webpage",
         "url": "https://www.marketingpro-agency.com/es/blog-sales-funnel",
         "name": "Un embudo de ventas que cierra: de desconocido a contrato firmado",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-funnel-1.jpg",
         "inLanguage": "es",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/es/blog-sales-funnel#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-sales-funnel#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/es/blog-sales-funnel#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.marketingpro-agency.com/es/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/es/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Un embudo de ventas que cierra: de desconocido a contrato firmado" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.marketingpro-agency.com/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/es/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Embudo de ventas"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-funnel-1.jpg",
         "datePublished": "2026-06-02",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/es/blog-sales-funnel#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-sales-funnel#webpage"
+        },
         "inLanguage": "es",
         "articleSection": "Embudo de ventas",
-        "keywords": ["embudo de ventas", "nurturing de leads", "conversión"],
-        "about": { "@id": "https://www.marketingpro-agency.com/es/services#service-sales-funnel" }
+        "keywords": [
+          "embudo de ventas",
+          "nurturing de leads",
+          "conversión"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/es/services#service-sales-funnel"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/es/blog-sales-funnel#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "¿Qué es un embudo de ventas?", "acceptedAnswer": { "@type": "Answer", "text": "Un embudo de ventas es el camino que recorre un cliente desde que oye hablar de ti por primera vez hasta que te paga, dividido en etapas: ganar atención arriba, construir confianza en el centro y hacer fácil la decisión abajo." } },
-          { "@type": "Question", "name": "¿Por qué los buenos leads nunca se convierten en clientes?", "acceptedAnswer": { "@type": "Answer", "text": "Casi siempre por una fuga en el embudo: seguimiento lento, un centro que no construye confianza, un siguiente paso confuso o rendirse tras un solo contacto. La mayoría de las ventas se cierra después de varios contactos, así que el seguimiento pesa mucho más de lo que se cree." } },
-          { "@type": "Question", "name": "¿Con qué rapidez debo contactar a un lead nuevo?", "acceptedAnswer": { "@type": "Answer", "text": "En minutos, no en días. Un lead suele estar interesado apenas unos treinta segundos, así que la empresa que responde primero, y que sigue presente con educación, se lleva una parte sorprendente de los acuerdos." } }
+          {
+            "@type": "Question",
+            "name": "¿Qué es un embudo de ventas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un embudo de ventas es el camino que recorre un cliente desde que oye hablar de ti por primera vez hasta que te paga, dividido en etapas: ganar atención arriba, construir confianza en el centro y hacer fácil la decisión abajo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué los buenos leads nunca se convierten en clientes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Casi siempre por una fuga en el embudo: seguimiento lento, un centro que no construye confianza, un siguiente paso confuso o rendirse tras un solo contacto. La mayoría de las ventas se cierra después de varios contactos, así que el seguimiento pesa mucho más de lo que se cree."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Con qué rapidez debo contactar a un lead nuevo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En minutos, no en días. Un lead suele estar interesado apenas unos treinta segundos, así que la empresa que responde primero, y que sigue presente con educación, se lleva una parte sorprendente de los acuerdos."
+            }
+          }
         ]
       }
     ]

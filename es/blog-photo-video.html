@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-photo-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-photo-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/es/blog-photo-video#webpage",
         "url": "https://www.marketingpro-agency.com/es/blog-photo-video",
         "name": "Por qué la edición profesional de foto y vídeo eleva tu marca",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-photo-1.jpg",
         "inLanguage": "es",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/es/blog-photo-video#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-photo-video#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/es/blog-photo-video#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.marketingpro-agency.com/es/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/es/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Por qué la edición profesional de foto y vídeo eleva tu marca" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.marketingpro-agency.com/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/es/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Edición de Foto y Vídeo"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-photo-1.jpg",
         "datePublished": "2026-05-26",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/es/blog-photo-video#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-photo-video#webpage"
+        },
         "inLanguage": "es",
         "articleSection": "Foto y Vídeo",
-        "keywords": ["edición de foto", "edición de vídeo", "imagen de marca"],
-        "about": { "@id": "https://www.marketingpro-agency.com/es/services#service-photo-video" }
+        "keywords": [
+          "edición de foto",
+          "edición de vídeo",
+          "imagen de marca"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/es/services#service-photo-video"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/es/blog-photo-video#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "¿Por qué importa la edición profesional de foto y vídeo para mi marca?", "acceptedAnswer": { "@type": "Answer", "text": "La primera impresión entra por los ojos y se forma en una fracción de segundo. Unas imágenes cuidadas y bien editadas hacen que la gente espere una experiencia igual de cuidada y confíe más en ti, mientras que las granuladas o temblorosas rebajan su opinión sobre tu producto, tu servicio y tus precios." } },
-          { "@type": "Question", "name": "¿Necesito equipos caros para conseguir buenas imágenes?", "acceptedAnswer": { "@type": "Answer", "text": "Pocas veces. Los teléfonos actuales graban muy bien y la mayor parte de la diferencia se hace después, en la edición. Un puñado de clips y fotos decentes, bien tratados, rinde más que horas de material en bruto que nunca se pule." } },
-          { "@type": "Question", "name": "¿Qué implica de verdad una buena edición?", "acceptedAnswer": { "@type": "Answer", "text": "Corregir el color para que un producto se vea como en la vida real, ajustar luz y contraste, recortar para dar impacto, un audio limpio, el ritmo justo y subtítulos para que el mensaje llegue sin sonido. Bien hecha, nunca parece \"editada\": simplemente parece correcta." } }
+          {
+            "@type": "Question",
+            "name": "¿Por qué importa la edición profesional de foto y vídeo para mi marca?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La primera impresión entra por los ojos y se forma en una fracción de segundo. Unas imágenes cuidadas y bien editadas hacen que la gente espere una experiencia igual de cuidada y confíe más en ti, mientras que las granuladas o temblorosas rebajan su opinión sobre tu producto, tu servicio y tus precios."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito equipos caros para conseguir buenas imágenes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pocas veces. Los teléfonos actuales graban muy bien y la mayor parte de la diferencia se hace después, en la edición. Un puñado de clips y fotos decentes, bien tratados, rinde más que horas de material en bruto que nunca se pule."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué implica de verdad una buena edición?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Corregir el color para que un producto se vea como en la vida real, ajustar luz y contraste, recortar para dar impacto, un audio limpio, el ritmo justo y subtítulos para que el mensaje llegue sin sonido. Bien hecha, nunca parece \"editada\": simplemente parece correcta."
+            }
+          }
         ]
       }
     ]

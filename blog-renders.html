@@ -45,7 +45,7 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="assets/img/svc-renders-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/svc-renders-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -75,7 +75,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -85,22 +87,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -108,18 +134,36 @@
         "@id": "https://www.marketingpro-agency.com/blog-renders#webpage",
         "url": "https://www.marketingpro-agency.com/blog-renders",
         "name": "Photorealistic Renders: Sell the Vision Before It's Built",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-renders-1.jpg",
         "inLanguage": "en",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/blog-renders#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/blog-renders#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/blog-renders#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.marketingpro-agency.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Photorealistic Renders: Sell the Vision Before It's Built" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.marketingpro-agency.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Renders"
+          }
         ]
       },
       {
@@ -130,21 +174,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-renders-1.jpg",
         "datePublished": "2026-05-19",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/blog-renders#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/blog-renders#webpage"
+        },
         "inLanguage": "en",
         "articleSection": "Renders",
-        "keywords": ["3D rendering", "photorealistic renders", "architectural visualization"],
-        "about": { "@id": "https://www.marketingpro-agency.com/services#service-renders" }
+        "keywords": [
+          "3D rendering",
+          "photorealistic renders",
+          "architectural visualization"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/services#service-renders"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/blog-renders#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "What is a photorealistic render?", "acceptedAnswer": { "@type": "Answer", "text": "A photorealistic render is a computer-generated image that looks like a real photograph of something that hasn't been built or made yet, such as a building, a room or a product, so customers can see the finished result before committing." } },
-          { "@type": "Question", "name": "How do renders help me sell?", "acceptedAnswer": { "@type": "Answer", "text": "They remove doubt. Instead of asking a customer to imagine the result, a render shows it in convincing detail, so hesitation turns into confidence and decisions get made faster." } },
-          { "@type": "Question", "name": "What can renders be used for?", "acceptedAnswer": { "@type": "Answer", "text": "Selling property off-plan, styling interiors and furniture, presenting products before they are manufactured, and winning buy-in for a concept. The same image also works afterwards as an ad, a website hero, a catalogue showpiece or a social post." } }
+          {
+            "@type": "Question",
+            "name": "What is a photorealistic render?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A photorealistic render is a computer-generated image that looks like a real photograph of something that hasn't been built or made yet, such as a building, a room or a product, so customers can see the finished result before committing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do renders help me sell?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "They remove doubt. Instead of asking a customer to imagine the result, a render shows it in convincing detail, so hesitation turns into confidence and decisions get made faster."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can renders be used for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selling property off-plan, styling interiors and furniture, presenting products before they are manufactured, and winning buy-in for a concept. The same image also works afterwards as an ad, a website hero, a catalogue showpiece or a social post."
+            }
+          }
         ]
       }
     ]

@@ -45,7 +45,7 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="assets/img/svc-photo-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/svc-photo-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -75,7 +75,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -85,22 +87,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -108,18 +134,36 @@
         "@id": "https://www.marketingpro-agency.com/blog-photo-video#webpage",
         "url": "https://www.marketingpro-agency.com/blog-photo-video",
         "name": "Why Professional Photo & Video Editing Elevates Your Brand",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-photo-1.jpg",
         "inLanguage": "en",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/blog-photo-video#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/blog-photo-video#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/blog-photo-video#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.marketingpro-agency.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Why Professional Photo & Video Editing Elevates Your Brand" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.marketingpro-agency.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Photo & Video Editing"
+          }
         ]
       },
       {
@@ -130,21 +174,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-photo-1.jpg",
         "datePublished": "2026-05-26",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/blog-photo-video#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/blog-photo-video#webpage"
+        },
         "inLanguage": "en",
         "articleSection": "Photo & Video",
-        "keywords": ["photo editing", "video editing", "brand visuals"],
-        "about": { "@id": "https://www.marketingpro-agency.com/services#service-photo-video" }
+        "keywords": [
+          "photo editing",
+          "video editing",
+          "brand visuals"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/services#service-photo-video"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/blog-photo-video#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Why does professional photo and video editing matter for my brand?", "acceptedAnswer": { "@type": "Answer", "text": "First impressions are visual and form in a fraction of a second. Polished, well-edited visuals make people expect a polished experience and trust you more, while grainy or shaky ones lower their view of your product, service and prices." } },
-          { "@type": "Question", "name": "Do I need expensive equipment for good visuals?", "acceptedAnswer": { "@type": "Answer", "text": "Rarely. Modern phones shoot remarkably well, and most of the difference is made afterwards in the edit. A handful of decent clips and photos, treated properly, outperforms hours of raw footage that never gets refined." } },
-          { "@type": "Question", "name": "What does good editing actually involve?", "acceptedAnswer": { "@type": "Answer", "text": "Correcting colour so a product looks true to life, adjusting light and contrast, cropping for impact, clean sound, the right pace, and captions so the message lands with the sound off. Done well it never looks \"edited,\" it just looks right." } }
+          {
+            "@type": "Question",
+            "name": "Why does professional photo and video editing matter for my brand?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "First impressions are visual and form in a fraction of a second. Polished, well-edited visuals make people expect a polished experience and trust you more, while grainy or shaky ones lower their view of your product, service and prices."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need expensive equipment for good visuals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rarely. Modern phones shoot remarkably well, and most of the difference is made afterwards in the edit. A handful of decent clips and photos, treated properly, outperforms hours of raw footage that never gets refined."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does good editing actually involve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Correcting colour so a product looks true to life, adjusting light and contrast, cropping for impact, clean sound, the right pace, and captions so the message lands with the sound off. Done well it never looks \"edited,\" it just looks right."
+            }
+          }
         ]
       }
     ]

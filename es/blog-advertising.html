@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-ads-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-ads-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/es/blog-advertising#webpage",
         "url": "https://www.marketingpro-agency.com/es/blog-advertising",
         "name": "Campañas publicitarias que de verdad convierten",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-ads-1.jpg",
         "inLanguage": "es",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/es/blog-advertising#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-advertising#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/es/blog-advertising#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.marketingpro-agency.com/es/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/es/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Campañas publicitarias que de verdad convierten" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.marketingpro-agency.com/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/es/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Campañas publicitarias"
+          }
         ]
       },
       {
@@ -131,21 +175,55 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-ads-1.jpg",
         "datePublished": "2026-06-23",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/es/blog-advertising#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/es/blog-advertising#webpage"
+        },
         "inLanguage": "es",
         "articleSection": "Publicidad",
-        "keywords": ["publicidad online", "Meta ads", "Google Ads", "generación de leads"],
-        "about": { "@id": "https://www.marketingpro-agency.com/es/services#service-advertising" }
+        "keywords": [
+          "publicidad online",
+          "Meta ads",
+          "Google Ads",
+          "generación de leads"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/es/services#service-advertising"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/es/blog-advertising#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "¿Conviene anunciarse en Meta o en Google?", "acceptedAnswer": { "@type": "Answer", "text": "A la mayoría de los negocios les conviene usar ambos. Meta (Facebook e Instagram) genera demanda: te pone delante de personas que todavía no están buscando. Google captura la demanda de quienes ya buscan lo que vendes." } },
-          { "@type": "Question", "name": "¿Por qué mis anuncios reciben clics pero no clientes?", "acceptedAnswer": { "@type": "Answer", "text": "Casi siempre la fuga está después del clic: nadie hace seguimiento, la oferta es débil o el público no es el adecuado. Un anuncio produce leads, no clientes, así que alguien tiene que llamarlos, calificarlos y acompañarlos hasta la venta." } },
-          { "@type": "Question", "name": "¿Cuánto hay que invertir en anuncios para ver resultados?", "acceptedAnswer": { "@type": "Answer", "text": "Empieza por un objetivo, por ejemplo diez llamadas agendadas por semana, y trabaja hacia atrás. El presupuesto correcto es el que alcanza ese objetivo a un costo por lead calificado que puedas asumir, y escalamos lo que funciona y cortamos lo que no." } }
+          {
+            "@type": "Question",
+            "name": "¿Conviene anunciarse en Meta o en Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A la mayoría de los negocios les conviene usar ambos. Meta (Facebook e Instagram) genera demanda: te pone delante de personas que todavía no están buscando. Google captura la demanda de quienes ya buscan lo que vendes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué mis anuncios reciben clics pero no clientes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Casi siempre la fuga está después del clic: nadie hace seguimiento, la oferta es débil o el público no es el adecuado. Un anuncio produce leads, no clientes, así que alguien tiene que llamarlos, calificarlos y acompañarlos hasta la venta."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto hay que invertir en anuncios para ver resultados?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Empieza por un objetivo, por ejemplo diez llamadas agendadas por semana, y trabaja hacia atrás. El presupuesto correcto es el que alcanza ese objetivo a un costo por lead calificado que puedas asumir, y escalamos lo que funciona y cortamos lo que no."
+            }
+          }
         ]
       }
     ]

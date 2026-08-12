@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-seo-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-seo-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/sq/blog-seo#webpage",
         "url": "https://www.marketingpro-agency.com/sq/blog-seo",
         "name": "SEO në 2026: Ngjituni në Renditje dhe Qëndroni Aty",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-seo-1.jpg",
         "inLanguage": "sq",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/sq/blog-seo#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-seo#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/sq/blog-seo#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Kreu", "item": "https://www.marketingpro-agency.com/sq/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/sq/blog" },
-          { "@type": "ListItem", "position": 3, "name": "SEO në 2026: Ngjituni në Renditje dhe Qëndroni Aty" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Kreu",
+            "item": "https://www.marketingpro-agency.com/sq/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/sq/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SEO"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-seo-1.jpg",
         "datePublished": "2026-06-09",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/sq/blog-seo#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-seo#webpage"
+        },
         "inLanguage": "sq",
         "articleSection": "SEO",
-        "keywords": ["SEO", "optimizim për motorët e kërkimit", "SEO lokale"],
-        "about": { "@id": "https://www.marketingpro-agency.com/sq/services#service-seo" }
+        "keywords": [
+          "SEO",
+          "optimizim për motorët e kërkimit",
+          "SEO lokale"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/sq/services#service-seo"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/sq/blog-seo#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Sa kohë duhet që SEO të japë rezultat?", "acceptedAnswer": { "@type": "Answer", "text": "SEO i ngjan më shumë stërvitjes sesa një çelësi drite. Muajt e parë janë themele, lëvizja e vërtetë duket zakonisht midis muajit të tretë dhe të gjashtë, ndërsa fitimet më të mëdha vijnë pas kësaj. Nga kushdo që ju premton faqen e parë brenda dy javësh, largohuni." } },
-          { "@type": "Question", "name": "A mund ta blej thjesht vendin e parë në Google?", "acceptedAnswer": { "@type": "Answer", "text": "Mund të paguani për reklama, të cilat ndalen në çastin që ndaloni pagesën. Renditja organike fitohet me përmbajtje të dobishme, themele teknike të shëndosha dhe autoritet të vërtetë, dhe pikërisht ajo vazhdon të sjellë klientë falas me kalimin e kohës." } },
-          { "@type": "Question", "name": "Çfarë është SEO lokale dhe a më duhet?", "acceptedAnswer": { "@type": "Answer", "text": "SEO lokale ju ndihmon të shfaqeni kur kërkojnë klientët afër jush, për shembull \"dizajn faqesh në Milano\". Një profil Google Business i plotë, të dhëna kontakti të njëjta kudo dhe vlerësime të vërteta mund ta ngrenë një biznes të vogël lokal mbi biznese shumë më të mëdha, për kërkimet që ndodhin në zonën tuaj." } }
+          {
+            "@type": "Question",
+            "name": "Sa kohë duhet që SEO të japë rezultat?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SEO i ngjan më shumë stërvitjes sesa një çelësi drite. Muajt e parë janë themele, lëvizja e vërtetë duket zakonisht midis muajit të tretë dhe të gjashtë, ndërsa fitimet më të mëdha vijnë pas kësaj. Nga kushdo që ju premton faqen e parë brenda dy javësh, largohuni."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A mund ta blej thjesht vendin e parë në Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mund të paguani për reklama, të cilat ndalen në çastin që ndaloni pagesën. Renditja organike fitohet me përmbajtje të dobishme, themele teknike të shëndosha dhe autoritet të vërtetë, dhe pikërisht ajo vazhdon të sjellë klientë falas me kalimin e kohës."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Çfarë është SEO lokale dhe a më duhet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SEO lokale ju ndihmon të shfaqeni kur kërkojnë klientët afër jush, për shembull \"dizajn faqesh në Milano\". Një profil Google Business i plotë, të dhëna kontakti të njëjta kudo dhe vlerësime të vërteta mund ta ngrenë një biznes të vogël lokal mbi biznese shumë më të mëdha, për kërkimet që ndodhin në zonën tuaj."
+            }
+          }
         ]
       }
     ]

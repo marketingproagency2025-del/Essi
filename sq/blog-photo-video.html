@@ -46,7 +46,7 @@
   <link rel="manifest" href="../site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="../assets/img/svc-photo-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../assets/img/svc-photo-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -76,7 +76,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -86,22 +88,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -109,18 +135,36 @@
         "@id": "https://www.marketingpro-agency.com/sq/blog-photo-video#webpage",
         "url": "https://www.marketingpro-agency.com/sq/blog-photo-video",
         "name": "Pse Editimi Profesional i Fotove dhe Videove e Ngre Lart Brandin Tuaj",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-photo-1.jpg",
         "inLanguage": "sq",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/sq/blog-photo-video#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-photo-video#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/sq/blog-photo-video#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Kreu", "item": "https://www.marketingpro-agency.com/sq/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/sq/blog" },
-          { "@type": "ListItem", "position": 3, "name": "Pse Editimi Profesional i Fotove dhe Videove e Ngre Lart Brandin Tuaj" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Kreu",
+            "item": "https://www.marketingpro-agency.com/sq/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/sq/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Editimi i Fotove dhe Videove"
+          }
         ]
       },
       {
@@ -131,21 +175,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-photo-1.jpg",
         "datePublished": "2026-05-26",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/sq/blog-photo-video#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/sq/blog-photo-video#webpage"
+        },
         "inLanguage": "sq",
         "articleSection": "Foto dhe Video",
-        "keywords": ["editim fotosh", "editim videosh", "pamje brand-i"],
-        "about": { "@id": "https://www.marketingpro-agency.com/sq/services#service-photo-video" }
+        "keywords": [
+          "editim fotosh",
+          "editim videosh",
+          "pamje brand-i"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/sq/services#service-photo-video"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/sq/blog-photo-video#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "Pse ka rëndësi për brandin tim editimi profesional i fotove dhe videove?", "acceptedAnswer": { "@type": "Answer", "text": "Përshtypja e parë është vizuale dhe formohet brenda një çasti. Pamjet e kujdesura dhe të edituara mirë i bëjnë njerëzit të presin një përvojë po aq të kujdesur dhe t'ju besojnë më shumë, ndërsa ato me kokrra ose të dridhura ua ulin vlerësimin për produktin, shërbimin dhe çmimet tuaja." } },
-          { "@type": "Question", "name": "A më duhen pajisje të shtrenjta për pamje të mira?", "acceptedAnswer": { "@type": "Answer", "text": "Rrallë. Telefonat e sotëm filmojnë çuditërisht mirë dhe pjesa më e madhe e ndryshimit bëhet më pas, në editim. Disa klipe e foto të mira, të përpunuara si duhet, japin më shumë sesa orë të tëra material i papërpunuar që nuk finalizohet kurrë." } },
-          { "@type": "Question", "name": "Çfarë përfshin në të vërtetë një editim i mirë?", "acceptedAnswer": { "@type": "Answer", "text": "Korrigjimin e ngjyrave që produkti të duket si në realitet, rregullimin e dritës dhe kontrastit, kadrimin për efekt, zë të pastër, ritmin e duhur dhe titrat që mesazhi të kuptohet edhe pa zë. Kur bëhet mirë, nuk duket kurrë \"i edituar\", thjesht duket si duhet." } }
+          {
+            "@type": "Question",
+            "name": "Pse ka rëndësi për brandin tim editimi profesional i fotove dhe videove?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Përshtypja e parë është vizuale dhe formohet brenda një çasti. Pamjet e kujdesura dhe të edituara mirë i bëjnë njerëzit të presin një përvojë po aq të kujdesur dhe t'ju besojnë më shumë, ndërsa ato me kokrra ose të dridhura ua ulin vlerësimin për produktin, shërbimin dhe çmimet tuaja."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A më duhen pajisje të shtrenjta për pamje të mira?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rrallë. Telefonat e sotëm filmojnë çuditërisht mirë dhe pjesa më e madhe e ndryshimit bëhet më pas, në editim. Disa klipe e foto të mira, të përpunuara si duhet, japin më shumë sesa orë të tëra material i papërpunuar që nuk finalizohet kurrë."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Çfarë përfshin në të vërtetë një editim i mirë?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Korrigjimin e ngjyrave që produkti të duket si në realitet, rregullimin e dritës dhe kontrastit, kadrimin për efekt, zë të pastër, ritmin e duhur dhe titrat që mesazhi të kuptohet edhe pa zë. Kur bëhet mirë, nuk duket kurrë \"i edituar\", thjesht duket si duhet."
+            }
+          }
         ]
       }
     ]

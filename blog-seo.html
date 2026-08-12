@@ -45,7 +45,7 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <!-- LCP: preload hero image -->
-  <link rel="preload" as="image" href="assets/img/svc-seo-1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/svc-seo-1.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts: DM Sans, self-hosted. crossorigin is required on font
        preloads even same-origin, or the file is fetched twice. -->
@@ -75,7 +75,9 @@
           "height": 77,
           "caption": "MarketingPro"
         },
-        "image": { "@id": "https://www.marketingpro-agency.com/#logo" },
+        "image": {
+          "@id": "https://www.marketingpro-agency.com/#logo"
+        },
         "sameAs": [
           "https://www.instagram.com/marketingpro_dmagency/",
           "https://www.facebook.com/profile.php?id=61567753059183"
@@ -85,22 +87,46 @@
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
           "contactType": "customer service",
-          "areaServed": ["Italy", "Europe", "United States"],
+          "areaServed": [
+            "Italy",
+            "Europe",
+            "United States"
+          ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
         "areaServed": [
-          { "@type": "Country", "name": "Italy" },
-          { "@type": "Place", "name": "Europe" },
-          { "@type": "Country", "name": "United States" }
+          {
+            "@type": "Country",
+            "name": "Italy"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
         ],
-        "knowsAbout": ["Digital marketing", "Social media management", "Lead generation", "Search engine optimization", "Web design", "Meta Ads", "Google Ads", "Photo and video production"]
+        "knowsAbout": [
+          "Digital marketing",
+          "Social media management",
+          "Lead generation",
+          "Search engine optimization",
+          "Web design",
+          "Meta Ads",
+          "Google Ads",
+          "Photo and video production"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://www.marketingpro-agency.com/#website",
         "url": "https://www.marketingpro-agency.com/",
         "name": "MarketingPro",
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
         "inLanguage": ["en"]
       },
       {
@@ -108,18 +134,36 @@
         "@id": "https://www.marketingpro-agency.com/blog-seo#webpage",
         "url": "https://www.marketingpro-agency.com/blog-seo",
         "name": "SEO in 2026: Climb the Rankings and Stay There",
-        "isPartOf": { "@id": "https://www.marketingpro-agency.com/#website" },
+        "isPartOf": {
+          "@id": "https://www.marketingpro-agency.com/#website"
+        },
         "primaryImageOfPage": "https://www.marketingpro-agency.com/assets/img/svc-seo-1.jpg",
         "inLanguage": "en",
-        "breadcrumb": { "@id": "https://www.marketingpro-agency.com/blog-seo#breadcrumb" }
+        "breadcrumb": {
+          "@id": "https://www.marketingpro-agency.com/blog-seo#breadcrumb"
+        }
       },
       {
         "@type": "BreadcrumbList",
         "@id": "https://www.marketingpro-agency.com/blog-seo#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.marketingpro-agency.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.marketingpro-agency.com/blog" },
-          { "@type": "ListItem", "position": 3, "name": "SEO in 2026: Climb the Rankings and Stay There" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.marketingpro-agency.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.marketingpro-agency.com/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SEO"
+          }
         ]
       },
       {
@@ -130,21 +174,54 @@
         "image": "https://www.marketingpro-agency.com/assets/img/svc-seo-1.jpg",
         "datePublished": "2026-06-09",
         "dateModified": "2026-07-03",
-        "author": { "@id": "https://www.marketingpro-agency.com/about#author" },
-        "publisher": { "@id": "https://www.marketingpro-agency.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://www.marketingpro-agency.com/blog-seo#webpage" },
+        "author": {
+          "@id": "https://www.marketingpro-agency.com/about#author"
+        },
+        "publisher": {
+          "@id": "https://www.marketingpro-agency.com/#organization"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://www.marketingpro-agency.com/blog-seo#webpage"
+        },
         "inLanguage": "en",
         "articleSection": "SEO",
-        "keywords": ["SEO", "search engine optimization", "local SEO"],
-        "about": { "@id": "https://www.marketingpro-agency.com/services#service-seo" }
+        "keywords": [
+          "SEO",
+          "search engine optimization",
+          "local SEO"
+        ],
+        "about": {
+          "@id": "https://www.marketingpro-agency.com/services#service-seo"
+        }
       },
       {
         "@type": "FAQPage",
         "@id": "https://www.marketingpro-agency.com/blog-seo#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "How long does SEO take to work?", "acceptedAnswer": { "@type": "Answer", "text": "SEO behaves more like fitness than a switch. The first few months are groundwork, real movement usually shows between months three and six, and the biggest compounding gains arrive after that. Anyone promising page one in a fortnight is best avoided." } },
-          { "@type": "Question", "name": "Can I just pay to rank first on Google?", "acceptedAnswer": { "@type": "Answer", "text": "You can pay for ads, which stop the moment you stop paying. Organic rankings are earned through useful content, sound technical foundations and genuine authority, and that's what keeps bringing in customers for free over time." } },
-          { "@type": "Question", "name": "What is local SEO and do I need it?", "acceptedAnswer": { "@type": "Answer", "text": "Local SEO helps you show up when nearby customers search, for example \"web design in Milan.\" A complete Google Business Profile, consistent contact details and real reviews can put a small local business above much larger ones for the searches that happen in your area." } }
+          {
+            "@type": "Question",
+            "name": "How long does SEO take to work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SEO behaves more like fitness than a switch. The first few months are groundwork, real movement usually shows between months three and six, and the biggest compounding gains arrive after that. Anyone promising page one in a fortnight is best avoided."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I just pay to rank first on Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can pay for ads, which stop the moment you stop paying. Organic rankings are earned through useful content, sound technical foundations and genuine authority, and that's what keeps bringing in customers for free over time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is local SEO and do I need it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Local SEO helps you show up when nearby customers search, for example \"web design in Milan.\" A complete Google Business Profile, consistent contact details and real reviews can put a small local business above much larger ones for the searches that happen in your area."
+            }
+          }
         ]
       }
     ]
