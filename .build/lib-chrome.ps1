@@ -169,7 +169,7 @@ function Set-NavBlock([string]$html, [string]$slug, [string]$lang) {
 # Bump when assets/css/style.css or assets/js/main.js changes, so returning
 # visitors do not run a four-language switcher against a two-language script.
 $CSS_VERSION = 14
-$JS_VERSION = 16
+$JS_VERSION  = 17
 
 # -----------------------------------------------------------------------------
 # Staged rollout
@@ -280,20 +280,28 @@ $CHROME = @{
   en = @{ skip = 'Skip to content'; contact = 'Contact'
           nlHead = 'Receive our newsletter'; nlLabel = 'Enter your email address'
           nlPlaceholder = 'Your email for updates'; nlButton = 'Join us for growth'
-          nlNote = "Thanks! We'll be in touch."; rights = 'All rights reserved.' }
+          nlNote = "Thanks! We'll be in touch."; rights = 'All rights reserved.'
+          lbZoom = 'Enlarge image'; lbClose = 'Close'
+          lbPrev = 'Previous image'; lbNext = 'Next image' }
   it = @{ skip = 'Vai al contenuto'; contact = 'Contatti'
           nlHead = 'Ricevi la nostra newsletter'; nlLabel = 'Inserisci il tuo indirizzo email'
           nlPlaceholder = 'La tua email per gli aggiornamenti'; nlButton = 'Cresci con noi'
-          nlNote = 'Grazie! Ti contatteremo presto.'; rights = 'Tutti i diritti riservati.' }
+          nlNote = 'Grazie! Ti contatteremo presto.'; rights = 'Tutti i diritti riservati.'
+          lbZoom = "Ingrandisci l'immagine"; lbClose = 'Chiudi'
+          lbPrev = 'Immagine precedente'; lbNext = 'Immagine successiva' }
   es = @{ skip = 'Saltar al contenido'; contact = 'Contacto'
           nlHead = 'Recibe nuestra newsletter'; nlLabel = 'Escribe tu correo electrónico'
           nlPlaceholder = 'Tu correo para novedades'; nlButton = 'Crece con nosotros'
-          nlNote = '¡Gracias! Nos pondremos en contacto.'; rights = 'Todos los derechos reservados.' }
+          nlNote = '¡Gracias! Nos pondremos en contacto.'; rights = 'Todos los derechos reservados.'
+          lbZoom = 'Ampliar imagen'; lbClose = 'Cerrar'
+          lbPrev = 'Imagen anterior'; lbNext = 'Imagen siguiente' }
   sq = @{ skip = 'Kaloni te përmbajtja kryesore'; contact = 'Kontakt'
           nlHead = 'Merrni newsletter-in tonë'; nlLabel = 'Shkruani adresën tuaj email'
           nlPlaceholder = 'Email-i juaj për përditësimet'; nlButton = 'Rrituni bashkë me ne'
           nlNote = "Faleminderit! Do t'ju kontaktojmë së shpejti."
-          rights = 'Të gjitha të drejtat e rezervuara.' }
+          rights = 'Të gjitha të drejtat e rezervuara.'
+          lbZoom = 'Zmadhoni imazhin'; lbClose = 'Mbyllni'
+          lbPrev = 'Imazhi i mëparshëm'; lbNext = 'Imazhi tjetër' }
 }
 
 # The footer nav repeats the header's six links. It survived four translation
@@ -324,7 +332,16 @@ function Set-ChromeStrings([string]$html, [string]$lang) {
     @{ rx = '(<button class="btn btn--green" type="submit">)[^<]*(</button>)';              val = $C.nlButton },
     @{ rx = '(<p class="newsletter__note" data-newsletter-note hidden>)[^<]*(</p>)';        val = $C.nlNote },
     @{ rx = '(placeholder=")[^"]*(" autocomplete="email" required)';                        val = $C.nlPlaceholder },
-    @{ rx = '(<span data-year>[^<]*</span>\. )[^<]*(</p>)';                                 val = $C.rights }
+    @{ rx = '(<span data-year>[^<]*</span>\. )[^<]*(</p>)';                                 val = $C.rights },
+    # The gallery and lightbox controls live OUTSIDE <main>, which is why they
+    # were missed here: they read as page content but behave as chrome. That
+    # gap cost the three trees their translations the first time portfolio.html
+    # was re-ported with -Force, because the porter rebuilds from English and
+    # nothing put these back. Generating them means it cannot happen again.
+    @{ rx = '(<button class="gallery__item" type="button" aria-label=")[^"]*(")';            val = $C.lbZoom },
+    @{ rx = '(data-lightbox-close aria-label=")[^"]*(")';                                    val = $C.lbClose },
+    @{ rx = '(data-lightbox-prev aria-label=")[^"]*(")';                                     val = $C.lbPrev },
+    @{ rx = '(data-lightbox-next aria-label=")[^"]*(")';                                     val = $C.lbNext }
   )
   foreach ($m in $map) { $html = [regex]::Replace($html, $m.rx, "`${1}$($m.val)`${2}") }
 
