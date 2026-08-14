@@ -651,6 +651,76 @@ foreach ($lang in $LANGS.Keys) {
 Write-Ok "$($svc.Count) service pages x $($LANGS.Count) trees share one boilerplate set"
 
 # -----------------------------------------------------------------------------
+Start-Check 'Nothing deployable is oversized, and the root holds only what it should'
+# Two failures this session that nothing would have caught before deploy time.
+#
+# SIZE. Cloudflare Workers Assets rejects any single file over 25 MiB. A 122.6
+# MiB camera master sat in this repo and would not have made the deploy slow, it
+# would have made it fail, with the first sign being a wrangler error. 20 MiB
+# leaves headroom to notice before the ceiling.
+#
+# ROOT. wrangler.jsonc sets assets.directory ".", so the repo root IS the public
+# asset set, and .assetsignore filters by path rather than by git status.
+# Untracked does not mean unpublished: three stray files sat in the root and
+# would have been served from https://.../005.mp4 on the next deploy. So the
+# root is an allowlist, and anything new has to be named here deliberately.
+$MAX_MB = 20
+$rootAllow = @(
+  '_headers', 'llms.txt', 'robots.txt', 'site.webmanifest', 'sitemap.xml', 'wrangler.jsonc'
+)
+$dirAllow = @('assets', 'it', 'es', 'sq', '.build', 'originals', '.git')
+
+$oversize = 0
+Get-ChildItem -Path $root -Recurse -File -Force |
+  Where-Object { $_.FullName -notmatch '[\\/](\.git|\.build|originals)[\\/]' } |
+  ForEach-Object {
+    if ($_.Length -gt ($MAX_MB * 1MB)) {
+      $oversize++
+      $mb = [math]::Round($_.Length / 1MB, 1)
+      Add-Failure "$($_.Name) is $mb MB - over the $MAX_MB MB guard, and Cloudflare rejects anything above 25 MiB"
+    }
+  }
+
+foreach ($item in (Get-ChildItem -Path $root -Force)) {
+  if ($item.PSIsContainer) {
+    if ($dirAllow -notcontains $item.Name) {
+      Add-Failure "unexpected directory in the repo root: $($item.Name)/ - it would be served publicly"
+    }
+    continue
+  }
+  if ($item.Name -like '.*') { continue }          # dotfiles are config, not assets
+  if ($item.Name -like '*.html') { continue }      # page files are checked by parity
+  if ($rootAllow -notcontains $item.Name) {
+    Add-Failure "unexpected file in the repo root: $($item.Name) - it would be served at https://.../$($item.Name)"
+  }
+}
+if ($oversize -eq 0) {
+  $biggest = Get-ChildItem -Path $root -Recurse -File -Force |
+             Where-Object { $_.FullName -notmatch '[\\/](\.git|\.build|originals)[\\/]' } |
+             Sort-Object Length -Descending | Select-Object -First 1
+  Write-Ok "largest deployable file is $($biggest.Name), $([math]::Round($biggest.Length/1MB,2)) MB; root is clean"
+}
+
+# -----------------------------------------------------------------------------
+Start-Check 'Every <video> reserves its own space'
+# The <img> check exists because an image without width/height causes layout
+# shift. A <video> in normal flow does exactly the same, and had no check at
+# all. The hero escapes only because CSS pins it to 100svh; the case-study
+# video sits in the document flow and would shift the page under the reader.
+$videos = 0
+foreach ($p in $docs.Values) {
+  foreach ($m in [regex]::Matches($p.Html, '<video\b[^>]*>')) {
+    $tag = $m.Value
+    if ($tag -match 'class="hero__video"') { continue }   # sized by CSS to the viewport
+    $videos++
+    if ($tag -notmatch '\bwidth="\d+"' -or $tag -notmatch '\bheight="\d+"') {
+      Add-Failure "$($p.Rel): <video> has no width/height, so it reserves no space and shifts the page"
+    }
+  }
+}
+Write-Ok "$videos in-flow videos declare their dimensions"
+
+# -----------------------------------------------------------------------------
 Write-Host ''
 if ($failures.Count -eq 0) {
   Write-Host 'RESULT: ALL PASSES CLEAN' -ForegroundColor Green

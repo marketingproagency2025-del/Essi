@@ -103,6 +103,24 @@ Three things to check before deploying:
   assets root and there is not one yet. So a bad path returns Cloudflare's bare 404, with
   no language-aware fallback. Worth fixing, but it is a separate piece of work.
 
+### The two Cloudflare limits that decide what can ship
+
+**25 MiB per file, and 20,000 files per Worker version** (100,000 on a paid plan). Neither
+was written down anywhere until a 122.6 MiB camera master arrived in the repo root. That
+would not have made the deploy slow, it would have made it fail, and the first sign would
+have been a `wrangler` error rather than anything local.
+
+Gate check 22 now enforces a 20 MiB ceiling, leaving headroom to notice before Cloudflare
+does, and re-derives the largest deployable file each run so the number is never stale.
+It also holds the repo root to an allowlist, because `assets.directory: "."` means the
+root is the public asset set and `.assetsignore` filters by path rather than by git
+status: an untracked file is still a published one. Three strays proved that.
+
+Video belongs in `assets/video/`, encoded by `.build/make-video.py`, which reuses the
+iOS-safe H.264 settings documented in `flysystem.io/tools/make_video.py` and aborts rather
+than writing anything above the 25 MiB ceiling. Camera masters go in `originals/`, which
+is gitignored and `.assetsignore`d.
+
 Then verify live: `/es/services` and `/sq/services` resolve, the switcher lists four
 languages and round-trips EN to IT to ES to SQ and back on the same page, and the floating
 WhatsApp button prefills Spanish and Albanian text.
