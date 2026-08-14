@@ -86,7 +86,12 @@ def build(slug, c):
     i = s.index('<script type="application/ld+json">')
     j = s.index('</script>', i)
     graph = json.loads(s[i + len('<script type="application/ld+json">'):j])
-    keep = [n for n in graph['@graph'] if n['@type'] in ('Organization', 'WebSite')]
+    # @type may be a list (fix-geo-schema.py dual-types the Organization as
+    # ["Organization", "ProfessionalService"]); plain membership would then
+    # silently drop the node on a future regeneration.
+    keep = [n for n in graph['@graph']
+            if ({'Organization', 'WebSite'} &
+                set(n['@type'] if isinstance(n['@type'], list) else [n['@type']]))]
     keep.append({
         '@type': 'Service', '@id': f'{url}#service',
         'name': c['service_name'], 'serviceType': c['service_type'],
