@@ -15,7 +15,7 @@ MarketingPro works with businesses across Italy, Europe and the United States, i
 - [Digital Marketing Agency, Europe & US](https://www.marketingpro-agency.com/): what MarketingPro does, and how the qualify-every-lead model works.
 - [Digital Marketing Services: Ads, SEO, Web](https://www.marketingpro-agency.com/services): all eight services, each linking to its own page.
 - [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
-- [Portfolio: Our Creative Marketing Work](https://www.marketingpro-agency.com/portfolio): selected work.
+- [Client Work: Fly System, OFYR UK and Rika](https://www.marketingpro-agency.com/portfolio): selected work.
 - [Marketing Blog: A Guide to Every Service](https://www.marketingpro-agency.com/blog): ten pieces: one guide per service, plus two articles.
 - [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
 
@@ -55,4 +55,6 @@ The Meta results published on our services page are real campaign exports, not i
 
 ## Other languages
 
-- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) — 16 pages
+- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) — 24 pages
+- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) — 24 pages
+- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) — 24 pages

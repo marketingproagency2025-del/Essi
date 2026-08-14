@@ -291,7 +291,17 @@
      64 HTML files.
 
      hreflang hrefs are absolute. We navigate by pathname so the switcher keeps
-     working on localhost instead of jumping to the production domain. */
+     working on localhost instead of jumping to the production domain.
+
+     That pathname must be parsed out of the href, NOT read off the element.
+     This used to be `alts[i].pathname || "/"`, which looks right and is not:
+     .pathname comes from HTMLHyperlinkElementUtils, which <a> and <area>
+     implement and <link> does not. So it was undefined on every iteration, the
+     || fallback fired every time, and every entry in the menu pointed at "/".
+     The switcher was live in that state: whatever page you were reading, in
+     whatever language, choosing another language sent you to the homepage. It
+     looked completely correct in the markup, because the labels were right and
+     only the hrefs were wrong. */
   var langMenu = document.querySelector("[data-lang-menu]");
   if (langMenu) {
     var alts = document.querySelectorAll('link[rel="alternate"][hreflang]');
@@ -302,7 +312,14 @@
       var code = (alts[i].getAttribute("hreflang") || "").toLowerCase();
       if (code === "x-default" || !STRINGS[code]) continue;
       if (code === lang) sawCurrent = true;
-      items.push({ code: code, href: alts[i].pathname || "/" });
+      var raw = alts[i].getAttribute("href") || "/";
+      var path;
+      try {
+        path = new URL(raw, window.location.href).pathname;
+      } catch (e) {
+        path = raw;                     // relative already, or unparseable
+      }
+      items.push({ code: code, href: path });
     }
 
     // A page can legitimately be absent from its own hreflang set: translations
