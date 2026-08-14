@@ -34,7 +34,8 @@
       mailSubject: "New enquiry",
       mailFrom: " from ",
       fName: "Name", fEmail: "Email", fPhone: "Phone", fMessage: "Message",
-      mailStatus: "Opening your email app to send the message…"
+      mailStatus: "Opening your email app to send the message…",
+      vidPlay: "Play video", vidUnmute: "Turn on sound", vidMute: "Turn off sound"
     },
     it: {
       name: "Italiano",
@@ -46,7 +47,8 @@
       mailSubject: "Nuova richiesta",
       mailFrom: " da ",
       fName: "Nome", fEmail: "Email", fPhone: "Telefono", fMessage: "Messaggio",
-      mailStatus: "Apertura dell'app email per inviare il messaggio…"
+      mailStatus: "Apertura dell'app email per inviare il messaggio…",
+      vidPlay: "Riproduci il video", vidUnmute: "Attiva l'audio", vidMute: "Disattiva l'audio"
     },
     es: {
       name: "Español",
@@ -58,7 +60,8 @@
       mailSubject: "Nueva consulta",
       mailFrom: " de ",
       fName: "Nombre", fEmail: "Email", fPhone: "Teléfono", fMessage: "Mensaje",
-      mailStatus: "Abriendo tu aplicación de correo para enviar el mensaje…"
+      mailStatus: "Abriendo tu aplicación de correo para enviar el mensaje…",
+      vidPlay: "Reproducir el vídeo", vidUnmute: "Activar el sonido", vidMute: "Desactivar el sonido"
     },
     sq: {
       name: "Shqip",
@@ -70,7 +73,8 @@
       mailSubject: "Kërkesë e re",
       mailFrom: " nga ",
       fName: "Emri", fEmail: "Email", fPhone: "Telefoni", fMessage: "Mesazhi",
-      mailStatus: "Po hapet aplikacioni i email-it për të dërguar mesazhin…"
+      mailStatus: "Po hapet aplikacioni i email-it për të dërguar mesazhin…",
+      vidPlay: "Luani videon", vidUnmute: "Aktivizoni zërin", vidMute: "Çaktivizoni zërin"
     }
   };
 
@@ -101,6 +105,80 @@
     // Autoplay can still be refused (battery saver, data saver). The poster
     // stays visible, so a rejection needs no handling beyond not throwing.
     if (started && started.catch) { started.catch(function () {}); }
+  })();
+
+  /* ---------- Case-study video ----------
+     Deliberately not reusing the hero block above. That one is
+     querySelector - singular - so a second [data-hero-video] anywhere would be
+     silently ignored, and the two have different jobs anyway: the hero is
+     decorative, this is the evidence a portfolio page exists to show.
+
+     Which means the hero's rule cannot simply be copied. The hero withholds
+     itself from phones and from reduced-motion visitors and that costs them
+     nothing, because it is wallpaper. Doing the same here would hide client
+     work from every phone visitor. So the gate changes what the control means
+     rather than whether the content is reachable:
+
+       wide screen, motion allowed   autoplay muted, button offers sound
+       anything else                 poster only, button offers play
+
+     Either way nothing is fetched until it is wanted, and a tap that starts
+     playback is a user gesture, so it is allowed to bring sound with it. */
+  (function () {
+    var frame = document.querySelector("[data-case-video]");
+    if (!frame) return;
+    var video = frame.querySelector("video");
+    var button = frame.querySelector("[data-case-sound]");
+    if (!video || !button) return;
+
+    var src = video.getAttribute("data-src");
+    var loaded = false;
+
+    function attach() {
+      if (loaded) return;
+      var source = document.createElement("source");
+      source.src = src;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      video.load();
+      loaded = true;
+    }
+
+    function setState(state) {
+      button.setAttribute("data-state", state);
+      button.setAttribute("aria-label",
+        state === "play" ? t.vidPlay : state === "muted" ? t.vidUnmute : t.vidMute);
+    }
+
+    function play() {
+      var started = video.play();
+      // Refusal is normal (battery saver, data saver, autoplay policy). The
+      // poster is underneath, so there is nothing to repair beyond not throwing.
+      if (started && started.catch) { started.catch(function () {}); }
+    }
+
+    var wide = window.matchMedia("(min-width: 861px)").matches;
+    if (!reduceMotion && wide) {
+      attach();
+      video.muted = true;
+      play();
+      setState("muted");
+    } else {
+      setState("play");
+    }
+
+    button.addEventListener("click", function () {
+      if (!loaded) {
+        // First tap on a phone: load, unmute and play in one gesture.
+        attach();
+        video.muted = false;
+        play();
+        setState("sound");
+        return;
+      }
+      video.muted = !video.muted;
+      setState(video.muted ? "muted" : "sound");
+    });
   })();
 
   /* ---------- Sticky header state on scroll ---------- */

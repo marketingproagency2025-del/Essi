@@ -62,9 +62,17 @@ for path in sorted(pages):
         if not os.path.isfile(webp_disk):
             continue                      # no WebP was generated for this one
 
-        # already wrapped?
-        before = s[max(0, m.start() - 220):m.start()]
-        if '<picture' in before and '</picture>' not in before:
+        # Already inside a <picture>? Decide it by nesting, not by a fixed
+        # lookback. The old test read the previous 220 characters and skipped
+        # only if it saw an opening tag and no closing one - so when two
+        # <figure><picture> blocks sat next to each other, the PREVIOUS block's
+        # </picture> landed in the window, the guard failed open, and the image
+        # got wrapped a second time. That produced <picture><source><picture>
+        # <source><img></picture></picture> on eleven pages before it was
+        # caught. Comparing the last opener against the last closer is exact at
+        # any distance and cannot be fooled by a neighbour.
+        head = s[:m.start()]
+        if head.rfind('<picture') > head.rfind('</picture>'):
             skipped += 1
             continue
 

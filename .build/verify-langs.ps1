@@ -188,7 +188,7 @@ Write-Ok 'all <html lang> values correct'
 
 # -----------------------------------------------------------------------------
 Start-Check 'Local asset references resolve on disk'
-$refRx = [regex]'(?:href|src|poster|data-hero-video|srcset)="([^":#][^":]*)"'
+$refRx = [regex]'(?:href|src|poster|data-hero-video|data-src|srcset)="([^":#][^":]*)"'
 $missing = @{}
 foreach ($p in $docs.Values) {
   $baseDir = Split-Path -Parent $p.Full

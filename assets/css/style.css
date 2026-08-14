@@ -1148,6 +1148,112 @@ h1, h2, h3, h4 {
 .gallery__item:hover img,
 .gallery__item:focus-visible img { transform: scale(1.06); }
 
+/* ---------- Case studies ----------
+   The evidence for all three clients is vertical 9:16: two Instagram grid
+   screenshots and one film shot on a phone. Every other media box on this site
+   is landscape (.split__media is 4/5, .feature-row__media 4/3, .service__img
+   16/10), so a 620x1280 screenshot dropped into one of them is centre-cropped
+   to a strip. Hence one new frame, shaped like the thing it holds.
+
+   Capped at 330px rather than filling the column: at full width a phone
+   screenshot reads as a broken layout rather than as a phone. The cap is also
+   why 720px of video is plenty - it is more than 2x the largest render. */
+.case-frame {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  margin-inline: auto;
+  aspect-ratio: 620 / 1280;
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, .10);
+}
+.case-frame img,
+.case-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* The poster sits under the video so there is never a flash of empty frame:
+   the video is transparent until it has something to paint, and on phones it
+   is never fetched at all, so the poster is simply what you see. */
+.case-frame__poster { position: absolute; inset: 0; }
+.case-frame video { position: relative; z-index: 1; background: transparent; }
+
+/* One control, three meanings, because the video's state differs by device:
+   play (never loaded), unmute (autoplaying muted), mute (audible). */
+.case-frame__sound {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(15, 20, 26, .62);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background .25s var(--ease), transform .25s var(--ease);
+}
+.case-frame__sound:hover { background: rgba(15, 20, 26, .82); transform: scale(1.06); }
+.case-frame__sound:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+/* Exactly one icon shows at a time; JS sets data-state on the button. */
+.case-frame__sound svg { display: none; }
+.case-frame__sound[data-state="play"]   .ico-play,
+.case-frame__sound[data-state="muted"]  .ico-muted,
+.case-frame__sound[data-state="sound"]  .ico-sound { display: block; }
+
+.case__client { font-size: 1.45rem; margin-bottom: .2rem; }
+.case__meta {
+  display: block;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .9rem;
+}
+.case__live {
+  display: flex;
+  /* flex-start, not center: this line wraps to two lines in every language and
+     a centred dot then floats beside the gap between them. */
+  align-items: flex-start;
+  gap: .6rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.case__live::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: .58em;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(140, 197, 64, .22);
+}
+.portfolio-cases .feature-row { margin-top: clamp(2.6rem, 6vw, 4.5rem); }
+.portfolio-cases .feature-row:first-of-type { margin-top: clamp(1.6rem, 3vw, 2.4rem); }
+
+/* The frame is capped at 330px inside a 1fr column, so left to itself it floats
+   in the middle of its half with a wide void between it and the copy. Pushing
+   it toward the gutter closes that gap without giving up the 1fr 1fr grid,
+   which .split--reverse depends on for the alternating layout. */
+@media (min-width: 960px) {
+  .portfolio-cases .split__media { display: flex; justify-content: flex-end; }
+  .portfolio-cases .split--reverse .split__media { justify-content: flex-start; }
+  /* margin-inline:auto is what centres the frame on phones, but an auto margin
+     inside a flex row absorbs all the free space and silently beats
+     justify-content, so the rule above did nothing until this line. */
+  .portfolio-cases .case-frame { margin-inline: 0; }
+}
+
 /* Creative Solutions feature rows */
 .portfolio-solutions .feature-row { margin-top: clamp(2.2rem, 5vw, 3.5rem); }
 .feature-row__media img {
