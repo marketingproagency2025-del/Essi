@@ -237,7 +237,7 @@ def build_main():
       'market?</h2>')
     A('          <p class="section__lead section__lead--center">Tell us the goal. We will come '
       'back with a plan and a price, usually within one business day.</p>')
-    A('          <p><a class="btn btn--green" href="/contact">Tell us your goal</a></p>')
+    A('          <p class="section__cta"><a class="btn btn--green" href="/contact">Tell us your goal</a></p>')
     A('        </header>')
     A('      </div>')
     A('    </section>')

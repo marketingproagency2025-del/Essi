@@ -406,6 +406,10 @@ h1, h2, h3, h4 {
   text-wrap: pretty;
 }
 .section__lead--center { text-align: center; }
+/* A CTA that lives inside a centered .section__head: the <p> is a plain block,
+   so without this the inline-flex button hugs the left edge under centered text
+   (shipped that way on the portfolio in all four trees). */
+.section__cta { text-align: center; }
 
 .split__text > p { margin-top: 1rem; }
 .split__text > p:first-of-type { margin-top: 0; }
