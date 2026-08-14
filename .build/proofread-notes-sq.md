@@ -176,3 +176,28 @@ English would make the Albanian node carry less than the English one.
 times in 526 words, about once every 53. No single use is wrong; the density is.
 `funnel-eve` (genitive plural) is the least graceful form in the set and is
 better rephrased around than standardised.
+
+## Cold review of the portfolio, applied
+
+The portfolio page is live and names three real clients, so it was reviewed
+against that standard rather than the usual one. Three defects, all fixed:
+
+- `ushqimit që del në pjatë` - OFYR's product IS a steel cooking plate, and
+  `pjatë` is a dinner plate. `në` also reversed "off" into "onto", so the line
+  described a restaurant plating shot rather than the client's product. Italian
+  and Spanish both rendered it correctly, which is how it stood out. Now
+  `nga pllaka e gatimit`.
+- `kur e sheh në përdorim` - informal 2sg on a page that is formal everywhere
+  else. Same class as the defects swept last week. Now impersonal, `kur shihet`,
+  which sidesteps register entirely.
+- `për dyqanin e saj Premium Store` - doubled noun. Now `për Premium Store-in e saj`.
+
+And one that was not on the portfolio at all but was found through it: two live
+service pages used `filtroj` throughout where English says `qualified`. See the
+new qualify-family section in guide-sq.md. Seventeen occurrences corrected.
+
+**Still open for a native reader:** `korrigjim ngjyrash` is used tree-wide for
+"colour grading", but it means colour *correction*. Grading and correction are
+different jobs and we sell the first. Changing it means changing
+`blog-photo-video`, `services-photo-video` and `portfolio` together, so it is
+left as a consistent tree-wide decision rather than fixed on one page.

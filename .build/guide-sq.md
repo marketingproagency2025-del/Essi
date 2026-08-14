@@ -51,6 +51,25 @@ Measured across the corpus: formal `juaj`/`tuaj` outnumber informal `yt`/`tënd`
 > clash with the formal rule above. The rule wins: one register, everywhere, including
 > `aria-label`s a screen reader speaks aloud.
 
+## The qualify family: `kualifikoj`, and only that
+
+**This is the brand promise, so it gets one word.** English uses `qualify` and its
+relatives 89 times across the site and `filter` exactly six, one per page, always
+beside a qualify. Albanian mirrors that on most pages and inverted it on two:
+`sq/services-advertising.html` ran 10 `filtroj` to 0 `kualifikoj`, and
+`sq/services-social-media.html` 8 to 0, on an English page that never says
+"filter" at all. Both were live. A reader following a link from the portfolio
+went from *we qualify every lead* to *every lead gets filtered*, which is a
+different and smaller claim.
+
+- `kualifikoj` / `i kualifikuar` / `kualifikimi` translate the qualify family,
+  always.
+- `filtroj` appears only where the English itself says "filter" - one bullet on
+  the advertising page. **This holds regardless of which reads better in a
+  given sentence**, for the same reason `guide-es.md` pins `calificar`: the word
+  is a promise, not a stylistic choice, and consistency across 24 pages is worth
+  more than the best word in any one of them.
+
 ## Loanwords stay English, with Albanian inflection
 
 The corpus keeps `marketing`, `Blog`, `Shop`, `cookie-t`, `COD` in English and inflects
