@@ -56,7 +56,10 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": [
+          "Organization",
+          "ProfessionalService"
+        ],
         "@id": "https://www.marketingpro-agency.com/#organization",
         "name": "MarketingPro",
         "alternateName": "MarketingPro Digital Marketing Agency",
@@ -92,7 +95,8 @@
           "areaServed": [
             "Italy",
             "Europe",
-            "United States"
+            "United States",
+            "Albania"
           ],
           "availableLanguage": ["en", "it", "es", "sq"]
         },
@@ -108,6 +112,10 @@
           {
             "@type": "Country",
             "name": "United States"
+          },
+          {
+            "@type": "Country",
+            "name": "Albania"
           }
         ],
         "knowsAbout": [
