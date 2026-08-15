@@ -132,3 +132,24 @@ If you translate a testimonial author's name, change the avatar initials to matc
 These translations are model-produced. The workspace rule in `.claude/rules/writing.md`
 is explicit: *"Never machine-translate a page and ship it."* A native Albanian speaker
 should proofread before cut-over. Nothing here is a substitute for that.
+
+## Target queries per page (frozen 2026-08-15 after live-SERP checks)
+
+Albanian competitors all anchor on Tiranë; nobody targets Durrës, and we are the only
+agency actually based there. The city queries are an open position.
+
+| Page | Primary | Secondaries |
+|---|---|---|
+| index | agjenci marketingu dixhital në Durrës | agjenci marketingu Shqipëri |
+| services-social-media | menaxhim social media | menaxhimi i rrjeteve sociale, marketing në mediat sociale |
+| services-advertising | reklama në Facebook dhe Instagram | fushata Meta dhe Google |
+| services-website | krijim faqesh interneti | web design, faqe interneti për biznes |
+| services-seo | shërbime SEO Shqipëri | optimizim SEO |
+| services-sales-funnel | funnel shitjesh | gjenerim lead-esh |
+| services-photo-video | editim fotosh dhe videosh | produksion video |
+| services-renders | render 3D | vizualizim produktesh |
+| services-catalogues | dizajn katalogësh | katalogë produktesh |
+
+"agjensi" (with s) is a common real-world spelling; always write `agjenci`. Body copy
+may use `rrjetet sociale` / `mediat sociale` as variants where the title carries the
+pinned `social media` loanword.
