@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MarketingPro Marketing Blog</title>
+    <link>https://www.marketingpro-agency.com/blog</link>
+    <description>Practical marketing guides from MarketingPro, a digital marketing agency based in Durres, Albania.</description>
+    <language>en</language>
+    <atom:link href="https://www.marketingpro-agency.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Tue, 30 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Social Media Management: Turning Followers into Loyal Customers</title>
+      <link>https://www.marketingpro-agency.com/blog-social-media</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-social-media</guid>
+      <description>Followers do not pay invoices. How to turn social media from a scrapbook into a channel that delivers qualified customers. Read the guide.</description>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Advertising Campaigns That Actually Convert</title>
+      <link>https://www.marketingpro-agency.com/blog-advertising</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-advertising</guid>
+      <description>Anyone can spend on ads; making every euro come back is another matter. The Meta and Google playbook that turns clicks into qualified leads.</description>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Website Is Your Hardest-Working Salesperson</title>
+      <link>https://www.marketingpro-agency.com/blog-website</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-website</guid>
+      <description>Your website works 24/7 and is often the first impression. What separates a pretty brochure site from one that converts. Read the guide.</description>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>SEO in 2026: Climb the Rankings and Stay There</title>
+      <link>https://www.marketingpro-agency.com/blog-seo</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-seo</guid>
+      <description>Ranking on Google is earned, not bought. The SEO fundamentals that lift you up the results, and the habits that keep you there. Start here.</description>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>A Sales Funnel That Closes: From Stranger to Signed Contract</title>
+      <link>https://www.marketingpro-agency.com/blog-sales-funnel</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-sales-funnel</guid>
+      <description>A great lead is worthless without a path from interested to signed. Map every step from a stranger seeing your ad to a signed contract.</description>
+      <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Why Professional Photo &amp; Video Editing Elevates Your Brand</title>
+      <link>https://www.marketingpro-agency.com/blog-photo-video</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-photo-video</guid>
+      <description>First impressions are visual and formed in a fraction of a second. Why professional photo and video editing makes your brand look its best.</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Photorealistic Renders: Sell the Vision Before It&#x27;s Built</title>
+      <link>https://www.marketingpro-agency.com/blog-renders</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-renders</guid>
+      <description>It is hard to sell what a client cannot see yet. How photorealistic 3D renders let people picture the finished result and say yes sooner.</description>
+      <pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Catalogues That Sell: From Product List to Visual Experience</title>
+      <link>https://www.marketingpro-agency.com/blog-catalogues</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/blog-catalogues</guid>
+      <description>A catalogue should not read like a spreadsheet with pictures. Turn a product list into a visual experience that tells your story and sells.</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Marketing That Works as One System, Not Six Separate Tactics</title>
+      <link>https://www.marketingpro-agency.com/article-1</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/article-1</guid>
+      <description>Most marketing problems come from channels that do not talk to each other. How to join creativity, strategy and every channel into one system.</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Where to Start: Fix the Leaks Before You Spend More</title>
+      <link>https://www.marketingpro-agency.com/article-2</link>
+      <guid isPermaLink="true">https://www.marketingpro-agency.com/article-2</guid>
+      <description>More budget will not fix a funnel that leaks. Where to start instead: name one goal, close the leaks, then spend, then measure what matters.</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

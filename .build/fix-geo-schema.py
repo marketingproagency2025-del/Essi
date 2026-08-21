@@ -8,6 +8,8 @@ Italy first, full Durrës local presence. So this script does exactly the two
 things that one declined to do, and nothing it warned against doing without data
 we still do not have:
 
+  0. openingHoursSpecification from the 9-5 the contact page already publishes.
+
   1. #organization becomes ["Organization", "ProfessionalService"] on all 96
      pages. ProfessionalService is a LocalBusiness subtype, so this states "a
      professional service business located somewhere" - which Durrës,
@@ -40,6 +42,18 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TAG = '<script type="application/ld+json">'
 ALBANIA = {'@type': 'Country', 'name': 'Albania'}
 
+# The contact page publishes "9 AM - 5 PM" in all four languages, so the hours
+# are a fact the business already states, not an invention. A LocalBusiness
+# subtype without hours is a weaker entity than one with them. Days are not
+# published anywhere, so Monday-Friday is the only defensible reading of a
+# business that answers "within one business day".
+HOURS = {
+    '@type': 'OpeningHoursSpecification',
+    'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    'opens': '09:00',
+    'closes': '17:00',
+}
+
 pages = sorted(glob.glob('*.html') + glob.glob('it/*.html')
                + glob.glob('es/*.html') + glob.glob('sq/*.html'))
 
@@ -65,6 +79,9 @@ for path in pages:
             if ALBANIA not in area:
                 area.append(ALBANIA)
                 node['areaServed'] = area
+                hit = True
+            if node.get('openingHoursSpecification') != HOURS:
+                node['openingHoursSpecification'] = HOURS
                 hit = True
             cp = node.get('contactPoint', {})
             cpa = cp.get('areaServed', [])

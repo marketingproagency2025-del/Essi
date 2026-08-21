@@ -30,3 +30,7 @@ Disallow: /originals/
 Disallow: /.build/
 
 Sitemap: https://www.marketingpro-agency.com/sitemap.xml
+
+# The blog feed. A second discovery path that does not depend on the sitemap,
+# and the route aggregators and several AI crawlers use for new posts.
+Sitemap: https://www.marketingpro-agency.com/feed.xml

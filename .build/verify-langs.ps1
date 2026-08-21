@@ -19,6 +19,8 @@ $root     = Split-Path -Parent $PSScriptRoot
 $failures = @()
 $checkNo  = 0
 
+function Read-Utf8Safe([string]$p) { return [System.IO.File]::ReadAllText($p) }
+
 function Start-Check([string]$name) {
   $script:checkNo++
   Write-Host ("[{0,2}] {1}" -f $script:checkNo, $name) -ForegroundColor Cyan
@@ -666,8 +668,12 @@ Start-Check 'Nothing deployable is oversized, and the root holds only what it sh
 # root is an allowlist, and anything new has to be named here deliberately.
 $MAX_MB = 20
 $rootAllow = @(
-  '_headers', 'llms.txt', 'robots.txt', 'site.webmanifest', 'sitemap.xml', 'wrangler.jsonc'
+  '_headers', 'llms.txt', 'robots.txt', 'site.webmanifest', 'sitemap.xml', 'wrangler.jsonc',
+  'feed.xml'
 )
+# The IndexNow key file is named after the key itself, so it cannot be a literal
+# here. Check 24 below validates it properly; this just stops check 22 rejecting it.
+$rootAllowRx = @('^[0-9a-f]{32,128}\.txt$')
 $dirAllow = @('assets', 'it', 'es', 'sq', '.build', 'originals', '.git')
 
 $oversize = 0
@@ -690,6 +696,7 @@ foreach ($item in (Get-ChildItem -Path $root -Force)) {
   }
   if ($item.Name -like '.*') { continue }          # dotfiles are config, not assets
   if ($item.Name -like '*.html') { continue }      # page files are checked by parity
+  if ($rootAllowRx | Where-Object { $item.Name -match $_ }) { continue }
   if ($rootAllow -notcontains $item.Name) {
     Add-Failure "unexpected file in the repo root: $($item.Name) - it would be served at https://.../$($item.Name)"
   }
@@ -719,6 +726,28 @@ foreach ($p in $docs.Values) {
   }
 }
 Write-Ok "$videos in-flow videos declare their dimensions"
+
+# -----------------------------------------------------------------------------
+Start-Check 'IndexNow key file matches the key that gets submitted'
+# IndexNow proves domain ownership by fetching https://host/<key>.txt and
+# comparing its contents to the key in the payload. If the file is missing,
+# misnamed, or differs by one character, every submission fails - usually a bare
+# 403 with no explanation, and no indication that anything is wrong locally.
+# Nothing else in this repo would notice, so this does.
+$inKey = [regex]::Match((Read-Utf8Safe (Join-Path $PSScriptRoot 'indexnow.py')), "(?m)^KEY = '([0-9a-f]+)'")
+if (-not $inKey.Success) {
+  Add-Failure 'indexnow.py has no KEY line'
+} else {
+  $k = $inKey.Groups[1].Value
+  $kf = Join-Path $root "$k.txt"
+  if (-not (Test-Path $kf)) {
+    Add-Failure "IndexNow key file $k.txt is missing from the repo root - every submission would 403"
+  } elseif (((Read-Utf8Safe $kf).Trim()) -ne $k) {
+    Add-Failure "$k.txt does not contain its own key - every submission would 403"
+  } else {
+    Write-Ok "key file published and matching ($($k.Substring(0,8))...)"
+  }
+}
 
 # -----------------------------------------------------------------------------
 Write-Host ''

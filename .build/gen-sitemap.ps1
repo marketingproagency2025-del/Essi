@@ -23,6 +23,31 @@ $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
 
+# Real per-page modification date, from git.
+#
+# This used to stamp every URL with today's date. Ninety-six pages all claiming
+# to have changed on the same day, every time the script ran, is not a signal -
+# it is noise, and Google's documented response to a sitemap whose lastmod it
+# cannot trust is to stop reading lastmod for that site at all. Losing it costs
+# recrawl priority, which is the one thing a site stuck in "Discovered -
+# currently not indexed" cannot afford.
+#
+# git's committer date is the honest answer: the moment that file's content last
+# actually changed. Untracked or unavailable falls back to the file's mtime.
+$script:LastModCache = @{}
+function Get-PageLastMod([string]$relPath) {
+  if ($script:LastModCache.ContainsKey($relPath)) { return $script:LastModCache[$relPath] }
+  $iso = & git -C $root log -1 --format=%cs -- $relPath 2>$null
+  if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($iso)) {
+    $full = Join-Path $root $relPath
+    $iso = if (Test-Path $full) { (Get-Item $full).LastWriteTime.ToString('yyyy-MM-dd') }
+           else { (Get-Date -Format 'yyyy-MM-dd') }
+  }
+  $iso = $iso.Trim()
+  $script:LastModCache[$relPath] = $iso
+  return $iso
+}
+
 # Harvest a page's own alternates. The attributes are separated by arbitrary
 # whitespace and may wrap a line, so this matches \s+ rather than a literal
 # space. Order is preserved as authored.
@@ -59,7 +84,7 @@ foreach ($slug in $PAGES) {
     foreach ($a in $alts) {
       $lines += "    <xhtml:link rel=""alternate"" hreflang=""$($a.Lang)"" href=""$($a.Href)""/>"
     }
-    $lines += "    <lastmod>$LastMod</lastmod>"
+    $lines += "    <lastmod>$(Get-PageLastMod (Get-PagePath $slug $lang))</lastmod>"
     $lines += '    <changefreq>monthly</changefreq>'
     $lines += "    <priority>$($PRIORITY[$slug])</priority>"
     $lines += '  </url>'
@@ -85,4 +110,5 @@ if ($Check) {
 }
 
 Write-HtmlFile $dest $xml
-Write-Host "wrote sitemap.xml: $count urls, $(($count * 5)) alternates, lastmod $LastMod" -ForegroundColor Green
+$dates = @($script:LastModCache.Values | Sort-Object -Unique)
+Write-Host "wrote sitemap.xml: $count urls, $(($count * 5)) alternates, $($dates.Count) distinct lastmod dates ($($dates[0]) to $($dates[-1]))" -ForegroundColor Green
