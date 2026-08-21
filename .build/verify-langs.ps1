@@ -674,7 +674,16 @@ $rootAllow = @(
 # The IndexNow key file is named after the key itself, so it cannot be a literal
 # here. Check 24 below validates it properly; this just stops check 22 rejecting it.
 $rootAllowRx = @('^[0-9a-f]{32,128}\.txt$')
-$dirAllow = @('assets', 'it', 'es', 'sq', '.build', 'originals', '.git')
+# Directories that are legitimately published. Everything else in the root has to
+# be excluded by .assetsignore - and this READS that file rather than keeping a
+# second copy of the list. The hardcoded twin is exactly how .wrangler/ got
+# published: wrangler creates it on first login, so it appeared in neither list,
+# and a duplicated allowlist would have drifted from the real exclusions anyway.
+$dirAllow = @('assets', 'it', 'es', 'sq')
+$ignored  = @(Get-Content (Join-Path $root '.assetsignore') |
+              ForEach-Object { $_.Trim() } |
+              Where-Object { $_ -and -not $_.StartsWith('#') } |
+              ForEach-Object { $_.TrimEnd('/') })
 
 $oversize = 0
 Get-ChildItem -Path $root -Recurse -File -Force |
@@ -688,6 +697,7 @@ Get-ChildItem -Path $root -Recurse -File -Force |
   }
 
 foreach ($item in (Get-ChildItem -Path $root -Force)) {
+  if ($ignored -contains $item.Name) { continue }   # excluded from the deploy
   if ($item.PSIsContainer) {
     if ($dirAllow -notcontains $item.Name) {
       Add-Failure "unexpected directory in the repo root: $($item.Name)/ - it would be served publicly"

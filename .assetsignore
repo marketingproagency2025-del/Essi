@@ -15,3 +15,9 @@ originals/
 .git/
 .gitattributes
 .gitignore
+
+# Wrangler's own working directory: an account-id cache and temp build scaffolding.
+# It does not exist until you run wrangler, which is why it was not here before -
+# and the first deploy after a `wrangler login` published
+# /.wrangler/cache/wrangler-account.json to the public site. Never again.
+.wrangler/
