@@ -26,7 +26,7 @@ Short description (fits most directory fields, 148 chars):
    left is not a new listing, it is **reviews on the one you have**. The house
    GEO doc ranks review-platform gravity *above* on-site copy: a weak review
    profile means exclusion from AI answers no matter how good the site is.
-   Ask every past client. Fly System, OFYR UK and Rika are three you can ask today.
+   Ask every past client. Fly System, OFYR Italia and Rika are three you can ask today.
 2. **Bing Places** — the Bing equivalent, and Bing is what ChatGPT Search reads.
 3. **Instagram + Facebook bios** — link the site. Nofollow, but crawled fast, and
    they confirm the entity against `sameAs` in the schema.

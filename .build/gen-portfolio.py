@@ -63,13 +63,13 @@ CASES = [
         'ig': ('https://www.instagram.com/flysystem.it/', '@flysystem.it'),
     },
     {
-        'id': 'ofyr-uk',
-        'client': 'OFYR UK',
-        'meta': 'Outdoor cooking &middot; United Kingdom',
+        'id': 'ofyr-italia',
+        'client': 'OFYR Italia',
+        'meta': 'Outdoor cooking &middot; Milan, Italy',
         'img': 'case-ofyr',
-        'alt': 'The OFYR UK Instagram feed, showing chefs cooking over open fire at outdoor events',
+        'alt': 'The OFYR Italia Instagram feed, showing chefs cooking over open fire at outdoor events',
         'body': [
-            'OFYR UK sells outdoor cooking, and it is a product that only makes sense in use. '
+            'OFYR Italia sells outdoor cooking, and it is a product that only makes sense in use. '
             'So the content is built around chefs working over live fire, food coming off the '
             'plate, and the events where people can taste it rather than read about it.',
             'We run the channels and the campaigns, produce the photography and video, and '
@@ -77,7 +77,7 @@ CASES = [
         ],
         'extra_service': None,
         'live': None,
-        'ig': ('https://www.instagram.com/ofyr_uk/', '@ofyr_uk'),
+        'ig': ('https://www.instagram.com/ofyr_italia/', '@ofyr_italia'),
     },
     {
         'id': 'rika',
@@ -110,7 +110,7 @@ STILLS = [
     ('rika-showroom', 'The showroom seating area beneath the wall quote from Karl Riener'),
 ]
 
-TITLE = 'Client Work: Fly System, OFYR UK and Rika | MarketingPro'
+TITLE = 'Client Work: Fly System, OFYR Italia and Rika | MarketingPro'
 DESC = ('Real work for three clients: social channels, Meta campaigns, photo and video, '
         'and every lead qualified before it reaches their sales team.')
 H1 = 'Work We Have Shipped'

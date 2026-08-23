@@ -50,6 +50,22 @@ GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', '
           'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues']
 ARTICLES = ['article-1', 'article-2']
 
+# Which guide explains which service. Stated explicitly, NOT by zipping SERVICES against
+# GUIDES in order: GUIDES also carries city guides that explain no single service, and the
+# moment blog-milano was inserted at index 4 a positional zip silently paired
+# services-sales-funnel with the Milan guide, shifted the three after it, and dropped
+# blog-catalogues entirely. That shipped. A city guide simply has no entry here.
+SERVICE_GUIDE = {
+    'services-social-media': 'blog-social-media',
+    'services-advertising':  'blog-advertising',
+    'services-website':      'blog-website',
+    'services-seo':          'blog-seo',
+    'services-sales-funnel': 'blog-sales-funnel',
+    'services-photo-video':  'blog-photo-video',
+    'services-renders':      'blog-renders',
+    'services-catalogues':   'blog-catalogues',
+}
+
 # What each core page is for. Written here rather than lifted from the meta
 # description, because a description is sales copy aimed at a human scanning a
 # SERP and this line is orientation aimed at a machine deciding what to open.
@@ -58,7 +74,8 @@ CORE_BLURB = {
     'services':  'all eight services, each linking to its own page.',
     'about':     'the story, the team, and how the agency works.',
     'portfolio': 'selected work.',
-    'blog':      'ten pieces: one guide per service, plus two articles.',
+    # counted, not typed: it read "ten pieces" for a while after the eleventh went up
+    'blog':      f'{len(GUIDES) + len(ARTICLES)} pieces: one guide per service, city guides, plus two articles.',
     'contact':   'phone, email, WhatsApp, the markets served and the Durres operations hub.',
 }
 
@@ -145,8 +162,12 @@ out.append('')
 out.append('Each service has its own page. The guide linked beside it is the long,')
 out.append('non-commercial explanation of the same subject.')
 out.append('')
-for svc, guide in zip(SERVICES, GUIDES):
-    out.append(f'- [{h1(svc)}]({url(svc)}): {desc(svc)} Guide: {url(guide)}')
+for svc in SERVICES:
+    guide = SERVICE_GUIDE.get(svc)
+    line = f'- [{h1(svc)}]({url(svc)}): {desc(svc)}'
+    if guide:
+        line += f' Guide: {url(guide)}'
+    out.append(line)
 out.append('')
 
 out.append('## Guides')
