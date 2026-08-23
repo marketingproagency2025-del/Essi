@@ -53,6 +53,13 @@
   <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="assets/css/style.css?v=16" />
+  <noscript>
+    <style>
+      /* main.js adds .in-view to lift .reveal. Without it the page would be blank. */
+      .reveal { opacity: 1; transform: none; }
+      .reveal .section__title::after { transform: scaleX(1); }
+    </style>
+  </noscript>
 
   <!-- Structured data -->
   <script type="application/ld+json">
