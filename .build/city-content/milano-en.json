@@ -1,101 +1,114 @@
 {
-  "lang": "en",
-  "title": "Digital Marketing in Milan: A Guide for Business Owners",
-  "description": "Milan is Italy's most competitive market. What works for getting found by customers: local search, tight campaigns and a site that closes.",
-  "og_description": "Local search, tight campaigns and speed of reply: what actually works for getting found by customers in Milan.",
-  "h1": "Digital Marketing in Milan: How to Get Found by the Right Customers",
-  "breadcrumb_home": "Home",
-  "breadcrumb_blog": "Blog",
-  "breadcrumb_last": "Milan",
-  "hero_alt": "A search performance analytics dashboard",
-  "date_display": "23 August 2026",
-  "read_time": "6 min read",
-  "by": "By",
-  "intro": [
-    "Milan concentrates more companies, more agencies and more advertising budget than any other city in Italy. If you sell here, that cuts both ways: the customers are there, and they are also the most heavily courted in the country.",
-    "What follows is what actually works for getting found by them: local search, paid campaigns in an expensive market, and the step almost everyone skips, which is what happens in the minutes after an enquiry lands."
-  ],
-  "sections": [
+ "lang": "en",
+ "title": "Digital Marketing in Milan: A Guide for Business Owners",
+ "description": "Milan is Italy's most competitive market. What works for getting found by customers: local search, tight campaigns and a site that closes.",
+ "og_description": "Local search, tight campaigns and speed of reply: what actually works for getting found by customers in Milan.",
+ "h1": "Digital Marketing in Milan: How to Get Found by the Right Customers",
+ "breadcrumb_home": "Home",
+ "breadcrumb_blog": "Blog",
+ "breadcrumb_last": "Milan",
+ "hero_alt": "A search performance analytics dashboard",
+ "date_display": "23 August 2026",
+ "read_time": "6 min read",
+ "by": "By",
+ "intro": [
+  "Milan concentrates more companies, more agencies and more advertising budget than any other city in Italy. If you sell here, that cuts both ways: the customers are there, and they are also the most heavily courted in the country.",
+  "What follows is what actually works for getting found by them: local search, paid campaigns in an expensive market, and the step most people skip, which is what happens in the minutes after an enquiry lands."
+ ],
+ "sections": [
+  {
+   "h2": "Why Milan Isn't a Market Like Any Other",
+   "p": [
+    "In a small town you can still stand out simply by existing online. Not in Milan. Someone looking for a supplier finds ten credible alternatives on the first screen, asks for more quotes and takes longer to decide. The practical consequence is that being generic costs you: \"we are an industry leader\" moves nobody, while a page that says exactly what you do, who for and on what terms narrows the comparison down to two or three names.",
+    "The reverse is also true, and that is the part worth exploiting. Precisely because the market is dense, the niches run deep: in Milan there are enough people searching for exactly your specialism to make a position sustainable that would be far too narrow anywhere else."
+   ]
+  },
+  {
+   "h2": "Local Search Is Still the Front Door",
+   "p": [
+    "Plenty of searches in Milan are local even when they don't look it: \"accountant Porta Romana\", \"still life photographer Milan\", \"plumber Navigli area\". Google treats these as proximity requests and weighs three things above all: a complete, up-to-date Google Business Profile, contact details that are identical everywhere they appear, and reviews that are recent and genuine.",
+    "The profile is the part most people fill in once and then forget. Correct categories, real opening hours, real photos of the space or the work, replies to reviews: it is maintenance, not magic. In a city where everyone has a website but not everyone looks after their profile, that is an advantage still sitting on the table.",
+    "If you serve specific areas, put it on the page. A page that names the districts or the surrounding towns where you genuinely work answers a question people are typing. A page listing fifty locations you have never set foot in does exactly the opposite."
+   ]
+  },
+  {
+   "h2": "Paid Campaigns in an Expensive Market",
+   "p": [
+    "Cost per click rises wherever more companies bid on the same words, which is exactly the situation in a market like Milan. Raising the budget doesn't fix that. It only widens the surface you are losing on.",
+    "What works is narrowing. Keywords with buying intent instead of generic ones, an audience defined by behaviour rather than by age, one clear offer per campaign. An ad that says \"bathroom renovation quote in 24 hours in Milan\" competes with far fewer rivals than one that says \"renovations\".",
+    "Then there is the landing page. Sending paid traffic to your homepage is the quickest way to burn budget: the homepage talks to everyone, while the campaign was talking to one person."
+   ]
+  },
+  {
+   "h2": "The Site Has to Close What the Advertising Opens",
+   "p": [
+    "If you have paid to bring someone to your site, the site has one job: make the next step obvious. In practice that means the offer can be read in five seconds, the form asks for the bare minimum, and the phone number can be tapped on a mobile, which is where most of the traffic comes from.",
+    "Then there is loading speed. Someone searching on the move, on the metro, on a patchy connection, does not wait. Every second your site takes to appear is a slice of ad budget already spent that you will never see again."
+   ]
+  },
+  {
+   "h2": "Speed of Reply Beats Almost Everything Else",
+   "p": [
+    "The most underrated competitive advantage isn't in the marketing, it is in the minutes that follow. An enquiry that arrives at 3pm and is called back at 3:05pm is a conversation. The same enquiry called back the next day has already spoken to two other suppliers.",
+    "That is why we don't simply hand over contacts. Our team calls every lead, checks it is genuinely on target and passes you only the ones worth talking to. In a market where everyone can generate enquiries, the difference is made by whoever handles them in the first few minutes.",
     {
-      "h2": "Why Milan Isn't a Market Like Any Other",
-      "p": [
-        "In a small town you can still stand out simply by existing online. Not in Milan. Someone looking for a supplier finds ten credible alternatives on the first screen, asks for more quotes and takes longer to decide. The practical consequence is that being generic costs you: \"we are an industry leader\" moves nobody, while a page that says exactly what you do, who for and on what terms narrows the comparison down to two or three names.",
-        "The reverse is also true, and that is the part worth exploiting. Precisely because the market is dense, the niches run deep: in Milan there are enough people searching for exactly your specialism to make a position sustainable that would be far too narrow anywhere else."
-      ]
-    },
-    {
-      "h2": "Local Search Is Still the Front Door",
-      "p": [
-        "Plenty of searches in Milan are local even when they don't look it: \"accountant Porta Romana\", \"still life photographer Milan\", \"plumber Navigli area\". Google treats these as proximity requests and weighs three things above all: a complete, up-to-date Google Business Profile, contact details that are identical everywhere they appear, and reviews that are recent and genuine.",
-        "The profile is the part almost everyone fills in once and then forgets. Correct categories, real opening hours, real photos of the space or the work, replies to reviews: it is maintenance, not magic. In a city where everyone has a website but not everyone looks after their profile, that is an advantage still sitting on the table.",
-        "If you serve specific areas, put it on the page. A page that names the districts or the surrounding towns where you genuinely work answers a question people are typing. A page listing fifty locations you have never set foot in does exactly the opposite."
-      ]
-    },
-    {
-      "h2": "Paid Campaigns in an Expensive Market",
-      "p": [
-        "Cost per click in Milan is higher than in the rest of Italy in almost every sector, for the simplest of reasons: more companies are bidding on the same words. Raising the budget doesn't fix that. It only widens the surface you are losing on.",
-        "What works is narrowing. Keywords with buying intent instead of generic ones, an audience defined by behaviour rather than by age, one clear offer per campaign. An ad that says \"bathroom renovation quote in 24 hours in Milan\" competes with far fewer rivals than one that says \"renovations\".",
-        "Then there is the landing page. Sending paid traffic to your homepage is the quickest way to burn budget: the homepage talks to everyone, while the campaign was talking to one person."
-      ]
-    },
-    {
-      "h2": "The Site Has to Close What the Advertising Opens",
-      "p": [
-        "If you have paid to bring someone to your site, the site has one job: make the next step obvious. In practice that means the offer can be read in five seconds, the form asks for the bare minimum, and the phone number can be tapped on a mobile, which is where most of the traffic comes from.",
-        "Then there is loading speed. Someone searching on the move, on the metro, on a patchy connection, does not wait. Every second your site takes to appear is a slice of ad budget already spent that you will never see again."
-      ]
-    },
-    {
-      "h2": "Speed of Reply Beats Almost Everything Else",
-      "p": [
-        "The most underrated competitive advantage isn't in the marketing, it is in the minutes that follow. An enquiry that arrives at 3pm and is called back at 3:05pm is a conversation. The same enquiry called back the next day has already spoken to two other suppliers.",
-        "That is why we don't simply hand over contacts. Our team calls every lead, checks it is genuinely on target and passes you only the ones worth talking to. In a market where everyone can generate enquiries, the difference is made by whoever handles them in the first few minutes."
-      ]
-    },
-    {
-      "h2": "Do You Really Need an Agency Based in Milan?",
-      "p": [
-        "No, and it is worth saying so openly, because we get asked often. We do not have an office in Milan: our operations base is in Durrës and we work remotely with businesses in Italy, the rest of Europe and the United States.",
-        "What counts is not the agency's address, it is three concrete things: that whoever writes your ads and your pages thinks in Italian instead of translating into it, that whoever calls your leads does it in their language, and that someone answers when you need them. Our team works in Italian, English, Spanish and Albanian.",
-        "If meeting the agency in person every week is the deciding factor for you, then being nearby genuinely matters, and we would rather tell you that straight away."
-      ]
+     "html": "A concrete example, in Milan: OFYR Italia sells outdoor cooking, a product that only makes sense in use. We run their channels and their campaigns, produce the photography and video, and qualify every enquiry before handing it over. The work is public, so you can judge it yourself: the feed is on Instagram, and the case is in our <a href=\"/portfolio#ofyr-italia\">portfolio</a>."
     }
-  ],
-  "summary_h2": "The Short Version",
-  "summary": [
-    "Milan rewards specificity: the sharper your positioning, the fewer competitors you face.",
-    "Treat your Google Business Profile as a page of the site, not a form you fill in once.",
-    "In campaigns, narrow rather than widen: buying intent, one offer per campaign, a dedicated page.",
-    "The site has to make the next step obvious, above all on a mobile.",
-    "Calling back within minutes is worth more than any amount of budget optimisation."
-  ],
-  "faq_h2": "Frequently Asked Questions",
-  "faq": [
-    {
-      "q": "How much does digital marketing in Milan cost?",
-      "a": "We don't publish price lists, because the cost depends on what you actually need: how many channels you keep running, whether photo and video have to be produced, how much budget goes on campaigns, and how much day-to-day management your sector demands. You get a per-project quote after a call where we work out the objective, not before."
-    },
-    {
-      "q": "Do I need an agency based in Milan?",
-      "a": "Not necessarily. We work remotely, with our operations base in Durrës and a team that writes and calls in Italian. What matters is knowing the market, producing copy thought out in Italian and answering enquiries quickly. If you do need weekly face-to-face meetings, though, being physically close becomes a real requirement."
-    },
-    {
-      "q": "How long before results show?",
-      "a": "It depends on the channel. Paid campaigns can bring the first enquiries within days, because you are buying immediate visibility. Local search works over months: the first movement usually shows from month three onwards. Anyone promising you page one in two weeks is selling you something else."
-    }
-  ],
-  "related_h2": "Keep Reading",
-  "related": [
-    { "slug": "blog-seo", "label": "SEO in 2026: Climb the Rankings and Stay There" },
-    { "slug": "blog-advertising", "label": "Advertising Campaigns That Actually Convert" }
-  ],
-  "service_label": "Related service:",
-  "service_slug": "services-seo",
-  "service_name": "SEO services",
-  "cta_label": "Let's talk about your market",
-  "back_label": "Back to Blog",
-  "card_excerpt": "Milan concentrates customers and competitors like no other Italian city. What works for getting found: local search, tight campaigns and fast replies.",
-  "articleSection": "Local marketing",
-  "keywords": ["digital marketing Milan", "marketing agency Milan", "local SEO Milan"]
+   ]
+  },
+  {
+   "h2": "Do You Really Need an Agency Based in Milan?",
+   "p": [
+    "No, and it is worth saying so openly, because we get asked often. We do not have an office in Milan: our operations base is in Durrës and we work remotely with businesses in Italy, the rest of Europe and the United States.",
+    "What counts is not the agency's address, it is three concrete things: that whoever writes your ads and your pages thinks in Italian instead of translating into it, that whoever calls your leads does it in their language, and that someone answers when you need them. Our team works in Italian, English, Spanish and Albanian.",
+    "If meeting the agency in person every week is the deciding factor for you, then being nearby genuinely matters, and we would rather tell you that straight away."
+   ]
+  }
+ ],
+ "summary_h2": "The Short Version",
+ "summary": [
+  "Milan rewards specificity: the sharper your positioning, the fewer competitors you face.",
+  "Treat your Google Business Profile as a page of the site, not a form you fill in once.",
+  "In campaigns, narrow rather than widen: buying intent, one offer per campaign, a dedicated page.",
+  "The site has to make the next step obvious, above all on a mobile.",
+  "Calling back within minutes is worth more than any amount of budget optimisation."
+ ],
+ "faq_h2": "Frequently Asked Questions",
+ "faq": [
+  {
+   "q": "How much does digital marketing in Milan cost?",
+   "a": "We don't publish price lists, because the cost depends on what you actually need: how many channels you keep running, whether photo and video have to be produced, how much budget goes on campaigns, and how much day-to-day management your sector demands. You get a per-project quote after a call where we work out the objective, not before."
+  },
+  {
+   "q": "Do I need an agency based in Milan?",
+   "a": "Not necessarily. We work remotely, with our operations base in Durrës and a team that writes and calls in Italian. What matters is knowing the market, producing copy thought out in Italian and answering enquiries quickly. If you do need weekly face-to-face meetings, though, being physically close becomes a real requirement."
+  },
+  {
+   "q": "How long before results show?",
+   "a": "It depends on the channel. Paid campaigns can bring the first enquiries within days, because you are buying immediate visibility. Local search works over months: the first movement usually shows from month three onwards. Anyone promising you page one in two weeks is selling you something else."
+  }
+ ],
+ "related_h2": "Keep Reading",
+ "related": [
+  {
+   "slug": "blog-seo",
+   "label": "SEO in 2026: Climb the Rankings and Stay There"
+  },
+  {
+   "slug": "blog-advertising",
+   "label": "Advertising Campaigns That Actually Convert"
+  }
+ ],
+ "service_label": "Related service:",
+ "service_slug": "services-seo",
+ "service_name": "SEO services",
+ "cta_label": "Let's talk about your market",
+ "back_label": "Back to Blog",
+ "card_excerpt": "Milan concentrates customers and competitors like no other Italian city. What works for getting found: local search, tight campaigns and fast replies.",
+ "articleSection": "Local marketing",
+ "keywords": [
+  "digital marketing Milan",
+  "marketing agency Milan",
+  "local SEO Milan"
+ ]
 }

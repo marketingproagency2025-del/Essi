@@ -1,101 +1,114 @@
 {
-  "lang": "es",
-  "title": "Marketing digital en Milán: guía para empresas",
-  "description": "Milán es el mercado más competitivo de Italia. Qué funciona para que te encuentren los clientes: búsqueda local, campañas precisas y un sitio que cierra.",
-  "og_description": "Búsqueda local, campañas precisas y velocidad de respuesta: qué funciona de verdad para que te encuentren los clientes en Milán.",
-  "h1": "Marketing digital en Milán: cómo te encuentran los clientes adecuados",
-  "breadcrumb_home": "Inicio",
-  "breadcrumb_blog": "Blog",
-  "breadcrumb_last": "Milán",
-  "hero_alt": "Un panel de análisis del rendimiento en buscadores",
-  "date_display": "23 de agosto de 2026",
-  "read_time": "6 min de lectura",
-  "by": "Por",
-  "intro": [
-    "Milán concentra más empresas, más agencias y más inversión publicitaria que cualquier otra ciudad italiana. Para quien vende aquí eso significa dos cosas a la vez: los clientes están, y son también los más cortejados del país.",
-    "Aquí ponemos en orden lo que de verdad funciona para que te encuentren: la búsqueda local, las campañas de pago en un mercado caro, y el paso que casi todos descuidan, que es lo que pasa en los minutos siguientes a la llegada de un contacto."
-  ],
-  "sections": [
+ "lang": "es",
+ "title": "Marketing digital en Milán: guía para empresas",
+ "description": "Milán es el mercado más competitivo de Italia. Qué funciona para que te encuentren los clientes: búsqueda local, campañas precisas y un sitio que cierra.",
+ "og_description": "Búsqueda local, campañas precisas y velocidad de respuesta: qué funciona de verdad para que te encuentren los clientes en Milán.",
+ "h1": "Marketing digital en Milán: cómo te encuentran los clientes adecuados",
+ "breadcrumb_home": "Inicio",
+ "breadcrumb_blog": "Blog",
+ "breadcrumb_last": "Milán",
+ "hero_alt": "Un panel de análisis del rendimiento en buscadores",
+ "date_display": "23 de agosto de 2026",
+ "read_time": "6 min de lectura",
+ "by": "Por",
+ "intro": [
+  "Milán concentra más empresas, más agencias y más inversión publicitaria que cualquier otra ciudad italiana. Para quien vende aquí eso significa dos cosas a la vez: los clientes están, y son también los más cortejados del país.",
+  "Aquí ponemos en orden lo que de verdad funciona para que te encuentren: la búsqueda local, las campañas de pago en un mercado caro, y el paso que la mayoría descuida, que es lo que pasa en los minutos siguientes a la llegada de un contacto."
+ ],
+ "sections": [
+  {
+   "h2": "Por qué Milán no es un mercado como los demás",
+   "p": [
+    "En una ciudad pequeña todavía puedes destacar con solo existir en internet. En Milán no. Quien busca un proveedor encuentra diez alternativas creíbles en la primera pantalla, pide más presupuestos y decide más despacio. La consecuencia práctica es que ser genérico cuesta caro: \"somos líderes del sector\" no mueve a nadie, mientras que una página que dice exactamente qué haces, para quién y en qué condiciones reduce la comparación a dos o tres nombres.",
+    "También vale lo contrario, y esa es la parte que conviene aprovechar. Precisamente porque el mercado es denso, los nichos son profundos: en Milán hay suficientes personas buscando exactamente tu especialidad como para sostener un posicionamiento que en otro sitio sería demasiado estrecho."
+   ]
+  },
+  {
+   "h2": "La búsqueda local sigue siendo la puerta principal",
+   "p": [
+    "Muchas búsquedas en Milán son locales aunque no lo parezcan: \"asesor fiscal Porta Romana\", \"fotógrafo de producto Milán\", \"electricista zona Navigli\". Google las trata como consultas de proximidad y pesa sobre todo tres cosas: un perfil de Google Business completo y actualizado, datos de contacto idénticos en todos los sitios donde aparezcan, y reseñas recientes y auténticas.",
+    "El perfil es la parte que la mayoría completa una vez y luego olvida. Categorías correctas, horarios reales, fotos auténticas del local o del trabajo, respuestas a las reseñas: es mantenimiento, no magia. En una ciudad donde todos tienen un sitio web pero no todos cuidan el perfil, sigue siendo una ventaja disponible.",
+    "Si atiendes zonas concretas, escríbelo en tus páginas. Una página que nombra los barrios o los municipios del área metropolitana en los que trabajas de verdad responde a algo que la gente escribe en el buscador. Una página que enumera cincuenta localidades donde nunca has puesto un pie hace exactamente lo contrario."
+   ]
+  },
+  {
+   "h2": "Las campañas de pago en un mercado caro",
+   "p": [
+    "El costo por clic sube donde más empresas pujan por las mismas palabras, y esa es justamente la situación de un mercado como Milán. Subir el presupuesto no lo arregla, solo amplía la superficie sobre la que estás perdiendo.",
+    "Lo que funciona es estrechar. Palabras clave con intención de compra en lugar de palabras genéricas, público definido por comportamiento en lugar de por edad, una sola oferta clara por campaña. Un anuncio que dice \"presupuesto en 24 horas para renovar tu baño en Milán\" compite con muchos menos rivales que uno que dice \"renovaciones\".",
+    "Y luego está la página de destino. Mandar tráfico de pago a la página de inicio es la forma más rápida de quemar dinero: la página de inicio le habla a todo el mundo, mientras que la campaña le hablaba a una sola persona."
+   ]
+  },
+  {
+   "h2": "El sitio debe cerrar lo que la publicidad abre",
+   "p": [
+    "Si has pagado para llevar a alguien a tu sitio, el sitio tiene una sola tarea: dejar obvio el siguiente paso. En la práctica eso quiere decir que la propuesta se lee en cinco segundos, que el formulario pide lo mínimo imprescindible y que el número se puede tocar con el dedo desde el teléfono, que es de donde llega la mayor parte del tráfico.",
+    "Está también la velocidad de carga. Quien busca en movimiento, en el metro, con una conexión inestable, no espera. Cada segundo que tarda el sitio en aparecer es una parte del presupuesto publicitario ya gastado que no vas a recuperar."
+   ]
+  },
+  {
+   "h2": "La velocidad de respuesta gana a casi todo lo demás",
+   "p": [
+    "La ventaja competitiva más subestimada no está en el marketing, está en los minutos siguientes. Un contacto que llega a las 15:00 y recibe una llamada a las 15:05 es una conversación. Ese mismo contacto, devuelto al día siguiente, ya ha hablado con otros dos proveedores.",
+    "Por eso no nos limitamos a entregarte contactos. Nuestro equipo llama a cada lead, lo califica para comprobar que encaja de verdad con tu cliente objetivo y te pasa solo aquellos con los que vale la pena hablar. En un mercado donde todos saben generar contactos, la diferencia la marca quien los atiende en los primeros minutos.",
     {
-      "h2": "Por qué Milán no es un mercado como los demás",
-      "p": [
-        "En una ciudad pequeña todavía puedes destacar con solo existir en internet. En Milán no. Quien busca un proveedor encuentra diez alternativas creíbles en la primera pantalla, pide más presupuestos y decide más despacio. La consecuencia práctica es que ser genérico cuesta caro: \"somos líderes del sector\" no mueve a nadie, mientras que una página que dice exactamente qué haces, para quién y en qué condiciones reduce la comparación a dos o tres nombres.",
-        "También vale lo contrario, y esa es la parte que conviene aprovechar. Precisamente porque el mercado es denso, los nichos son profundos: en Milán hay suficientes personas buscando exactamente tu especialidad como para sostener un posicionamiento que en otro sitio sería demasiado estrecho."
-      ]
-    },
-    {
-      "h2": "La búsqueda local sigue siendo la puerta principal",
-      "p": [
-        "Muchas búsquedas en Milán son locales aunque no lo parezcan: \"asesor fiscal Porta Romana\", \"fotógrafo de producto Milán\", \"electricista zona Navigli\". Google las trata como consultas de proximidad y pesa sobre todo tres cosas: un perfil de Google Business completo y actualizado, datos de contacto idénticos en todos los sitios donde aparezcan, y reseñas recientes y auténticas.",
-        "El perfil es la parte que casi todos completan una vez y luego olvidan. Categorías correctas, horarios reales, fotos auténticas del local o del trabajo, respuestas a las reseñas: es mantenimiento, no magia. En una ciudad donde todos tienen un sitio web pero no todos cuidan el perfil, sigue siendo una ventaja disponible.",
-        "Si atiendes zonas concretas, escríbelo en tus páginas. Una página que nombra los barrios o los municipios del área metropolitana en los que trabajas de verdad responde a algo que la gente escribe en el buscador. Una página que enumera cincuenta localidades donde nunca has puesto un pie hace exactamente lo contrario."
-      ]
-    },
-    {
-      "h2": "Las campañas de pago en un mercado caro",
-      "p": [
-        "En Milán el costo por clic es más alto que en el resto de Italia en casi cualquier sector, por la razón más simple: hay más empresas pujando por las mismas palabras. Subir el presupuesto no lo arregla, solo amplía la superficie sobre la que estás perdiendo.",
-        "Lo que funciona es estrechar. Palabras clave con intención de compra en lugar de palabras genéricas, público definido por comportamiento en lugar de por edad, una sola oferta clara por campaña. Un anuncio que dice \"presupuesto en 24 horas para renovar tu baño en Milán\" compite con muchos menos rivales que uno que dice \"renovaciones\".",
-        "Y luego está la página de destino. Mandar tráfico de pago a la página de inicio es la forma más rápida de quemar dinero: la página de inicio le habla a todo el mundo, mientras que la campaña le hablaba a una sola persona."
-      ]
-    },
-    {
-      "h2": "El sitio debe cerrar lo que la publicidad abre",
-      "p": [
-        "Si has pagado para llevar a alguien a tu sitio, el sitio tiene una sola tarea: dejar obvio el siguiente paso. En la práctica eso quiere decir que la propuesta se lee en cinco segundos, que el formulario pide lo mínimo imprescindible y que el número se puede tocar con el dedo desde el teléfono, que es de donde llega la mayor parte del tráfico.",
-        "Está también la velocidad de carga. Quien busca en movimiento, en el metro, con una conexión inestable, no espera. Cada segundo que tarda el sitio en aparecer es una parte del presupuesto publicitario ya gastado que no vas a recuperar."
-      ]
-    },
-    {
-      "h2": "La velocidad de respuesta gana a casi todo lo demás",
-      "p": [
-        "La ventaja competitiva más subestimada no está en el marketing, está en los minutos siguientes. Un contacto que llega a las 15:00 y recibe una llamada a las 15:05 es una conversación. Ese mismo contacto, devuelto al día siguiente, ya ha hablado con otros dos proveedores.",
-        "Por eso no nos limitamos a entregarte contactos. Nuestro equipo llama a cada lead, lo califica para comprobar que encaja de verdad con tu cliente objetivo y te pasa solo aquellos con los que vale la pena hablar. En un mercado donde todos saben generar contactos, la diferencia la marca quien los atiende en los primeros minutos."
-      ]
-    },
-    {
-      "h2": "¿Hace falta por fuerza una agencia con sede en Milán?",
-      "p": [
-        "No, y conviene decirlo abiertamente porque es una pregunta que nos hacen a menudo. No tenemos oficina en Milán: nuestro centro de operaciones está en Durrës y trabajamos de forma remota con empresas de Italia, del resto de Europa y de Estados Unidos.",
-        "Lo que cuenta no es la dirección de la agencia, son tres cosas concretas: que quien escribe tus anuncios y tus páginas piense en italiano en lugar de traducir del inglés, que quien llama a tus leads lo haga en su idioma, y que alguien responda cuando hace falta. Nuestro equipo trabaja en italiano, inglés, español y albanés.",
-        "Si en cambio para ti es determinante ver a la agencia en persona cada semana, entonces la cercanía sí cuenta, y preferimos decírtelo desde el principio."
-      ]
+     "html": "Un ejemplo concreto, en Milán: OFYR Italia vende cocina al aire libre, un producto que solo se entiende cuando se ve en funcionamiento. Llevamos sus canales y sus campañas, producimos la fotografía y el vídeo, y calificamos cada consulta antes de pasarla. El trabajo es público, así que puedes juzgarlo tú mismo: el feed está en Instagram y el caso está en nuestro <a href=\"/es/portfolio#ofyr-italia\">portfolio</a>."
     }
-  ],
-  "summary_h2": "En resumen",
-  "summary": [
-    "Milán premia la especificidad: cuanto más preciso es tu posicionamiento, menos competidores tienes delante.",
-    "Trata el perfil de Google Business como una página más del sitio, no como un formulario que se completa una sola vez.",
-    "En las campañas, estrecha en lugar de ampliar: intención de compra, una oferta por campaña, página dedicada.",
-    "El sitio debe dejar obvio el siguiente paso, sobre todo desde el teléfono.",
-    "Devolver la llamada en pocos minutos vale más que cualquier optimización del presupuesto."
-  ],
-  "faq_h2": "Preguntas Frecuentes",
-  "faq": [
-    {
-      "q": "¿Cuánto cuesta el marketing digital en Milán?",
-      "a": "No publicamos tarifas porque el costo depende de lo que necesites de verdad: cuántos canales mantienes activos, si hay que producir foto y vídeo, cuánta inversión pones en las campañas y cuánta gestión diaria pide tu sector. Te damos un presupuesto por proyecto después de una llamada en la que entendemos el objetivo, no antes."
-    },
-    {
-      "q": "¿Hace falta una agencia con sede en Milán?",
-      "a": "No necesariamente. Nosotros trabajamos de forma remota, con el centro de operaciones en Durrës y un equipo que escribe y llama en italiano. Lo que cuenta es conocer el mercado, producir textos pensados en italiano y responder rápido a los contactos. Pero si necesitas reuniones semanales en persona, la cercanía física se convierte en un requisito real."
-    },
-    {
-      "q": "¿En cuánto tiempo se ven los resultados?",
-      "a": "Depende del canal. Las campañas de pago pueden traer los primeros contactos en pocos días, porque compras visibilidad inmediata. La búsqueda local trabaja por meses: los primeros movimientos suelen verse a partir del tercer mes. Quien te promete la primera página en dos semanas te está vendiendo otra cosa."
-    }
-  ],
-  "related_h2": "Sigue leyendo",
-  "related": [
-    { "slug": "blog-seo", "label": "SEO en 2026: escala posiciones y mantente arriba" },
-    { "slug": "blog-advertising", "label": "Campañas publicitarias que de verdad convierten" }
-  ],
-  "service_label": "Servicio relacionado:",
-  "service_slug": "services-seo",
-  "service_name": "SEO",
-  "cta_label": "Hablemos de tu mercado",
-  "back_label": "Volver al Blog",
-  "card_excerpt": "Milán concentra clientes y competidores como ninguna otra ciudad italiana. Qué funciona para que te encuentren: búsqueda local, campañas precisas y respuestas rápidas.",
-  "articleSection": "Marketing local",
-  "keywords": ["marketing digital Milán", "agencia de marketing Milán", "SEO local Milán"]
+   ]
+  },
+  {
+   "h2": "¿Hace falta por fuerza una agencia con sede en Milán?",
+   "p": [
+    "No, y conviene decirlo abiertamente porque es una pregunta que nos hacen a menudo. No tenemos oficina en Milán: nuestro centro de operaciones está en Durrës y trabajamos de forma remota con empresas de Italia, del resto de Europa y de Estados Unidos.",
+    "Lo que cuenta no es la dirección de la agencia, son tres cosas concretas: que quien escribe tus anuncios y tus páginas piense en italiano en lugar de traducir del inglés, que quien llama a tus leads lo haga en su idioma, y que alguien responda cuando hace falta. Nuestro equipo trabaja en italiano, inglés, español y albanés.",
+    "Si en cambio para ti es determinante ver a la agencia en persona cada semana, entonces la cercanía sí cuenta, y preferimos decírtelo desde el principio."
+   ]
+  }
+ ],
+ "summary_h2": "En resumen",
+ "summary": [
+  "Milán premia la especificidad: cuanto más preciso es tu posicionamiento, menos competidores tienes delante.",
+  "Trata el perfil de Google Business como una página más del sitio, no como un formulario que se completa una sola vez.",
+  "En las campañas, estrecha en lugar de ampliar: intención de compra, una oferta por campaña, página dedicada.",
+  "El sitio debe dejar obvio el siguiente paso, sobre todo desde el teléfono.",
+  "Devolver la llamada en pocos minutos vale más que cualquier optimización del presupuesto."
+ ],
+ "faq_h2": "Preguntas Frecuentes",
+ "faq": [
+  {
+   "q": "¿Cuánto cuesta el marketing digital en Milán?",
+   "a": "No publicamos tarifas porque el costo depende de lo que necesites de verdad: cuántos canales mantienes activos, si hay que producir foto y vídeo, cuánta inversión pones en las campañas y cuánta gestión diaria pide tu sector. Te damos un presupuesto por proyecto después de una llamada en la que entendemos el objetivo, no antes."
+  },
+  {
+   "q": "¿Hace falta una agencia con sede en Milán?",
+   "a": "No necesariamente. Nosotros trabajamos de forma remota, con el centro de operaciones en Durrës y un equipo que escribe y llama en italiano. Lo que cuenta es conocer el mercado, producir textos pensados en italiano y responder rápido a los contactos. Pero si necesitas reuniones semanales en persona, la cercanía física se convierte en un requisito real."
+  },
+  {
+   "q": "¿En cuánto tiempo se ven los resultados?",
+   "a": "Depende del canal. Las campañas de pago pueden traer los primeros contactos en pocos días, porque compras visibilidad inmediata. La búsqueda local trabaja por meses: los primeros movimientos suelen verse a partir del tercer mes. Quien te promete la primera página en dos semanas te está vendiendo otra cosa."
+  }
+ ],
+ "related_h2": "Sigue leyendo",
+ "related": [
+  {
+   "slug": "blog-seo",
+   "label": "SEO en 2026: escala posiciones y mantente arriba"
+  },
+  {
+   "slug": "blog-advertising",
+   "label": "Campañas publicitarias que de verdad convierten"
+  }
+ ],
+ "service_label": "Servicio relacionado:",
+ "service_slug": "services-seo",
+ "service_name": "SEO",
+ "cta_label": "Hablemos de tu mercado",
+ "back_label": "Volver al Blog",
+ "card_excerpt": "Milán concentra clientes y competidores como ninguna otra ciudad italiana. Qué funciona para que te encuentren: búsqueda local, campañas precisas y respuestas rápidas.",
+ "articleSection": "Marketing local",
+ "keywords": [
+  "marketing digital Milán",
+  "agencia de marketing Milán",
+  "SEO local Milán"
+ ]
 }

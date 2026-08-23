@@ -35,6 +35,12 @@ TREES = {"en": "", "it": "it", "es": "es", "sq": "sq"}
 # real description of the image, copied from where the site already uses it, so no page
 # claims a photograph of the city it is named for.
 CITIES = {
+    # Milan is here so it can be regenerated like the others. It was built by an earlier,
+    # throwaway version of this script and then hand-edited in the HTML (the OFYR proof
+    # paragraph, and three softened overclaims), so its content files had drifted behind the
+    # shipped pages and regenerating it would have silently reverted both. The content files
+    # have since been re-derived from the shipped HTML and the round trip is byte-identical.
+    "milano": {"slug": "blog-milano", "img": "svc-seo-2"},
     "roma":   {"slug": "blog-roma",   "img": "svc-renders-2"},
     "lugano": {"slug": "blog-lugano", "img": "svc-web-2"},
     "ticino": {"slug": "blog-ticino", "img": "svc-funnel-2"},
@@ -67,6 +73,19 @@ def root_for(tree):
 
 def assets_for(tree):
     return "../assets/img" if tree else "assets/img"
+
+
+def para(p):
+    """A body paragraph.
+
+    Text is escaped, which is what almost every paragraph wants. The exception is a paragraph
+    carrying an inline link: the Milan post's OFYR proof ends in a link to the portfolio case,
+    and there is no way to express that as escaped text. Such a paragraph is stored in the
+    content file as {"html": "..."} instead of a bare string, so the exception is explicit and
+    greppable rather than a silent escaping hole. Nothing else is ever emitted unescaped."""
+    if isinstance(p, dict):
+        return p["html"]
+    return esc(p)
 
 
 def build_main(c, tree, donor_main, img_name):
@@ -102,12 +121,12 @@ def build_main(c, tree, donor_main, img_name):
     L.append('      <div class="container">')
     L.append('        <div class="article article__body">')
     for p in c["intro"]:
-        L.append(f"          <p>{esc(p)}</p>")
+        L.append(f"          <p>{para(p)}</p>")
     for sec in c["sections"]:
         L.append("")
         L.append(f'          <h2>{esc(sec["h2"])}</h2>')
         for p in sec["p"]:
-            L.append(f"          <p>{esc(p)}</p>")
+            L.append(f"          <p>{para(p)}</p>")
     L.append("")
     L.append(f'          <h2>{esc(c["summary_h2"])}</h2>')
     L.append("          <ul>")
@@ -183,6 +202,17 @@ def rewrite_jsonld(head, c, tree, slug, img_name):
             n["dateModified"] = MOD
             n["articleSection"] = c["articleSection"]
             n["keywords"] = c["keywords"]
+            # The donor is blog-seo, whose BlogPosting.about points at #service-seo. Left
+            # alone it is inherited, so every city guide told search engines it was about SEO
+            # while its visible "related service" link said social media, websites or funnels.
+            # All four city posts shipped that way. Derived from the content file's own
+            # service_slug so the structured data cannot disagree with the visible link.
+            if "about" in n:
+                # tree-prefixed, matching how every other guide in a translated tree
+                # references its service: it/blog-seo.html says /it/services#service-seo
+                n["about"] = {"@id": "%s#service-%s"
+                              % (url_for(tree, "services"),
+                                 c["service_slug"].replace("services-", "", 1))}
         elif t == "FAQPage":
             n["mainEntity"] = [
                 {"@type": "Question", "name": qa["q"],
