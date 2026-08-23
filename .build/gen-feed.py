@@ -26,7 +26,7 @@ from datetime import datetime, timezone
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 SITE = 'https://www.marketingpro-agency.com'
-SLUGS = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo',
+SLUGS = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano',
          'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues',
          'article-1', 'article-2']
 

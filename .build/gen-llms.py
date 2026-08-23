@@ -46,7 +46,7 @@ CORE = ['index', 'services', 'about', 'portfolio', 'blog', 'contact']
 SERVICES = ['services-social-media', 'services-advertising', 'services-website',
             'services-seo', 'services-sales-funnel', 'services-photo-video',
             'services-renders', 'services-catalogues']
-GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo',
+GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano',
           'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues']
 ARTICLES = ['article-1', 'article-2']
 
