@@ -81,9 +81,9 @@ CORE_BLURB = {
 
 PREAMBLE = """# MarketingPro
 
-> MarketingPro is a digital marketing agency based in Durrës, Albania, working with businesses across Albania, Italy, Europe and the United States. We run marketing that brings in real customers, not just leads: we generate the leads, call and qualify them ourselves, and hand over people who are ready to buy or ask for a quote.
+> MarketingPro is a digital marketing agency based in Durrës, Albania, working with businesses across Albania, Italy, Switzerland, Europe and the United States. We run marketing that brings in real customers, not just leads: we generate the leads, call and qualify them ourselves, and hand over people who are ready to buy or ask for a quote.
 
-MarketingPro works with businesses across Albania, Italy, Europe and the United States, in English, Italian, Spanish and Albanian, from its base in Durrës, Albania. The team covers the full picture, from social media and paid advertising to websites, SEO, sales funnels, photo and video, 3D renders and print catalogues. The angle that runs through everything is qualification: every lead is contacted and filtered before it reaches the client, so sales teams spend their time on people who actually want to talk business.
+MarketingPro works with businesses across Albania, Italy, Switzerland, Europe and the United States, in English, Italian, Spanish and Albanian, from its base in Durrës, Albania. The team covers the full picture, from social media and paid advertising to websites, SEO, sales funnels, photo and video, 3D renders and print catalogues. The angle that runs through everything is qualification: every lead is contacted and filtered before it reaches the client, so sales teams spend their time on people who actually want to talk business.
 """
 
 
@@ -142,7 +142,7 @@ def url(slug, lang='en'):
 out = [PREAMBLE]
 
 out.append('- Business name: MarketingPro (Digital Marketing Agency)')
-out.append('- Base: Durrës, Albania · Markets: Albania · Italy · Europe · United States')
+out.append('- Base: Durrës, Albania · Markets: Albania · Italy · Switzerland · Europe · United States')
 out.append('- Founded: 2024')
 out.append('- Contact: commerciale@marketingpro-agency.com · +355 694702405 (also WhatsApp)')
 out.append('- Languages spoken by the team: '
