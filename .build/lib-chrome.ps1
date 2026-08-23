@@ -9,12 +9,13 @@
 
 $SITE = 'https://www.marketingpro-agency.com'
 
-# The 25 page slugs, identical in every language tree. 'index' is the tree root.
+# The 28 page slugs, identical in every language tree. 'index' is the tree root.
 $PAGES = @(
   'index', 'services', 'portfolio', 'about', 'contact', 'blog',
   'blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo',
   'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues',
   'blog-milano',
+  'blog-roma', 'blog-lugano', 'blog-ticino',
   'article-1', 'article-2',
   # Commercial landing pages, one per service. Flat slugs on purpose: nesting
   # under services/ would make /services ambiguous between services.html and
@@ -32,6 +33,7 @@ $PRIORITY = @{
   'blog-social-media' = '0.7'; 'blog-advertising' = '0.7'; 'blog-website' = '0.7'
   'blog-seo' = '0.7'; 'blog-sales-funnel' = '0.7'; 'blog-photo-video' = '0.7'
   'blog-renders' = '0.7'; 'blog-catalogues' = '0.7'; 'blog-milano' = '0.7'
+  'blog-roma' = '0.7'; 'blog-lugano' = '0.7'; 'blog-ticino' = '0.7'
   'article-1' = '0.5'; 'article-2' = '0.5'
   # 0.8: commercial intent, so above the 0.7 guides and below the 0.9 hub.
   'services-social-media' = '0.8'; 'services-advertising' = '0.8'

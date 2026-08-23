@@ -17,7 +17,7 @@ MarketingPro works with businesses across Albania, Italy, Switzerland, Europe an
 - [Digital Marketing Services: Ads, SEO, Web](https://www.marketingpro-agency.com/services): all eight services, each linking to its own page.
 - [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
 - [Client Work: Fly System, OFYR Italia and Rika](https://www.marketingpro-agency.com/portfolio): selected work.
-- [Marketing Blog: A Guide to Every Service](https://www.marketingpro-agency.com/blog): 11 pieces: one guide per service, city guides, plus two articles.
+- [Marketing Blog: A Guide to Every Service](https://www.marketingpro-agency.com/blog): 14 pieces: one guide per service, city guides, plus two articles.
 - [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
 
 ## Services
@@ -41,6 +41,9 @@ non-commercial explanation of the same subject.
 - [Your Website Is Your Hardest-Working Salesperson](https://www.marketingpro-agency.com/blog-website)
 - [SEO in 2026: Climb the Rankings and Stay There](https://www.marketingpro-agency.com/blog-seo)
 - [Digital Marketing in Milan: How to Get Found by the Right Customers](https://www.marketingpro-agency.com/blog-milano)
+- [Digital Marketing in Rome: Who Stays and Who Passes Through](https://www.marketingpro-agency.com/blog-roma)
+- [Digital Marketing in Lugano: Few Clients, the Right Ones](https://www.marketingpro-agency.com/blog-lugano)
+- [Digital Marketing in Ticino: Four Markets, Not One](https://www.marketingpro-agency.com/blog-ticino)
 - [A Sales Funnel That Closes: From Stranger to Signed Contract](https://www.marketingpro-agency.com/blog-sales-funnel)
 - [Why Professional Photo & Video Editing Elevates Your Brand](https://www.marketingpro-agency.com/blog-photo-video)
 - [Photorealistic Renders: Sell the Vision Before It's Built](https://www.marketingpro-agency.com/blog-renders)
@@ -57,6 +60,6 @@ These numbers are campaign exports, not projections. Across seven Meta campaigns
 
 ## Other languages
 
-- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) — 25 pages
-- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) — 25 pages
-- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) — 25 pages
+- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 28 pages
+- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 28 pages
+- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 28 pages

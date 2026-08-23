@@ -46,7 +46,7 @@ CORE = ['index', 'services', 'about', 'portfolio', 'blog', 'contact']
 SERVICES = ['services-social-media', 'services-advertising', 'services-website',
             'services-seo', 'services-sales-funnel', 'services-photo-video',
             'services-renders', 'services-catalogues']
-GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano',
+GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano', 'blog-roma', 'blog-lugano', 'blog-ticino',
           'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues']
 ARTICLES = ['article-1', 'article-2']
 
@@ -202,7 +202,7 @@ if other:
     for c in other:
         pages = [s for s in STATUS['_slugs'] if live(s, c)]
         out.append(f'- {LANG_NAME[c]}: [{url("index", c)}]({url("index", c)}) '
-                   f'— {len(pages)} pages')
+                   f'· {len(pages)} pages')
     out.append('')
 
 body = '\n'.join(out).rstrip() + '\n'
