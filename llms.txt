@@ -17,7 +17,7 @@ MarketingPro works with businesses across Albania, Italy, Switzerland, Europe an
 - [Digital Marketing Services: Ads, SEO, Web](https://www.marketingpro-agency.com/services): all eight services, each linking to its own page.
 - [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
 - [Client Work: Fly System, OFYR Italia and Rika](https://www.marketingpro-agency.com/portfolio): selected work.
-- [Marketing Blog: A Guide to Every Service](https://www.marketingpro-agency.com/blog): 14 pieces: one guide per service, city guides, plus two articles.
+- [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 14 pieces: one guide per service, city guides, plus two articles.
 - [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
 
 ## Services

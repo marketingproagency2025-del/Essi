@@ -1012,6 +1012,65 @@ h1, h2, h3, h4 {
 /* Blog index: responsive multi-column grid of post cards */
 .blog-main { padding-top: var(--header-h); }
 .articles--blog { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+/* Blog index groups.
+   Fourteen identical cards in one grid read as a wall: three kinds of post with nothing
+   separating them. The order here comes from grouping, counts and the gap between groups,
+   NOT from a second card size. Every card on the page stays exactly as it was, and there is
+   no featured treatment, which is what keeps the grid honest at every breakpoint.
+
+   The group gap is deliberately ~2.5x the grid's own gap (clamp(1.4rem, 3vw, 2.2rem)). If the
+   break between groups is not clearly louder than the gap between cards, the grouping does not
+   survive being skimmed and the page is back to being a wall. */
+.post-group + .post-group { margin-top: clamp(3.4rem, 8vw, 5rem); }
+/* A group heading is NOT a page title. Left at the stock .section__title size it rendered at
+   49.6px, exactly the same as the <h1> above it, so the three groups competed with the page
+   title instead of sitting under it and the hierarchy the grouping exists to create was
+   invisible. Sized to sit clearly between the h1 and the 18.4px card titles: 49.6 / 32 / 18.4
+   at desktop, 30.4 / 23.2 / 18.4 on a phone. The gradient underline shrinks with it. */
+.post-group .section__title { font-size: clamp(1.45rem, 2.6vw, 2rem); }
+.post-group .section__title::after { width: 40px; height: 3px; margin-top: .5rem; }
+/* The count belongs in the heading, not under it: it says how much is in a group before the
+   reader starts scrolling. Quiet on purpose, and tabular so the digits do not jitter. */
+.post-group__n {
+  color: var(--muted);
+  font-size: .8em;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Topic chips. Anchors, not buttons: with no JavaScript at all they are a working table of
+   contents that jumps to the group it names. Nothing here can break, and nothing is shown
+   that cannot do something. The pill shape is the one the mobile language switcher already
+   uses, so this introduces no new visual language. */
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  margin-bottom: clamp(2.2rem, 5vw, 3.2rem);
+}
+.topic {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .45rem;
+  padding: .55rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: .9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color .15s var(--ease), color .15s var(--ease);
+}
+.topic:hover,
+.topic:focus-visible { border-color: var(--green); color: var(--green-dark); }
+.topic--all { background: var(--ink); border-color: var(--ink); color: #fff; }
+.topic--all:hover,
+.topic--all:focus-visible { border-color: var(--ink); color: #fff; }
+.topic__n { color: var(--muted); font-size: .82em; font-variant-numeric: tabular-nums; }
+.topic--all .topic__n { color: rgba(255, 255, 255, .7); }
 .article-card {
   border-radius: var(--radius);
   overflow: hidden;
