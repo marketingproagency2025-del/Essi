@@ -1,5 +1,23 @@
 #!/usr/bin/env python3
-"""Rebuild the Portfolio page around real client work.
+"""DO NOT RUN THIS WITHOUT READING THE DIFF. It is behind the shipped pages.
+
+Run on 2026-08-24 it made four destructive changes to portfolio.html and touched only the
+English tree, leaving the other three untouched and therefore divergent:
+
+  - stripped the <picture>/<source> WebP wrappers off nine images, so every one of them would
+    have fallen back to the JPEG
+  - rewrote the H1 from "Client Work: Fly System, OFYR Italia and Rika" to "Work We Have
+    Shipped", undoing an edit made in the page
+  - exploded "inLanguage" and "availableLanguage" onto multiple lines, which gate checks 9 and
+    10 compare against the single-line literal ["en", "it", "es", "sq"] and would have failed
+  - only writes the root tree, so it cannot be used to fix anything in it/, es/ or sq/
+
+The OFYR record in it was already stale once before and would have reverted the client's own
+correction; that was fixed in e28d37d. This is the same class of problem in the page body, and
+it has not been fixed. Until it is, edit portfolio.html directly and keep this file's data in
+step by hand.
+
+Rebuild the Portfolio page around real client work.
 
 What was there: ten stock photographs with alt text about a Cycladic alley, a
 grey cat and a watermelon drink, headed "the creative work and campaigns we're
@@ -274,7 +292,12 @@ def build_graph(graph):
                         'the stove range on display.'),
         'thumbnailUrl': f'{SITE}/assets/img/rika-poster.jpg',
         'contentUrl': f'{SITE}/assets/video/rika.mp4',
-        'uploadDate': '2026-08-12',
+        # Google Search Console flagged this twice on 2026-08-16: "missing a timezone"
+        # and "invalid datetime value". A bare date is not an ISO 8601 datetime, which is
+        # what VideoObject.uploadDate has to be. Albania is CEST, UTC+2, in August. Midday
+        # local because the real upload time is not recorded anywhere and any hour on the
+        # right day is equally true, but with an explicit offset it cannot slide a day.
+        'uploadDate': '2026-08-12T12:00:00+02:00',
         'duration': 'PT32S',
         'creator': {'@id': f'{SITE}/#organization'},
         'inLanguage': 'en',
