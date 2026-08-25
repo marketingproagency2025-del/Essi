@@ -209,10 +209,22 @@ Write-Ok 'every relative href/src/poster/srcset resolves'
 
 # -----------------------------------------------------------------------------
 Start-Check 'Internal root-absolute links stay inside their own language tree'
+# THE LANGUAGE SWITCHER IS THE ONE LEGITIMATE EXCEPTION, and it is exempted by
+# cutting it out of the HTML before this runs rather than by pattern-matching
+# hrefs, so nothing else can slip through the hole.
+#
+# Until 2026-08-25 no exception was needed, because the switcher emitted only the
+# current language and there was not a single cross-language link on the site.
+# That is precisely what left 84 of 112 pages unreachable and unindexed. Now that
+# the switcher links all four trees, this rule would fire 252 times on exactly
+# the links that fixed the problem. The rule itself is still right: outside the
+# switcher, an Italian page linking to an English one is a porting bug.
+$switcherRx = [regex]'(?s)<ul class="lang__menu".*?</ul>'
 $linkRx = [regex]'href="(/[^"]*)"'
 foreach ($p in $docs.Values) {
   $prefix = $LANGS[$p.Lang].prefix
-  foreach ($m in $linkRx.Matches($p.Html)) {
+  $body   = $switcherRx.Replace($p.Html, '')
+  foreach ($m in $linkRx.Matches($body)) {
     $href   = ($m.Groups[1].Value -split '#')[0]
     if ($href -eq '') { continue }
     $expect = if ($prefix -eq '') { '/' } else { "$prefix/" }
@@ -484,6 +496,61 @@ foreach ($rel in ($inbound.Keys | Sort-Object)) {
   if ($inbound[$rel] -eq 0) { Add-Failure "$rel : orphan, no editorial inbound link" }
 }
 Write-Ok "$($inbound.Count) pages checked for inbound editorial links"
+
+# -----------------------------------------------------------------------------
+Start-Check 'Reachability: every live page is walkable from the English homepage'
+# An ISLAND IS NOT AN ORPHAN, and only a walk can tell them apart. The check
+# above counts INBOUND links and, by design, exempts every tree root and strips
+# the nav. Four language trees that link richly among themselves but never to
+# each other pass it without a murmur.
+#
+# That is exactly what this site was. On 2026-08-25 there was not one
+# cross-language <a href> in the raw HTML: the switcher emitted only the current
+# language and main.js rebuilt the rest from hreflang at runtime. /it/, /es/ and
+# /sq/ each had 108 inbound links and every one came from inside its own tree.
+# 84 of 112 pages were unreachable from the English homepage, Google could only
+# see them in the sitemap, and Search Console reported 96 of 112 not indexed.
+#
+# So this check counts the NAV too, unlike the orphan check. The language
+# switcher lives in the nav and it is the only bridge between the trees.
+$edges = @{}
+foreach ($p in $docs.Values) { $edges[$p.Rel] = [System.Collections.Generic.HashSet[string]]::new() }
+foreach ($p in $docs.Values) {
+  foreach ($m in [regex]::Matches($p.Html, 'href="(/[^"]*)"')) {
+    $t = Convert-UrlToPath "$SITE$($m.Groups[1].Value)"
+    if ($t -and $edges.ContainsKey($t) -and $t -ne $p.Rel) { [void]$edges[$p.Rel].Add($t) }
+  }
+}
+$homeRel = 'index.html'
+$seen = [System.Collections.Generic.HashSet[string]]::new()
+[void]$seen.Add($homeRel)
+$queue = [System.Collections.Generic.Queue[string]]::new()
+$queue.Enqueue($homeRel)
+while ($queue.Count) {
+  $cur = $queue.Dequeue()
+  foreach ($nxt in $edges[$cur]) { if ($seen.Add($nxt)) { $queue.Enqueue($nxt) } }
+}
+$unreachable = 0
+foreach ($p in ($docs.Values | Sort-Object Rel)) {
+  # a held page is deliberately not linked and is out of the sitemap too
+  if (-not (Test-PageLive $p.Slug $p.Lang)) { continue }
+  if (-not $seen.Contains($p.Rel)) {
+    $unreachable++
+    Add-Failure "$($p.Rel): unreachable from $homeRel by following links"
+  }
+}
+$cross = 0
+foreach ($p in $docs.Values) {
+  foreach ($t in $edges[$p.Rel]) {
+    $a = if ($p.Rel -match '^(it|es|sq)/') { $Matches[1] } else { 'en' }
+    $b = if ($t     -match '^(it|es|sq)/') { $Matches[1] } else { 'en' }
+    if ($a -ne $b) { $cross++ }
+  }
+}
+if ($cross -eq 0) {
+  Add-Failure 'no cross-language links in the raw HTML: the trees are islands'
+}
+Write-Ok "$($seen.Count) of $($docs.Count) pages reachable, $cross cross-language links"
 
 # -----------------------------------------------------------------------------
 Start-Check 'Encoding: UTF-8, no BOM, no mojibake, no diacritic entities'

@@ -127,13 +127,29 @@ function Get-PagePath([string]$slug, [string]$lang) {
 # -----------------------------------------------------------------------------
 # Header nav + language switcher
 # -----------------------------------------------------------------------------
-# The switcher lists only the current language. main.js rebuilds the full menu
-# from the page's own hreflang links, so this is the no-JS fallback and adding a
-# fifth language never touches the HTML again.
+# The switcher lists EVERY live language, in the HTML, as real links.
+#
+# It used to emit only the current one, on the reasoning that main.js rebuilds
+# the menu from the page's hreflang tags so the markup never has to change when
+# a language is added. That was true for users and false for crawlers, and it
+# cost the site its whole multilingual half: with no cross-language <a href>
+# anywhere in the raw HTML, the four trees were four disconnected islands.
+# Measured 2026-08-25 by BFS over the real link graph: 28 pages reachable from
+# the English homepage, 84 unreachable. /it/, /es/ and /sq/ each had 108 inbound
+# links and every single one came from inside its own tree. Google saw those 84
+# only in the sitemap, which is the textbook profile of "Discovered - currently
+# not indexed", and it was reporting 96 of 112 pages unindexed.
+#
+# It compounded with the .reveal blank-render bug (fixed f0bad2a): the content
+# and the language links depended on the same script, so one failed render lost
+# both at once.
+#
+# main.js can keep rebuilding the menu. It now finds the links already there.
+# Get-LiveLangs is the same source the hreflang block uses, so a held language
+# is never linked and the two can never disagree.
 function New-NavBlock([string]$slug, [string]$lang) {
   $L      = $LANGS[$lang]
   $active = Get-ActiveNav $slug
-  $self   = Get-PageUrl $slug $lang
 
   $lines = @('        <ul class="nav__menu" id="primary-menu" data-nav-menu>')
   foreach ($key in @('home', 'services', 'portfolio', 'blog', 'about', 'contact')) {
@@ -148,7 +164,15 @@ function New-NavBlock([string]$slug, [string]$lang) {
   $lines += '              <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>'
   $lines += '            </button>'
   $lines += '            <ul class="lang__menu" role="menu" data-lang-menu>'
-  $lines += "              <li role=""none""><a class=""lang__item is-active"" role=""menuitem"" aria-current=""true"" href=""$self"">$($L.label)</a></li>"
+  foreach ($code in (Get-LiveLangs $slug)) {
+    $href  = Get-PageUrl $slug $code
+    $label = $LANGS[$code].label
+    if ($code -eq $lang) {
+      $lines += "              <li role=""none""><a class=""lang__item is-active"" role=""menuitem"" aria-current=""true"" href=""$href"">$label</a></li>"
+    } else {
+      $lines += "              <li role=""none""><a class=""lang__item"" role=""menuitem"" hreflang=""$code"" href=""$href"">$label</a></li>"
+    }
+  }
   $lines += '            </ul>'
   $lines += '          </li>'
   $lines += '        </ul>'
