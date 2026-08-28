@@ -1212,11 +1212,17 @@ h1, h2, h3, h4 {
 .gallery__item:focus-visible img { transform: scale(1.06); }
 
 /* ---------- Case studies ----------
-   The evidence for all three clients is vertical 9:16: two Instagram grid
-   screenshots and one film shot on a phone. Every other media box on this site
-   is landscape (.split__media is 4/5, .feature-row__media 4/3, .service__img
-   16/10), so a 620x1280 screenshot dropped into one of them is centre-cropped
-   to a strip. Hence one new frame, shaped like the thing it holds.
+   The evidence is vertical: two Instagram grid screenshots and one film shot on
+   a phone. Every other media box on this site is landscape (.split__media is
+   4/5, .feature-row__media 4/3, .service__img 16/10), so a tall screenshot
+   dropped into one of them is centre-cropped to a strip. Hence one new frame,
+   shaped like the thing it holds.
+
+   The ratio below is 622/1120 because that is what the screenshots measure
+   AFTER the Instagram app bar was cropped off the top. It is load-bearing, not
+   decoration: the frame uses object-fit: cover, so a ratio that disagrees with
+   the file does not letterbox, it silently slices the outer columns off the
+   grid. Recrop the screenshots and this number moves with them.
 
    Capped at 330px rather than filling the column: at full width a phone
    screenshot reads as a broken layout rather than as a phone. The cap is also
@@ -1226,7 +1232,7 @@ h1, h2, h3, h4 {
   width: 100%;
   max-width: 330px;
   margin-inline: auto;
-  aspect-ratio: 620 / 1280;
+  aspect-ratio: 622 / 1120;
   border-radius: 26px;
   overflow: hidden;
   background: var(--ink);

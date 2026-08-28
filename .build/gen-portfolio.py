@@ -66,7 +66,7 @@ CASES = [
         'id': 'fly-system',
         'client': 'Fly System',
         'meta': 'Windows, doors and outdoor systems &middot; Italy',
-        'img': 'case-flysystem',
+        'img': 'case-flysystem-grid',
         'alt': 'The Fly System Instagram feed, showing window systems, interiors and outdoor pergolas',
         'body': [
             'Fly System supplies doors, windows, floors and outdoor systems across Italy. '
@@ -84,7 +84,7 @@ CASES = [
         'id': 'ofyr-italia',
         'client': 'OFYR Italia',
         'meta': 'Outdoor cooking &middot; Milan, Italy',
-        'img': 'case-ofyr',
+        'img': 'case-ofyr-grid',
         'alt': 'The OFYR Italia Instagram feed, showing chefs cooking over open fire at outdoor events',
         'body': [
             'OFYR Italia sells outdoor cooking, and it is a product that only makes sense in use. '
@@ -321,8 +321,8 @@ def main():
 
     # The first <picture> in <main> is now the Fly System frame, so it is the LCP
     # candidate. The page carried no preload at all before.
-    fw, fh = dims('case-flysystem')
-    preload = ('  <link rel="preload" as="image" href="assets/img/case-flysystem.webp"'
+    fw, fh = dims('case-flysystem-grid')
+    preload = ('  <link rel="preload" as="image" href="assets/img/case-flysystem-grid.webp"'
                ' type="image/webp" fetchpriority="high" />\n')
     s = re.sub(r'[ \t]*<link rel="preload"[^>]*as="image"[^>]*>\n', '', s)
     s = s.replace('  <link rel="canonical"', preload + '  <link rel="canonical"', 1)
