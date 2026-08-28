@@ -31,7 +31,7 @@ evidence: two Instagram grid screenshots and a 31-second company film.
 WHAT IS DELIBERATELY NOT CLAIMED. No results, no revenue, no follower counts, no
 campaign figures. The seven-campaign Meta table on /services stays where it is
 and stays anonymous, because it has not been confirmed that those campaigns
-belong to these three clients, and attributing real numbers to a named client on
+belong to the clients named here, and attributing real numbers to a named client on
 a guess is the one mistake here that would be worth suing over. The pages claim
 the services delivered and show the work; that is what the evidence supports.
 
@@ -129,12 +129,12 @@ STILLS = [
 ]
 
 TITLE = 'Client Work: Fly System, OFYR Italia and Rika | MarketingPro'
-DESC = ('Real work for three clients: social channels, Meta campaigns, photo and video, '
-        'and every lead qualified before it reaches their sales team.')
+DESC = ('Real work across different markets: social channels, Meta campaigns, photo and '
+        'video, and every lead qualified before it reaches their sales team.')
 H1 = 'Work We Have Shipped'
-LEAD = ('Three businesses in three markets, running the same model. We look after the '
-        'channels, produce what goes on them, and call and qualify every lead before it '
-        'reaches the people who sell.')
+LEAD = ('Different markets, the same model. We look after the channels, produce what goes '
+        'on them, and call and qualify every lead before it reaches the people who sell. '
+        'Below, a selection of the work.')
 
 
 def dims(stem, ext='jpg'):
