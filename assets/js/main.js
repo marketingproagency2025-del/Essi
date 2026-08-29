@@ -26,7 +26,7 @@
   var STRINGS = {
     en: {
       name: "English",
-      waPrefill: "Hi MarketingPro, I'd like to know more about your services.",
+      waPrefill: "Hi MarketingPro, I run a business and I'd like a quote for marketing work.",
       waLabel: "Chat with us",
       waAria: "Chat with us on WhatsApp",
       menuOpen: "Open menu",
@@ -39,7 +39,7 @@
     },
     it: {
       name: "Italiano",
-      waPrefill: "Ciao MarketingPro, vorrei sapere di più sui vostri servizi.",
+      waPrefill: "Ciao MarketingPro, ho un'azienda e vorrei un preventivo per il marketing.",
       waLabel: "Scrivici",
       waAria: "Scrivici su WhatsApp",
       menuOpen: "Apri menu",
@@ -52,7 +52,7 @@
     },
     es: {
       name: "Español",
-      waPrefill: "Hola MarketingPro, me gustaría saber más sobre sus servicios.",
+      waPrefill: "Hola MarketingPro, tengo un negocio y quisiera un presupuesto de marketing.",
       waLabel: "Escríbenos",
       waAria: "Escríbenos por WhatsApp",
       menuOpen: "Abrir menú",
@@ -65,7 +65,7 @@
     },
     sq: {
       name: "Shqip",
-      waPrefill: "Përshëndetje MarketingPro, dua të di më shumë për shërbimet tuaja.",
+      waPrefill: "Përshëndetje MarketingPro, kam një biznes dhe dua një ofertë për marketingun.",
       waLabel: "Na shkruani",
       waAria: "Na shkruani në WhatsApp",
       menuOpen: "Hapni menunë",

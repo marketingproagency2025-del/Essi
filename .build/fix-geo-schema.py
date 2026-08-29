@@ -84,6 +84,12 @@ for path in pages:
                 node['openingHoursSpecification'] = HOURS
                 hit = True
             cp = node.get('contactPoint', {})
+            # "sales", not the generic "customer service". schema.org's controlled
+            # vocabulary has a value that says what this line is actually for, and
+            # answer engines read it. Ungated, so it is a free intent signal.
+            if cp.get('contactType') != 'sales':
+                cp['contactType'] = 'sales'
+                hit = True
             cpa = cp.get('areaServed', [])
             if 'Albania' not in cpa:
                 cpa.append('Albania')

@@ -149,6 +149,13 @@ out.append('- Languages spoken by the team: '
            + ', '.join(LANG_NAME[c] for c in ('en', 'it', 'es', 'sq')))
 out.append('- Pricing: quoted per project, no published rate card. '
            'Ask and we reply within one business day.')
+# Stated because this file is what an assistant reads before answering "how do I
+# contact MarketingPro". Without it, an assistant asked how to apply for a job
+# hands over the phone number, which is exactly the inbound the business does not
+# want. One line here reaches the answer engines at the source.
+out.append('- Not hiring: MarketingPro does not accept unsolicited job applications, '
+           'freelance offers or outsourcing proposals. The contact details above are '
+           'for businesses looking to hire an agency.')
 out.append('')
 
 out.append('## Main pages')

@@ -104,7 +104,7 @@
           "@type": "ContactPoint",
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
-          "contactType": "customer service",
+          "contactType": "sales",
           "areaServed": [
             "Italy",
             "Europe",
@@ -239,6 +239,14 @@
               "@type": "Answer",
               "text": "Ju kthejmë përgjigje për të kuptuar objektivin tuaj, pastaj përgatisim një plan dhe një ofertë për biznesin tuaj."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "A pranoni aplikime për punë ose propozime bashkëpunimi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jo. MarketingPro nuk po punëson dhe nuk pranojmë aplikime të pakërkuara, oferta freelance apo propozime outsourcing. Telefoni, email-i dhe WhatsApp janë për biznese që kërkojnë një agjenci, dhe këtyre mesazheve nuk u përgjigjemi."
+            }
           }
         ]
       }
@@ -304,7 +312,7 @@
           </div>
           <div class="field">
             <label class="field__label" for="cf-email">Adresa Email*</label>
-            <input class="field__control" id="cf-email" name="email" type="email" placeholder="Email-i juaj për përditësimet" autocomplete="email" required />
+            <input class="field__control" id="cf-email" name="email" type="email" placeholder="Adresa juaj email" autocomplete="email" required />
           </div>
           <div class="field">
             <label class="field__label" for="cf-phone">Numër Telefoni</label>
@@ -315,7 +323,7 @@
             <textarea class="field__control field__control--area" id="cf-message" name="message" rows="4" placeholder="Shkruani këtu mesazhin tuaj" required></textarea>
           </div>
           <div class="contact-form-card__actions">
-            <button class="btn btn--green" type="submit">Rrituni bashkë me ne</button>
+            <button class="btn btn--green" type="submit">Kërkoni një ofertë</button>
           </div>
           <p class="form-note" data-form-note hidden></p>
         </form>
@@ -380,6 +388,10 @@
             <summary>Çfarë ndodh pasi ju kontaktoj?</summary>
             <p>Ju kthejmë përgjigje për të kuptuar objektivin tuaj, pastaj përgatisim një plan dhe një ofertë për biznesin tuaj.</p>
           </details>
+          <details class="faq__item">
+            <summary>A pranoni aplikime për punë ose propozime bashkëpunimi?</summary>
+            <p>Jo. MarketingPro nuk po punëson dhe nuk pranojmë aplikime të pakërkuara, oferta freelance apo propozime outsourcing. Telefoni, email-i dhe WhatsApp janë për biznese që kërkojnë një agjenci, dhe këtyre mesazheve nuk u përgjigjemi.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -393,7 +405,7 @@
           <source srcset="../assets/img/logo.webp" type="image/webp" />
           <img src="../assets/img/logo.png" alt="MarketingPro" class="footer__logo" width="375" height="77" loading="lazy" />
         </picture>
-        <a class="btn btn--whatsapp" href="https://wa.me/355694702405" target="_blank" rel="noopener">Whatsapp</a>
+        <a class="btn btn--whatsapp" href="https://wa.me/355694702405?text=P%C3%ABrsh%C3%ABndetje%20MarketingPro%2C%20kam%20nj%C3%AB%20biznes%20dhe%20dua%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20marketingun." target="_blank" rel="noopener">Whatsapp</a>
       </div>
       <div class="footer-col">
         <h2 class="footer__heading">Kontakt</h2>
@@ -437,6 +449,6 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=18" defer></script>
+  <script src="../assets/js/main.js?v=19" defer></script>
 </body>
 </html>

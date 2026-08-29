@@ -104,7 +104,7 @@
           "@type": "ContactPoint",
           "telephone": "+355694702405",
           "email": "commerciale@marketingpro-agency.com",
-          "contactType": "customer service",
+          "contactType": "sales",
           "areaServed": [
             "Italy",
             "Europe",
@@ -239,6 +239,14 @@
               "@type": "Answer",
               "text": "Ti ricontattiamo per capire il tuo obiettivo, poi prepariamo un piano e un preventivo per la tua azienda."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Accettate candidature o proposte di collaborazione?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. MarketingPro non sta assumendo e non accettiamo candidature spontanee, offerte freelance o proposte di outsourcing. Telefono, email e WhatsApp sono per le aziende che cercano un'agenzia, e a questi messaggi non rispondiamo."
+            }
           }
         ]
       }
@@ -304,7 +312,7 @@
           </div>
           <div class="field">
             <label class="field__label" for="cf-email">Il tuo indirizzo email*</label>
-            <input class="field__control" id="cf-email" name="email" type="email" placeholder="La tua email per gli aggiornamenti" autocomplete="email" required />
+            <input class="field__control" id="cf-email" name="email" type="email" placeholder="Il tuo indirizzo email" autocomplete="email" required />
           </div>
           <div class="field">
             <label class="field__label" for="cf-phone">Numero di telefono</label>
@@ -315,7 +323,7 @@
             <textarea class="field__control field__control--area" id="cf-message" name="message" rows="4" placeholder="Scrivi qui il tuo messaggio" required></textarea>
           </div>
           <div class="contact-form-card__actions">
-            <button class="btn btn--green" type="submit">Cresci con noi</button>
+            <button class="btn btn--green" type="submit">Richiedi un preventivo</button>
           </div>
           <p class="form-note" data-form-note hidden></p>
         </form>
@@ -380,6 +388,10 @@
             <summary>Cosa succede dopo che vi contatto?</summary>
             <p>Ti ricontattiamo per capire il tuo obiettivo, poi prepariamo un piano e un preventivo per la tua azienda.</p>
           </details>
+          <details class="faq__item">
+            <summary>Accettate candidature o proposte di collaborazione?</summary>
+            <p>No. MarketingPro non sta assumendo e non accettiamo candidature spontanee, offerte freelance o proposte di outsourcing. Telefono, email e WhatsApp sono per le aziende che cercano un'agenzia, e a questi messaggi non rispondiamo.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -393,7 +405,7 @@
           <source srcset="../assets/img/logo.webp" type="image/webp" />
           <img src="../assets/img/logo.png" alt="MarketingPro" class="footer__logo" width="375" height="77" loading="lazy" />
         </picture>
-        <a class="btn btn--whatsapp" href="https://wa.me/355694702405" target="_blank" rel="noopener">Whatsapp</a>
+        <a class="btn btn--whatsapp" href="https://wa.me/355694702405?text=Ciao%20MarketingPro%2C%20ho%20un%27azienda%20e%20vorrei%20un%20preventivo%20per%20il%20marketing." target="_blank" rel="noopener">Whatsapp</a>
       </div>
       <div class="footer-col">
         <h2 class="footer__heading">Contatti</h2>
@@ -437,6 +449,6 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=18" defer></script>
+  <script src="../assets/js/main.js?v=19" defer></script>
 </body>
 </html>

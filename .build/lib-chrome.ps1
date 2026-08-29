@@ -196,7 +196,7 @@ function Set-NavBlock([string]$html, [string]$slug, [string]$lang) {
 # Bump when assets/css/style.css or assets/js/main.js changes, so returning
 # visitors do not run a four-language switcher against a two-language script.
 $CSS_VERSION = 16
-$JS_VERSION  = 18
+$JS_VERSION  = 19
 
 # -----------------------------------------------------------------------------
 # Staged rollout
@@ -307,24 +307,32 @@ $CHROME = @{
   en = @{ skip = 'Skip to content'; contact = 'Contact'
           nlHead = 'Receive our newsletter'; nlLabel = 'Enter your email address'
           nlPlaceholder = 'Your email for updates'; nlButton = 'Join us for growth'
+          cfButton = 'Request a quote'; cfPlaceholder = 'Your email address'
+          waHref = 'https://wa.me/355694702405?text=Hi%20MarketingPro%2C%20I%20run%20a%20business%20and%20I%27d%20like%20a%20quote%20for%20marketing%20work.'
           nlNote = "Thanks! We'll be in touch."; rights = 'All rights reserved.'
           lbZoom = 'Enlarge image'; lbClose = 'Close'
           lbPrev = 'Previous image'; lbNext = 'Next image' }
   it = @{ skip = 'Vai al contenuto'; contact = 'Contatti'
           nlHead = 'Ricevi la nostra newsletter'; nlLabel = 'Inserisci il tuo indirizzo email'
           nlPlaceholder = 'La tua email per gli aggiornamenti'; nlButton = 'Cresci con noi'
+          cfButton = 'Richiedi un preventivo'; cfPlaceholder = 'Il tuo indirizzo email'
+          waHref = 'https://wa.me/355694702405?text=Ciao%20MarketingPro%2C%20ho%20un%27azienda%20e%20vorrei%20un%20preventivo%20per%20il%20marketing.'
           nlNote = 'Grazie! Ti contatteremo presto.'; rights = 'Tutti i diritti riservati.'
           lbZoom = "Ingrandisci l'immagine"; lbClose = 'Chiudi'
           lbPrev = 'Immagine precedente'; lbNext = 'Immagine successiva' }
   es = @{ skip = 'Saltar al contenido'; contact = 'Contacto'
           nlHead = 'Recibe nuestra newsletter'; nlLabel = 'Escribe tu correo electrónico'
           nlPlaceholder = 'Tu correo para novedades'; nlButton = 'Crece con nosotros'
+          cfButton = 'Solicita un presupuesto'; cfPlaceholder = 'Tu correo electrónico'
+          waHref = 'https://wa.me/355694702405?text=Hola%20MarketingPro%2C%20tengo%20un%20negocio%20y%20quisiera%20un%20presupuesto%20de%20marketing.'
           nlNote = '¡Gracias! Nos pondremos en contacto.'; rights = 'Todos los derechos reservados.'
           lbZoom = 'Ampliar imagen'; lbClose = 'Cerrar'
           lbPrev = 'Imagen anterior'; lbNext = 'Imagen siguiente' }
   sq = @{ skip = 'Kaloni te përmbajtja kryesore'; contact = 'Kontakt'
           nlHead = 'Merrni newsletter-in tonë'; nlLabel = 'Shkruani adresën tuaj email'
           nlPlaceholder = 'Email-i juaj për përditësimet'; nlButton = 'Rrituni bashkë me ne'
+          cfButton = 'Kërkoni një ofertë'; cfPlaceholder = 'Adresa juaj email'
+          waHref = 'https://wa.me/355694702405?text=P%C3%ABrsh%C3%ABndetje%20MarketingPro%2C%20kam%20nj%C3%AB%20biznes%20dhe%20dua%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20marketingun.'
           nlNote = "Faleminderit! Do t'ju kontaktojmë së shpejti."
           rights = 'Të gjitha të drejtat e rezervuara.'
           lbZoom = 'Zmadhoni imazhin'; lbClose = 'Mbyllni'
@@ -356,9 +364,24 @@ function Set-ChromeStrings([string]$html, [string]$lang) {
   $map = @(
     @{ rx = '(<a class="skip-link" href="#main">)[^<]*(</a>)';                              val = $C.skip },
     @{ rx = '(<label class="newsletter__label" for="news-email">)[^<]*(</label>)';          val = $C.nlLabel },
-    @{ rx = '(<button class="btn btn--green" type="submit">)[^<]*(</button>)';              val = $C.nlButton },
+    # ANCHORED, deliberately. These two rules used to match on the button tag and
+    # on `placeholder=... autocomplete="email"` alone, and [regex]::Replace hits
+    # EVERY match in the document. contact.html has two of each - the newsletter
+    # in the footer and the contact form in <main> - so the newsletter strings
+    # overwrote the contact form's, in all four languages, on every build. The
+    # contact form's submit button therefore read "Join us for growth" and its
+    # email field "Your email for updates": the site was inviting job seekers on
+    # the exact form meant for clients. Anchoring on the two ids keeps them apart.
+    @{ rx = '(<input class="newsletter__input"[^>]*>\s*<button class="btn btn--green" type="submit">)[^<]*(</button>)'; val = $C.nlButton },
     @{ rx = '(<p class="newsletter__note" data-newsletter-note hidden>)[^<]*(</p>)';        val = $C.nlNote },
-    @{ rx = '(placeholder=")[^"]*(" autocomplete="email" required)';                        val = $C.nlPlaceholder },
+    @{ rx = '(id="news-email"[^>]*placeholder=")[^"]*(")';                                  val = $C.nlPlaceholder },
+    @{ rx = '(<div class="contact-form-card__actions">\s*<button class="btn btn--green" type="submit">)[^<]*(</button>)'; val = $C.cfButton },
+    @{ rx = '(id="cf-email"[^>]*placeholder=")[^"]*(")';                                    val = $C.cfPlaceholder },
+    # The footer WhatsApp button is the most discoverable contact path on the
+    # site - raw HTML, all 112 pages - and it opened a BLANK chat, so the one
+    # surface a stranger is most likely to use carried no intent signal at all.
+    # Now it prefills the same client-intent message the floating button does.
+    @{ rx = '(<a class="btn btn--whatsapp" href=")[^"]*(")';                                 val = $C.waHref },
     @{ rx = '(<span data-year>[^<]*</span>\. )[^<]*(</p>)';                                 val = $C.rights },
     # The gallery and lightbox controls live OUTSIDE <main>, which is why they
     # were missed here: they read as page content but behave as chrome. That
