@@ -38,7 +38,8 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.path.dirname(_HERE)
 CONTENT = os.path.join(_HERE, "answer-content")
 
-POSTS = ["boost-or-campaign", "lead-quality", "in-house-or-agency", "showrooms"]
+POSTS = ["boost-or-campaign", "lead-quality", "in-house-or-agency", "showrooms",
+         "windows-and-doors", "stoves-and-heating", "builders", "restaurants"]
 TREE = {"en": "", "it": "it", "es": "es", "sq": "sq"}
 DASHES = "—–‒―−"
 
@@ -70,7 +71,9 @@ FIXED = {
 # The hero for each post, needed to look its alt text up on the site. Kept here rather than
 # imported from gen-answer-post.py so that this file agreeing with that one is evidence.
 HERO = {"boost-or-campaign": "rika-stove", "lead-quality": "rika-facade",
-        "in-house-or-agency": "rika-store", "showrooms": "rika-range"}
+        "in-house-or-agency": "rika-store", "showrooms": "rika-range",
+        "windows-and-doors": "solutions-3", "stoves-and-heating": "rika-fire",
+        "builders": "solutions-4", "restaurants": "solutions-6"}
 
 
 def load(post, lang):

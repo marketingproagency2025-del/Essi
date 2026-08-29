@@ -49,19 +49,31 @@ g = _engine()
 # stove in person". Each alt string in the content files is the one the site ALREADY uses for
 # that image in that tree, copied rather than re-invented, so no page describes a photo twice
 # in two different ways.
+# Batch one, the decision posts. Heroes are the client's own Rika Premium Store photographs.
+# Batch two, the trade verticals. Heroes are chosen for what they actually show: Fly System
+# supplies outdoor systems, so the pergola terrace is the subject rather than decoration, and
+# rika-fire is the exact product the stove post is about.
+#
+# WIDTH AND HEIGHT ARE PER POST, not per batch. They were one pair of module constants while
+# every hero happened to be 750x1000; the verticals broke that (768x761 and 750x1000 in the
+# same batch) and a single constant would have written the wrong dimensions into three pages.
+# The numbers are a promise to the browser about the box to reserve, so check_heroes() measures
+# every file and refuses to run if one disagrees.
 POSTS = {
-    "boost-or-campaign":  {"slug": "blog-boost-or-campaign",  "img": "rika-stove"},
-    "lead-quality":       {"slug": "blog-lead-quality",       "img": "rika-facade"},
-    "in-house-or-agency": {"slug": "blog-in-house-or-agency", "img": "rika-store"},
-    "showrooms":          {"slug": "blog-showrooms",          "img": "rika-range"},
+    "boost-or-campaign":  {"slug": "blog-boost-or-campaign",  "img": "rika-stove",   "w": 750, "h": 1000},
+    "lead-quality":       {"slug": "blog-lead-quality",       "img": "rika-facade",  "w": 750, "h": 1000},
+    "in-house-or-agency": {"slug": "blog-in-house-or-agency", "img": "rika-store",   "w": 750, "h": 1000},
+    "showrooms":          {"slug": "blog-showrooms",          "img": "rika-range",   "w": 750, "h": 1000},
+    "windows-and-doors":  {"slug": "blog-windows-and-doors",  "img": "solutions-3",  "w": 768, "h": 698},
+    "stoves-and-heating": {"slug": "blog-stoves-and-heating", "img": "rika-fire",    "w": 750, "h": 1000},
+    "builders":           {"slug": "blog-builders",           "img": "solutions-4",  "w": 768, "h": 761},
+    "restaurants":        {"slug": "blog-restaurants",        "img": "solutions-6",  "w": 768, "h": 761},
 }
 
-IMG_W, IMG_H = 750, 1000
 PUB = MOD = "2026-08-29"
 
 g.CONTENT = os.path.join(_HERE, "answer-content")
 g.CITIES = POSTS
-g.IMG_W, g.IMG_H = IMG_W, IMG_H
 g.PUB = g.MOD = PUB
 
 
@@ -101,9 +113,10 @@ def check_heroes():
         if not os.path.exists(webp):
             raise SystemExit(f"  ! {name}: assets/img/{img}.webp missing (run gen-webp.py)")
         w, h = jpeg_size(jpg)
-        if (w, h) != (IMG_W, IMG_H):
-            raise SystemExit(f"  ! {name}: {img}.jpg is {w}x{h}, but this batch writes "
-                             f"width={IMG_W} height={IMG_H} into every tree")
+        if (w, h) != (post["w"], post["h"]):
+            raise SystemExit(f"  ! {name}: {img}.jpg is {w}x{h}, but POSTS declares "
+                             f"{post['w']}x{post['h']}, which is what gets written into "
+                             f"every tree")
 
 
 if __name__ == "__main__":
@@ -117,6 +130,9 @@ if __name__ == "__main__":
                    if not os.path.exists(os.path.join(g.CONTENT, f"{name}-{l}.json"))]
         if missing:
             raise SystemExit(f"  ! {name}: missing content for {', '.join(missing)}")
+        # rebound per post, not once per batch: the engine reads these as module globals
+        # at render time, so they must be correct for THIS post when build() is called
+        g.IMG_W, g.IMG_H = POSTS[name]["w"], POSTS[name]["h"]
         for lang, tree in g.TREES.items():
             g.build(name, lang, tree)
     print("done")

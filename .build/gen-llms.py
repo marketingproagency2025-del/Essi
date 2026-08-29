@@ -46,7 +46,7 @@ CORE = ['index', 'services', 'about', 'portfolio', 'blog', 'contact']
 SERVICES = ['services-social-media', 'services-advertising', 'services-website',
             'services-seo', 'services-sales-funnel', 'services-photo-video',
             'services-renders', 'services-catalogues']
-GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano', 'blog-roma', 'blog-lugano', 'blog-ticino', 'blog-boost-or-campaign', 'blog-lead-quality', 'blog-in-house-or-agency', 'blog-showrooms',
+GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano', 'blog-roma', 'blog-lugano', 'blog-ticino', 'blog-windows-and-doors', 'blog-stoves-and-heating', 'blog-builders', 'blog-restaurants', 'blog-boost-or-campaign', 'blog-lead-quality', 'blog-in-house-or-agency', 'blog-showrooms',
           'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues']
 ARTICLES = ['article-1', 'article-2']
 
@@ -75,7 +75,7 @@ CORE_BLURB = {
     'about':     'the story, the team, and how the agency works.',
     'portfolio': 'selected work.',
     # counted, not typed: it read "ten pieces" for a while after the eleventh went up
-    'blog':      f'{len(GUIDES) + len(ARTICLES)} pieces: one guide per service, four decision guides answering a question before you hire, city guides, plus two articles.',
+    'blog':      f'{len(GUIDES) + len(ARTICLES)} pieces: one guide per service, four decision guides answering a question before you hire, four guides by trade, city guides, plus two articles.',
     'contact':   'phone, email, WhatsApp, the markets served and the Durres operations hub.',
 }
 

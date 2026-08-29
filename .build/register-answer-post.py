@@ -36,8 +36,8 @@ import os
 _HERE = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.path.dirname(_HERE)
 
-SLUGS = ["blog-boost-or-campaign", "blog-lead-quality",
-         "blog-in-house-or-agency", "blog-showrooms"]
+SLUGS = ["blog-windows-and-doors", "blog-stoves-and-heating",
+         "blog-builders", "blog-restaurants"]
 LANGS = ["it", "es", "sq"]      # 'translated' has no 'en' key: English is the source tree
 PRIORITY = "0.7"                # same weight as every other guide
 
@@ -91,15 +91,15 @@ def patch_ps1():
         raise SystemExit(f"  ! {path}: partially registered ({partial(s)}); fix by hand")
 
     s = anchored_insert(
-        s, "  'blog-roma', 'blog-lugano', 'blog-ticino',\n",
+        s, "  'blog-boost-or-campaign', 'blog-lead-quality', 'blog-in-house-or-agency', 'blog-showrooms',\n",
         "  " + " ".join(f"'{g}'," for g in SLUGS) + "\n", "$PAGES")
     s = anchored_insert(
-        s, "  'blog-roma' = '0.7'; 'blog-lugano' = '0.7'; 'blog-ticino' = '0.7'\n",
+        s, "  'blog-boost-or-campaign' = '0.7'; 'blog-lead-quality' = '0.7'; 'blog-in-house-or-agency' = '0.7'; 'blog-showrooms' = '0.7'\n",
         "  " + "; ".join(f"'{g}' = '{PRIORITY}'" for g in SLUGS) + "\n", "$PRIORITY")
 
     # the comment states the count; it is load-bearing for the next person, not for the code,
     # so it is asserted rather than best-effort replaced
-    old, new = "# The 28 page slugs,", "# The 32 page slugs,"
+    old, new = "# The 32 page slugs,", "# The 36 page slugs,"
     if s.count(old) != 1:
         raise SystemExit(f"  ! {path}: expected 1 copy of {old!r}, found {s.count(old)}")
     s = s.replace(old, new, 1)

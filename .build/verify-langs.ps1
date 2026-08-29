@@ -584,6 +584,70 @@ if ($LASTEXITCODE -ne 0) { Add-Failure 'sitemap.xml is stale - run .build/gen-si
 else { Write-Ok "$([regex]::Matches($sitemapXml, '<loc>').Count) urls derived from the pages themselves" }
 
 # -----------------------------------------------------------------------------
+Start-Check 'sitemap lastmod matches the date each page publishes'
+# THE CHECK ABOVE CANNOT SEE THIS, BY CONSTRUCTION. It re-runs gen-sitemap.ps1
+# and diffs the result against the committed file, which proves only that the
+# generator agrees with itself; and until this check was written it also piped
+# both sides through a filter that erased <lastmod> before comparing. That is
+# how a sitemap in which all 128 URLs claimed the same modification date, 64 of
+# them contradicting the dateModified published by the very same page, passed a
+# 26-check gate for as long as it did.
+#
+# So this reads the two sides independently: the XML on one side, the pages on
+# the other, with the date regexes re-implemented here rather than imported from
+# the generator. If both were wrong in the same way, that would no longer be
+# evidence of anything.
+[xml]$smDoc = $sitemapXml
+$today = Get-Date -Format 'yyyy-MM-dd'
+$smLastmod = @{}
+foreach ($u in $smDoc.urlset.url) {
+  $smLastmod[[string]$u.loc] = if ($u.lastmod) { [string]$u.lastmod } else { $null }
+}
+
+$lmBad = 0; $lmDated = 0; $lmBare = 0
+foreach ($p in $docs.Values) {
+  if (-not (Test-PageLive $p.Slug $p.Lang)) { continue }
+  $loc = "$SITE$(Get-PageUrl $p.Slug $p.Lang)"
+  if (-not $smLastmod.ContainsKey($loc)) { continue }   # presence is check 4's job
+  $have = $smLastmod[$loc]
+
+  # what the page itself claims, in the generator's order of preference
+  $want = $null
+  $m = [regex]::Match($p.Html, '"dateModified":\s*"(\d{4}-\d{2}-\d{2})')
+  if ($m.Success) { $want = $m.Groups[1].Value }
+  else {
+    $m = [regex]::Match($p.Html, '<time datetime="(\d{4}-\d{2}-\d{2})')
+    if ($m.Success) { $want = $m.Groups[1].Value }
+  }
+
+  if ($have) {
+    if ($have -notmatch '^\d{4}-\d{2}-\d{2}$') {
+      Add-Failure "$($p.Rel): lastmod '$have' is not a W3C date"; $lmBad++
+    } elseif ($have -gt $today) {
+      Add-Failure "$($p.Rel): lastmod $have is in the future"; $lmBad++
+    }
+  }
+
+  if ($p.Slug -eq 'blog') {
+    # the index publishes no date of its own but does change when a post lands,
+    # so it inherits the newest post date rather than going bare
+    if (-not $have) { Add-Failure "$($p.Rel): blog index carries no lastmod"; $lmBad++ }
+    else { $lmDated++ }
+    continue
+  }
+
+  if ($want -and ($have -ne $want)) {
+    Add-Failure "$($p.Rel): sitemap says lastmod $have, the page publishes $want"; $lmBad++
+  } elseif ((-not $want) -and $have) {
+    Add-Failure "$($p.Rel): lastmod $have, but the page publishes no date at all"; $lmBad++
+  }
+  if ($want) { $lmDated++ } else { $lmBare++ }
+}
+if ($lmBad -eq 0) {
+  Write-Ok "$lmDated urls match their own page's date, $lmBare correctly carry none"
+}
+
+# -----------------------------------------------------------------------------
 Start-Check 'llms.txt lists every live page and no held one'
 # Re-derived from $docs rather than by re-running gen-llms.py, which would only
 # prove the generator agrees with itself. The risk being checked is a held page

@@ -14,8 +14,7 @@
 # =============================================================================
 [CmdletBinding()]
 param(
-  [switch]$Check,
-  [string]$LastMod = (Get-Date -Format 'yyyy-MM-dd')
+  [switch]$Check
 )
 
 $ErrorActionPreference = 'Stop'
@@ -23,29 +22,53 @@ $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
 
-# Real per-page modification date, from git.
+# Real per-page modification date, read from the page itself.
 #
-# This used to stamp every URL with today's date. Ninety-six pages all claiming
-# to have changed on the same day, every time the script ran, is not a signal -
-# it is noise, and Google's documented response to a sitemap whose lastmod it
-# cannot trust is to stop reading lastmod for that site at all. Losing it costs
-# recrawl priority, which is the one thing a site stuck in "Discovered -
-# currently not indexed" cannot afford.
+# THIS USED TO ASK GIT, AND GIT LIED. Not through any fault of its own: two
+# site-wide sweeps (a CSS bezel fix touching 114 files, an entity fix touching
+# 76) between them covered every HTML file in the repo, so `git log -1` reported
+# the same committer date for all 129 of them. The sitemap duly told Google that
+# 128 URLs had all changed on the same day, and it would have done so again
+# after the next global fix. In a repo whose four-language chrome is generated,
+# global fixes are normal, so the git approach was structurally doomed rather
+# than unlucky.
 #
-# git's committer date is the honest answer: the moment that file's content last
-# actually changed. Untracked or unavailable falls back to the file's mtime.
-$script:LastModCache = @{}
-function Get-PageLastMod([string]$relPath) {
-  if ($script:LastModCache.ContainsKey($relPath)) { return $script:LastModCache[$relPath] }
-  $iso = & git -C $root log -1 --format=%cs -- $relPath 2>$null
-  if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($iso)) {
-    $full = Join-Path $root $relPath
-    $iso = if (Test-Path $full) { (Get-Item $full).LastWriteTime.ToString('yyyy-MM-dd') }
-           else { (Get-Date -Format 'yyyy-MM-dd') }
+# Worse, it contradicted the pages. 64 URLs carried a lastmod that disagreed
+# with the dateModified the same page published in its own JSON-LD, and
+# feed.xml - built from the same <time> elements this now reads - was already
+# carrying twelve honest dates while the sitemap carried one.
+#
+# The page is the authority. Order of preference:
+#   1. JSON-LD dateModified, which is the field that actually means this.
+#   2. <time datetime>, the visible publication date. For a page never revised
+#      since publication, lastmod == datePublished is true, not an approximation.
+#   3. Nothing. lastmod is optional, and Google is explicit that an omitted date
+#      beats an inaccurate one; a site caught lying about it has the signal
+#      discounted everywhere. Twelve slugs publish no date (portfolio, about,
+#      contact and the eight service pages) and simply get no lastmod.
+function Get-PageDate([string]$html) {
+  $m = [regex]::Match($html, '"dateModified":\s*"(\d{4}-\d{2}-\d{2})')
+  if ($m.Success) { return $m.Groups[1].Value }
+  $m = [regex]::Match($html, '<time datetime="(\d{4}-\d{2}-\d{2})')
+  if ($m.Success) { return $m.Groups[1].Value }
+  return $null
+}
+
+# The blog index is the one exception to rule 3. It publishes no date of its own
+# but it genuinely does change whenever a post lands, so it inherits the newest
+# date among the posts it lists. That is a fact about the page, not a guess.
+$script:BlogIndexDate = @{}
+foreach ($lang in $LANGS.Keys) {
+  $newest = $null
+  foreach ($slug in $PAGES) {
+    if ($slug -notmatch '^(blog-|article-)') { continue }
+    $p = Join-Path $root (Get-PagePath $slug $lang)
+    if (-not (Test-Path $p)) { continue }
+    if (-not (Test-PageLive $slug $lang)) { continue }
+    $d = Get-PageDate (Read-HtmlFile $p)
+    if ($d -and ((-not $newest) -or ($d -gt $newest))) { $newest = $d }
   }
-  $iso = $iso.Trim()
-  $script:LastModCache[$relPath] = $iso
-  return $iso
+  $script:BlogIndexDate[$lang] = $newest
 }
 
 # Harvest a page's own alternates. The attributes are separated by arbitrary
@@ -67,6 +90,7 @@ $lines = @(
 )
 
 $count = 0
+$emitted = @()
 foreach ($slug in $PAGES) {
   foreach ($lang in $LANGS.Keys) {
     $path = Join-Path $root (Get-PagePath $slug $lang)
@@ -84,8 +108,11 @@ foreach ($slug in $PAGES) {
     foreach ($a in $alts) {
       $lines += "    <xhtml:link rel=""alternate"" hreflang=""$($a.Lang)"" href=""$($a.Href)""/>"
     }
-    $lines += "    <lastmod>$(Get-PageLastMod (Get-PagePath $slug $lang))</lastmod>"
-    $lines += '    <changefreq>monthly</changefreq>'
+    $lm = if ($slug -eq 'blog') { $script:BlogIndexDate[$lang] } else { Get-PageDate $html }
+    if ($lm) { $lines += "    <lastmod>$lm</lastmod>"; $emitted += $lm }
+    # changefreq is gone. 128 identical <changefreq>monthly</changefreq> were
+    # ignored by Google and false on their face: article-1 has not changed since
+    # April. priority stays - also ignored, but at least true.
     $lines += "    <priority>$($PRIORITY[$slug])</priority>"
     $lines += '  </url>'
     $count++
@@ -98,10 +125,11 @@ $dest = Join-Path $root 'sitemap.xml'
 
 if ($Check) {
   $current = if (Test-Path $dest) { Read-HtmlFile $dest } else { '' }
-  # lastmod is a timestamp, not structure: ignore it so the check stays stable
-  # from one day to the next while still catching url/alternate drift.
-  $strip = { param($s) [regex]::Replace($s, '<lastmod>[^<]*</lastmod>', '<lastmod/>') }
-  if ((& $strip $current) -eq (& $strip $xml)) {
+  # lastmod used to be stripped before comparing, because it came from the clock
+  # and drifted daily. It now comes from the page content, so it is deterministic
+  # and is compared like everything else. That strip is why a sitemap with 128
+  # identical dates passed this check for as long as it did.
+  if ($current -eq $xml) {
     Write-Host "sitemap.xml agrees with the pages ($count urls)" -ForegroundColor Green
     exit 0
   }
@@ -110,5 +138,12 @@ if ($Check) {
 }
 
 Write-HtmlFile $dest $xml
-$dates = @($script:LastModCache.Values | Sort-Object -Unique)
-Write-Host "wrote sitemap.xml: $count urls, $(($count * 5)) alternates, $($dates.Count) distinct lastmod dates ($($dates[0]) to $($dates[-1]))" -ForegroundColor Green
+# Counted, not multiplied. This printed $count * 5, which was right only while
+# every tree was live for every slug; the first held-back page would have made it
+# a confident lie. $dates is wrapped in @() because Sort-Object -Unique returns a
+# scalar, not an array, when there is exactly one distinct value.
+$alts = @($lines | Where-Object { $_ -match '<xhtml:link' }).Count
+$dates = @($emitted | Sort-Object -Unique)
+$span = if ($dates.Count) { "$($dates[0]) to $($dates[-1])" } else { 'none' }
+$nolm = $count - $emitted.Count
+Write-Host "wrote sitemap.xml: $count urls, $alts alternates, $($dates.Count) distinct lastmod dates ($span), $nolm urls with no lastmod" -ForegroundColor Green

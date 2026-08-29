@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lay out the blog index as four named groups, in all four trees.
+"""Lay out the blog index as five named groups, in all four trees.
 
 REPLACES gen-city-cards.py, which assumed the page had exactly one card grid. It found that
 grid with html.index(GRID) and stopped, so with three grids it would have renumbered the first
@@ -59,6 +59,11 @@ GROUPS = [
     # the single fetchpriority="high" does not move to a different image on every reorder.
     ("answers",    ["blog-boost-or-campaign", "blog-lead-quality",
                     "blog-in-house-or-agency", "blog-showrooms"]),
+    # Trade guides. A group of their own rather than folded into "answers": these answer
+    # "marketing for MY industry" rather than a decision question, and they carry
+    # articleSection "Industry guides" in their own JSON-LD.
+    ("verticals",  ["blog-windows-and-doors", "blog-stoves-and-heating",
+                    "blog-builders", "blog-restaurants"]),
     ("by-city",    ["blog-milano", "blog-roma", "blog-lugano", "blog-ticino"]),
     ("articles",   ["article-1", "article-2"]),
 ]
@@ -73,10 +78,10 @@ COPY = {
         "lead": "One deep dive per service, the questions we get asked most, and guides for the cities we work in.",
         "aria": "Jump to a section",
         "all": "All",
-        "groups": {"by-service": "One guide per service", "answers": "The questions we get asked",
+        "groups": {"by-service": "One guide per service", "answers": "The questions we get asked", "verticals": "Guides by trade",
                    "by-city": "Marketing by city",
                    "articles": "Articles"},
-        "chips": {"by-service": "By service", "answers": "Answers", "by-city": "By city", "articles": "Articles"},
+        "chips": {"by-service": "By service", "answers": "Answers", "verticals": "By trade", "by-city": "By city", "articles": "Articles"},
     },
     "it": {
         "title": "Blog di Marketing: Guide per Servizio e Città | MarketingPro",
@@ -86,10 +91,10 @@ COPY = {
                 "e le guide per le città in cui lavoriamo.",
         "aria": "Vai a una sezione",
         "all": "Tutte",
-        "groups": {"by-service": "Una guida per ogni servizio", "answers": "Le domande che ci fanno",
+        "groups": {"by-service": "Una guida per ogni servizio", "answers": "Le domande che ci fanno", "verticals": "Guide per settore",
                    "by-city": "Marketing per città",
                    "articles": "Articoli"},
-        "chips": {"by-service": "Per servizio", "answers": "Risposte", "by-city": "Per città", "articles": "Articoli"},
+        "chips": {"by-service": "Per servizio", "answers": "Risposte", "verticals": "Per settore", "by-city": "Per città", "articles": "Articoli"},
     },
     "es": {
         # "Blog de marketing: guías por servicio y ciudad" came to 61, one over check 16's cap.
@@ -101,10 +106,10 @@ COPY = {
                 "y las guías de las ciudades donde trabajamos.",
         "aria": "Ir a una sección",
         "all": "Todas",
-        "groups": {"by-service": "Una guía por servicio", "answers": "Las preguntas que nos hacen",
+        "groups": {"by-service": "Una guía por servicio", "answers": "Las preguntas que nos hacen", "verticals": "Guías por sector",
                    "by-city": "Marketing por ciudad",
                    "articles": "Artículos"},
-        "chips": {"by-service": "Por servicio", "answers": "Respuestas", "by-city": "Por ciudad", "articles": "Artículos"},
+        "chips": {"by-service": "Por servicio", "answers": "Respuestas", "verticals": "Por sector", "by-city": "Por ciudad", "articles": "Artículos"},
     },
     "sq": {
         "title": "Blog Marketingu: Udhëzues Shërbimi dhe Qyteti | MarketingPro",
@@ -114,10 +119,10 @@ COPY = {
                 "dhe udhëzues për qytetet ku punojmë.",
         "aria": "Kaloni te një seksion",
         "all": "Të gjitha",
-        "groups": {"by-service": "Një udhëzues për çdo shërbim", "answers": "Pyetjet që na bëhen",
+        "groups": {"by-service": "Një udhëzues për çdo shërbim", "answers": "Pyetjet që na bëhen", "verticals": "Udhëzues sipas sektorit",
                    "by-city": "Marketing sipas qytetit",
                    "articles": "Artikuj"},
-        "chips": {"by-service": "Sipas shërbimit", "answers": "Përgjigje", "by-city": "Sipas qytetit",
+        "chips": {"by-service": "Sipas shërbimit", "answers": "Përgjigje", "verticals": "Sipas sektorit", "by-city": "Sipas qytetit",
                   "articles": "Artikuj"},
     },
 }
