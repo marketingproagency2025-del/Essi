@@ -142,6 +142,13 @@ def dims(stem, ext='jpg'):
         return im.size
 
 
+# The two grid frames carry .case-frame--grid in the shipped pages: the grids are
+# cropped to whole tiles (3x3) and so are 3:4, while the base .case-frame ratio
+# belongs to the Rika video. Recorded here because this file is behind the pages
+# and must not silently reintroduce a bare .case-frame on a grid.
+GRID_FRAME_CLASS = 'case-frame case-frame--grid'
+
+
 def build_main():
     L = []
     A = L.append

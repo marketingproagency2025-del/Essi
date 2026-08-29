@@ -1239,6 +1239,14 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, .10);
 }
+/* The two Instagram grids are cropped to whole tiles - three rows of three - which
+   lands them at exactly 3:4. The base ratio above belongs to the Rika video (720x1280),
+   so a grid dropped into it would lose about a quarter of the posts to object-fit:cover,
+   and changing the base instead would crop the video by the same amount. The three cases
+   are stacked in alternating rows and never sit side by side, so the two heights never
+   appear together. */
+.case-frame--grid { aspect-ratio: 3 / 4; }
+
 .case-frame img,
 .case-frame video {
   width: 100%;
