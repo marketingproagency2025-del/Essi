@@ -11,3 +11,7 @@ Thumbs.db
 !.dev.vars.example
 .env*
 !.env.example
+
+# Python bytecode, created when gen-answer-post.py imports gen-city-guide.py
+__pycache__/
+*.pyc

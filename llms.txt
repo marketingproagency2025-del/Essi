@@ -18,7 +18,7 @@ MarketingPro works with businesses across Albania, Italy, Switzerland, Europe an
 - [Digital Marketing Services: Ads, SEO, Web](https://www.marketingpro-agency.com/services): all eight services, each linking to its own page.
 - [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
 - [Client Work: Fly System, OFYR Italia and Rika](https://www.marketingpro-agency.com/portfolio): selected work.
-- [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 14 pieces: one guide per service, city guides, plus two articles.
+- [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 18 pieces: one guide per service, four decision guides answering a question before you hire, city guides, plus two articles.
 - [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
 
 ## Services
@@ -45,6 +45,10 @@ non-commercial explanation of the same subject.
 - [Digital Marketing in Rome: Who Stays and Who Passes Through](https://www.marketingpro-agency.com/blog-roma)
 - [Digital Marketing in Lugano: Few Clients, the Right Ones](https://www.marketingpro-agency.com/blog-lugano)
 - [Digital Marketing in Ticino: Four Markets, Not One](https://www.marketingpro-agency.com/blog-ticino)
+- [One Buys You Applause. The Other Buys You a Phone Number.](https://www.marketingpro-agency.com/blog-boost-or-campaign)
+- [The Lead Was Not Fake. It Went Cold While You Were Busy.](https://www.marketingpro-agency.com/blog-lead-quality)
+- [The Question Is Not Who Posts. It Is Who Answers.](https://www.marketingpro-agency.com/blog-in-house-or-agency)
+- [Nobody Buys a Stove From a Photograph. They Come to See It.](https://www.marketingpro-agency.com/blog-showrooms)
 - [A Sales Funnel That Closes: From Stranger to Signed Contract](https://www.marketingpro-agency.com/blog-sales-funnel)
 - [Why Professional Photo & Video Editing Elevates Your Brand](https://www.marketingpro-agency.com/blog-photo-video)
 - [Photorealistic Renders: Sell the Vision Before It's Built](https://www.marketingpro-agency.com/blog-renders)
@@ -61,6 +65,6 @@ These numbers are campaign exports, not projections. Across seven Meta campaigns
 
 ## Other languages
 
-- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 28 pages
-- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 28 pages
-- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 28 pages
+- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 32 pages
+- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 32 pages
+- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 32 pages

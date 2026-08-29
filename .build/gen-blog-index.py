@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lay out the blog index as three named groups, in all four trees.
+"""Lay out the blog index as four named groups, in all four trees.
 
 REPLACES gen-city-cards.py, which assumed the page had exactly one card grid. It found that
 grid with html.index(GRID) and stopped, so with three grids it would have renumbered the first
@@ -54,6 +54,11 @@ TREES = {"en": "", "it": "it", "es": "es", "sq": "sq"}
 GROUPS = [
     ("by-service", ["blog-social-media", "blog-advertising", "blog-website", "blog-seo",
                     "blog-sales-funnel", "blog-photo-video", "blog-renders", "blog-catalogues"]),
+    # Decision posts: each one answers a question somebody types before they hire anybody.
+    # Second rather than first on purpose, so the LCP card stays the social-media guide and
+    # the single fetchpriority="high" does not move to a different image on every reorder.
+    ("answers",    ["blog-boost-or-campaign", "blog-lead-quality",
+                    "blog-in-house-or-agency", "blog-showrooms"]),
     ("by-city",    ["blog-milano", "blog-roma", "blog-lugano", "blog-ticino"]),
     ("articles",   ["article-1", "article-2"]),
 ]
@@ -65,26 +70,26 @@ COPY = {
         "title": "Marketing Blog: Guides by Service and by City | MarketingPro",
         "desc": "Practical guides on social media, ads, websites, SEO, funnels, video, renders "
                 "and catalogues, plus city guides for Milan, Rome, Lugano and Ticino.",
-        "lead": "One deep dive per service, plus guides for the cities we work in most.",
+        "lead": "One deep dive per service, the questions we get asked most, and guides for the cities we work in.",
         "aria": "Jump to a section",
         "all": "All",
-        "groups": {"by-service": "One guide per service",
+        "groups": {"by-service": "One guide per service", "answers": "The questions we get asked",
                    "by-city": "Marketing by city",
                    "articles": "Articles"},
-        "chips": {"by-service": "By service", "by-city": "By city", "articles": "Articles"},
+        "chips": {"by-service": "By service", "answers": "Answers", "by-city": "By city", "articles": "Articles"},
     },
     "it": {
         "title": "Blog di Marketing: Guide per Servizio e Città | MarketingPro",
         "desc": "Guide pratiche su social, sponsorizzate, siti web, SEO, funnel, video, render e "
                 "cataloghi, più le guide per Milano, Roma, Lugano e il Ticino.",
-        "lead": "Un approfondimento per ogni servizio, più le guide per le città in cui "
-                "lavoriamo di più.",
+        "lead": "Un approfondimento per ogni servizio, le domande che ci fanno più spesso "
+                "e le guide per le città in cui lavoriamo.",
         "aria": "Vai a una sezione",
         "all": "Tutte",
-        "groups": {"by-service": "Una guida per ogni servizio",
+        "groups": {"by-service": "Una guida per ogni servizio", "answers": "Le domande che ci fanno",
                    "by-city": "Marketing per città",
                    "articles": "Articoli"},
-        "chips": {"by-service": "Per servizio", "by-city": "Per città", "articles": "Articoli"},
+        "chips": {"by-service": "Per servizio", "answers": "Risposte", "by-city": "Per città", "articles": "Articoli"},
     },
     "es": {
         # "Blog de marketing: guías por servicio y ciudad" came to 61, one over check 16's cap.
@@ -92,27 +97,27 @@ COPY = {
         "title": "Guías de marketing por servicio y ciudad | MarketingPro",
         "desc": "Guías prácticas sobre redes sociales, anuncios, sitios web, SEO, embudos, "
                 "vídeo, renders y catálogos, más las guías de Milán, Roma, Lugano y el Tesino.",
-        "lead": "Un análisis a fondo de cada servicio, más las guías de las ciudades donde "
-                "más trabajamos.",
+        "lead": "Un análisis a fondo de cada servicio, las preguntas que más nos hacen "
+                "y las guías de las ciudades donde trabajamos.",
         "aria": "Ir a una sección",
         "all": "Todas",
-        "groups": {"by-service": "Una guía por servicio",
+        "groups": {"by-service": "Una guía por servicio", "answers": "Las preguntas que nos hacen",
                    "by-city": "Marketing por ciudad",
                    "articles": "Artículos"},
-        "chips": {"by-service": "Por servicio", "by-city": "Por ciudad", "articles": "Artículos"},
+        "chips": {"by-service": "Por servicio", "answers": "Respuestas", "by-city": "Por ciudad", "articles": "Artículos"},
     },
     "sq": {
         "title": "Blog Marketingu: Udhëzues Shërbimi dhe Qyteti | MarketingPro",
         "desc": "Udhëzues praktikë për social media, reklama, faqe interneti, SEO, funnel, video, "
                 "render dhe katalogë, si dhe udhëzues për Milano, Romë, Lugano dhe Tiçino.",
-        "lead": "Një analizë e thelluar për çdo shërbim, si dhe udhëzues për qytetet ku "
-                "punojmë më shumë.",
+        "lead": "Një analizë e thelluar për çdo shërbim, pyetjet që na bëhen më shpesh "
+                "dhe udhëzues për qytetet ku punojmë.",
         "aria": "Kaloni te një seksion",
         "all": "Të gjitha",
-        "groups": {"by-service": "Një udhëzues për çdo shërbim",
+        "groups": {"by-service": "Një udhëzues për çdo shërbim", "answers": "Pyetjet që na bëhen",
                    "by-city": "Marketing sipas qytetit",
                    "articles": "Artikuj"},
-        "chips": {"by-service": "Sipas shërbimit", "by-city": "Sipas qytetit",
+        "chips": {"by-service": "Sipas shërbimit", "answers": "Përgjigje", "by-city": "Sipas qytetit",
                   "articles": "Artikuj"},
     },
 }
