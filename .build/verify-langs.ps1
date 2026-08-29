@@ -102,7 +102,15 @@ foreach ($lang in $LANGS.Keys) {
     }
   }
 }
+# Pages that exist on purpose and are NOT translated slugs. 404.html is served by
+# Cloudflare for any unmatched path (not_found_handling: "404-page"): it is chrome
+# plus a way back, carries noindex, no canonical, no hreflang and no structured
+# data, and is deliberately English-only because a 404 has no language to
+# negotiate - the visitor asked for a URL that does not exist in any tree.
+# Named here rather than pattern-matched, so a genuinely stray file still fails.
+$NON_SLUG = @('404.html')
 foreach ($r in ($onDisk | Sort-Object -Unique)) {
+  if ($NON_SLUG -contains $r) { continue }
   if ($expected -notcontains $r) { Add-Failure "orphan page not in the slug list: $r" }
 }
 Write-Ok "$($expected.Count) expected, $($docs.Count) found"

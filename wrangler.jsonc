@@ -16,10 +16,11 @@
     // meant a Wrangler default change could have broken every URL silently.
     "html_handling": "auto-trailing-slash",
 
-    // Left as the default "none" deliberately. Setting "404-page" requires a
-    // 404.html at the assets root, which does not exist yet; adding one is
-    // tracked separately so the config never points at a missing file.
-    "not_found_handling": "none"
+    // 404.html now exists at the assets root, so Cloudflare serves it (with a
+    // real 404 status) instead of a bare asset miss. It is noindex and carries
+    // no structured data or hreflang, because it describes nothing and is not a
+    // translated page - it is chrome plus a way back into the site.
+    "not_found_handling": "404-page"
   },
   "compatibility_flags": [
     "nodejs_compat"
