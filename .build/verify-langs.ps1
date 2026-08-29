@@ -744,7 +744,12 @@ Start-Check 'Nothing deployable is oversized, and the root holds only what it sh
 $MAX_MB = 20
 $rootAllow = @(
   '_headers', 'llms.txt', 'robots.txt', 'site.webmanifest', 'sitemap.xml', 'wrangler.jsonc',
-  'feed.xml'
+  'feed.xml',
+  # Bing Webmaster Tools site verification, if the XML-file route is used rather
+  # than importing from Search Console (the import needs no file at all). Named
+  # ahead of time so verification does not fail the gate at the exact moment
+  # someone is sitting in the Bing UI waiting to press Verify.
+  'BingSiteAuth.xml'
 )
 # The IndexNow key file is named after the key itself, so it cannot be a literal
 # here. Check 24 below validates it properly; this just stops check 22 rejecting it.
