@@ -1239,19 +1239,55 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, .10);
 }
-/* The two Instagram grids are cropped to whole tiles - three rows of three - which
-   lands them at exactly 3:4. The base ratio above belongs to the Rika video (720x1280),
-   so a grid dropped into it would lose about a quarter of the posts to object-fit:cover,
-   and changing the base instead would crop the video by the same amount. The three cases
-   are stacked in alternating rows and never sit side by side, so the two heights never
-   appear together. */
-.case-frame--grid { aspect-ratio: 3 / 4; }
+/* The two Instagram grids are cropped to whole tiles - three rows of three. The
+   base ratio above belongs to the Rika video (720x1280) and is deliberately not
+   touched here: changing it would crop the video by a quarter.
 
+   The grids get a bezel rather than a ratio. Instagram draws its view count about
+   10px above the bottom of a tile, and 10px of a 984px image is FOUR CSS PIXELS
+   once the thing renders 438px tall - so the labels sat flush against the frame
+   edge and the 26px border-radius, with overflow:hidden, bit through the outer
+   two. Nothing was cropped: object-fit hid 0.0% at every viewport. The container
+   was eating content that was present.
+
+   height:auto is the part that matters. The image renders at its own natural
+   ratio instead of being stretched to fill an imposed box, so no future re-crop
+   can bring this back, whatever dimensions the asset ends up with. The padding
+   keeps the artwork clear of the rounded corners, and 16px is 26 minus the 10px
+   inset, which makes the inner curve concentric with the outer one.
+
+   420px, not the inherited 330: at 330 each tile drew ~110px and the work was not
+   legible as work. The video stays at 330 on purpose - matching widths would make
+   a 9:16 clip tower over a 3:4 grid, whereas these heights land at 560 and 594,
+   which reads as a set. */
+.case-frame--grid {
+  max-width: 420px;
+  aspect-ratio: auto;
+  padding: 10px;
+}
 .case-frame img,
 .case-frame video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* AFTER the rule above, not before it. Both selectors are one class plus one
+   element, so they carry identical specificity and source order decides: written
+   above, this lost, height:100% kept winning, and object-fit:fill then stretched
+   a 3:4 image into a 0.8 box - 398x498 where it should have been 398x531. The
+   grid was distorted rather than cropped, which is worse and less obvious.
+   height:auto lets the image size itself, so the frame's height follows the
+   artwork instead of the artwork being forced into the frame. */
+.case-frame--grid img {
+  height: auto;
+  /* .split__media img forces aspect-ratio:4/5 (and 4/3 on phones), and these
+     frames sit inside .split__media. With the old height:100% that was moot -
+     an explicit height wins - but height:auto hands sizing back to the ratio,
+     and the image was being stretched to 0.8 instead of its own 0.75. Reset it
+     so the intrinsic 738x984 decides. */
+  aspect-ratio: auto;
+  object-fit: initial;
+  border-radius: 16px;
 }
 /* The poster sits under the video so there is never a flash of empty frame:
    the video is transparent until it has something to paint, and on phones it
