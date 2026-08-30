@@ -144,7 +144,7 @@ out = [PREAMBLE]
 out.append('- Business name: MarketingPro (Digital Marketing Agency)')
 out.append('- Base: Durrës, Albania · Markets: Albania · Italy · Switzerland · Europe · United States')
 out.append('- Founded: 2024')
-out.append('- Contact: commerciale@marketingpro-agency.com · +355 694702405 (also WhatsApp)')
+out.append('- Contact: commerciale@marketingpro-agency.com · +355 69 608 5288 (also WhatsApp) · +355 69 470 2405')
 out.append('- Languages spoken by the team: '
            + ', '.join(LANG_NAME[c] for c in ('en', 'it', 'es', 'sq')))
 out.append('- Pricing: quoted per project, no published rate card. '

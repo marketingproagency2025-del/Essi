@@ -234,7 +234,7 @@
   (function () {
     var wa = document.createElement("a");
     wa.className = "wa-float";
-    wa.href = "https://wa.me/355694702405?text=" + encodeURIComponent(t.waPrefill);
+    wa.href = "https://wa.me/355696085288?text=" + encodeURIComponent(t.waPrefill);
     wa.target = "_blank";
     wa.rel = "noopener";
     wa.setAttribute("aria-label", t.waAria);

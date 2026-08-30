@@ -312,7 +312,7 @@ $CHROME = @{
           nlHead = 'Receive our newsletter'; nlLabel = 'Enter your email address'
           nlPlaceholder = 'Your email for updates'; nlButton = 'Join us for growth'
           cfButton = 'Request a quote'; cfPlaceholder = 'Your email address'
-          waHref = 'https://wa.me/355694702405?text=Hi%20MarketingPro%2C%20I%20run%20a%20business%20and%20I%27d%20like%20a%20quote%20for%20marketing%20work.'
+          waHref = 'https://wa.me/355696085288?text=Hi%20MarketingPro%2C%20I%20run%20a%20business%20and%20I%27d%20like%20a%20quote%20for%20marketing%20work.'
           nlNote = "Thanks! We'll be in touch."; rights = 'All rights reserved.'
           lbZoom = 'Enlarge image'; lbClose = 'Close'
           lbPrev = 'Previous image'; lbNext = 'Next image' }
@@ -320,7 +320,7 @@ $CHROME = @{
           nlHead = 'Ricevi la nostra newsletter'; nlLabel = 'Inserisci il tuo indirizzo email'
           nlPlaceholder = 'La tua email per gli aggiornamenti'; nlButton = 'Cresci con noi'
           cfButton = 'Richiedi un preventivo'; cfPlaceholder = 'Il tuo indirizzo email'
-          waHref = 'https://wa.me/355694702405?text=Ciao%20MarketingPro%2C%20ho%20un%27azienda%20e%20vorrei%20un%20preventivo%20per%20il%20marketing.'
+          waHref = 'https://wa.me/355696085288?text=Ciao%20MarketingPro%2C%20ho%20un%27azienda%20e%20vorrei%20un%20preventivo%20per%20il%20marketing.'
           nlNote = 'Grazie! Ti contatteremo presto.'; rights = 'Tutti i diritti riservati.'
           lbZoom = "Ingrandisci l'immagine"; lbClose = 'Chiudi'
           lbPrev = 'Immagine precedente'; lbNext = 'Immagine successiva' }
@@ -328,7 +328,7 @@ $CHROME = @{
           nlHead = 'Recibe nuestra newsletter'; nlLabel = 'Escribe tu correo electrónico'
           nlPlaceholder = 'Tu correo para novedades'; nlButton = 'Crece con nosotros'
           cfButton = 'Solicita un presupuesto'; cfPlaceholder = 'Tu correo electrónico'
-          waHref = 'https://wa.me/355694702405?text=Hola%20MarketingPro%2C%20tengo%20un%20negocio%20y%20quisiera%20un%20presupuesto%20de%20marketing.'
+          waHref = 'https://wa.me/355696085288?text=Hola%20MarketingPro%2C%20tengo%20un%20negocio%20y%20quisiera%20un%20presupuesto%20de%20marketing.'
           nlNote = '¡Gracias! Nos pondremos en contacto.'; rights = 'Todos los derechos reservados.'
           lbZoom = 'Ampliar imagen'; lbClose = 'Cerrar'
           lbPrev = 'Imagen anterior'; lbNext = 'Imagen siguiente' }
@@ -336,7 +336,7 @@ $CHROME = @{
           nlHead = 'Merrni newsletter-in tonë'; nlLabel = 'Shkruani adresën tuaj email'
           nlPlaceholder = 'Email-i juaj për përditësimet'; nlButton = 'Rrituni bashkë me ne'
           cfButton = 'Kërkoni një ofertë'; cfPlaceholder = 'Adresa juaj email'
-          waHref = 'https://wa.me/355694702405?text=P%C3%ABrsh%C3%ABndetje%20MarketingPro%2C%20kam%20nj%C3%AB%20biznes%20dhe%20dua%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20marketingun.'
+          waHref = 'https://wa.me/355696085288?text=P%C3%ABrsh%C3%ABndetje%20MarketingPro%2C%20kam%20nj%C3%AB%20biznes%20dhe%20dua%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20marketingun.'
           nlNote = "Faleminderit! Do t'ju kontaktojmë së shpejti."
           rights = 'Të gjitha të drejtat e rezervuara.'
           lbZoom = 'Zmadhoni imazhin'; lbClose = 'Mbyllni'
