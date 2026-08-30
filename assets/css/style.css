@@ -831,6 +831,11 @@ h1, h2, h3, h4 {
 /* ---------- Mobile nav ---------- */
 @media (max-width: 860px) {
   .nav__toggle { display: flex; }
+  /* The floating WhatsApp bubble is fixed bottom-right at z-index 250; this control is absolute
+     bottom-right at z-index 2, and on a ~390px screen they overlap by about 30px, so tapping
+     play opened WhatsApp whenever the video sat low in the viewport. Different stacking
+     contexts, so z-index cannot settle it - the control moves instead. */
+  .case-frame__sound { right: auto; left: 12px; }
   .nav__menu {
     position: fixed;
     inset: var(--header-h) 0 auto 0;
@@ -865,7 +870,11 @@ h1, h2, h3, h4 {
     position: static;
     opacity: 1;
     transform: none;
-    pointer-events: auto;
+    /* NO pointer-events HERE. It used to say auto, and because pointer-events does not lock
+       descendants out the way display:none does, the CLOSED nav panel kept four invisible but
+       fully clickable language pills sitting over the middle of the screen - on top of the Rika
+       video. Tapping the video changed the language. Re-enabled below, only when the panel is
+       actually open. */
     display: flex;
     flex-wrap: wrap;
     gap: .6rem;
@@ -875,6 +884,7 @@ h1, h2, h3, h4 {
     box-shadow: none;
     background: none;
   }
+  .nav__menu.is-open .lang__menu { pointer-events: auto; }
   .lang__item {
     border: 1px solid var(--line);
     border-radius: 999px;
