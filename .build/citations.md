@@ -22,11 +22,18 @@ Short description (fits most directory fields, 148 chars):
 
 ## Where to place them, in order of value
 
-1. **Google Business Profile** — already exists. The single highest-value action
-   left is not a new listing, it is **reviews on the one you have**. The house
-   GEO doc ranks review-platform gravity *above* on-site copy: a weak review
-   profile means exclusion from AI answers no matter how good the site is.
+1. **Google Business Profile** — already exists. The highest-value action left is
+   not a new listing, it is **reviews on the one you have**. The house GEO doc
+   ranks review-platform gravity *above* on-site copy: a weak review profile
+   means exclusion from AI answers no matter how good the site is.
    Ask every past client. Fly System, OFYR Italia and Rika are three you can ask today.
+
+   **Nobody has written down how many reviews the profile actually has, or who has
+   already been asked.** Record both here with the date the next time you look. The
+   identical file for another client said "four clients have never been asked",
+   which was read eight days later as "the profile has zero reviews" and repeated
+   as fact for a whole session. It had nine. Who was asked and what the profile
+   shows are different statements, and neither survives without a date.
 2. **Bing Places** — the Bing equivalent, and Bing is what ChatGPT Search reads.
 3. **Instagram + Facebook bios** — link the site. Nofollow, but crawled fast, and
    they confirm the entity against `sameAs` in the schema.
