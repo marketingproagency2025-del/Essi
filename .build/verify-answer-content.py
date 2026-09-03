@@ -39,7 +39,8 @@ SITE_DIR = os.path.dirname(_HERE)
 CONTENT = os.path.join(_HERE, "answer-content")
 
 POSTS = ["boost-or-campaign", "lead-quality", "in-house-or-agency", "showrooms",
-         "windows-and-doors", "stoves-and-heating", "builders", "restaurants"]
+         "windows-and-doors", "stoves-and-heating", "builders", "restaurants",
+         "ai-search"]
 TREE = {"en": "", "it": "it", "es": "es", "sq": "sq"}
 DASHES = "—–‒―−"
 
@@ -47,22 +48,22 @@ DASHES = "—–‒―−"
 # in here that is wrong is wrong on twenty other pages too, which is the point.
 FIXED = {
     "en": {"lang": "en", "breadcrumb_home": "Home", "breadcrumb_blog": "Blog",
-           "date_display": "29 August 2026", "by": "By", "read_time": "6 min read",
+           "by": "By", "read_time": "6 min read",
            "summary_h2": "The Short Version", "faq_h2": "Frequently Asked Questions",
            "related_h2": "Keep Reading", "service_label": "Related service:",
            "back_label": "Back to Blog"},
     "it": {"lang": "it", "breadcrumb_home": "Home", "breadcrumb_blog": "Blog",
-           "date_display": "29 agosto 2026", "by": "Di", "read_time": "6 min di lettura",
+           "by": "Di", "read_time": "6 min di lettura",
            "summary_h2": "In Breve", "faq_h2": "Domande Frequenti",
            "related_h2": "Continua a Leggere", "service_label": "Servizio correlato:",
            "back_label": "Torna al Blog"},
     "es": {"lang": "es", "breadcrumb_home": "Inicio", "breadcrumb_blog": "Blog",
-           "date_display": "29 de agosto de 2026", "by": "Por", "read_time": "6 min de lectura",
+           "by": "Por", "read_time": "6 min de lectura",
            "summary_h2": "En resumen", "faq_h2": "Preguntas Frecuentes",
            "related_h2": "Sigue leyendo", "service_label": "Servicio relacionado:",
            "back_label": "Volver al Blog"},
     "sq": {"lang": "sq", "breadcrumb_home": "Kreu", "breadcrumb_blog": "Blog",
-           "date_display": "29 gusht 2026", "by": "Nga", "read_time": "6 min lexim",
+           "by": "Nga", "read_time": "6 min lexim",
            "summary_h2": "Shkurtimisht", "faq_h2": "Pyetje të Shpeshta",
            "related_h2": "Vazhdoni leximin", "service_label": "Shërbimi përkatës:",
            "back_label": "Kthehuni te Blogu"},
@@ -73,7 +74,22 @@ FIXED = {
 HERO = {"boost-or-campaign": "rika-stove", "lead-quality": "rika-facade",
         "in-house-or-agency": "rika-store", "showrooms": "rika-range",
         "windows-and-doors": "solutions-3", "stoves-and-heating": "rika-fire",
-        "builders": "solutions-4", "restaurants": "solutions-6"}
+        "builders": "solutions-4", "restaurants": "solutions-6",
+        "ai-search": "svc-seo-2"}
+
+# date_display used to sit inside FIXED, which was correct while every answer post belonged to
+# one batch and wrong the moment one did not: a flat value would have accepted a September post
+# claiming it was published on 29 August, in all four trees, without a word. So the visible date
+# is checked per publication date instead, and the four wordings per date stay side by side where
+# a translator can see them. The keys are the datePublished gen-answer-post.py writes.
+DATE_DISPLAY = {
+    "2026-08-29": {"en": "29 August 2026", "it": "29 agosto 2026",
+                   "es": "29 de agosto de 2026", "sq": "29 gusht 2026"},
+    "2026-09-03": {"en": "3 September 2026", "it": "3 settembre 2026",
+                   "es": "3 de septiembre de 2026", "sq": "3 shtator 2026"},
+}
+POST_DATE = {p: "2026-08-29" for p in POSTS}
+POST_DATE["ai-search"] = "2026-09-03"
 
 
 def load(post, lang):
@@ -176,6 +192,11 @@ def check(post):
         for k, v in FIXED[lang].items():
             if d.get(k) != v:
                 bad(lang, f"{k} is {d.get(k)!r}, expected {v!r}")
+
+        want_date = DATE_DISPLAY[POST_DATE[post]][lang]
+        if d.get("date_display") != want_date:
+            bad(lang, f"date_display is {d.get('date_display')!r}, expected {want_date!r} "
+                      f"for a post published {POST_DATE[post]}")
 
         want = site_alt(tree, HERO[post])
         if want is None:

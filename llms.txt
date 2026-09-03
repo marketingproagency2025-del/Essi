@@ -18,7 +18,7 @@ MarketingPro works with businesses across Albania, Italy, Switzerland, Europe an
 - [Digital Marketing Services: Ads, SEO, Web](https://www.marketingpro-agency.com/services): all eight services, each linking to its own page.
 - [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
 - [Client Work: Fly System, OFYR Italia and Rika](https://www.marketingpro-agency.com/portfolio): selected work.
-- [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 22 pieces: one guide per service, four decision guides answering a question before you hire, four guides by trade, city guides, plus two articles.
+- [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 23 pieces: one guide per service, five decision guides answering a question before you hire, four guides by trade, four city guides, plus two articles.
 - [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durres operations hub.
 
 ## Services
@@ -49,6 +49,7 @@ non-commercial explanation of the same subject.
 - [By the First Cold Week, Your Year Is Already Decided.](https://www.marketingpro-agency.com/blog-stoves-and-heating)
 - [Your Best Salesman Is a Finished Kitchen You Never Photographed.](https://www.marketingpro-agency.com/blog-builders)
 - [An Empty Tuesday Is Revenue You Can Never Sell Again.](https://www.marketingpro-agency.com/blog-restaurants)
+- [A Buyer Asked an Assistant. Your Name Was Not in the Answer.](https://www.marketingpro-agency.com/blog-ai-search)
 - [One Buys You Applause. The Other Buys You a Phone Number.](https://www.marketingpro-agency.com/blog-boost-or-campaign)
 - [The Lead Was Not Fake. It Went Cold While You Were Busy.](https://www.marketingpro-agency.com/blog-lead-quality)
 - [The Question Is Not Who Posts. It Is Who Answers.](https://www.marketingpro-agency.com/blog-in-house-or-agency)
@@ -69,6 +70,6 @@ These numbers are campaign exports, not projections. Across seven Meta campaigns
 
 ## Other languages
 
-- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 36 pages
-- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 36 pages
-- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 36 pages
+- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 37 pages
+- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 37 pages
+- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 37 pages

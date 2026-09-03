@@ -1,0 +1,123 @@
+{
+  "lang": "es",
+  "title": "Pregunta a un Asistente por tu Negocio Antes que un Cliente",
+  "description": "Los clientes preguntan a un asistente antes de buscar, y la respuesta nombra dos o tres proveedores. Cómo saber hoy si tú eres uno de ellos.",
+  "og_description": "La respuesta nombra un puñado de proveedores y nadie te dice si eras uno de ellos. Así se comprueba.",
+  "h1": "Un Cliente Preguntó a un Asistente. Tu Nombre No Estaba.",
+  "breadcrumb_home": "Inicio",
+  "breadcrumb_blog": "Blog",
+  "breadcrumb_last": "Búsqueda con IA, AIO y AEO",
+  "hero_alt": "Un panel de análisis del rendimiento en buscadores",
+  "date_display": "3 de septiembre de 2026",
+  "read_time": "6 min de lectura",
+  "by": "Por",
+  "intro": [
+    "Algo cambió en silencio en la forma en que empiezan los clientes. Antes el dueño de un showroom escribía dos palabras en Google y elegía de una página de enlaces. Una parte creciente ahora se lo pregunta a un asistente, en una frase entera, y lee la respuesta como si la hubiera dicho un colega.",
+    "El asistente no entrega una página de enlaces. Nombra un puñado de proveedores, a veces con un motivo añadido, y se detiene. Si tu negocio no está en ese puñado, nada te lo dice. No hay informe, no hay aviso y no hay posición que revisar. Simplemente no te llega la llamada."
+  ],
+  "sections": [
+    {
+      "h2": "La Respuesta Corta",
+      "p": [
+        "Escribe tu oficio y tu zona en un asistente, con las palabras que usaría un cliente, y lee los nombres que vuelven. Esa es toda la prueba, y no cuesta nada.",
+        "Si tu nombre está, averigua qué dice de ti y si sigue siendo cierto. Si tu nombre falta, los negocios que nombró se están leyendo en algún sitio donde tú no estás.",
+        "Todo lo demás en este artículo explica por qué ocurre y qué lo mueve de verdad, pero la prueba va primero, porque una respuesta que has leído tú mismo vale más que cualquier promesa sobre respuestas que no has leído."
+      ]
+    },
+    {
+      "h2": "En un Presupuesto Esto Llega con Tres Siglas",
+      "p": [
+        "Puedes verlo facturado como AIO, como AEO o como GEO. Desarrolladas son AI optimisation, answer engine optimisation y generative engine optimisation, y lo que las separa es sobre todo qué proveedor imprimió cuál primero.",
+        "Toma la sigla como una fecha, no como una descripción. Sugiere más o menos desde cuándo un proveedor la añadió a su lista. No dice nada sobre si alguien allí ha abierto alguna vez un asistente y ha escrito tu oficio en él.",
+        "Una pregunta separa a los dos tipos de proveedor, y no es técnica: qué páginas se reescriben, y qué produce el primer mes. Quien responde con encabezados y frases tiene un plan. Quien responde otra vez con la sigla tiene un folleto."
+      ]
+    },
+    {
+      "h2": "Qué Lee de Verdad un Asistente en tu Web",
+      "p": [
+        "No la ve como la ve un visitante. Recibe texto en bruto en el orden del código, tus encabezados leídos como un esquema, y unas etiquetas ocultas que dicen qué es el negocio y dónde está.",
+        "Lo que sobrevive a ese desnudado es el texto llano bajo el encabezado que plantea la pregunta, frases cortas que repiten el nombre del negocio en vez de apoyarse en un pronombre que una máquina no sabe resolver, y las listas, que aguantan mejor que los párrafos largos.",
+        "Lo que no sobrevive: las palabras dentro de una foto, todo lo que aparece solo tras un clic, todo lo que carga tarde, y el significado que depende de dónde están las cosas en la pantalla. Una página de catálogo bonita con los nombres de producto dentro de las imágenes no le dice nada a una máquina."
+      ]
+    },
+    {
+      "h2": "Tres Nombres en Vez de Diez Enlaces Cambian las Cuentas",
+      "p": [
+        "Una página de resultados ponía diez opciones delante del cliente y lo dejaba seguir bajando, así que el cuarto puesto todavía se llevaba parte de los clics. Un asistente devuelve una lista corta, dos o tres nombres, y ahí se detiene, lo que convierte la distancia entre estar nombrado y no estarlo en todo el resultado.",
+        "Eso corta en dos direcciones, y en un oficio especializado corta a tu favor. En una categoría de masas compites con todos. En estufas, o en pérgolas, o en carpintería a medida de una región, el campo es pequeño y la mayoría no ha publicado nada que una máquina pueda leer.",
+        "En un oficio estrecho la lista corta ya es corta antes de que nadie se la dispute, y entrar en ella sale mucho más barato que en una concurrida, y en estos oficios casi nadie lo está intentando aún."
+      ]
+    },
+    {
+      "h2": "De Dónde Sale la Respuesta Cuando No Sale de Ti",
+      "p": [
+        "Si tus páginas no llevan nada que una máquina pueda usar, un asistente construye la respuesta con cualquier otra cosa que describa tu mercado. Suele ser un directorio, un marketplace, la lista de distribuidores de un fabricante, o un competidor que escribió una página clara sobre lo que ambos vendéis.",
+        "Así que el cliente recibe respuesta igual. Solo que pasa por otro, y a menudo por un canal que se queda un margen de la venta que habrías hecho directa.",
+        "Aquí los detalles importan de forma aburrida. Nombre, dirección, horarios y gama de producto tienen que decir lo mismo en cada ficha que los recoge, porque una máquina se fía de lo que puede corroborar y descarta en silencio lo que no."
+      ]
+    },
+    {
+      "h2": "Lo Que Esto No Sustituye",
+      "p": [
+        "El trabajo normal de búsqueda no ha terminado, y aquí no se vende como su sustituto. La mayoría de clientes sigue abriendo un buscador, y la ficha del mapa sigue decidiendo quién recibe una llamada esta tarde.",
+        "Los cimientos también son comunes. Lo que hace legible una página para una máquina tiende a hacerla legible también para un buscador, y por eso esto rara vez llega como un proyecto aparte con una factura aparte.",
+        "Y nadie puede venderte un sitio dentro de una respuesta. No existe ninguno, así que la oferta de vendértelo es la oferta de la que alejarse."
+      ]
+    },
+    {
+      "h2": "Qué Hacemos Nosotros",
+      "p": [
+        "Leemos tu web como la lee una máquina, y normalmente sale un documento incómodo: las partes de las que más orgulloso estás resultan ser fotos, y resulta que las partes que llevan el significado no están.",
+        "Después preguntamos a varios asistentes por tu oficio en tu zona, registramos qué responden, y rastreamos las frases hasta las páginas de donde salieron. Eso muestra a quién se está leyendo hoy sobre tu mercado y por qué.",
+        "El trabajo que sigue no tiene glamour. Una página propia para cada línea de producto que vendes de verdad, encabezados que plantean la pregunta que plantea un cliente, producto y lugar nombrados en el mismo párrafo que la cosa, y datos que coinciden en todos los demás sitios donde aparecen.",
+        "Luego volvemos a preguntar, unas semanas después, y te mostramos la diferencia en las respuestas en vez de en un gráfico."
+      ]
+    }
+  ],
+  "summary_h2": "En resumen",
+  "summary": [
+    "Una parte de los clientes pregunta primero a un asistente, y la respuesta nombra dos o tres proveedores en vez de diez enlaces.",
+    "Nadie te avisa cuando te han dejado fuera, y por eso casi ningún dueño sabe que está pasando.",
+    "AIO, AEO y GEO son tres etiquetas para un solo trabajo, así que la que aparece en un presupuesto fecha al proveedor en vez de describir el trabajo.",
+    "Un asistente lee texto desnudo, encabezados y etiquetas ocultas, y descarta fotos, clics y maquetación.",
+    "La prueba es gratis: escribe tu oficio y tu zona en un asistente y lee los nombres."
+  ],
+  "faq_h2": "Preguntas Frecuentes",
+  "faq": [
+    {
+      "q": "¿Alguien puede garantizarme que ChatGPT recomendará mi negocio?",
+      "a": "No puede nadie. Dentro de una respuesta no se compra nada, así que un proveedor que te lo promete está prometiendo algo que nadie posee. Lo que sí se puede es hacer el negocio legible y coherente para ser candidato, y luego leer las respuestas antes del trabajo y otra vez después."
+    },
+    {
+      "q": "¿Significa rehacer la web?",
+      "a": "Normalmente lo contrario. Casi todo es reescribir y reordenar lo ya publicado, y hacer que los datos del negocio coincidan en cada ficha que te nombra. Una reconstrucción solo entra en la conversación si la web actual esconde su significado dentro de las imágenes, o monta el contenido demasiado tarde para un lector que no espera."
+    },
+    {
+      "q": "¿Compensa en un oficio especializado?",
+      "a": "A menudo más, no menos. Un oficio estrecho le deja al asistente una lista corta de la que elegir, y en casi todos estos oficios no se ha publicado casi nada legible. La escasez que hace pequeño el mercado es la misma que lo hace ganable."
+    }
+  ],
+  "related_h2": "Sigue leyendo",
+  "related": [
+    {
+      "slug": "blog-seo",
+      "label": "SEO en 2026: escala posiciones y mantente arriba"
+    },
+    {
+      "slug": "blog-website",
+      "label": "Tu sitio web es tu vendedor más incansable"
+    }
+  ],
+  "service_label": "Servicio relacionado:",
+  "service_slug": "services-seo",
+  "service_name": "SEO",
+  "cta_label": "Cuéntanos qué dice de ti un asistente",
+  "back_label": "Volver al Blog",
+  "card_excerpt": "Los clientes preguntan a un asistente y nombra dos o tres proveedores. Por qué AIO, AEO y GEO son un solo trabajo y qué lee de verdad una máquina.",
+  "articleSection": "SEO",
+  "keywords": [
+    "búsqueda con IA",
+    "AIO",
+    "AEO"
+  ]
+}

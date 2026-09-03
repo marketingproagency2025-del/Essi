@@ -1,6 +1,28 @@
 #!/usr/bin/env python3
 """Generate the eight English service landing pages.
 
+DO NOT RUN THIS AGAINST THE LIVE PAGES WITHOUT READING THE NEXT PARAGRAPH. Measured
+2026-09-03 by running it and diffing: it rewrites all eight and REGRESSES all eight,
+because work landed on the shipped HTML that never came back into this script.
+
+  hreflang     inherited from the shell and never rewritten, so all five alternates
+               come out pointing at blog-seo instead of the service page. The shipped
+               pages are correct; a regeneration breaks gate check 5 on all eight.
+  title, desc  service-content.py is behind the shipped copy. services-seo went from
+               "SEO Agency for Italy, Europe and the US" back to "SEO Services for...",
+               and lost a description naming Durres, which was the better one.
+  JSON-LD      re-serialised with indent=2, so every inline array in the Organization
+               and WebSite nodes explodes onto one line per item. Cosmetic, and it
+               makes the real regressions above harder to see in a diff.
+
+So the eight shipped pages, not this script, are currently the source of truth. Fixing
+that means teaching this script the hreflang rewrite and copying the shipped title and
+description back into service-content.py; until somebody does, edit the HTML.
+
+The 'extra' block added to services-seo on 2026-09-03 is recorded in service-content.py
+and implemented below so that a future repaired regeneration keeps it, but it was applied
+to the four shipped pages by hand for exactly the reason above.
+
 Uses blog-seo.html purely as a structural shell, so head, nav, footer, chrome and
 every generated element stay byte-correct and the existing build scripts keep
 working on the result. Only the parts that differ are replaced: metadata,
@@ -172,6 +194,31 @@ def build(slug, c):
     if c.get('proof'):
         A(f"          <h2>{esc(c['proof_h'])}</h2>")
         A(f"          <p>{esc(c['proof'])}</p>")
+    # An optional extra block, same shape as proof but able to link out, because
+    # the one thing this template could not previously do inside body copy is
+    # point at a guide: every string goes through esc(), so an <a> in a record
+    # would ship as visible markup. The link is therefore its own field.
+    #
+    # TWO THINGS HERE ARE LOAD-BEARING, and gate check 23 is why for both.
+    #
+    # POSITION. Check 23 reads the service <h2>s by index: [0] is the covers
+    # heading and the LAST THREE are who-suits, pricing and FAQ, compared across
+    # all eight pages. A heading on one page of eight is not boilerplate, so it
+    # may only be inserted BETWEEN the first and the who-suits heading. Put it
+    # after who-suits and the check starts comparing this heading against the
+    # other seven pages' "Who this suits", and fails in all four trees.
+    #
+    # THE LINK IS INLINE, not a second <p class="post-service">. The same check
+    # reads the long-version label from the FIRST post-service match in <main>,
+    # so a post-service paragraph placed above the existing one steals it and
+    # reports seven pages disagreeing with this one. That was measured, not
+    # guessed: the first attempt shipped it that way and failed all four trees.
+    if c.get('extra'):
+        A(f"          <h2>{esc(c['extra_h'])}</h2>")
+        for p in c['extra'][:-1]:
+            A(f'          <p>{esc(p)}</p>')
+        A(f"          <p>{esc(c['extra'][-1])} {esc(c['extra_link_lead'])} "
+          f"<a href=\"/{c['extra_guide']}\">{esc(c['extra_guide_label'])}</a>.</p>")
     A(f"          <h2>{esc(c['how_h'])}</h2>")
     for h, p in c['how']:
         A(f'          <p><strong>{esc(h)}.</strong> {esc(p)}</p>')

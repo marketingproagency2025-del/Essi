@@ -68,8 +68,16 @@ POSTS = {
     "stoves-and-heating": {"slug": "blog-stoves-and-heating", "img": "rika-fire",    "w": 750, "h": 1000},
     "builders":           {"slug": "blog-builders",           "img": "solutions-4",  "w": 768, "h": 761},
     "restaurants":        {"slug": "blog-restaurants",        "img": "solutions-6",  "w": 768, "h": 761},
+    # Batch three, one post. The hero is svc-seo-2, the search dashboard the SEO service page and
+    # blog-milano already publish. The subject fits a post about what a machine reads, and the alt
+    # already exists in all four trees, which is the thing verify-answer-content.py check 9 wants.
+    "ai-search":          {"slug": "blog-ai-search",          "img": "svc-seo-2",    "w": 1080, "h": 1258,
+                           "date": "2026-09-03"},
 }
 
+# The batch date, and a DEFAULT rather than a constant for exactly the reason IMG_W and IMG_H
+# stopped being constants: a post written later was not published the day the earlier batch was,
+# and one module-level date writes a false datePublished into all four trees of the new page.
 PUB = MOD = "2026-08-29"
 
 g.CONTENT = os.path.join(_HERE, "answer-content")
@@ -133,6 +141,7 @@ if __name__ == "__main__":
         # rebound per post, not once per batch: the engine reads these as module globals
         # at render time, so they must be correct for THIS post when build() is called
         g.IMG_W, g.IMG_H = POSTS[name]["w"], POSTS[name]["h"]
+        g.PUB = g.MOD = POSTS[name].get("date", PUB)
         for lang, tree in g.TREES.items():
             g.build(name, lang, tree)
     print("done")

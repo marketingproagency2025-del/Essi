@@ -160,6 +160,15 @@ SERVICES = {
       'Authority earned rather than bought, because the bought kind is what ends in penalties.',
       'Local visibility where your customers search near them.',
     ],
+    extra_h='AI search, also sold as AIO or AEO',
+    extra=[
+      'A share of buyers now ask an assistant before they open a search engine, and the answer names two or three suppliers rather than ten links. Nobody tells you when you were left out of one, which is why most owners have no idea it is happening.',
+      'This is not a separate product and it is not sold here as one. The work overlaps almost entirely with the rest of this page: plain text under the heading that asks the question, a site whose meaning is not locked inside its pictures, and details that agree wherever a machine finds them. What changes is that we also read your site the way a machine reads it, and check what the assistants actually say about your trade before and after.',
+      'Three acronyms are in circulation for it. AIO, AEO and GEO all describe the same job, so the one on a quote tells you when a supplier started offering this and nothing about how well they do it. And nobody can sell you a position inside an answer, because there is none to buy.',
+    ],
+    extra_link_lead='The longer version is here:',
+    extra_guide='blog-ai-search',
+    extra_guide_label='what an assistant says about your business',
     how_h='How we work',
     how=[
       ('Start with what people type', 'Keyword research, and just as importantly the intent behind each phrase. Someone asking what something costs and someone asking who provides it need two different pages.'),

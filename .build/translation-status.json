@@ -36,7 +36,8 @@
     "blog-windows-and-doors",
     "blog-stoves-and-heating",
     "blog-builders",
-    "blog-restaurants"
+    "blog-restaurants",
+    "blog-ai-search"
   ],
   "live": [
     "it",
@@ -81,7 +82,8 @@
       "blog-windows-and-doors",
       "blog-stoves-and-heating",
       "blog-builders",
-      "blog-restaurants"
+      "blog-restaurants",
+      "blog-ai-search"
     ],
     "es": [
       "index",
@@ -119,7 +121,8 @@
       "blog-windows-and-doors",
       "blog-stoves-and-heating",
       "blog-builders",
-      "blog-restaurants"
+      "blog-restaurants",
+      "blog-ai-search"
     ],
     "sq": [
       "index",
@@ -157,7 +160,8 @@
       "blog-windows-and-doors",
       "blog-stoves-and-heating",
       "blog-builders",
-      "blog-restaurants"
+      "blog-restaurants",
+      "blog-ai-search"
     ]
   },
   "_holdback_comment": "Empty by explicit instruction on 2026-08-15: the client asked twice for all four languages live now, having been told what it means. Everything here is model-produced copy that has been cold-reviewed and corrected but not read by a native speaker. Re-holding any page is one line: put its slug back under its language key here and re-run fix-head.ps1 + gen-sitemap.ps1 + gen-llms.py. See .build/proofread-notes-*.md for what a native reader should look at first."

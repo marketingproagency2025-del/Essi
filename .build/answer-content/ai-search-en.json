@@ -1,0 +1,123 @@
+{
+  "lang": "en",
+  "title": "Ask an Assistant About Your Business Before a Buyer Does",
+  "description": "Buyers now ask an assistant before they search, and the answer names two or three suppliers. How to find out today whether you are one of them.",
+  "og_description": "The answer names a handful of suppliers and nobody tells you whether you were one. Here is how to check.",
+  "h1": "A Buyer Asked an Assistant. Your Name Was Not in the Answer.",
+  "breadcrumb_home": "Home",
+  "breadcrumb_blog": "Blog",
+  "breadcrumb_last": "AI search, AIO and AEO",
+  "hero_alt": "A search performance analytics dashboard",
+  "date_display": "3 September 2026",
+  "read_time": "6 min read",
+  "by": "By",
+  "intro": [
+    "Something changed quietly in how buyers start. A showroom owner used to type a few words into Google and pick from a page of links. A growing share now asks an assistant instead, in a full sentence, and reads what comes back as if a colleague had said it.",
+    "The assistant does not hand over a page of links. It names a handful of suppliers, sometimes with a reason attached, and stops. If your business is not in that handful, nothing tells you so. There is no report, no notification, and no ranking to check. You simply do not get the call."
+  ],
+  "sections": [
+    {
+      "h2": "The Short Answer",
+      "p": [
+        "Type your trade and your town into an assistant, phrased the way a buyer would phrase it, and read the names that come back. That is the whole test, and it costs nothing.",
+        "If your name is there, find out what it says about you and whether that is still true. If your name is missing, the businesses it named are being read somewhere you are not.",
+        "Everything else in this article is about why that happens and what actually moves it, but the test comes first, because an answer you have read yourself beats any promise about answers you have not."
+      ]
+    },
+    {
+      "h2": "Three Acronyms Turn Up on Quotes for This",
+      "p": [
+        "You may see it billed as AIO, as AEO, or as GEO. Spelled out those are AI optimisation, answer engine optimisation and generative engine optimisation, and what separates them is mostly which supplier printed which first.",
+        "Treat the acronym as a date stamp rather than a description. It hints at roughly when a supplier added this to their list. It says nothing about whether anybody there has ever opened an assistant and typed your trade into it.",
+        "One question separates the two kinds of supplier, and it is not a technical one: which pages get rewritten, and what does the first month produce? Somebody who answers with headings and sentences has a plan. Somebody who answers with the acronym again has a brochure."
+      ]
+    },
+    {
+      "h2": "What an Assistant Actually Reads on Your Site",
+      "p": [
+        "It does not see your site the way a visitor does. It gets raw text in source order, your headings read as an outline, and a few hidden labels that say what the business is and where it is.",
+        "What survives that stripping is plain text under the heading that asks the question, short sentences that repeat the business name rather than leaning on a pronoun a machine cannot resolve, and lists, which hold together better than long paragraphs.",
+        "What does not survive: words inside a picture, anything that appears only after a click, anything that loads late, and meaning carried by where things sit on the screen. A beautiful catalogue page whose product names live in the images says nothing at all to a machine."
+      ]
+    },
+    {
+      "h2": "Three Names Instead of Ten Links Changes the Arithmetic",
+      "p": [
+        "A results page put ten options in front of a buyer and let them keep scrolling, so fourth place still earned some of the clicks. An assistant returns a short list, two or three names, and stops there, which makes the gap between named and not named the entire outcome.",
+        "That cuts both ways, and in a specialist trade it cuts in your favour. In a crowded consumer category you are competing with everybody. In stoves, or pergolas, or fitted windows in one region, the field is small and most of it has published nothing a machine can read.",
+        "In a narrow trade the shortlist is short before anybody competes for it, which is a far cheaper thing to get onto than a crowded one, and almost nobody in these trades is trying yet."
+      ]
+    },
+    {
+      "h2": "Where the Answer Comes From When It Does Not Come From You",
+      "p": [
+        "If your own pages carry nothing a machine can use, an assistant builds the answer out of whatever else describes your market. Usually that is a directory, a marketplace, a distributor's dealer list, or a competitor who wrote a clear page about the thing you both sell.",
+        "So the buyer still gets an answer. It simply routes them through somebody else, and often into a channel that takes a margin off the sale you would have made directly.",
+        "The details matter here in a dull way. Your name, address, opening hours and product range have to say the same thing on every listing that carries them, because a machine trusts what it can corroborate and quietly drops what it cannot."
+      ]
+    },
+    {
+      "h2": "What This Does Not Replace",
+      "p": [
+        "Ordinary search work is not finished, and this is not sold here as a replacement for it. Most buyers still open a search engine, and the map listing still decides who gets a call this afternoon.",
+        "The groundwork is also shared. Whatever makes a page legible to a machine tends to make it legible to a search engine as well, which is why this rarely arrives as a separate project with a separate bill.",
+        "And nobody can sell you a slot inside an answer. None exists, so an offer to sell one is the offer to walk away from."
+      ]
+    },
+    {
+      "h2": "What We Do About It",
+      "p": [
+        "We read your site the way a machine reads it, which usually produces an uncomfortable page: the parts you are proudest of turn out to be pictures, and the parts that carry meaning turn out to be missing.",
+        "Then we ask several assistants for your trade in your area, record what they answer, and trace the sentences back to the pages they came from. That tells us who is currently being read about your market and why.",
+        "The work that follows is unglamorous. A page of its own for every product line you really sell, headings that ask the question a buyer asks, product and place named in the same paragraph as the thing, and details that match everywhere else they appear.",
+        "Then we ask again, a few weeks later, and show you the difference in the answers rather than in a chart."
+      ]
+    }
+  ],
+  "summary_h2": "The Short Version",
+  "summary": [
+    "A share of buyers now ask an assistant first, and the answer names two or three suppliers rather than ten links.",
+    "Nobody tells you when you were left out, which is why most owners do not know it is happening.",
+    "AIO, AEO and GEO are three labels for one piece of work, so the one on a quote dates the supplier rather than describing the job.",
+    "An assistant reads stripped text, headings and hidden labels, and throws away pictures, clicks and layout.",
+    "The test is free: type your trade and your town into an assistant and read the names."
+  ],
+  "faq_h2": "Frequently Asked Questions",
+  "faq": [
+    {
+      "q": "Can anyone guarantee that ChatGPT will recommend my business?",
+      "a": "Nobody can. There is no slot inside an answer to buy, so a supplier who promises one is promising a thing nobody owns. What is possible is making the business readable and consistent enough to be a candidate, then reading the answers before the work and again after it."
+    },
+    {
+      "q": "Will this mean rebuilding the website?",
+      "a": "Usually the opposite. Most of it is rewriting and restructuring what is already published, and making the business details match on every listing that mentions you. A rebuild only enters the conversation when the current site hides its meaning inside images, or assembles its content too late for a reader that does not wait."
+    },
+    {
+      "q": "Does this pay off in a specialist trade?",
+      "a": "Often more, not less. A narrow trade leaves an assistant a short list to choose from, and in most of these trades almost nothing readable has been published at all. The scarcity that makes the market small is the same scarcity that makes it winnable."
+    }
+  ],
+  "related_h2": "Keep Reading",
+  "related": [
+    {
+      "slug": "blog-seo",
+      "label": "SEO in 2026: Climb the Rankings and Stay There"
+    },
+    {
+      "slug": "blog-website",
+      "label": "Your Website Is Your Hardest-Working Salesperson"
+    }
+  ],
+  "service_label": "Related service:",
+  "service_slug": "services-seo",
+  "service_name": "SEO services",
+  "cta_label": "Tell us what an assistant says about you",
+  "back_label": "Back to Blog",
+  "card_excerpt": "Buyers ask an assistant and it names two or three suppliers. Why AIO, AEO and GEO are one job, what a machine actually reads, and how to test it free.",
+  "articleSection": "SEO",
+  "keywords": [
+    "AI search",
+    "AIO",
+    "AEO"
+  ]
+}

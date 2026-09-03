@@ -58,7 +58,7 @@ GROUPS = [
     # Second rather than first on purpose, so the LCP card stays the social-media guide and
     # the single fetchpriority="high" does not move to a different image on every reorder.
     ("answers",    ["blog-boost-or-campaign", "blog-lead-quality",
-                    "blog-in-house-or-agency", "blog-showrooms"]),
+                    "blog-in-house-or-agency", "blog-showrooms", "blog-ai-search"]),
     # Trade guides. A group of their own rather than folded into "answers": these answer
     # "marketing for MY industry" rather than a decision question, and they carry
     # articleSection "Industry guides" in their own JSON-LD.
