@@ -50,12 +50,15 @@
        preloads even same-origin, or the file is fetched twice. -->
   <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=18" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=19" />
   <noscript>
     <style>
       /* main.js adds .in-view to lift .reveal. Without it the page would be blank. */
       .reveal { opacity: 1; transform: none; }
-      .reveal .section__title::after { transform: scaleX(1); }
+      .reveal:not(.in-view) .section__title::after { transform: scaleX(1); }
+      .feature-row.reveal:not(.in-view) .split__media,
+      .feature-row.reveal:not(.in-view) .split__text > * { opacity: 1; transform: none; }
+      .feature-row .case-frame--grid { transform: none; }
     </style>
   </noscript>
 
@@ -356,7 +359,7 @@
           <p class="section__lead section__lead--center">Ogni azienda ha la sua strategia, costruita dopo aver studiato il mercato in cui vende. Quello che non cambia è come la portiamo avanti: gestiamo noi i canali, produciamo quello che ci va sopra, e chiamiamo e qualifichiamo ogni lead prima che arrivi a chi vende. Qui sotto una selezione dei lavori.</p>
         </header>
 
-        <div class="split__grid feature-row reveal" id="of-outdoorkitchen" data-reveal>
+        <div class="split__grid feature-row" id="of-outdoorkitchen">
           <div class="split__media">
             <div class="case-frame case-frame--grid">
               <picture>
@@ -466,30 +469,30 @@
         </header>
 
         <div class="gallery" data-gallery>
-          <div class="gallery__row gallery__row--3 reveal" data-reveal>
-            <button class="gallery__item" type="button" aria-label="Ingrandisci l'immagine"><picture>
+          <div class="gallery__row gallery__row--3">
+            <button class="gallery__item reveal" type="button" data-reveal aria-label="Ingrandisci l'immagine"><picture>
   <source srcset="../assets/img/rika-fire.webp" type="image/webp" />
   <img src="../assets/img/rika-fire.jpg" width="750" height="1000" alt="Un fuoco a legna acceso dietro il vetro di una stufa Rika rivestita in pietra" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Ingrandisci l'immagine"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="1" aria-label="Ingrandisci l'immagine"><picture>
   <source srcset="../assets/img/rika-facade.webp" type="image/webp" />
   <img src="../assets/img/rika-facade.jpg" width="750" height="1000" alt="L'edificio dello store Rika, rivestimento scuro con l'insegna Rika illuminata" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Ingrandisci l'immagine"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="2" aria-label="Ingrandisci l'immagine"><picture>
   <source srcset="../assets/img/rika-range.webp" type="image/webp" />
   <img src="../assets/img/rika-range.jpg" width="750" height="1000" alt="Una fila di stufe a pellet Rika allineate lungo la parete dello showroom" loading="lazy" decoding="async" />
 </picture></button>
           </div>
-          <div class="gallery__row gallery__row--3 reveal" data-reveal>
-            <button class="gallery__item" type="button" aria-label="Ingrandisci l'immagine"><picture>
+          <div class="gallery__row gallery__row--3">
+            <button class="gallery__item reveal" type="button" data-reveal aria-label="Ingrandisci l'immagine"><picture>
   <source srcset="../assets/img/rika-store.webp" type="image/webp" />
   <img src="../assets/img/rika-store.jpg" width="750" height="1000" alt="L'insegna Rika Premium Store sulla parete dello showroom" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Ingrandisci l'immagine"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="1" aria-label="Ingrandisci l'immagine"><picture>
   <source srcset="../assets/img/rika-stove.webp" type="image/webp" />
   <img src="../assets/img/rika-stove.jpg" width="750" height="1000" alt="Una stufa Rika cilindrica nera esposta davanti a una parete con tenda" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Ingrandisci l'immagine"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="2" aria-label="Ingrandisci l'immagine"><picture>
   <source srcset="../assets/img/rika-showroom.webp" type="image/webp" />
   <img src="../assets/img/rika-showroom.jpg" width="750" height="1000" alt="L'area salotto dello showroom sotto la citazione a parete di Karl Riener" loading="lazy" decoding="async" />
 </picture></button>
@@ -579,6 +582,6 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=19" defer></script>
+  <script src="../assets/js/main.js?v=20" defer></script>
 </body>
 </html>

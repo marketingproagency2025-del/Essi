@@ -56,12 +56,15 @@
        preloads even same-origin, or the file is fetched twice. -->
   <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=18" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=19" />
   <noscript>
     <style>
       /* main.js adds .in-view to lift .reveal. Without it the page would be blank. */
       .reveal { opacity: 1; transform: none; }
-      .reveal .section__title::after { transform: scaleX(1); }
+      .reveal:not(.in-view) .section__title::after { transform: scaleX(1); }
+      .feature-row.reveal:not(.in-view) .split__media,
+      .feature-row.reveal:not(.in-view) .split__text > * { opacity: 1; transform: none; }
+      .feature-row .case-frame--grid { transform: none; }
     </style>
   </noscript>
 
@@ -553,6 +556,6 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=19" defer></script>
+  <script src="../assets/js/main.js?v=20" defer></script>
 </body>
 </html>

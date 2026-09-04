@@ -699,7 +699,61 @@ h1, h2, h3, h4 {
   transition-delay: calc(var(--reveal-delay, 0) * 110ms);
   will-change: opacity, transform;
 }
-.reveal.in-view { opacity: 1; transform: none; }
+.reveal.in-view { opacity: 1; transform: none; will-change: auto; }
+
+/* ---------------------------------------------------------
+   Portfolio case rows: the parts move, not the block
+   ---------------------------------------------------------
+   The row itself stops animating so its children can move
+   independently. The media slides in from the side it already
+   occupies, which reinforces the alternating layout instead of
+   fighting it, and the text rises in a short ladder so a case
+   reads as composed rather than arriving in one lump.
+   Distances are deliberately small: this should feel expensive,
+   not animated. */
+/* The first case deliberately carries no .reveal: it is above the fold, so the
+   visitor never sees the "before" state, and hiding it made the page's largest
+   image ineligible for Largest Contentful Paint. Production LCP was landing on
+   the 40px header logo at 1276ms because the real hero was at opacity 0. */
+.feature-row.reveal { opacity: 1; transform: none; }
+
+.feature-row .split__media,
+.feature-row .split__text > * {
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.feature-row.reveal:not(.in-view) .split__media { opacity: 0; transform: translateX(-28px); }
+.feature-row.reveal.split--reverse:not(.in-view) .split__media { transform: translateX(28px); }
+.feature-row.reveal:not(.in-view) .split__text > * { opacity: 0; transform: translateY(18px); }
+.feature-row.in-view .split__media,
+.feature-row.in-view .split__text > * { opacity: 1; transform: none; }
+
+/* 50ms steps. The media leads, the text follows it in. */
+.feature-row.in-view .split__text > *:nth-child(1) { transition-delay: 50ms; }
+.feature-row.in-view .split__text > *:nth-child(2) { transition-delay: 100ms; }
+.feature-row.in-view .split__text > *:nth-child(3) { transition-delay: 150ms; }
+.feature-row.in-view .split__text > *:nth-child(4) { transition-delay: 200ms; }
+.feature-row.in-view .split__text > *:nth-child(5) { transition-delay: 250ms; }
+.feature-row.in-view .split__text > *:nth-child(n+6) { transition-delay: 300ms; }
+
+/* Parallax drift, written by main.js as --parallax and consumed here so motion
+   stays in CSS. It sits on the frame rather than the picture inside it: the grid
+   image is at its natural height inside a padded bezel, so drifting the image
+   would open a gap at one edge. The frame is free because the reveal transform
+   lives on .split__media, its parent. */
+.feature-row .case-frame--grid {
+  transform: translate3d(0, var(--parallax, 0px), 0);
+  will-change: transform;
+}
+
+/* The client name holds while its case scrolls past. Offset by the fixed header.
+   Off below 861px, where the columns stack and it would pin over its own image. */
+@media (min-width: 861px) {
+  .feature-row .case__client {
+    position: sticky;
+    top: calc(var(--header-h) + 18px);
+    z-index: 2;
+  }
+}
 
 /* =========================================================
    Visual effects: scroll progress bar, card spotlight,
@@ -913,6 +967,9 @@ h1, h2, h3, h4 {
   html { scroll-behavior: auto; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   .reveal { opacity: 1; transform: none; }
+  .feature-row .split__media,
+  .feature-row .split__text > * { opacity: 1; transform: none; }
+  .feature-row .case-frame--grid { transform: none; }
   [data-hero] > * { opacity: 1; transform: none; animation: none; }
   .testimonials { background-attachment: scroll; }
 }

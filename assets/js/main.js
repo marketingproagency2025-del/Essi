@@ -204,31 +204,90 @@
     });
   })();
 
-  /* ---------- Sticky header state on scroll ---------- */
-  var header = document.querySelector("[data-header]");
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle("is-scrolled", window.scrollY > 20);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
+  /* ---------- One scroll tick for everything that reacts to scroll ----------
+     This used to be two separate unthrottled scroll listeners, and the progress
+     bar read document.documentElement.scrollHeight on every one of its ticks,
+     which forces a layout every frame and was the most expensive thing on the
+     scroll path. Adding parallax as a third listener would have compounded it.
+     All three now share one rAF-throttled tick, and the scroll height is measured
+     once and on resize instead of continuously, so the page is cheaper to scroll
+     than it was before the parallax existed. */
+  (function () {
+    var header = document.querySelector("[data-header]");
 
-  /* ---------- Scroll progress bar ---------- */
-  if (!reduceMotion) {
-    var progress = document.createElement("div");
-    progress.className = "scroll-progress";
-    progress.setAttribute("aria-hidden", "true");
-    document.body.appendChild(progress);
-    var onProgress = function () {
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      var p = max > 0 ? window.scrollY / max : 0;
-      progress.style.transform = "scaleX(" + Math.min(Math.max(p, 0), 1) + ")";
+    var progress = null;
+    if (!reduceMotion) {
+      progress = document.createElement("div");
+      progress.className = "scroll-progress";
+      progress.setAttribute("aria-hidden", "true");
+      document.body.appendChild(progress);
+    }
+
+    /* Parallax targets. The frame drifts, not the image inside it: the grid image
+       sits at its natural height inside a padded bezel, so moving the image would
+       open a gap at one edge. The video case is excluded deliberately, because its
+       lazy-load observer watches a descendant and an ancestor transform moves the
+       rects that observer measures. */
+    var drifters = reduceMotion ? [] : [].slice.call(
+      document.querySelectorAll(".feature-row .case-frame--grid"));
+    var visible = [];
+    if (drifters.length && "IntersectionObserver" in window) {
+      var dio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var i = visible.indexOf(e.target);
+          if (e.isIntersecting && i < 0) visible.push(e.target);
+          else if (!e.isIntersecting && i >= 0) visible.splice(i, 1);
+        });
+      }, { rootMargin: "10% 0px" });
+      drifters.forEach(function (el) { dio.observe(el); });
+    } else if (drifters.length) {
+      visible = drifters;
+    }
+
+    var DRIFT = 14;               // px each way. Restrained on purpose.
+    var maxScroll = 0;
+    var measure = function () {
+      maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     };
-    onProgress();
-    window.addEventListener("scroll", onProgress, { passive: true });
-    window.addEventListener("resize", onProgress, { passive: true });
-  }
+
+    var ticking = false;
+    var tick = function () {
+      ticking = false;
+      var y = window.scrollY;
+
+      if (header) header.classList.toggle("is-scrolled", y > 20);
+
+      if (progress) {
+        var p = maxScroll > 0 ? y / maxScroll : 0;
+        progress.style.transform = "scaleX(" + Math.min(Math.max(p, 0), 1) + ")";
+      }
+
+      /* Every rect is read before anything is written. Interleaving reads and
+         writes inside one frame is what turns a cheap loop into layout thrash. */
+      if (visible.length) {
+        var vh = window.innerHeight, i, offsets = [];
+        for (i = 0; i < visible.length; i++) {
+          var r = visible[i].getBoundingClientRect();
+          /* clamped: a frame taller than the viewport pushes the ratio past 1 and the
+             drift would exceed its budget */
+          var t = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+          offsets.push(Math.max(-1, Math.min(1, t)));
+        }
+        for (i = 0; i < visible.length; i++) {
+          visible[i].style.setProperty("--parallax", (offsets[i] * DRIFT).toFixed(1) + "px");
+        }
+      }
+    };
+
+    var request = function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(tick); }
+    };
+
+    measure();
+    tick();
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", function () { measure(); request(); }, { passive: true });
+  })();
 
   /* ---------- Floating WhatsApp button ---------- */
   (function () {

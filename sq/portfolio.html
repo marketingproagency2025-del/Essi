@@ -50,12 +50,15 @@
        preloads even same-origin, or the file is fetched twice. -->
   <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=18" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=19" />
   <noscript>
     <style>
       /* main.js adds .in-view to lift .reveal. Without it the page would be blank. */
       .reveal { opacity: 1; transform: none; }
-      .reveal .section__title::after { transform: scaleX(1); }
+      .reveal:not(.in-view) .section__title::after { transform: scaleX(1); }
+      .feature-row.reveal:not(.in-view) .split__media,
+      .feature-row.reveal:not(.in-view) .split__text > * { opacity: 1; transform: none; }
+      .feature-row .case-frame--grid { transform: none; }
     </style>
   </noscript>
 
@@ -356,7 +359,7 @@
           <p class="section__lead section__lead--center">Çdo biznes ka strategjinë e vet, të ndërtuar pasi studiojmë tregun ku shet. Ajo që nuk ndryshon është mënyra si e zbatojmë: ne i drejtojmë kanalet, prodhojmë përmbajtjen që shkon në to dhe e telefonojmë e kualifikojmë vetë çdo lead para se të shkojë te njerëzit që shesin. Më poshtë, një përzgjedhje e punëve.</p>
         </header>
 
-        <div class="split__grid feature-row reveal" id="of-outdoorkitchen" data-reveal>
+        <div class="split__grid feature-row" id="of-outdoorkitchen">
           <div class="split__media">
             <div class="case-frame case-frame--grid">
               <picture>
@@ -466,30 +469,30 @@
         </header>
 
         <div class="gallery" data-gallery>
-          <div class="gallery__row gallery__row--3 reveal" data-reveal>
-            <button class="gallery__item" type="button" aria-label="Zmadhoni imazhin"><picture>
+          <div class="gallery__row gallery__row--3">
+            <button class="gallery__item reveal" type="button" data-reveal aria-label="Zmadhoni imazhin"><picture>
   <source srcset="../assets/img/rika-fire.webp" type="image/webp" />
   <img src="../assets/img/rika-fire.jpg" width="750" height="1000" alt="Zjarr druri që digjet pas derës prej xhami të një stufe Rika të veshur me gur" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Zmadhoni imazhin"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="1" aria-label="Zmadhoni imazhin"><picture>
   <source srcset="../assets/img/rika-facade.webp" type="image/webp" />
   <img src="../assets/img/rika-facade.jpg" width="750" height="1000" alt="Ndërtesa e dyqanit Rika, me veshje të errët dhe tabelën e ndriçuar Rika" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Zmadhoni imazhin"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="2" aria-label="Zmadhoni imazhin"><picture>
   <source srcset="../assets/img/rika-range.webp" type="image/webp" />
   <img src="../assets/img/rika-range.jpg" width="750" height="1000" alt="Një radhë stufash Rika me pelet, të renditura përgjatë murit të showroom-it" loading="lazy" decoding="async" />
 </picture></button>
           </div>
-          <div class="gallery__row gallery__row--3 reveal" data-reveal>
-            <button class="gallery__item" type="button" aria-label="Zmadhoni imazhin"><picture>
+          <div class="gallery__row gallery__row--3">
+            <button class="gallery__item reveal" type="button" data-reveal aria-label="Zmadhoni imazhin"><picture>
   <source srcset="../assets/img/rika-store.webp" type="image/webp" />
   <img src="../assets/img/rika-store.jpg" width="750" height="1000" alt="Tabela Rika Premium Store në murin e showroom-it" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Zmadhoni imazhin"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="1" aria-label="Zmadhoni imazhin"><picture>
   <source srcset="../assets/img/rika-stove.webp" type="image/webp" />
   <img src="../assets/img/rika-stove.jpg" width="750" height="1000" alt="Një stufë Rika e zezë cilindrike e ekspozuar përballë një muri me perde" loading="lazy" decoding="async" />
 </picture></button>
-            <button class="gallery__item" type="button" aria-label="Zmadhoni imazhin"><picture>
+            <button class="gallery__item reveal" type="button" data-reveal data-reveal-delay="2" aria-label="Zmadhoni imazhin"><picture>
   <source srcset="../assets/img/rika-showroom.webp" type="image/webp" />
   <img src="../assets/img/rika-showroom.jpg" width="750" height="1000" alt="Zona e uljes në showroom, poshtë citimit të Karl Riener në mur" loading="lazy" decoding="async" />
 </picture></button>
@@ -579,6 +582,6 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=19" defer></script>
+  <script src="../assets/js/main.js?v=20" defer></script>
 </body>
 </html>
