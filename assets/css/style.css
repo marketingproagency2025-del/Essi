@@ -745,15 +745,6 @@ h1, h2, h3, h4 {
   will-change: transform;
 }
 
-/* The client name holds while its case scrolls past. Offset by the fixed header.
-   Off below 861px, where the columns stack and it would pin over its own image. */
-@media (min-width: 861px) {
-  .feature-row .case__client {
-    position: sticky;
-    top: calc(var(--header-h) + 18px);
-    z-index: 2;
-  }
-}
 
 /* =========================================================
    Visual effects: scroll progress bar, card spotlight,

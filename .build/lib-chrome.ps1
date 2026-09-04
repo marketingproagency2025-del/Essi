@@ -202,7 +202,7 @@ function Set-NavBlock([string]$html, [string]$slug, [string]$lang) {
 # The pages were serving v=18 while this constant still said 17, so running
 # fix-head.ps1 would have DOWNGRADED every page and served a week of stale CSS
 # (_headers gives /assets/css/* a max-age of 604800). Bumped past the drift.
-$CSS_VERSION = 19
+$CSS_VERSION = 20
 $JS_VERSION  = 20
 
 # -----------------------------------------------------------------------------
