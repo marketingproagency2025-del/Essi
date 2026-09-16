@@ -251,6 +251,14 @@ def build(city, lang, tree):
                   f'<meta property="og:title" content="{attr(c["h1"])}" />', "og:title")
     before = sub1(before, r'<meta property="og:description" content="[^"]*" />',
                   f'<meta property="og:description" content="{attr(c["og_description"])}" />', "og:description")
+    # The donor's head is copied wholesale and only the filename is swapped, so without these
+    # two every generated page inherited blog-seo's 1080x1258 whatever its own hero measured.
+    # It shipped that way: blog-lead-quality declared 1080x1258 against a 750x1000 file and
+    # blog-builders against 768x761. No gate check reads og:image:*, so nothing ever said so.
+    before = sub1(before, r'<meta property="og:image:width" content="[^"]*" />',
+                  f'<meta property="og:image:width" content="{IMG_W}" />', "og:image:width")
+    before = sub1(before, r'<meta property="og:image:height" content="[^"]*" />',
+                  f'<meta property="og:image:height" content="{IMG_H}" />', "og:image:height")
     before = sub1(before, r'<meta property="og:image:alt" content="[^"]*" />',
                   f'<meta property="og:image:alt" content="{attr(c["hero_alt"])}" />', "og:image:alt")
     before = sub1(before, r'<meta property="article:published_time" content="[^"]*" />',

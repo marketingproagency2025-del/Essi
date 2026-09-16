@@ -62,7 +62,7 @@ g = _engine()
 POSTS = {
     "boost-or-campaign":  {"slug": "blog-boost-or-campaign",  "img": "rika-stove",   "w": 750, "h": 1000},
     "lead-quality":       {"slug": "blog-lead-quality",       "img": "rika-facade",  "w": 750, "h": 1000},
-    "in-house-or-agency": {"slug": "blog-in-house-or-agency", "img": "rika-store",   "w": 750, "h": 1000},
+    "in-house-or-agency": {"slug": "blog-in-house-or-agency", "img": "post-in-house-or-agency", "w": 1080, "h": 650},
     "showrooms":          {"slug": "blog-showrooms",          "img": "rika-range",   "w": 750, "h": 1000},
     "windows-and-doors":  {"slug": "blog-windows-and-doors",  "img": "solutions-3",  "w": 768, "h": 698},
     "stoves-and-heating": {"slug": "blog-stoves-and-heating", "img": "rika-fire",    "w": 750, "h": 1000},
