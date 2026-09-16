@@ -26,7 +26,7 @@ Short description (fits most directory fields, 148 chars):
    not a new listing, it is **reviews on the one you have**. The house GEO doc
    ranks review-platform gravity *above* on-site copy: a weak review profile
    means exclusion from AI answers no matter how good the site is.
-   Ask every past client. Fly System, OFYR Italia and Rika are three you can ask today.
+   Ask every past client. Fly System, OF Outdoorkitchen, OFYR Italia and Rika are four you can ask today.
 
    **Nobody has written down how many reviews the profile actually has, or who has
    already been asked.** Record both here with the date the next time you look. The

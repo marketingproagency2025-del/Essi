@@ -83,11 +83,11 @@ CASES = [
     {
         'id': 'ofyr-italia',
         'client': 'OFYR Italia',
-        'meta': 'Outdoor cooking &middot; Milan, Italy',
+        'meta': 'Wood-fired barbecues &middot; Milan, Italy',
         'img': 'case-ofyr-grid',
         'alt': 'The OFYR Italia Instagram feed, showing chefs cooking over open fire at outdoor events',
         'body': [
-            'OFYR Italia sells outdoor cooking, and it is a product that only makes sense in use. '
+            'OFYR Italia sells wood-fired barbecues, and it is a product that only makes sense in use. '
             'So the content is built around chefs working over live fire, food coming off the '
             'plate, and the events where people can taste it rather than read about it.',
             'We run the channels and the campaigns, produce the photography and video, and '
@@ -105,7 +105,7 @@ CASES = [
         'alt': None,
         'body': [
             'Rika makes wood and pellet stoves. We produced the company film for its Premium '
-            'Store: the drone approach over the building, then the showroom itself, the range '
+            'Store in Verona: the drone approach over the building, then the showroom itself, the range '
             'along the floor, and the details that actually sell a stove in person, which are '
             'the fire behind the glass, the weight of the stone and the controls.',
             'Alongside the film we run the same stack as the others, from the channels and the '
@@ -128,7 +128,7 @@ STILLS = [
     ('rika-showroom', 'The showroom seating area beneath the wall quote from Karl Riener'),
 ]
 
-TITLE = 'Client Work: Fly System, OFYR Italia and Rika | MarketingPro'
+TITLE = 'Our Work: Outdoor Kitchens, Windows, Stoves | MarketingPro'
 DESC = ('Real work across different markets: social channels, Meta campaigns, photo and '
         'video, and every lead qualified before it reaches their sales team.')
 H1 = 'Work We Have Shipped'
