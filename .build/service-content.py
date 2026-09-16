@@ -12,6 +12,12 @@ on services.html, and verified against the source Ads Manager screenshot in
 originals/ (28 May 2025): seven campaigns, 6,150 leads, 11,480.98 EUR spent.
 Totals and the blended average are arithmetic on that table, nothing more.
 
+That screenshot is cropped above the date selector and left of the campaign
+names. It proves the seven rows and the numbers. It does NOT prove the period
+or how many clients they span. "One month, one client" comes from the person
+who owns the ad account, given 16 September 2026, and is published on his word.
+If an uncropped export ever arrives, say so here.
+
 NOT here, because the business has not supplied it: prices, delivery timelines,
 deliverable counts, team size, founding year, tool names, client names. Each page
 carries one marked slot where those go. See TODO_SLOT.
@@ -65,7 +71,7 @@ SERVICES = {
     nav='Advertising', img='clients-1', guide='blog-advertising',
     guide_label='advertising guide',
     title='Meta and Google Ads Management | MarketingPro',
-    desc='Targeted Meta and Google campaigns with every lead called and qualified before we hand it over. Seven campaigns, 6,150 leads, an average of 1.87 euro each.',
+    desc='Targeted Meta and Google campaigns with every lead called and qualified before we hand it over. One client, one month: 6,150 leads at an average of 1.87 euro each.',
     h1='Ad Campaigns Where Every Lead Is Qualified',
     alt='Creative street advertising artwork',
     service_name='Advertising Campaigns', service_type='Advertising',
@@ -92,7 +98,8 @@ SERVICES = {
     proof_h='What that has looked like',
     proof=(
       'The Meta results published on our services page are real campaign exports, not illustrations. '
-      'Across those seven campaigns: 6,150 leads from 1,084,529 people reached, at a blended cost of '
+      'Across those seven campaigns, all for one client and inside a single month: 6,150 leads '
+      'from 1,084,529 people reached, at a blended cost of '
       '1.87 euro per lead, with individual campaigns landing between 1.47 and 2.30 euro. Total ad spend '
       'was 11,480.98 euro.'
     ),
