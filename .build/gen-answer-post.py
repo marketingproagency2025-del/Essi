@@ -64,14 +64,14 @@ POSTS = {
     "lead-quality":       {"slug": "blog-lead-quality",       "img": "rika-facade",  "w": 750, "h": 1000},
     "in-house-or-agency": {"slug": "blog-in-house-or-agency", "img": "post-in-house-or-agency", "w": 1080, "h": 650},
     "showrooms":          {"slug": "blog-showrooms",          "img": "rika-range",   "w": 750, "h": 1000},
-    "windows-and-doors":  {"slug": "blog-windows-and-doors",  "img": "solutions-3",  "w": 768, "h": 698},
+    "windows-and-doors":  {"slug": "blog-windows-and-doors",  "img": "post-windows-and-doors", "w": 1080, "h": 760},
     "stoves-and-heating": {"slug": "blog-stoves-and-heating", "img": "rika-fire",    "w": 750, "h": 1000},
-    "builders":           {"slug": "blog-builders",           "img": "solutions-4",  "w": 768, "h": 761},
+    "builders":           {"slug": "blog-builders",           "img": "post-builders", "w": 1080, "h": 760},
     "restaurants":        {"slug": "blog-restaurants",        "img": "solutions-6",  "w": 768, "h": 761},
     # Batch three, one post. The hero is svc-seo-2, the search dashboard the SEO service page and
     # blog-milano already publish. The subject fits a post about what a machine reads, and the alt
     # already exists in all four trees, which is the thing verify-answer-content.py check 9 wants.
-    "ai-search":          {"slug": "blog-ai-search",          "img": "svc-seo-2",    "w": 1080, "h": 1258,
+    "ai-search":          {"slug": "blog-ai-search",          "img": "post-ai-search", "w": 1080, "h": 760,
                            "date": "2026-09-03"},
 }
 

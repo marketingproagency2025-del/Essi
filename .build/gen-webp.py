@@ -35,6 +35,22 @@ DRY = '--dry-run' in sys.argv
 QUALITY = 80
 RASTER = ('.jpg', '.jpeg', '.png')
 
+# Per-file overrides, by stem. q80 suits almost everything here, and there is a
+# reason not to lower it globally: it would re-encode all 44 files to fix four.
+#
+# What earns an entry is content, not preference. A frame that is detail-dense
+# everywhere - carved stone, foliage, a crowd, a glass barrel vault - gives WebP
+# no flat areas to work with, and its size barely moves with the SOURCE quality:
+# post-ticino measured 483 KB at q80 and still 472 KB when the jpg was fetched at
+# q45. The only lever that moves it is the WebP quality itself. These four sit
+# against a site whose thirty existing heroes have a median WebP of 43 KB.
+QUALITY_BY_STEM = {
+    'post-ticino': 62,   # Ponte dei Salti: carved gneiss and water, texture edge to edge
+    'post-roma':   70,   # Pantheon portico: granite, inscription, crowd
+    'post-milano': 70,   # Galleria: iron-and-glass vault, stucco detail
+    'post-lugano': 74,   # lakefront palazzo and a wooded ridge
+}
+
 rows, before_total, after_total, skipped = [], 0, 0, []
 
 for name in sorted(os.listdir(IMG)):
@@ -51,7 +67,8 @@ for name in sorted(os.listdir(IMG)):
         if has_alpha:
             im.save(buf, 'WEBP', lossless=True, method=6)
         else:
-            im.convert('RGB').save(buf, 'WEBP', quality=QUALITY, method=6)
+            im.convert('RGB').save(
+                buf, 'WEBP', quality=QUALITY_BY_STEM.get(stem, QUALITY), method=6)
         data = buf.getvalue()
 
     after = len(data)

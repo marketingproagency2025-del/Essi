@@ -40,10 +40,16 @@ CITIES = {
     # paragraph, and three softened overclaims), so its content files had drifted behind the
     # shipped pages and regenerating it would have silently reverted both. The content files
     # have since been re-derived from the shipped HTML and the round trip is byte-identical.
-    "milano": {"slug": "blog-milano", "img": "svc-seo-2"},
-    "roma":   {"slug": "blog-roma",   "img": "svc-renders-2"},
-    "lugano": {"slug": "blog-lugano", "img": "svc-web-2"},
-    "ticino": {"slug": "blog-ticino", "img": "svc-funnel-2"},
+    #
+    # WIDTH AND HEIGHT ARE PER CITY, for the same reason gen-answer-post.py:56-61 made them
+    # per post. They were the module constants IMG_W/IMG_H while all four heroes happened to
+    # be 1080x1258, and the moment one is not, a single constant writes the wrong dimensions
+    # into four pages in four trees. The numbers are a promise to the browser about the box
+    # to reserve, and gate check 15 measures every file against what the page declares.
+    "milano": {"slug": "blog-milano", "img": "post-milano", "w": 1080, "h": 760},
+    "roma":   {"slug": "blog-roma",   "img": "post-roma",   "w": 1080, "h": 760},
+    "lugano": {"slug": "blog-lugano", "img": "post-lugano", "w": 1080, "h": 760},
+    "ticino": {"slug": "blog-ticino", "img": "post-ticino", "w": 1080, "h": 760},
 }
 
 BACK_SVG = ('<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
@@ -292,6 +298,11 @@ if __name__ == "__main__":
                    if not os.path.exists(os.path.join(CONTENT, f"{city}-{l}.json"))]
         if missing:
             raise SystemExit(f"  ! {city}: missing content for {', '.join(missing)}")
+        # Rebound per city, not once per batch: build() reads these as module globals at
+        # render time, so they have to be right for THIS city. Same shape as
+        # gen-answer-post.py:142, which arrived at it after the flat-constant version wrote
+        # the wrong dimensions into three pages.
+        IMG_W, IMG_H = CITIES[city]["w"], CITIES[city]["h"]
         for lang, tree in TREES.items():
             build(city, lang, tree)
     print("done")

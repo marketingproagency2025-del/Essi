@@ -59,15 +59,15 @@ FIXED = {
 
 # the alt text the site already uses for each hero, per tree; hero_alt must equal it
 HERO = {
-    "roma":   {"en": "White Cycladic architecture against a vivid blue sky",
-               "es": "Arquitectura cicl\u00e1dica blanca contra un cielo azul intenso",
-               "sq": "Arkitektur\u00eb kikladike e bardh\u00eb p\u00ebrball\u00eb nj\u00eb qielli blu t\u00eb ndezur"},
-    "lugano": {"en": "Fishing boats in a harbour at sunset",
-               "es": "Barcos de pesca en un puerto al atardecer",
-               "sq": "Barka peshkimi n\u00eb nj\u00eb port n\u00eb per\u00ebndim t\u00eb diellit"},
-    "ticino": {"en": "The sun setting over the sea",
-               "es": "El sol poni\u00e9ndose sobre el mar",
-               "sq": "Dielli q\u00eb per\u00ebndon mbi det"},
+    "roma":   {"en": "The Pantheon portico in Rome, its columns and inscription above the piazza",
+               "es": "El pórtico del Panteón de Roma, con sus columnas y la inscripción sobre la plaza",
+               "sq": "Portiku i Panteonit në Romë, me kolonat dhe mbishkrimin mbi sheshin"},
+    "lugano": {"en": "A lakefront palazzo in Lugano, with the wooded slope of Monte Brè behind it",
+               "es": "Un palacio junto al lago en Lugano, con la ladera boscosa del Monte Brè detrás",
+               "sq": "Një pallat buzë liqenit në Lugano, me shpatin e pyllëzuar të Monte Brè-së pas"},
+    "ticino": {"en": "The double stone arch of the Ponte dei Salti over the Verzasca river in Ticino",
+               "es": "El doble arco de piedra del Ponte dei Salti sobre el río Verzasca, en el Tesino",
+               "sq": "Harku i dyfishtë prej guri i Ponte dei Salti mbi lumin Verzasca, në Tiçino"},
 }
 
 # the market list, as each tree writes it (verified against that tree's contact page)

@@ -73,9 +73,9 @@ FIXED = {
 # imported from gen-answer-post.py so that this file agreeing with that one is evidence.
 HERO = {"boost-or-campaign": "rika-stove", "lead-quality": "rika-facade",
         "in-house-or-agency": "post-in-house-or-agency", "showrooms": "rika-range",
-        "windows-and-doors": "solutions-3", "stoves-and-heating": "rika-fire",
-        "builders": "solutions-4", "restaurants": "solutions-6",
-        "ai-search": "svc-seo-2"}
+        "windows-and-doors": "post-windows-and-doors", "stoves-and-heating": "rika-fire",
+        "builders": "post-builders", "restaurants": "solutions-6",
+        "ai-search": "post-ai-search"}
 
 # date_display used to sit inside FIXED, which was correct while every answer post belonged to
 # one batch and wrong the moment one did not: a flat value would have accepted a September post

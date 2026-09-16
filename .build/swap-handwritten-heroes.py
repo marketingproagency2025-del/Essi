@@ -54,6 +54,43 @@ JOBS = {
                    "komuniteti brendi në ekran"),
         },
     },
+    "blog-catalogues": {
+        "old": "svc-catalog-1",
+        "new": "post-catalogues",
+        "alt": {
+            "en": ("A planner and journals arranged on a desk",
+                   "An open printed catalogue, a full page photograph of a fitted kitchen "
+                   "across the spread"),
+            "it": ("Un'agenda e dei quaderni disposti su una scrivania",
+                   "Un catalogo stampato aperto, con la foto a piena pagina di una cucina su "
+                   "misura"),
+            "es": ("Una agenda y varios cuadernos sobre un escritorio",
+                   "Un catálogo impreso abierto, con la foto a página completa de una "
+                   "cocina a medida"),
+            "sq": ("Një axhendë dhe ditarë të vendosur mbi një "
+                   "tavolinë pune",
+                   "Një katalog i shtypur i hapur, me foton në faqe të plotë "
+                   "të një kuzhine të montuar"),
+        },
+    },
+    "article-2": {
+        "old": "article-2",
+        "new": "post-article-2",
+        "alt": {
+            "en": ("A light box sign reading 'Happy Designing Folks'",
+                   "A user activity cohort table on screen, the blue blocks shrinking week "
+                   "by week"),
+            "it": ("Un'insegna luminosa con la scritta 'Happy Designing Folks'",
+                   "Una tabella di coorti di attività utenti a schermo, con i blocchi blu "
+                   "che si riducono settimana dopo settimana"),
+            "es": ("Un cartel luminoso con la frase 'Happy Designing Folks'",
+                   "Una tabla de cohortes de actividad de usuarios en pantalla, con los bloques "
+                   "azules encogiéndose semana a semana"),
+            "sq": ("Një tabelë e ndriçuar me mbishkrimin 'Happy Designing Folks'",
+                   "Një tabelë kohortash të aktivitetit të përdoruesve "
+                   "në ekran, me blloqet blu që zvogëlohen javë pas jave"),
+        },
+    },
     "article-1": {
         "old": "article-1",
         "new": "post-article-1",
@@ -76,10 +113,24 @@ JOBS = {
 
 TREE = {"en": "", "it": "it", "es": "es", "sq": "sq"}
 
+# The og:image dimensions currently on the page, which is the donor's size and not
+# necessarily the hero's. Written out rather than read, so that a page already
+# swapped fails its count assertion instead of being silently edited twice.
+OLD_DIMS = {
+    "blog-social-media": (720, 838),
+    "article-1": (1200, 720),
+    "blog-catalogues": (984, 704),
+    "article-2": (1200, 720),
+}
+
 
 def main():
+    wanted = sys.argv[1:] or list(JOBS)
     plan, bad = [], []
-    for slug, job in JOBS.items():
+    for slug in wanted:
+        if slug not in JOBS:
+            raise SystemExit("unknown slug %r; known: %s" % (slug, ", ".join(JOBS)))
+        job = JOBS[slug]
         w, h = Image.open(os.path.join(SITE, "assets", "img", job["new"] + ".jpg")).size
         for lang, tree in TREE.items():
             rel = ("%s/%s.html" % (tree, slug)) if tree else ("%s.html" % slug)
@@ -96,11 +147,9 @@ def main():
             edits = [
                 ("%s.jpg" % job["old"], "%s.jpg" % job["new"], 5),
                 ("%s.webp" % job["old"], "%s.webp" % job["new"], 2),
-                ('<meta property="og:image:width" content="%d" />'
-                 % {"blog-social-media": 720, "article-1": 1200}[slug],
+                ('<meta property="og:image:width" content="%d" />' % OLD_DIMS[slug][0],
                  '<meta property="og:image:width" content="%d" />' % w, 1),
-                ('<meta property="og:image:height" content="%d" />'
-                 % {"blog-social-media": 838, "article-1": 720}[slug],
+                ('<meta property="og:image:height" content="%d" />' % OLD_DIMS[slug][1],
                  '<meta property="og:image:height" content="%d" />' % h, 1),
                 (old_alt, new_alt, 3),
             ]
