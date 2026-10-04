@@ -23,7 +23,7 @@ $PAGES = @(
   # under services/ would make /services ambiguous between services.html and
   # services/index.html under Cloudflare's auto-trailing-slash.
   'services-social-media', 'services-advertising', 'services-website', 'services-seo',
-  'services-sales-funnel', 'services-photo-video', 'services-renders', 'services-catalogues'
+  'services-sales-funnel', 'services-lead-generation', 'services-photo-video', 'services-renders', 'services-catalogues'
 )
 
 # Sitemap priority per page, carried over verbatim from the sitemap that
@@ -42,7 +42,7 @@ $PRIORITY = @{
   # 0.8: commercial intent, so above the 0.7 guides and below the 0.9 hub.
   'services-social-media' = '0.8'; 'services-advertising' = '0.8'
   'services-website' = '0.8';      'services-seo' = '0.8'
-  'services-sales-funnel' = '0.8'; 'services-photo-video' = '0.8'
+  'services-sales-funnel' = '0.8'; 'services-lead-generation' = '0.8'; 'services-photo-video' = '0.8'
   'services-renders' = '0.8';      'services-catalogues' = '0.8'
 }
 

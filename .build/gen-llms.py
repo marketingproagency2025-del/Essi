@@ -44,7 +44,7 @@ STATUS = json.load(io.open('.build/translation-status.json', encoding='utf-8'))
 LANG_NAME = {'en': 'English', 'it': 'Italian', 'es': 'Spanish', 'sq': 'Albanian'}
 CORE = ['index', 'services', 'about', 'portfolio', 'blog', 'contact']
 SERVICES = ['services-social-media', 'services-advertising', 'services-website',
-            'services-seo', 'services-sales-funnel', 'services-photo-video',
+            'services-seo', 'services-sales-funnel', 'services-lead-generation', 'services-photo-video',
             'services-renders', 'services-catalogues']
 GUIDES = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano', 'blog-roma', 'blog-lugano', 'blog-ticino', 'blog-windows-and-doors', 'blog-stoves-and-heating', 'blog-builders', 'blog-restaurants', 'blog-ai-search', 'blog-boost-or-campaign', 'blog-lead-quality', 'blog-in-house-or-agency', 'blog-showrooms',
           'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues']
@@ -61,6 +61,7 @@ SERVICE_GUIDE = {
     'services-website':      'blog-website',
     'services-seo':          'blog-seo',
     'services-sales-funnel': 'blog-sales-funnel',
+    'services-lead-generation': 'blog-lead-quality',
     'services-photo-video':  'blog-photo-video',
     'services-renders':      'blog-renders',
     'services-catalogues':   'blog-catalogues',
