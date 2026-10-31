@@ -76,8 +76,8 @@ $LANGS = [ordered]@{
                       blog = 'Blog'; about = 'Quiénes Somos'; contact = 'Contacto' }
   }
   # Albanian labels follow the workspace corpus, not invention:
-  #   Kreu        - as used on Iglisi's about/b2b pages (b2b is the closest
-  #                 precedent here, being the only B2B prose in the corpus)
+  #   Kreu        - as used on the reference corpus's about/b2b pages (b2b is
+  #                 the closest precedent, being its only B2B prose)
   #   Shërbimet   - definite form, as in "Shërbimet Tona"
   #   Portfolio / Blog - kept in English. The corpus keeps marketing, Blog,
   #                 Shop and cookie-t in English with Albanian inflection;
@@ -263,8 +263,8 @@ function Get-LiveLangs([string]$slug) {
 
 # The hreflang set is identical on every live version of a page, listing the
 # live languages plus x-default. x-default points at English, which is the
-# primary market and matches the Iglisi Watch precedent for a base tree that
-# does not localise its slugs.
+# primary market and matches the reference corpus's precedent for a base tree
+# that does not localise its slugs.
 function New-HreflangBlock([string]$slug) {
   $lines = @('  <!-- hreflang -->')
   foreach ($code in (Get-LiveLangs $slug)) {

@@ -10,7 +10,7 @@ WHY GROUPS AT ALL. The page was one flat wall: a single section, fourteen identi
 no <h2> anywhere, so the <h1> dropped straight to the cards' <h3>s. Since the city guides
 shipped it mixed three genuinely different kinds of post with nothing to separate them.
 
-The reference was MINARANK's blog, which gets its order from grouping, counts, heading rules
+The reference was a sibling studio blog, which gets its order from grouping, counts, heading rules
 and spacing ratios ALONE: every row is the same size and there is no featured card. That is the
 part borrowed. The visual language stays this site's own, so the group headings reuse
 .section__head and .section__title--center and inherit the animated underline for free.

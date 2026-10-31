@@ -1,8 +1,8 @@
 # Albanian (sq) translation guide — MarketingPro
 
-Derived from the Albanian already shipped in this workspace (Iglisi Watch, 166 pages;
-Intimo Bruna; Victoria Boutique), not invented. Where those sites disagree, this file
-picks one and that pick is binding, so four translators do not produce four house styles.
+Derived from Albanian already shipped and proofread on three other retail sites built by the
+same studio, not invented. Where those sites disagree, this file picks one and that pick is
+binding, so four translators do not produce four house styles.
 
 ## Register: formal `Ju`, everywhere
 
@@ -89,7 +89,7 @@ Write `marketing dixhital` for "digital marketing". Do **not** invent
 - **No em dashes.** Not `—`, not `&mdash;`, not `&#8212;`. Use a spaced hyphen, a comma
   or a full stop. The gate fails on these.
 - **Dates**: `9 qershor 2026`. Day first, no comma, no ordinal, **month lower-case**
-  (Albanian does not capitalise months; Iglisi capitalises them and is wrong).
+  (Albanian does not capitalise months; one reference site does and is wrong there too).
   Months: janar, shkurt, mars, prill, maj, qershor, korrik, gusht, shtator, tetor,
   nëntor, dhjetor. Leave `datetime="2026-06-09"` untouched.
 - **Numbers**: thousands separated by a dot, decimals by a comma. `18.300`, `0,7%`.

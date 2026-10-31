@@ -20,10 +20,26 @@
  */
 import { createRequire } from "module";
 
-const require = createRequire(
-  "c:/Users/aceto/OneDrive/Desktop/web and apps/Minafy/package.json"
-);
-const { chromium } = require("playwright");
+/* Playwright is not a dependency of this site - there is no package.json here at all - so it is
+ * borrowed from whichever project on this machine already installs it. That path is a local
+ * detail and must not be hardcoded into a public repo, so it comes from the environment:
+ *
+ *     $env:PLAYWRIGHT_PKG = "<path to a package.json whose project has playwright>"
+ *
+ * Falling back to a bare resolve lets it work unchanged where playwright IS installed globally
+ * or beside this file. */
+const pkg = process.env.PLAYWRIGHT_PKG;
+const require = createRequire(pkg || import.meta.url);
+let chromium;
+try {
+  ({ chromium } = require("playwright"));
+} catch {
+  console.error(
+    "Cannot resolve playwright. Set PLAYWRIGHT_PKG to the package.json of a project that has it:\n" +
+      '  $env:PLAYWRIGHT_PKG = "D:/some/project/package.json"',
+  );
+  process.exit(2);
+}
 
 const PORT = process.argv[2] || "8787";
 const BASE = `http://127.0.0.1:${PORT}`;

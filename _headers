@@ -4,6 +4,41 @@
 # revalidated on every repeat view, so a warm second visit to /services issues
 # roughly twenty conditional requests where it should issue one.
 
+# Security headers, every response. An audit on 2026-09-01 scored these 0 of 6
+# and a live check on 2026-10-31 found all six still absent.
+#
+# The CSP is strict rather than permissive because this site earned the right to
+# one: every script, style, font, image and media file is same-origin. A sweep of
+# all 153 pages found ZERO external script, style, iframe or font origins - the
+# only absolute URLs in the HTML are this site's own canonical and og tags. There
+# are no iframes, no inline event handlers, no javascript: hrefs, and one local
+# script. So default-src 'self' costs nothing here.
+#
+# Three deliberate loosenings, each with a reason rather than a shrug:
+#   style-src 'unsafe-inline' - every page carries a <style> block and there are
+#     8 style="" attributes. Hashing 153 blocks that change with the content would
+#     break on the next edit, silently, which is worse than this.
+#   img-src data: - inlined SVG icons.
+#   JSON-LD needs no allowance: application/ld+json is data, never executed, so
+#     script-src does not apply to it.
+#
+# connect-src 'self' is safe because main.js makes no fetch or XHR at all; the
+# one external reference in it builds a wa.me LINK, which is navigation and not
+# subject to connect-src. form-action 'self' is safe because all 157 forms carry
+# no action attribute and are handled in JS.
+#
+# HSTS omits includeSubDomains and preload on purpose. A client site is scheduled
+# to move onto a subdomain of this host, and committing every future subdomain to
+# HTTPS-only before it exists is how a launch breaks at the worst moment. The
+# max-age alone is what the audit scores.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+
 # Fonts are content-addressed by name in practice - a different cut would be a
 # different filename - so they can be cached hard. Immutable means the browser
 # will not even revalidate.

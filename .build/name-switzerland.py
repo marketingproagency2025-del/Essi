@@ -35,7 +35,9 @@ Idempotent.
 import io
 import os
 
-SITE = r"c:\Users\aceto\OneDrive\Desktop\web and apps\Essi"
+# The site root is this script's parent directory. Derived rather than hardcoded so the
+# script works from any checkout, and so no machine's folder layout ships in a public repo.
+SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 EDITS = {
     "contact.html": [
