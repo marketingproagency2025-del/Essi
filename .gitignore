@@ -1,6 +1,12 @@
 # Source material — curated/optimized in a separate session, not part of the deployed site
 originals/
 
+# Owner-facing notes: off-site plans, outreach, anything naming another business
+# this studio works for. This repository is PUBLIC and .build/ is tracked, so a
+# note left anywhere else in the tree is a published note. It is also excluded
+# from the deploy by .assetsignore, belt and braces.
+_notes/
+
 # OS / editor cruft
 Thumbs.db
 .DS_Store

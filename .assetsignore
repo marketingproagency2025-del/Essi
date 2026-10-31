@@ -11,6 +11,11 @@
 # in case a .gitignore merge ever loses that rule.
 originals/
 
+# Owner-facing notes. Gitignored, so a git-driven deploy never sees them at all -
+# but a direct upload from a working copy would, and that is exactly how
+# /.wrangler/cache/wrangler-account.json reached the public site once already.
+_notes/
+
 # Repo metadata
 .git/
 .gitattributes
