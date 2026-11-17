@@ -54,7 +54,7 @@ L = ['<?xml version="1.0" encoding="UTF-8"?>',
      '    <title>MarketingPro Marketing Blog</title>',
      f'    <link>{SITE}/blog</link>',
      '    <description>Practical marketing guides from MarketingPro, a digital '
-     'marketing agency based in Durres, Albania.</description>',
+     'marketing agency based in Durrës, Albania.</description>',
      '    <language>en</language>',
      f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml"/>']
 if items[0][3]:

@@ -34,10 +34,11 @@
 # subject to connect-src. form-action 'self' is safe because all 157 forms carry
 # no action attribute and are handled in JS.
 #
-# HSTS omits includeSubDomains and preload on purpose. A client site is scheduled
-# to move onto a subdomain of this host, and committing every future subdomain to
-# HTTPS-only before it exists is how a launch breaks at the worst moment. The
-# max-age alone is what the audit scores.
+# HSTS omits includeSubDomains and preload on purpose: committing every future
+# subdomain to HTTPS-only before it exists is how a launch breaks at the worst
+# moment. (No client site moves onto a subdomain of this host: a client's own
+# domain linking here is a backlink, a subdomain would make it an internal link.)
+# The max-age alone is what the audit scores.
 /*
   Strict-Transport-Security: max-age=31536000
   X-Content-Type-Options: nosniff

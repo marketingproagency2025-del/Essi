@@ -77,7 +77,7 @@ CORE_BLURB = {
     'portfolio': 'selected work.',
     # counted, not typed: it read "ten pieces" for a while after the eleventh went up
     'blog':      f'{len(GUIDES) + len(ARTICLES)} pieces: one guide per service, five decision guides answering a question before you hire, four guides by trade, four city guides, plus two articles.',
-    'contact':   'phone, email, WhatsApp, the markets served and the Durres operations hub.',
+    'contact':   'phone, email, WhatsApp, the markets served and the Durrës operations hub.',
 }
 
 PREAMBLE = """# MarketingPro
