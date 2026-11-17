@@ -39,7 +39,17 @@ import sys
 _HERE = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.path.dirname(_HERE)
 WORKSPACE = os.path.dirname(SITE_DIR)
-MINA = os.path.join(WORKSPACE, "MINA RANK")
+
+
+def sibling(name):
+    """A folder beside this repo, found by name whatever number the workspace puts before it ("01 MINA RANK")."""
+    for d in sorted(os.listdir(WORKSPACE)):
+        if re.sub(r"^\d+ ", "", d) == name:
+            return os.path.join(WORKSPACE, d)
+    return os.path.join(WORKSPACE, name)
+
+
+MINA = sibling("MINA RANK")
 
 N = 6
 LANGS = {"en": "posts", "it": "posts_it", "sq": "posts_sq"}
