@@ -8,7 +8,8 @@ Italy first, full Durrës local presence. So this script does exactly the two
 things that one declined to do, and nothing it warned against doing without data
 we still do not have:
 
-  0. openingHoursSpecification from the 9-5 the contact page already publishes.
+  0. openingHoursSpecification: the hours of the Google Business Profiles
+     (since 2026-11-17; before that, the contact page's 9-5).
 
   1. #organization becomes ["Organization", "ProfessionalService"] on all 96
      pages. ProfessionalService is a LocalBusiness subtype, so this states "a
@@ -20,8 +21,9 @@ we still do not have:
      contactPoint.areaServed (as a string, matching its existing strings), and
      every Service node on the 32 service pages.
 
-STILL DELIBERATELY ABSENT: street address, opening hours beyond the published
-9-5 line, and a geo point - none supplied. Without them no local-pack rich
+STILL DELIBERATELY ABSENT from #organization: a street address and a geo point
+for Durrës - none supplied. The Riccione office, whose street is known, is its
+own node on the riccione page (#office), not this one. Without them no local-pack rich
 result will be earned, and nothing here pretends otherwise. When the client
 sends a street address, extend ADDRESS here and re-run.
 
@@ -42,17 +44,25 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TAG = '<script type="application/ld+json">'
 ALBANIA = {'@type': 'Country', 'name': 'Albania'}
 
-# The contact page publishes "9 AM - 5 PM" in all four languages, so the hours
-# are a fact the business already states, not an invention. A LocalBusiness
-# subtype without hours is a weaker entity than one with them. Days are not
-# published anywhere, so Monday-Friday is the only defensible reading of a
-# business that answers "within one business day".
-HOURS = {
-    '@type': 'OpeningHoursSpecification',
-    'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    'opens': '09:00',
-    'closes': '17:00',
-}
+# The hours the business itself entered in its Google Business Profiles (Durrës,
+# and Riccione since 2026-11-17): Monday to Friday 08:30-17:30, Saturday
+# 09:00-12:00. Until 2026-11-17 this was the 9-5 the contact page published; the
+# site now follows the profiles everywhere, so Google sees one set of hours. The
+# contact pages print the same hours in all four languages.
+HOURS = [
+    {
+        '@type': 'OpeningHoursSpecification',
+        'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        'opens': '08:30',
+        'closes': '17:30',
+    },
+    {
+        '@type': 'OpeningHoursSpecification',
+        'dayOfWeek': ['Saturday'],
+        'opens': '09:00',
+        'closes': '12:00',
+    },
+]
 
 pages = sorted(glob.glob('*.html') + glob.glob('it/*.html')
                + glob.glob('es/*.html') + glob.glob('sq/*.html'))

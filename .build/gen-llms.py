@@ -42,7 +42,7 @@ SITE = 'https://www.marketingpro-agency.com'
 STATUS = json.load(io.open('.build/translation-status.json', encoding='utf-8'))
 
 LANG_NAME = {'en': 'English', 'it': 'Italian', 'es': 'Spanish', 'sq': 'Albanian'}
-CORE = ['index', 'services', 'about', 'portfolio', 'blog', 'contact']
+CORE = ['index', 'services', 'about', 'portfolio', 'blog', 'contact', 'riccione']
 SERVICES = ['services-social-media', 'services-advertising', 'services-website',
             'services-seo', 'services-sales-funnel', 'services-lead-generation', 'services-photo-video',
             'services-renders', 'services-catalogues']
@@ -77,12 +77,13 @@ CORE_BLURB = {
     'portfolio': 'selected work.',
     # counted, not typed: it read "ten pieces" for a while after the eleventh went up
     'blog':      f'{len(GUIDES) + len(ARTICLES)} pieces: one guide per service, five decision guides answering a question before you hire, four guides by trade, four city guides, plus two articles.',
-    'contact':   'phone, email, WhatsApp, the markets served and the Durrës operations hub.',
+    'contact':   'phone, email, WhatsApp, the markets served, the Durrës operations hub and the Riccione office.',
+    'riccione':  'the office in Riccione, Italy: address, opening hours, phone, and a Riccione client.',
 }
 
 PREAMBLE = """# MarketingPro
 
-> MarketingPro is a digital marketing agency based in Durrës, Albania, working with businesses across Albania, Italy, Switzerland, Europe and the United States. We run marketing that brings in real customers, not just leads: we generate the leads, call and qualify them ourselves, and hand over people who are ready to buy or ask for a quote.
+> MarketingPro is a digital marketing agency based in Durrës, Albania, with an office in Riccione, Italy, working with businesses across Albania, Italy, Switzerland, Europe and the United States. We run marketing that brings in real customers, not just leads: we generate the leads, call and qualify them ourselves, and hand over people who are ready to buy or ask for a quote.
 
 MarketingPro works with businesses across Albania, Italy, Switzerland, Europe and the United States, in English, Italian, Spanish and Albanian, from its base in Durrës, Albania. The team covers the full picture, from social media and paid advertising to websites, SEO, sales funnels, photo and video, 3D renders and print catalogues. The angle that runs through everything is qualification: every lead is contacted and filtered before it reaches the client, so sales teams spend their time on people who actually want to talk business.
 """
@@ -143,7 +144,7 @@ def url(slug, lang='en'):
 out = [PREAMBLE]
 
 out.append('- Business name: MarketingPro (Digital Marketing Agency)')
-out.append('- Base: Durrës, Albania · Markets: Albania · Italy · Switzerland · Europe · United States')
+out.append('- Base: Durrës, Albania · Office in Italy: Via Arti e Mestieri 3, 47838 Riccione (RN) · Markets: Albania · Italy · Switzerland · Europe · United States')
 out.append('- Founded: 2024')
 out.append('- Contact: commerciale@marketingpro-agency.com · +355 69 608 5288 (also WhatsApp) · +355 69 470 2405')
 out.append('- Languages spoken by the team: '

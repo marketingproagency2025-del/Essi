@@ -9,9 +9,9 @@
 
 $SITE = 'https://www.marketingpro-agency.com'
 
-# The 37 page slugs, identical in every language tree. 'index' is the tree root.
+# The 38 page slugs, identical in every language tree. 'index' is the tree root.
 $PAGES = @(
-  'index', 'services', 'portfolio', 'about', 'contact', 'blog',
+  'index', 'services', 'portfolio', 'about', 'contact', 'riccione', 'blog',
   'blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo',
   'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues',
   'blog-milano',
@@ -31,7 +31,7 @@ $PAGES = @(
 # silently reweight anything.
 $PRIORITY = @{
   'index' = '1.0'; 'services' = '0.9'; 'blog' = '0.9'
-  'portfolio' = '0.8'; 'about' = '0.8'; 'contact' = '0.8'
+  'portfolio' = '0.8'; 'about' = '0.8'; 'contact' = '0.8'; 'riccione' = '0.8'
   'blog-social-media' = '0.7'; 'blog-advertising' = '0.7'; 'blog-website' = '0.7'
   'blog-seo' = '0.7'; 'blog-sales-funnel' = '0.7'; 'blog-photo-video' = '0.7'
   'blog-renders' = '0.7'; 'blog-catalogues' = '0.7'; 'blog-milano' = '0.7'
@@ -202,7 +202,7 @@ function Set-NavBlock([string]$html, [string]$slug, [string]$lang) {
 # The pages were serving v=18 while this constant still said 17, so running
 # fix-head.ps1 would have DOWNGRADED every page and served a week of stale CSS
 # (_headers gives /assets/css/* a max-age of 604800). Bumped past the drift.
-$CSS_VERSION = 20
+$CSS_VERSION = 21
 $JS_VERSION  = 20
 
 # -----------------------------------------------------------------------------
@@ -463,9 +463,15 @@ function Set-LanguageArrays([string]$html, [string]$lang) {
   return $out
 }
 
+# Never lowers a version a page already serves. The constants above drifted behind
+# the pages twice (17 against 18, then 20 against 21 after a hand bump on
+# 2026-11-05), and each time a routine fix-head run would have rewritten every page
+# DOWN and served a week of stale CSS. So a page keeps the higher of the two.
 function Set-AssetVersions([string]$html) {
-  $out = [regex]::Replace($html, 'style\.css\?v=\d+', "style.css?v=$CSS_VERSION")
-  $out = [regex]::Replace($out,  'main\.js\?v=\d+',   "main.js?v=$JS_VERSION")
+  $out = [regex]::Replace($html, 'style\.css\?v=(\d+)', {
+      param($m) "style.css?v=$([Math]::Max([int]$m.Groups[1].Value, $CSS_VERSION))" })
+  $out = [regex]::Replace($out, 'main\.js\?v=(\d+)', {
+      param($m) "main.js?v=$([Math]::Max([int]$m.Groups[1].Value, $JS_VERSION))" })
   return $out
 }
 

@@ -1,11 +1,11 @@
 # MarketingPro
 
-> MarketingPro is a digital marketing agency based in Durrës, Albania, working with businesses across Albania, Italy, Switzerland, Europe and the United States. We run marketing that brings in real customers, not just leads: we generate the leads, call and qualify them ourselves, and hand over people who are ready to buy or ask for a quote.
+> MarketingPro is a digital marketing agency based in Durrës, Albania, with an office in Riccione, Italy, working with businesses across Albania, Italy, Switzerland, Europe and the United States. We run marketing that brings in real customers, not just leads: we generate the leads, call and qualify them ourselves, and hand over people who are ready to buy or ask for a quote.
 
 MarketingPro works with businesses across Albania, Italy, Switzerland, Europe and the United States, in English, Italian, Spanish and Albanian, from its base in Durrës, Albania. The team covers the full picture, from social media and paid advertising to websites, SEO, sales funnels, photo and video, 3D renders and print catalogues. The angle that runs through everything is qualification: every lead is contacted and filtered before it reaches the client, so sales teams spend their time on people who actually want to talk business.
 
 - Business name: MarketingPro (Digital Marketing Agency)
-- Base: Durrës, Albania · Markets: Albania · Italy · Switzerland · Europe · United States
+- Base: Durrës, Albania · Office in Italy: Via Arti e Mestieri 3, 47838 Riccione (RN) · Markets: Albania · Italy · Switzerland · Europe · United States
 - Founded: 2024
 - Contact: commerciale@marketingpro-agency.com · +355 69 608 5288 (also WhatsApp) · +355 69 470 2405
 - Languages spoken by the team: English, Italian, Spanish, Albanian
@@ -19,7 +19,8 @@ MarketingPro works with businesses across Albania, Italy, Switzerland, Europe an
 - [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
 - [Our Work: Websites, SEO and Social](https://www.marketingpro-agency.com/portfolio): selected work.
 - [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 23 pieces: one guide per service, five decision guides answering a question before you hire, four guides by trade, four city guides, plus two articles.
-- [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served and the Durrës operations hub.
+- [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served, the Durrës operations hub and the Riccione office.
+- [Marketing Agency in Riccione, Italy](https://www.marketingpro-agency.com/riccione): the office in Riccione, Italy: address, opening hours, phone, and a Riccione client.
 
 ## Services
 
@@ -71,6 +72,6 @@ These numbers are campaign exports, not projections. Across seven Meta campaigns
 
 ## Other languages
 
-- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 38 pages
-- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 38 pages
-- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 38 pages
+- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 39 pages
+- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 39 pages
+- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 39 pages

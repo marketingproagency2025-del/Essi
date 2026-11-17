@@ -190,6 +190,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.marketingpro-agency.com/riccione</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marketingpro-agency.com/riccione"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.marketingpro-agency.com/it/riccione"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marketingpro-agency.com/es/riccione"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.marketingpro-agency.com/sq/riccione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marketingpro-agency.com/riccione"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marketingpro-agency.com/it/riccione</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marketingpro-agency.com/riccione"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.marketingpro-agency.com/it/riccione"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marketingpro-agency.com/es/riccione"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.marketingpro-agency.com/sq/riccione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marketingpro-agency.com/riccione"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marketingpro-agency.com/es/riccione</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marketingpro-agency.com/riccione"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.marketingpro-agency.com/it/riccione"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marketingpro-agency.com/es/riccione"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.marketingpro-agency.com/sq/riccione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marketingpro-agency.com/riccione"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.marketingpro-agency.com/sq/riccione</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marketingpro-agency.com/riccione"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.marketingpro-agency.com/it/riccione"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marketingpro-agency.com/es/riccione"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://www.marketingpro-agency.com/sq/riccione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marketingpro-agency.com/riccione"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.marketingpro-agency.com/blog</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marketingpro-agency.com/blog"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.marketingpro-agency.com/it/blog"/>
