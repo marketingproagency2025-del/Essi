@@ -813,7 +813,11 @@ $rootAllow = @(
   # than importing from Search Console (the import needs no file at all). Named
   # ahead of time so verification does not fail the gate at the exact moment
   # someone is sitting in the Bing UI waiting to press Verify.
-  'BingSiteAuth.xml'
+  'BingSiteAuth.xml',
+  # (2026-11-17) Search Console showed Googlebot fetching /favicon.ico and getting a 404 on every visit, and old
+  # URLs of the agency's previous site ending in 404. _redirects sends those URLs to today's pages (301); it is
+  # read by Cloudflare like _headers and not served. favicon.ico is the site's own icon at 16, 32 and 48 px.
+  '_redirects', 'favicon.ico'
 )
 # The IndexNow key file is named after the key itself, so it cannot be a literal
 # here. Check 24 below validates it properly; this just stops check 22 rejecting it.

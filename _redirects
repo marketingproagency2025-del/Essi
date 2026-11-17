@@ -1,0 +1,15 @@
+# Permanent redirects for URLs of the agency's site before this repo (Google crawled them in June 2026;
+# Search Console listed them as 404 or "crawled, not indexed" on 2026-11-17). Each goes to today's page.
+/services-marketing-agency /services 301
+/contact-marketing-agency /contact 301
+/portfolio-marketing-agency /portfolio 301
+/sq/services-marketing-agency /sq/services 301
+/sq/contact-marketing-agency /sq/contact 301
+/sq/portfolio-marketing-agency /sq/portfolio 301
+/it/services-marketing-agency /it/services 301
+/it/contact-marketing-agency /it/contact 301
+/it/portfolio-marketing-agency /it/portfolio 301
+/es/services-marketing-agency /es/services 301
+/es/contact-marketing-agency /es/contact 301
+/es/portfolio-marketing-agency /es/portfolio 301
+/it/marketingpro-agenzia-di-marketing-contatti /it/contact 301
