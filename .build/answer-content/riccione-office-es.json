@@ -1,0 +1,50 @@
+{
+  "lang": "es",
+  "title": "MarketingPro Abre una Oficina de Representación en Riccione",
+  "description": "Hemos abierto una oficina de representación en Riccione, en Via Arti e Mestieri 3. La sede principal sigue en Albania, en el centro de Durrës.",
+  "og_description": "Una oficina de representación en Riccione para las empresas que quieren vernos en persona. La sede y el equipo siguen en el centro de Durrës.",
+  "h1": "Hemos Abierto una Oficina de Representación en Riccione",
+  "breadcrumb_home": "Inicio",
+  "breadcrumb_blog": "Blog",
+  "breadcrumb_last": "Oficina de Riccione",
+  "share_alt": "Agencia de marketing digital MarketingPro",
+  "date_display": "19 de noviembre de 2026",
+  "read_time": "2 min de lectura",
+  "by": "Por",
+  "intro": [
+    "MarketingPro ha abierto una oficina de representación en Italia, en Riccione. La encuentras en Via Arti e Mestieri 3, 47838 Riccione (RN).",
+    "Nuestra sede principal no se mueve: está en Albania, en el centro de Durrës, y es allí donde trabaja nuestro equipo."
+  ],
+  "sections": [
+    {
+      "h2": "La Sede Sigue en el Centro de Durrës",
+      "p": [
+        "Es en Durrës donde el equipo gestiona las campañas y llama a cada persona que te escribe antes de pasarte el contacto. La nueva oficina no cambia nada de eso.",
+        "Riccione es una oficina más, de representación. Nos da un lugar para reunirnos en Italia y no sustituye a la sede."
+      ]
+    },
+    {
+      "h2": "Para las Empresas de Riccione y Alrededores",
+      "p": [
+        "La oficina está pensada para las empresas de Riccione y sus alrededores que prefieren hablar de su marketing cara a cara. En una reunión puedes contarnos qué vendes, a quién quieres llegar y qué te ha funcionado hasta ahora, y qué no.",
+        "Si trabajas con nosotros desde otra parte de Italia o desde otro país, nada cambia: hablamos por teléfono, email o WhatsApp, y tus campañas las sigue llevando el equipo de Durrës."
+      ]
+    },
+    {
+      "h2": "Cómo Pedir una Reunión",
+      "p": [
+        "La oficina abre de lunes a viernes de 8:30 a 17:30 y los sábados de 9:00 a 12:00. Antes de venir, mándanos un mensaje o llámanos y acordamos una hora.",
+        {"html": "En la <a href=\"/es/riccione\">página de la oficina de Riccione</a> están la dirección con el mapa, los teléfonos y el email. Si prefieres contarnos primero sobre tu empresa, usa la <a href=\"/es/contact\">página de contacto</a>."}
+      ]
+    }
+  ],
+  "cta_label": "Pide una reunión",
+  "back_label": "Volver al Blog",
+  "articleSection": "Noticias",
+  "keywords": [
+    "oficina de representación",
+    "Riccione",
+    "Durrës"
+  ],
+  "about_id": "https://www.marketingpro-agency.com/riccione#office"
+}

@@ -73,6 +73,14 @@ POSTS = {
     # already exists in all four trees, which is the thing verify-answer-content.py check 9 wants.
     "ai-search":          {"slug": "blog-ai-search",          "img": "post-ai-search", "w": 1080, "h": 760,
                            "date": "2026-09-03"},
+    # A news post, not a decision post: the representative office in Riccione. NO HERO, on
+    # purpose. There is no photograph of the office, and the stock in assets/img and originals/
+    # either illustrates another subject already or would read as a picture of an office we do
+    # not have a picture of. riccione.html, the page for the same office, ships with no image
+    # either. "share" is only the og/twitter image, the one riccione.html already shares with;
+    # w/h are that file's real size, written into og:image:width/height.
+    "riccione-office":    {"slug": "blog-riccione-office",    "img": None, "share": "hero-poster",
+                           "w": 1280, "h": 720, "date": "2026-11-19"},
 }
 
 # The batch date, and a DEFAULT rather than a constant for exactly the reason IMG_W and IMG_H
@@ -111,7 +119,8 @@ def jpeg_size(path):
 
 def check_heroes():
     for name, post in POSTS.items():
-        img = post["img"]
+        # a post with no hero is measured on its share image, which still declares w/h
+        img = post["img"] or post["share"]
         jpg = os.path.join(g.SITE_DIR, "assets", "img", img + ".jpg")
         webp = os.path.join(g.SITE_DIR, "assets", "img", img + ".webp")
         if not os.path.exists(jpg):

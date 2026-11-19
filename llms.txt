@@ -18,7 +18,7 @@ MarketingPro works with businesses across Albania, Italy, Switzerland, Europe an
 - [Digital Marketing Services: Ads, SEO, Web](https://www.marketingpro-agency.com/services): all eight services, each linking to its own page.
 - [About MarketingPro: Our Story, Team and Approach](https://www.marketingpro-agency.com/about): the story, the team, and how the agency works.
 - [Our Work: Websites, SEO and Social](https://www.marketingpro-agency.com/portfolio): selected work.
-- [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 23 pieces: one guide per service, five decision guides answering a question before you hire, four guides by trade, four city guides, plus two articles.
+- [Marketing Blog: Guides by Service and by City](https://www.marketingpro-agency.com/blog): 24 pieces: one guide per service, five decision guides answering a question before you hire, four guides by trade, four city guides, plus two articles and a news post.
 - [Contact MarketingPro](https://www.marketingpro-agency.com/contact): phone, email, WhatsApp, the markets served, the Durrës operations hub and the Riccione office.
 - [Marketing Agency in Riccione, Italy](https://www.marketingpro-agency.com/riccione): the office in Riccione, Italy: address, opening hours, phone, and a Riccione client.
 
@@ -63,6 +63,7 @@ non-commercial explanation of the same subject.
 
 ## Articles
 
+- [We Have Opened a Representative Office in Riccione](https://www.marketingpro-agency.com/blog-riccione-office)
 - [Marketing That Works as One System, Not Six Separate Tactics](https://www.marketingpro-agency.com/article-1)
 - [Where to Start: Fix the Leaks Before You Spend More](https://www.marketingpro-agency.com/article-2)
 
@@ -72,6 +73,6 @@ These numbers are campaign exports, not projections. Across seven Meta campaigns
 
 ## Other languages
 
-- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 39 pages
-- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 39 pages
-- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 39 pages
+- Italian: [https://www.marketingpro-agency.com/it/](https://www.marketingpro-agency.com/it/) · 40 pages
+- Spanish: [https://www.marketingpro-agency.com/es/](https://www.marketingpro-agency.com/es/) · 40 pages
+- Albanian: [https://www.marketingpro-agency.com/sq/](https://www.marketingpro-agency.com/sq/) · 40 pages

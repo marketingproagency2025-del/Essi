@@ -65,7 +65,10 @@ GROUPS = [
     ("verticals",  ["blog-windows-and-doors", "blog-stoves-and-heating",
                     "blog-builders", "blog-restaurants"]),
     ("by-city",    ["blog-milano", "blog-roma", "blog-lugano", "blog-ticino"]),
-    ("articles",   ["article-1", "article-2"]),
+    # No group is made for news. One news post does not earn a heading and a chip of its own,
+    # and "Articles" is the only heading here that promises no particular kind of guide, so
+    # the post about the Riccione office sits here, first because it is the newest.
+    ("articles",   ["blog-riccione-office", "article-1", "article-2"]),
 ]
 
 # Everything the page says, per tree. Nothing here may contain an em dash (check 12), and
@@ -164,11 +167,6 @@ def build_card(tree, slug):
     m = s[s.index("<main"):s.index("</main>")]
     h1 = txt(re.search(r"<h1[^>]*>(.*?)</h1>", m, re.S).group(1))
     desc = re.search(r'<meta name="description" content="(.*?)"', s, re.S).group(1)
-    pic = re.search(r"<picture>(.*?)</picture>", m, re.S).group(1)
-    img_src = re.search(r'<img[^>]*src="([^"]*)"', pic).group(1)
-    w = re.search(r'width="(\d+)"', pic).group(1)
-    h = re.search(r'height="(\d+)"', pic).group(1)
-    alt = re.search(r'alt="([^"]*)"', pic).group(1)
     hero = re.search(r'class="article-hero__meta">(.*?)</p>', m, re.S).group(1)
     dt = re.search(r'<time datetime="([^"]*)"', hero).group(1)
     date_disp = txt(re.search(r"<time[^>]*>(.*?)</time>", hero, re.S).group(1))
@@ -176,17 +174,29 @@ def build_card(tree, slug):
     parts = [p.strip() for p in re.split(r"·|&middot;", txt(hero))]
     read_time = parts[1] if len(parts) > 1 else ""
 
-    base = img_src.rsplit("/", 1)[-1].rsplit(".", 1)[0]
     imgdir = "../assets/img" if tree else "assets/img"
     root = f"/{tree}" if tree else ""
+    # A page with no hero gets a card with no figure: the card shows what the page shows, and
+    # borrowing another page's photo for it would make one photo stand for two subjects.
+    figure = ""
+    pic_m = re.search(r"<picture>(.*?)</picture>", m, re.S)
+    if pic_m:
+        pic = pic_m.group(1)
+        img_src = re.search(r'<img[^>]*src="([^"]*)"', pic).group(1)
+        w = re.search(r'width="(\d+)"', pic).group(1)
+        h = re.search(r'height="(\d+)"', pic).group(1)
+        alt = re.search(r'alt="([^"]*)"', pic).group(1)
+        base = img_src.rsplit("/", 1)[-1].rsplit(".", 1)[0]
+        figure = (
+            f'              <figure class="article-card__media"><picture>\n'
+            f'  <source srcset="{imgdir}/{base}.webp" type="image/webp" />\n'
+            f'  <img src="{imgdir}/{base}.jpg" height="{h}" width="{w}" alt="{attr(alt)}" '
+            f'loading="lazy" decoding="async" />\n'
+            f'</picture></figure>\n')
     return (
         f'<article class="article-card reveal" data-reveal>\n'
         f'            <a class="article-card__link" href="{root}/{slug}">\n'
-        f'              <figure class="article-card__media"><picture>\n'
-        f'  <source srcset="{imgdir}/{base}.webp" type="image/webp" />\n'
-        f'  <img src="{imgdir}/{base}.jpg" height="{h}" width="{w}" alt="{attr(alt)}" '
-        f'loading="lazy" decoding="async" />\n'
-        f'</picture></figure>\n'
+        f'{figure}'
         f'              <div class="article-card__body">\n'
         f'                <h3 class="article-card__title">{esc(h1)}</h3>\n'
         f'                <p class="article-card__excerpt">{desc}</p>\n'
@@ -222,7 +232,13 @@ def set_delay(card, i):
 
 
 def set_loading(card, is_lcp):
-    tag = re.search(r"<img\b[^>]*>", card).group(0)
+    m = re.search(r"<img\b[^>]*>", card)
+    if m is None:
+        # a card with no figure has nothing to load; the LCP stays the first card's image
+        if is_lcp:
+            raise SystemExit("  ! the first card on the page has no image to carry the LCP")
+        return card
+    tag = m.group(0)
     new = re.sub(r'\s+(?:fetchpriority|loading)="[^"]*"', "", tag)
     if is_lcp:
         new = new.replace("<img ", '<img fetchpriority="high" ', 1)
@@ -253,22 +269,23 @@ def rewrite_itemlist(page_html, cards_in_order, lang):
         href = HREF_RX.search(card).group(1)
         headline = htmllib.unescape(
             txt(re.search(r'class="article-card__title">(.*?)</h3>', card, re.S).group(1)))
-        img = re.search(r'<img[^>]*src="([^"]*)"', card).group(1).rsplit("/", 1)[-1]
+        img_m = re.search(r'<img[^>]*src="([^"]*)"', card)
         dt = re.search(r'<time datetime="([^"]*)"', card).group(1)
-        items.append({
-            "@type": "ListItem",
-            "position": pos,
-            "item": {
-                "@type": "BlogPosting",
-                "headline": headline,
-                "url": f"{SITE}{href}",
-                "image": f"{SITE}/assets/img/{img}",
-                "datePublished": dt,
-                "inLanguage": lang,
-                "author": {"@id": f"{SITE}/about#author"},
-                "publisher": {"@id": f"{SITE}/#organization"},
-            },
+        item = {
+            "@type": "BlogPosting",
+            "headline": headline,
+            "url": f"{SITE}{href}",
+        }
+        # a card with no figure claims no image (key order above is check 14's regex)
+        if img_m:
+            item["image"] = f"{SITE}/assets/img/{img_m.group(1).rsplit('/', 1)[-1]}"
+        item.update({
+            "datePublished": dt,
+            "inLanguage": lang,
+            "author": {"@id": f"{SITE}/about#author"},
+            "publisher": {"@id": f"{SITE}/#organization"},
         })
+        items.append({"@type": "ListItem", "position": pos, "item": item})
 
     for node in graph["@graph"]:
         if node.get("@type") == "ItemList":

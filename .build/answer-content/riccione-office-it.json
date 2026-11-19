@@ -1,0 +1,50 @@
+{
+  "lang": "it",
+  "title": "MarketingPro Apre un Ufficio di Rappresentanza a Riccione",
+  "description": "Abbiamo aperto un ufficio di rappresentanza a Riccione, in via Arti e Mestieri 3. La sede principale resta in Albania, nel centro di Durazzo.",
+  "og_description": "Un ufficio di rappresentanza a Riccione per le aziende che vogliono incontrarci di persona. La sede e il team restano nel centro di Durazzo.",
+  "h1": "Abbiamo Aperto un Ufficio di Rappresentanza a Riccione",
+  "breadcrumb_home": "Home",
+  "breadcrumb_blog": "Blog",
+  "breadcrumb_last": "Ufficio di Riccione",
+  "share_alt": "Agenzia di marketing digitale MarketingPro",
+  "date_display": "19 novembre 2026",
+  "read_time": "2 min di lettura",
+  "by": "Di",
+  "intro": [
+    "MarketingPro ha aperto un ufficio di rappresentanza in Italia, a Riccione. Lo trovi in via Arti e Mestieri 3, 47838 Riccione (RN).",
+    "La nostra sede principale non si sposta: è in Albania, nel centro di Durazzo, ed è lì che lavora il nostro team."
+  ],
+  "sections": [
+    {
+      "h2": "La Sede Resta nel Centro di Durazzo",
+      "p": [
+        "È a Durazzo che il team gestisce le campagne e richiama ogni persona che ti ha scritto, prima che il contatto arrivi a te. Con il nuovo ufficio questo non cambia.",
+        "Riccione è un ufficio in più, di rappresentanza. Ci dà un posto dove incontrarci in Italia e non prende il posto della sede."
+      ]
+    },
+    {
+      "h2": "Per le Aziende di Riccione e Dintorni",
+      "p": [
+        "L'ufficio è pensato per le aziende di Riccione e dei dintorni che preferiscono parlare del proprio marketing di persona. In un incontro puoi raccontarci cosa vendi, a chi vuoi arrivare e cosa ha funzionato finora, e cosa no.",
+        "Se lavori con noi da un'altra parte d'Italia o dall'estero, non cambia nulla: ci senti per telefono, email o WhatsApp, e le tue campagne le segue sempre il team di Durazzo."
+      ]
+    },
+    {
+      "h2": "Come Fissare un Incontro",
+      "p": [
+        "L'ufficio è aperto dal lunedì al venerdì dalle 8:30 alle 17:30 e il sabato dalle 9:00 alle 12:00. Prima di passare, mandaci un messaggio o telefonaci, così ci accordiamo su un orario.",
+        {"html": "Indirizzo con la mappa, numeri di telefono ed email sono nella <a href=\"/it/riccione\">pagina dell'ufficio di Riccione</a>. Se vuoi prima raccontarci della tua azienda, usa la <a href=\"/it/contact\">pagina dei contatti</a>."}
+      ]
+    }
+  ],
+  "cta_label": "Fissa un incontro",
+  "back_label": "Torna al Blog",
+  "articleSection": "Notizie",
+  "keywords": [
+    "ufficio di rappresentanza",
+    "Riccione",
+    "Durazzo"
+  ],
+  "about_id": "https://www.marketingpro-agency.com/riccione#office"
+}

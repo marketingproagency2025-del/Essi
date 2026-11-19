@@ -28,7 +28,7 @@ os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SITE = 'https://www.marketingpro-agency.com'
 SLUGS = ['blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo', 'blog-milano', 'blog-roma', 'blog-lugano', 'blog-ticino', 'blog-windows-and-doors', 'blog-stoves-and-heating', 'blog-builders', 'blog-restaurants', 'blog-ai-search', 'blog-boost-or-campaign', 'blog-lead-quality', 'blog-in-house-or-agency', 'blog-showrooms',
          'blog-sales-funnel', 'blog-photo-video', 'blog-renders', 'blog-catalogues',
-         'article-1', 'article-2']
+         'blog-riccione-office', 'article-1', 'article-2']
 
 
 def text(s):

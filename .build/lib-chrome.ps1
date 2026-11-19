@@ -9,7 +9,7 @@
 
 $SITE = 'https://www.marketingpro-agency.com'
 
-# The 38 page slugs, identical in every language tree. 'index' is the tree root.
+# The 40 page slugs, identical in every language tree. 'index' is the tree root.
 $PAGES = @(
   'index', 'services', 'portfolio', 'about', 'contact', 'riccione', 'blog',
   'blog-social-media', 'blog-advertising', 'blog-website', 'blog-seo',
@@ -18,7 +18,7 @@ $PAGES = @(
   'blog-roma', 'blog-lugano', 'blog-ticino',
   'blog-boost-or-campaign', 'blog-lead-quality', 'blog-in-house-or-agency', 'blog-showrooms',
   'blog-windows-and-doors', 'blog-stoves-and-heating', 'blog-builders', 'blog-restaurants', 'blog-ai-search',
-  'article-1', 'article-2',
+  'blog-riccione-office', 'article-1', 'article-2',
   # Commercial landing pages, one per service. Flat slugs on purpose: nesting
   # under services/ would make /services ambiguous between services.html and
   # services/index.html under Cloudflare's auto-trailing-slash.
@@ -38,7 +38,7 @@ $PRIORITY = @{
   'blog-roma' = '0.7'; 'blog-lugano' = '0.7'; 'blog-ticino' = '0.7'
   'blog-boost-or-campaign' = '0.7'; 'blog-lead-quality' = '0.7'; 'blog-in-house-or-agency' = '0.7'; 'blog-showrooms' = '0.7'
   'blog-windows-and-doors' = '0.7'; 'blog-stoves-and-heating' = '0.7'; 'blog-builders' = '0.7'; 'blog-restaurants' = '0.7'; 'blog-ai-search' = '0.7'
-  'article-1' = '0.5'; 'article-2' = '0.5'
+  'blog-riccione-office' = '0.5'; 'article-1' = '0.5'; 'article-2' = '0.5'
   # 0.8: commercial intent, so above the 0.7 guides and below the 0.9 hub.
   'services-social-media' = '0.8'; 'services-advertising' = '0.8'
   'services-website' = '0.8';      'services-seo' = '0.8'

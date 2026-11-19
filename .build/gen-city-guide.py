@@ -114,13 +114,17 @@ def build_main(c, tree, donor_main, img_name):
     L.append(f'          <p class="article-hero__meta"><time datetime="{PUB}">{esc(c["date_display"])}</time> '
              f'· {esc(c["read_time"])} · {esc(c["by"])} <a href="{root}/about">Essi Papajorgji</a></p>')
     L.append(f'          <h1 class="article-hero__title">{esc(c["h1"])}</h1>')
-    L.append('          <div class="article-hero__media">')
-    L.append("            <picture>")
-    L.append(f'              <source srcset="{img}/{img_name}.webp" type="image/webp" />')
-    L.append(f'              <img src="{img}/{img_name}.jpg" alt="{attr(c["hero_alt"])}" width="{IMG_W}" '
-             f'height="{IMG_H}" fetchpriority="high" decoding="async" />')
-    L.append("            </picture>")
-    L.append("          </div>")
+    # No hero is allowed, for a post with no photograph of its own subject: the hero then holds
+    # only the meta line and the h1, the layout riccione.html already ships. A stock photo on a
+    # post about a real place would read as a picture of that place.
+    if img_name:
+        L.append('          <div class="article-hero__media">')
+        L.append("            <picture>")
+        L.append(f'              <source srcset="{img}/{img_name}.webp" type="image/webp" />')
+        L.append(f'              <img src="{img}/{img_name}.jpg" alt="{attr(c["hero_alt"])}" width="{IMG_W}" '
+                 f'height="{IMG_H}" fetchpriority="high" decoding="async" />')
+        L.append("            </picture>")
+        L.append("          </div>")
     L.append("        </div>")
     L.append("      </header>")
     L.append("")
@@ -133,30 +137,37 @@ def build_main(c, tree, donor_main, img_name):
         L.append(f'          <h2>{esc(sec["h2"])}</h2>')
         for p in sec["p"]:
             L.append(f"          <p>{para(p)}</p>")
+    # Summary, FAQ, related reading and the related service are optional: a short news post has
+    # none of them. A spec that carries the key renders exactly as before, so every existing
+    # guide and answer post regenerates byte-identically.
+    if c.get("summary"):
+        L.append("")
+        L.append(f'          <h2>{esc(c["summary_h2"])}</h2>')
+        L.append("          <ul>")
+        for s in c["summary"]:
+            L.append(f"            <li>{esc(s)}</li>")
+        L.append("          </ul>")
+    if c.get("faq"):
+        L.append("")
+        L.append(f'          <h2>{esc(c["faq_h2"])}</h2>')
+        L.append('          <div class="faq__list">')
+        for qa in c["faq"]:
+            L.append('            <details class="faq__item">')
+            L.append(f'              <summary>{esc(qa["q"])}</summary>')
+            L.append(f'              <p>{esc(qa["a"])}</p>')
+            L.append("            </details>")
+        L.append("          </div>")
+    if c.get("related"):
+        L.append("")
+        L.append(f'          <h2>{esc(c["related_h2"])}</h2>')
+        L.append("          <ul>")
+        for r in c["related"]:
+            L.append(f'            <li><a href="{root}/{r["slug"]}">{esc(r["label"])}</a></li>')
+        L.append("          </ul>")
     L.append("")
-    L.append(f'          <h2>{esc(c["summary_h2"])}</h2>')
-    L.append("          <ul>")
-    for s in c["summary"]:
-        L.append(f"            <li>{esc(s)}</li>")
-    L.append("          </ul>")
-    L.append("")
-    L.append(f'          <h2>{esc(c["faq_h2"])}</h2>')
-    L.append('          <div class="faq__list">')
-    for qa in c["faq"]:
-        L.append('            <details class="faq__item">')
-        L.append(f'              <summary>{esc(qa["q"])}</summary>')
-        L.append(f'              <p>{esc(qa["a"])}</p>')
-        L.append("            </details>")
-    L.append("          </div>")
-    L.append("")
-    L.append(f'          <h2>{esc(c["related_h2"])}</h2>')
-    L.append("          <ul>")
-    for r in c["related"]:
-        L.append(f'            <li><a href="{root}/{r["slug"]}">{esc(r["label"])}</a></li>')
-    L.append("          </ul>")
-    L.append("")
-    L.append(f'          <p class="post-service"><strong>{esc(c["service_label"])}</strong> '
-             f'<a href="{root}/{c["service_slug"]}">{esc(c["service_name"])}</a></p>')
+    if c.get("service_slug"):
+        L.append(f'          <p class="post-service"><strong>{esc(c["service_label"])}</strong> '
+                 f'<a href="{root}/{c["service_slug"]}">{esc(c["service_name"])}</a></p>')
     L.append(f'          <p><a class="btn btn--green" href="{root}/contact">{esc(c["cta_label"])}</a></p>')
     L.append("")
     L.append(f'          <a class="article__back" href="{root}/blog">')
@@ -191,19 +202,26 @@ def rewrite_jsonld(head, c, tree, slug, img_name):
     j = head.index("</script>", i)
     graph = json.loads(head[i:j])
     page_url = url_for(tree, slug)
-    img_url = f"{SITE}/assets/img/{img_name}.jpg"
+    img_url = f"{SITE}/assets/img/{img_name}.jpg" if img_name else None
     for n in graph["@graph"]:
         t = n.get("@type")
         if t == "WebPage":
             n["url"] = page_url
             n["name"] = c["h1"]
-            n["primaryImageOfPage"] = img_url
+            # structured data must match the visible page: no hero, no image claimed for it
+            if img_url:
+                n["primaryImageOfPage"] = img_url
+            else:
+                n.pop("primaryImageOfPage", None)
         elif t == "BreadcrumbList":
             n["itemListElement"][-1]["name"] = c["breadcrumb_last"]
         elif t == "BlogPosting":
             n["headline"] = c["h1"]
             n["description"] = c["og_description"]
-            n["image"] = img_url
+            if img_url:
+                n["image"] = img_url
+            else:
+                n.pop("image", None)
             n["datePublished"] = PUB
             n["dateModified"] = MOD
             n["articleSection"] = c["articleSection"]
@@ -214,17 +232,27 @@ def rewrite_jsonld(head, c, tree, slug, img_name):
             # All four city posts shipped that way. Derived from the content file's own
             # service_slug so the structured data cannot disagree with the visible link.
             if "about" in n:
-                # tree-prefixed, matching how every other guide in a translated tree
-                # references its service: it/blog-seo.html says /it/services#service-seo
-                n["about"] = {"@id": "%s#service-%s"
-                              % (url_for(tree, "services"),
-                                 c["service_slug"].replace("services-", "", 1))}
-        elif t == "FAQPage":
+                if c.get("about_id"):
+                    # a post about an entity another page defines, such as the Riccione
+                    # office (riccione.html #office), points at that entity's own @id
+                    n["about"] = {"@id": c["about_id"]}
+                elif c.get("service_slug"):
+                    # tree-prefixed, matching how every other guide in a translated tree
+                    # references its service: it/blog-seo.html says /it/services#service-seo
+                    n["about"] = {"@id": "%s#service-%s"
+                                  % (url_for(tree, "services"),
+                                     c["service_slug"].replace("services-", "", 1))}
+                else:
+                    del n["about"]
+        elif t == "FAQPage" and c.get("faq"):
             n["mainEntity"] = [
                 {"@type": "Question", "name": qa["q"],
                  "acceptedAnswer": {"@type": "Answer", "text": qa["a"]}}
                 for qa in c["faq"]
             ]
+    # no FAQ on the page, no FAQPage in the graph (gate check 10 counts both sides)
+    if not c.get("faq"):
+        graph["@graph"] = [n for n in graph["@graph"] if n.get("@type") != "FAQPage"]
     body = collapse_lang_arrays(json.dumps(graph, ensure_ascii=False, indent=2)).replace("\n", "\n  ")
     return head[:i] + "\n  " + body + "\n  " + head[j:]
 
@@ -237,7 +265,7 @@ def sub1(s, pattern, replacement, label):
 
 
 def build(city, lang, tree):
-    slug, img_name = CITIES[city]["slug"], CITIES[city]["img"]
+    slug, img_name = CITIES[city]["slug"], CITIES[city].get("img")
     c = json.load(io.open(os.path.join(CONTENT, f"{city}-{lang}.json"), encoding="utf-8"))
     donor = io.open(page_path(tree, DONOR_SLUG), encoding="utf-8", newline="").read()
 
@@ -245,10 +273,19 @@ def build(city, lang, tree):
     b = donor.index("  </main>") + len("  </main>")
     before, donor_main, after = donor[:a], donor[a:b], donor[b:]
 
+    # A post with no hero keeps a share image for og/twitter only, named by "share" in its
+    # entry, and loses the hero preload: gate check 19 fails a preload with no <picture>.
+    head_img = img_name
+    share_alt = c.get("hero_alt")
+    if not img_name:
+        head_img, share_alt = CITIES[city]["share"], c["share_alt"]
+        before = sub1(before, r'\n  <!-- LCP: preload hero image -->\n  <link rel="preload" as="image"[^>]*/>\n',
+                      "", "hero preload")
+
     # the slug and hero image appear in canonical, hreflang, og, twitter, preload, JSON-LD @ids
     # and the language switcher; all of them must move together
-    before = before.replace(DONOR_SLUG, slug).replace(OLD_IMG, img_name)
-    after = after.replace(DONOR_SLUG, slug).replace(OLD_IMG, img_name)
+    before = before.replace(DONOR_SLUG, slug).replace(OLD_IMG, head_img)
+    after = after.replace(DONOR_SLUG, slug).replace(OLD_IMG, head_img)
 
     before = sub1(before, r"<title>.*?</title>", f"<title>{esc(c['title'])}</title>", "title")
     before = sub1(before, r'<meta name="description" content="[^"]*" />',
@@ -266,7 +303,7 @@ def build(city, lang, tree):
     before = sub1(before, r'<meta property="og:image:height" content="[^"]*" />',
                   f'<meta property="og:image:height" content="{IMG_H}" />', "og:image:height")
     before = sub1(before, r'<meta property="og:image:alt" content="[^"]*" />',
-                  f'<meta property="og:image:alt" content="{attr(c["hero_alt"])}" />', "og:image:alt")
+                  f'<meta property="og:image:alt" content="{attr(share_alt)}" />', "og:image:alt")
     before = sub1(before, r'<meta property="article:published_time" content="[^"]*" />',
                   f'<meta property="article:published_time" content="{PUB}" />', "published")
     before = sub1(before, r'<meta property="article:modified_time" content="[^"]*" />',
@@ -278,7 +315,7 @@ def build(city, lang, tree):
     before = sub1(before, r'<meta name="twitter:description" content="[^"]*" />',
                   f'<meta name="twitter:description" content="{attr(c["og_description"])}" />', "twitter:description")
     before = sub1(before, r'<meta name="twitter:image:alt" content="[^"]*" />',
-                  f'<meta name="twitter:image:alt" content="{attr(c["hero_alt"])}" />', "twitter:image:alt")
+                  f'<meta name="twitter:image:alt" content="{attr(share_alt)}" />', "twitter:image:alt")
     before = rewrite_jsonld(before, c, tree, slug, img_name)
 
     out = before + build_main(c, tree, donor_main, img_name) + after
